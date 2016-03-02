@@ -1,0 +1,23 @@
+{
+  "name": "ltd-beget/sphinx-configurator",
+  "type": "library",
+  "description": "Php library for parsing and editing sphinx.conf files.",
+  "keywords": [
+    "sphinx"
+  ],
+  "authors": [
+    {
+      "name": "Viskov Sergey",
+      "homepage": "https://github.com/voksiv"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "respect/validation": "1.0.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "LTDBeget\\sphinxConfigurator": "src"
+    }
+  }
+}

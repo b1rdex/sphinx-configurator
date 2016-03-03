@@ -34,6 +34,22 @@ abstract class Settings
     }
 
     /**
+     * @return string
+     */
+    public function __toString() : string
+    {
+        return "{$this->getType()}";
+    }
+
+    /**
+     * @return string
+     */
+    protected function getType() : string
+    {
+        return strtolower(str_replace("Settings", "", (new \ReflectionClass($this))->getShortName()));
+    }
+
+    /**
      * @return bool
      */
     abstract public function validate() : bool;

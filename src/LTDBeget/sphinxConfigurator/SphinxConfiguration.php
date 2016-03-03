@@ -8,9 +8,12 @@
 namespace LTDBeget\sphinxConfigurator;
 
 
-use LTDBeget\sphinxConfigurator\exceptions\WrongContextException;
+use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
+use LTDBeget\sphinxConfigurator\lib\settings\CommonSettings;
 use LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition;
 use LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition;
+use LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings;
+use LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings;
 
 /**
  * Class SphinxConfiguration
@@ -19,28 +22,22 @@ use LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition;
 class SphinxConfiguration
 {
     /**
-     * @var SourceDefinition[]
+     * @param string $name
+     * @param string|null $inheritanceName
+     * @return SourceDefinition
+     * @throws NotFoundException
      */
-    private $sources = [];
-
-    /**
-     * @var IndexDefinition[]
-     */
-    private $indexes = [];
-
-    /**
-     * @param SourceDefinition $sourceDefinition
-     * @return SphinxConfiguration
-     * @throws WrongContextException
-     */
-    public function addSource(SourceDefinition $sourceDefinition) : self
+    public function addSource(string $name, string $inheritanceName = null) : SourceDefinition
     {
-        if($sourceDefinition->getConfiguration() !== $this) {
-            throw new WrongContextException("Can't add source with different context");
+        $sourceDefinition = new SourceDefinition($this, $name, $inheritanceName);
+
+        if(!is_null($inheritanceName) && !$this->isSourceParentExists($inheritanceName)) {
+            throw new NotFoundException("Source parent with name {$inheritanceName} does't exists in configuration");
         }
+
         $this->sources[] = $sourceDefinition;
 
-        return $this;
+        return $sourceDefinition;
     }
 
     /**
@@ -54,18 +51,22 @@ class SphinxConfiguration
     }
 
     /**
-     * @param IndexDefinition $indexDefinition
-     * @return SphinxConfiguration
-     * @throws WrongContextException
+     * @param string $name
+     * @param string|null $inheritanceName
+     * @return IndexDefinition
+     * @throws NotFoundException
      */
-    public function addIndex(IndexDefinition $indexDefinition) : self
+    public function addIndex(string $name, string $inheritanceName = null) : IndexDefinition
     {
-        if($indexDefinition->getConfiguration() !== $this) {
-            throw new WrongContextException("Can't add index with different context");
+        $indexDefinition = new IndexDefinition($this, $name, $inheritanceName);
+
+        if(!is_null($inheritanceName) && !$this->isIndexParentExists($inheritanceName)) {
+            throw new NotFoundException("Index parent with name {$inheritanceName} does't exists in configuration");
         }
+
         $this->indexes[] = $indexDefinition;
 
-        return $this;
+        return $indexDefinition;
     }
 
     /**
@@ -79,22 +80,183 @@ class SphinxConfiguration
     }
 
     /**
+     * @return IndexerSettings
+     */
+    public function getIndexer() : IndexerSettings
+    {
+        if(! $this->isHasIndexer()) {
+            $this->initIndexer();
+        }
+
+        return $this->indexer;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasIndexer() : bool
+    {
+        return !is_null($this->indexer);
+    }
+
+    /**
+     * @return SearchdSettings
+     */
+    public function getSearchd() : SearchdSettings
+    {
+        if(! $this->isHasSearchd()) {
+            $this->initSearchd();
+        }
+
+        return $this->searchd;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasSearchd() : bool
+    {
+        return !is_null($this->searchd);
+    }
+
+    /**
+     * @return CommonSettings
+     */
+    public function getCommon() : CommonSettings
+    {
+        if(! $this->isHasCommon()) {
+            $this->initCommon();
+        }
+
+        return $this->common;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasCommon() : bool
+    {
+        return !is_null($this->common);
+    }
+
+    /**
      * @return bool
      */
     public function validate() : bool
     {
+        $result = true;
+
         foreach($this->iterateSource() as $source) {
             if(! $source->validate()) {
-                return false;
+                $result = false;
             }
         }
 
         foreach($this->iterateIndex() as $index) {
             if(! $index->validate()) {
-                return false;
+                $result = false;
             }
         }
 
-        return true;
+        if($this->isHasCommon() && ! $this->getCommon()->validate()) {
+            $result = false;
+        }
+
+        if($this->isHasIndexer() && ! $this->getIndexer()->validate()) {
+            $result = false;
+        }
+
+        if($this->isHasSearchd() && ! $this->getSearchd()->validate()) {
+            $result = false;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @var SourceDefinition[]
+     */
+    private $sources = [];
+
+    /**
+     * @var IndexDefinition[]
+     */
+    private $indexes = [];
+
+    /**
+     * @var IndexerSettings
+     */
+    private $indexer = null;
+
+    /**
+     * @var SearchdSettings
+     */
+    private $searchd = null;
+
+    /**
+     * @var CommonSettings
+     */
+    private $common = null;
+
+    /**
+     * @return SphinxConfiguration
+     */
+    private function initIndexer() : self
+    {
+        $this->indexer = new IndexerSettings($this);
+
+        return $this;
+    }
+
+    /**
+     * @return SphinxConfiguration
+     */
+    private function initSearchd() : self
+    {
+        $this->searchd = new SearchdSettings($this);
+
+        return $this;
+    }
+
+    /**
+     * @return SphinxConfiguration
+     */
+    private function initCommon() : self
+    {
+        $this->common = new CommonSettings($this);
+
+        return $this;
+    }
+
+    /**
+     * @param string $parentName
+     * @return bool
+     */
+    private function isSourceParentExists(string $parentName) : bool
+    {
+        $exist = false;
+        foreach($this->iterateSource() as $source) {
+            if($source->getName() === $parentName) {
+                $exist = true;
+            }
+        }
+
+        return $exist;
+    }
+
+    /**
+     * @param string $parentName
+     * @return bool
+     */
+    private function isIndexParentExists(string $parentName) : bool
+    {
+        $exist = false;
+        foreach($this->iterateIndex() as $index) {
+            if($index->getName() === $parentName) {
+                $exist = true;
+            }
+        }
+
+        return $exist;
     }
 }

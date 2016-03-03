@@ -8,7 +8,9 @@
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions;
 
 
-use LTDBeget\sphinxConfigurator\lib\SearchdSettings;
+use LTDBeget\sphinxConfigurator\exceptions\WrongContextException;
+use LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings;
+use LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Listen;
 
 /**
  * Class SearchdOptionAppender
@@ -16,11 +18,6 @@ use LTDBeget\sphinxConfigurator\lib\SearchdSettings;
  */
 class SearchdOptionAppender
 {
-    /**
-     * @var SearchdSettings
-     */
-    private $searchdSettings;
-
     /**
      * SearchdOptionAppender constructor.
      * @param SearchdSettings $searchdSettings
@@ -31,9 +28,27 @@ class SearchdOptionAppender
     }
 
     /**
+     * @param $value
+     * @return Listen
+     * @throws WrongContextException
+     */
+    public function addListen($value)
+    {
+        $option = new Listen($this->getSearchd(), $value);
+        $this->getSearchd()->addOption($option);
+
+        return $option;
+    }
+
+    /**
+     * @var SearchdSettings
+     */
+    private $searchdSettings;
+
+    /**
      * @return SearchdSettings
      */
-    public function getIndexer() : SearchdSettings
+    private function getSearchd() : SearchdSettings
     {
         return $this->searchdSettings;
     }

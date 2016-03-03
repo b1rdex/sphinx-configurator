@@ -8,7 +8,7 @@
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions;
 
 
-use LTDBeget\sphinxConfigurator\lib\CommonSettings;
+use LTDBeget\sphinxConfigurator\lib\settings\CommonSettings;
 use LTDBeget\sphinxConfigurator\lib\Option;
 
 /**
@@ -36,7 +36,7 @@ abstract class CommonOption extends Option
     /**
      * @return CommonSettings
      */
-    public function getCommonSettings() : CommonSettings
+    public function getCommon() : CommonSettings
     {
         return $this->commonSettings;
     }

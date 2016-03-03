@@ -23,7 +23,7 @@ abstract class Option
      */
     public static function getName() : string
     {
-        return self::camelCaseToUnderscore(__CLASS__);
+        return self::camelCaseToUnderscore((new \ReflectionClass(get_called_class()))->getShortName());
     }
 
     /**

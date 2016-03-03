@@ -14,21 +14,12 @@ use LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOpt
 class IndexOptionAppender
 {
     /**
-     * @var IndexDefinition
+     * IndexOptionAppender constructor.
+     * @param IndexDefinition $indexDefinition
      */
-    private $indexDefinition;
-
     public function __construct(IndexDefinition $indexDefinition)
     {
         $this->indexDefinition = $indexDefinition;
-    }
-
-    /**
-     * @return IndexDefinition
-     */
-    public function getIndex() : IndexDefinition
-    {
-        return $this->indexDefinition;
     }
 
     /**
@@ -36,11 +27,24 @@ class IndexOptionAppender
      * @return IndexOption
      * @throws \LTDBeget\sphinxConfigurator\exceptions\WrongContextException
      */
-    public function addType(string $value) : IndexOption
+    public function addSource(string $value) : IndexOption
     {
         $option = new Source($this->getIndex(), $value);
         $this->getIndex()->addOption($option);
 
         return $option;
+    }
+
+    /**
+     * @var IndexDefinition
+     */
+    private $indexDefinition;
+
+    /**
+     * @return IndexDefinition
+     */
+    private function getIndex() : IndexDefinition
+    {
+        return $this->indexDefinition;
     }
 }

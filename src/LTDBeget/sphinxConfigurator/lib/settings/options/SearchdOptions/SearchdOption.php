@@ -9,7 +9,7 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions;
 
 
 use LTDBeget\sphinxConfigurator\lib\Option;
-use LTDBeget\sphinxConfigurator\lib\SearchdSettings;
+use LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings;
 
 /**
  * Class SearchdOption
@@ -36,7 +36,7 @@ abstract class SearchdOption extends Option
     /**
      * @return SearchdSettings
      */
-    public function getSearchdSettings() : SearchdSettings
+    public function getSearchd() : SearchdSettings
     {
         return $this->searchdSettings;
     }

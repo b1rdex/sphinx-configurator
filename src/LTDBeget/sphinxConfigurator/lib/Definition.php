@@ -81,6 +81,28 @@ abstract class Definition
     }
 
     /**
+     * @return string
+     * @throws NotFoundException
+     */
+    public function __toString() : string
+    {
+        $string = "{$this->getType()} {$this->getName()}";
+
+        if($this->isHasInheritance()) {
+            $string .= " : ".$this->getInheritanceName();
+        }
+        return $string;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getType() : string
+    {
+        return strtolower(str_replace("Definition", "", (new \ReflectionClass($this))->getShortName()));
+    }
+
+    /**
      * @return bool
      */
     abstract public function validate() : bool;

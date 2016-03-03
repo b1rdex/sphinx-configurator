@@ -8,7 +8,7 @@
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions;
 
 
-use LTDBeget\sphinxConfigurator\lib\IndexerSettings;
+use LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings;
 use LTDBeget\sphinxConfigurator\lib\Option;
 
 /**
@@ -36,7 +36,7 @@ abstract class IndexerOption extends Option
     /**
      * @return IndexerSettings
      */
-    public function getCommonSettings() : IndexerSettings
+    public function getIndexer() : IndexerSettings
     {
         return $this->indexerSettings;
     }

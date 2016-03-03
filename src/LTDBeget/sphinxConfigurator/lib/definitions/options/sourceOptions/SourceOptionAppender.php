@@ -19,24 +19,11 @@ use LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition;
 class SourceOptionAppender
 {
     /**
-     * @var SourceDefinition
-     */
-    private $sourceDefinition;
-
-    /**
      * @param SourceDefinition $sourceDefinition
      */
     public function __construct(SourceDefinition $sourceDefinition)
     {
         $this->sourceDefinition = $sourceDefinition;
-    }
-
-    /**
-     * @return SourceDefinition
-     */
-    public function getSource() : SourceDefinition
-    {
-        return $this->sourceDefinition;
     }
 
     /**
@@ -50,5 +37,18 @@ class SourceOptionAppender
         $this->getSource()->addOption($option);
 
         return $option;
+    }
+
+    /**
+     * @var SourceDefinition
+     */
+    private $sourceDefinition;
+
+    /**
+     * @return SourceDefinition
+     */
+    private function getSource() : SourceDefinition
+    {
+        return $this->sourceDefinition;
     }
 }

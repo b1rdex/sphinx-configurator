@@ -11,32 +11,22 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\conc
 use LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption;
 
 /**
- * Class Type
+ * Class HookConnect
  *
- * data source type. mandatory, no default value
- * known types are mysql, pgsql, mssql, xmlpipe, xmlpipe2, odbc
+ * hook command to run when SQL connection succeeds
+ * optional, default value is empty (do nothing)
+ * 
+ * hook_connect			= bash sql_connect.sh
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions
  */
-class Type extends SourceOption
+class HookConnect extends SourceOption
 {
-    /**
-     * @var array
-     */
-    private $knownTypes = [
-        "mysql",
-        "pgsql",
-        "mssql",
-        "xmlpipe",
-        "xmlpipe2",
-        "odbc"
-    ];
-
     /**
      * @return bool
      */
     public function validate() : bool
     {
-        return in_array($this->getValue(), $this->knownTypes);
+        return true;
     }
 }

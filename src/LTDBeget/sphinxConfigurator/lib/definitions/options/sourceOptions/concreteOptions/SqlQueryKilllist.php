@@ -11,32 +11,23 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\conc
 use LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption;
 
 /**
- * Class Type
+ * Class SqlQueryKilllist
  *
- * data source type. mandatory, no default value
- * known types are mysql, pgsql, mssql, xmlpipe, xmlpipe2, odbc
+ * kill-list query, fetches the document IDs for kill-list
+ * k-list will suppress matches from preceding indexes in the same query
+ * optional, default is empty
+ * 
+ * sql_query_killlist	= SELECT id FROM documents WHERE edited>=@last_reindex
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions
  */
-class Type extends SourceOption
+class SqlQueryKilllist extends SourceOption
 {
-    /**
-     * @var array
-     */
-    private $knownTypes = [
-        "mysql",
-        "pgsql",
-        "mssql",
-        "xmlpipe",
-        "xmlpipe2",
-        "odbc"
-    ];
-
     /**
      * @return bool
      */
     public function validate() : bool
     {
-        return in_array($this->getValue(), $this->knownTypes);
+        return true;
     }
 }

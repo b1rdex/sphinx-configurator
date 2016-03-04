@@ -11,32 +11,32 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\conc
 use LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption;
 
 /**
- * Class Type
+ * Class SqlAttrUint
  *
- * data source type. mandatory, no default value
- * known types are mysql, pgsql, mssql, xmlpipe, xmlpipe2, odbc
+ * unsigned integer attribute declaration
+ * multi-value (an arbitrary number of attributes is allowed), optional
+ * optional bit size can be specified, default is 32
+ * 
+ * sql_attr_uint		= author_id
+ * sql_attr_uint		= forum_id:9
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions
  */
-class Type extends SourceOption
+class SqlAttrUint extends SourceOption
 {
     /**
-     * @var array
+     * @return bool
      */
-    private $knownTypes = [
-        "mysql",
-        "pgsql",
-        "mssql",
-        "xmlpipe",
-        "xmlpipe2",
-        "odbc"
-    ];
+    public function isMultiValue() : bool
+    {
+        return true;
+    }
 
     /**
      * @return bool
      */
     public function validate() : bool
     {
-        return in_array($this->getValue(), $this->knownTypes);
+        return true;
     }
 }

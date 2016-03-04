@@ -13,6 +13,10 @@ use LTDBeget\sphinxConfigurator\lib\Settings;
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOptionAppender;
 
+/**
+ * Class CommonSettings
+ * @package LTDBeget\sphinxConfigurator\lib\settings
+ */
 class CommonSettings extends Settings
 {
     /**

@@ -11,16 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concr
 use LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption;
 
 /**
- * Class Source
+ * Class RtField
  *
- * document source(s) to index
+ * full-text field declaration
  * multi-value, mandatory
- * document IDs must be globally unique across all sources
- * source			= src1
+ * rt_field		= title
+ * rt_field		= content
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions
  */
-class Source extends IndexOption
+class RtField extends IndexOption
 {
     /**
      * @return bool
@@ -35,12 +35,6 @@ class Source extends IndexOption
      */
     public function validate() : bool
     {
-        foreach($this->getIndex()->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getValue()) {
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 }

@@ -11,32 +11,32 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\conc
 use LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption;
 
 /**
- * Class Type
+ * Class SqlAttrFloat
  *
- * data source type. mandatory, no default value
- * known types are mysql, pgsql, mssql, xmlpipe, xmlpipe2, odbc
+ * floating point attribute declaration
+ * multi-value (an arbitrary number of attributes is allowed), optional
+ * values are stored in single precision, 32-bit IEEE 754 format
+ * 
+ * sql_attr_float		= lat_radians
+ * sql_attr_float		= long_radians
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions
  */
-class Type extends SourceOption
+class SqlAttrFloat extends SourceOption
 {
     /**
-     * @var array
+     * @return bool
      */
-    private $knownTypes = [
-        "mysql",
-        "pgsql",
-        "mssql",
-        "xmlpipe",
-        "xmlpipe2",
-        "odbc"
-    ];
+    public function isMultiValue() : bool
+    {
+        return true;
+    }
 
     /**
      * @return bool
      */
     public function validate() : bool
     {
-        return in_array($this->getValue(), $this->knownTypes);
+        return true;
     }
 }

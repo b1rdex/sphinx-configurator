@@ -11,16 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concr
 use LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption;
 
 /**
- * Class Source
+ * Class RtAttrUint
  *
- * document source(s) to index
- * multi-value, mandatory
- * document IDs must be globally unique across all sources
- * source			= src1
+ * unsigned integer attribute declaration
+ * multi-value (an arbitrary number of attributes is allowed), optional
+ * declares an unsigned 32-bit attribute
+ * rt_attr_uint		= gid
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions
  */
-class Source extends IndexOption
+class RtAttrUint extends IndexOption
 {
     /**
      * @return bool
@@ -35,12 +35,6 @@ class Source extends IndexOption
      */
     public function validate() : bool
     {
-        foreach($this->getIndex()->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getValue()) {
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 }

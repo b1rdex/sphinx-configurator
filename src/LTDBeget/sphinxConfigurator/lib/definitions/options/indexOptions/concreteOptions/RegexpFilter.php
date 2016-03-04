@@ -11,16 +11,18 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concr
 use LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption;
 
 /**
- * Class Source
+ * Class RegexpFilter
  *
- * document source(s) to index
- * multi-value, mandatory
- * document IDs must be globally unique across all sources
- * source			= src1
+ * regular expressions (regexps) to filter the fields and queries with
+ * gets applied to data source fields when indexing
+ * gets applied to search queries when searching
+ * multi-value, optional, default is empty list of regexps
+ * 
+ * regexp_filter		= (blue|red) => color
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions
  */
-class Source extends IndexOption
+class RegexpFilter extends IndexOption
 {
     /**
      * @return bool
@@ -35,12 +37,6 @@ class Source extends IndexOption
      */
     public function validate() : bool
     {
-        foreach($this->getIndex()->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getValue()) {
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 }

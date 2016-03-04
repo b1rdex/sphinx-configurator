@@ -11,16 +11,19 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concr
 use LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption;
 
 /**
- * Class Source
+ * Class Agent
  *
- * document source(s) to index
- * multi-value, mandatory
- * document IDs must be globally unique across all sources
- * source			= src1
+ * remote agent
+ * multi-value remote agents may be specified
+ * syntax for TCP connections is 'hostname:port:index1,[index2[,...]]'
+ * syntax for local UNIX connections is '/path/to/socket:index1,[index2[,...]]'
+ * agent			= localhost:9313:remote1
+ * agent			= localhost:9314:remote2,remote3
+ * agent			= /var/run/searchd.sock:remote4
  *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions
  */
-class Source extends IndexOption
+class Agent extends IndexOption
 {
     /**
      * @return bool
@@ -35,12 +38,6 @@ class Source extends IndexOption
      */
     public function validate() : bool
     {
-        foreach($this->getIndex()->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getValue()) {
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 }

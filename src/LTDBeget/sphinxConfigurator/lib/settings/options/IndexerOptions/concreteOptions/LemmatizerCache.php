@@ -2,7 +2,7 @@
 /**
  * @author: Viskov Sergey
  * @date: 3/3/16
- * @time: 12:32 PM
+ * @time: 8:27 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions;
@@ -11,15 +11,17 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concre
 use LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption;
 
 /**
- * Class MemLimit
+ * Class LemmatizerCache
  *
- * memory limit, in bytes, kilobytes (16384K) or megabytes (256M)
- * optional, default is 128M, max is 2047M, recommended is 256M to 1024M
- * mem_limit		= 128M
+ * lemmatizer cache size
+ * improves the indexing time when the lemmatization is enabled
+ * optional, default is 256K
+ *
+ * lemmatizer_cache = 512M
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions
  */
-class MemLimit extends IndexerOption
+class LemmatizerCache extends IndexerOption
 {
     /**
      * @return bool

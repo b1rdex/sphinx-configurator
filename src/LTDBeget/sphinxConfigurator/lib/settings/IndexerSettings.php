@@ -39,7 +39,7 @@ class IndexerSettings extends Settings
         if($option->getIndexer() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
-        $this->options[] = $option;
+        $this->options[$option->getName()] = $option;
 
         return $this;
     }
@@ -62,6 +62,9 @@ class IndexerSettings extends Settings
     public function iterateOptions()
     {
         foreach($this->options as $option) {
+            if($option->isDeleted()) {
+                continue;
+            }
             yield $option;
         }
     }

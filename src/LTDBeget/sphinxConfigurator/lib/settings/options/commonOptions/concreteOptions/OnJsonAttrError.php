@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:31 PM
+ * @date: 3/3/16
+ * @time: 6:48 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions;
@@ -11,16 +11,17 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concret
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
- * Class LemmatizerBase
+ * Class OnJsonAttrError
  *
- * lemmatizer dictionaries base path
- * optional, default is /usr/local/share (see ./configure --datadir)
+ * how to handle syntax errors in JSON attributes
+ * known values are 'ignore_attr' and 'fail_index'
+ * optional, default is 'ignore_attr'
  *
- * lemmatizer_base = /usr/local/share/sphinx/dicts
+ * on_json_attr_error = fail_index
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
-class LemmatizerBase extends CommonOption
+class OnJsonAttrError extends CommonOption
 {
     /**
      * @return bool

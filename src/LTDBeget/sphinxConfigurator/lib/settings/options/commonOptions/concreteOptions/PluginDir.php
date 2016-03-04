@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:31 PM
+ * @date: 3/3/16
+ * @time: 7:02 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions;
@@ -11,16 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concret
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
- * Class LemmatizerBase
+ * Class PluginDir
  *
- * lemmatizer dictionaries base path
- * optional, default is /usr/local/share (see ./configure --datadir)
+ * trusted plugin directory
+ * optional, default is empty (disable UDFs)
  *
- * lemmatizer_base = /usr/local/share/sphinx/dicts
+ * plugin_dir			= /usr/local/sphinx/lib
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
-class LemmatizerBase extends CommonOption
+class PluginDir extends CommonOption
 {
     /**
      * @return bool

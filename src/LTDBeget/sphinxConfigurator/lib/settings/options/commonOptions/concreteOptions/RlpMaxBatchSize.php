@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:31 PM
+ * @date: 3/3/16
+ * @time: 6:59 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions;
@@ -11,16 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concret
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
- * Class LemmatizerBase
+ * Class RlpMaxBatchSize
  *
- * lemmatizer dictionaries base path
- * optional, default is /usr/local/share (see ./configure --datadir)
+ * maximum total size of documents batched before processing them by the RLP
+ * optional, default is 51200
  *
- * lemmatizer_base = /usr/local/share/sphinx/dicts
+ * rlp_max_batch_size = 100k
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
-class LemmatizerBase extends CommonOption
+class RlpMaxBatchSize extends CommonOption
 {
     /**
      * @return bool

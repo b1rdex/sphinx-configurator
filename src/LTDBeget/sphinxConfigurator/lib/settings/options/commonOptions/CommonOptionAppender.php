@@ -8,13 +8,23 @@
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions;
 
 
-use LTDBeget\sphinxConfigurator\exceptions\WrongContextException;
+use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\lib\settings\CommonSettings;
-use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\LemmatizerBase;
 
 /**
  * Class CommonOptionAppender
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions
+ *
+ * @method CommonOption addJsonAutoconvKeynames(string $value)
+ * @method CommonOption addJsonAutoconvNumbers(string $value)
+ * @method CommonOption addLemmatizerBase(string $value)
+ * @method CommonOption addOnJsonAttrError(string $value)
+ * @method CommonOption addPluginDir(string $value)
+ * @method CommonOption addRlpEnvironment(string $value)
+ * @method CommonOption addRlpMaxBatchDocs(string $value)
+ * @method CommonOption addRlpMaxBatchSize(string $value)
+ * @method CommonOption addRlpRoot(string $value)
+ *
  */
 class CommonOptionAppender
 {
@@ -28,13 +38,23 @@ class CommonOptionAppender
     }
 
     /**
-     * @param $value
+     * @param string $methodName
+     * @param array $arguments
      * @return CommonOption
-     * @throws WrongContextException
+     * @throws NotFoundException
      */
-    public function addLemmatizerBase($value) : CommonOption
+    public function __call (string $methodName, array $arguments) : CommonOption
     {
-        $option = new LemmatizerBase($this->getCommon(), $value);
+        $optionName = str_replace("add", "", $methodName);
+        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
+        if(! class_exists($optionClass)) {
+            throw new NotFoundException("Trying to add unknown option {$optionName} to Common settings");
+        }
+
+        /**
+         * @var CommonOption $option
+         */
+        $option = new $optionClass($this->getCommon(), $arguments[0]);
         $this->getCommon()->addOption($option);
 
         return $option;

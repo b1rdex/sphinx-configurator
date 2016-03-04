@@ -2,7 +2,7 @@
 /**
  * @author: Viskov Sergey
  * @date: 3/3/16
- * @time: 12:32 PM
+ * @time: 8:13 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions;
@@ -11,15 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concre
 use LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption;
 
 /**
- * Class MemLimit
+ * Class MaxFileFieldBuffer
  *
- * memory limit, in bytes, kilobytes (16384K) or megabytes (256M)
- * optional, default is 128M, max is 2047M, recommended is 256M to 1024M
- * mem_limit		= 128M
+ * maximum file field adaptive buffer size
+ * optional, default is 8M, minimum is 1M
+ *
+ * max_file_field_buffer	= 32M
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions
  */
-class MemLimit extends IndexerOption
+class MaxFileFieldBuffer extends IndexerOption
 {
     /**
      * @return bool

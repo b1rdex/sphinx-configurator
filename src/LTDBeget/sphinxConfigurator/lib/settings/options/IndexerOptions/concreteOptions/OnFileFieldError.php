@@ -2,7 +2,7 @@
 /**
  * @author: Viskov Sergey
  * @date: 3/3/16
- * @time: 12:32 PM
+ * @time: 8:26 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions;
@@ -11,15 +11,17 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concre
 use LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption;
 
 /**
- * Class MemLimit
+ * Class OnFileFieldError
  *
- * memory limit, in bytes, kilobytes (16384K) or megabytes (256M)
- * optional, default is 128M, max is 2047M, recommended is 256M to 1024M
- * mem_limit		= 128M
+ * how to handle IO errors in file fields
+ * known values are 'ignore_field', 'skip_document', and 'fail_index'
+ * optional, default is 'ignore_field'
+ *
+ * on_file_field_error = skip_document
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions
  */
-class MemLimit extends IndexerOption
+class OnFileFieldError extends IndexerOption
 {
     /**
      * @return bool

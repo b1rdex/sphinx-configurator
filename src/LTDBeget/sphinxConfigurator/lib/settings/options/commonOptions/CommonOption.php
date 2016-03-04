@@ -34,6 +34,15 @@ abstract class CommonOption extends Option
     }
 
     /**
+     * Common settings has no multi-value options
+     * @return bool
+     */
+    final public function isMultiValue() : bool
+    {
+        return false;
+    }
+
+    /**
      * @return CommonSettings
      */
     public function getCommon() : CommonSettings

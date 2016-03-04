@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:31 PM
+ * @date: 3/3/16
+ * @time: 6:50 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions;
@@ -11,16 +11,18 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concret
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
- * Class LemmatizerBase
+ * Class JsonAutoconvNumbers
  *
- * lemmatizer dictionaries base path
- * optional, default is /usr/local/share (see ./configure --datadir)
+ * whether to auto-convert numeric values from strings in JSON attributes
+ * with auto-conversion, string value with actually numeric data
+ * (as in {"key":"12345"}) gets stored as a number, rather than string
+ * optional, allowed values are 0 and 1, default is 0 (do not convert)
  *
- * lemmatizer_base = /usr/local/share/sphinx/dicts
+ * json_autoconv_numbers = 1
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
-class LemmatizerBase extends CommonOption
+class JsonAutoconvNumbers extends CommonOption
 {
     /**
      * @return bool

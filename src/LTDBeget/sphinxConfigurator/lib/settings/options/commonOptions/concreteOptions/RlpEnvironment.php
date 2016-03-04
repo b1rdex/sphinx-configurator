@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:31 PM
+ * @date: 3/3/16
+ * @time: 6:57 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions;
@@ -11,16 +11,16 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concret
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
- * Class LemmatizerBase
+ * Class RlpEnvironment
  *
- * lemmatizer dictionaries base path
- * optional, default is /usr/local/share (see ./configure --datadir)
+ * path to RLP environment file
+ * optional, default is /usr/local/share/rlp-environment.xml (see ./configure --datadir)
  *
- * lemmatizer_base = /usr/local/share/sphinx/dicts
+ * rlp_environment = /usr/local/share/sphinx/rlp/rlp/etc/rlp-environment.xml
  *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
-class LemmatizerBase extends CommonOption
+class RlpEnvironment extends CommonOption
 {
     /**
      * @return bool

@@ -8,13 +8,21 @@
 namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions;
 
 
-use LTDBeget\sphinxConfigurator\exceptions\WrongContextException;
+use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings;
-use LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MemLimit;
 
 /**
  * Class IndexerOptionAppender
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions
+ *
+ * @method IndexerOption addLemmatizerCache(string $value)
+ * @method IndexerOption addMaxFileFieldBuffer(string $value)
+ * @method IndexerOption addMaxIops(string $value)
+ * @method IndexerOption addMaxIosize(string $value)
+ * @method IndexerOption addMaxXmlpipe2Field(string $value)
+ * @method IndexerOption addMemLimit(string $value)
+ * @method IndexerOption addOnFileFieldError(string $value)
+ * @method IndexerOption addWriteBuffer(string $value)
  */
 class IndexerOptionAppender
 {
@@ -28,13 +36,23 @@ class IndexerOptionAppender
     }
 
     /**
-     * @param $value
-     * @return MemLimit
-     * @throws WrongContextException
+     * @param string $methodName
+     * @param array $arguments
+     * @return IndexerOption
+     * @throws NotFoundException
      */
-    public function addMemLimit($value)
+    public function __call (string $methodName, array $arguments) : IndexerOption
     {
-        $option = new MemLimit($this->getIndexer(), $value);
+        $optionName = str_replace("add", "", $methodName);
+        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
+        if(! class_exists($optionClass)) {
+            throw new NotFoundException("Trying to add unknown option {$optionName} to Common settings");
+        }
+
+        /**
+         * @var IndexerOption $option
+         */
+        $option = new $optionClass($this->getIndexer(), $arguments[0]);
         $this->getIndexer()->addOption($option);
 
         return $option;

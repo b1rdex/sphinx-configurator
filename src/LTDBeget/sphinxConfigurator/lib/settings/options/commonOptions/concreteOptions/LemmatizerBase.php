@@ -12,6 +12,12 @@ use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 
 /**
  * Class LemmatizerBase
+ *
+ * lemmatizer dictionaries base path
+ * optional, default is /usr/local/share (see ./configure --datadir)
+ *
+ * lemmatizer_base = /usr/local/share/sphinx/dicts
+ *
  * @package LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions
  */
 class LemmatizerBase extends CommonOption
@@ -21,7 +27,6 @@ class LemmatizerBase extends CommonOption
      */
     public function validate() : bool
     {
-        // TODO: make dir path check
         return true;
     }
 }

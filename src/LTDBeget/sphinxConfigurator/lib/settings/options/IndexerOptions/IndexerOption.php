@@ -34,6 +34,15 @@ abstract class IndexerOption extends Option
     }
 
     /**
+     * Indexer settings has no multi-value options
+     * @return bool
+     */
+    final public function isMultiValue() : bool
+    {
+        return false;
+    }
+
+    /**
      * @return IndexerSettings
      */
     public function getIndexer() : IndexerSettings

@@ -35,6 +35,15 @@ abstract class Option
     }
 
     /**
+     * @param $value
+     * @return void
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
      * @return string
      */
     public function __toString() : string
@@ -45,7 +54,37 @@ abstract class Option
     /**
      * @return bool
      */
+    public function isMultiValue() : bool
+    {
+        return false;
+    }
+
+    /**
+     * mark option as deleted
+     */
+    public function delete()
+    {
+       $this->isDeleted = true;
+    }
+
+    /**
+     * is option marked as deleted
+     * @return bool
+     */
+    public function isDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * @return bool
+     */
     abstract public function validate() : bool;
+
+    /**
+     * @var boolean
+     */
+    private   $isDeleted = false;
 
     /**
      * @param string $input

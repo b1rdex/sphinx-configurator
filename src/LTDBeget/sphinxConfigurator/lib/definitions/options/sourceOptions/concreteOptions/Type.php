@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 6:22 PM
+ * @date: 3/4/16
+ * @time: 7:25 PM
  */
 
 namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions;
@@ -12,6 +12,10 @@ use LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOpti
 
 /**
  * Class Type
+ *
+ * data source type. mandatory, no default value
+ * known types are mysql, pgsql, mssql, xmlpipe, xmlpipe2, odbc
+ *
  * @package LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions
  */
 class Type extends SourceOption

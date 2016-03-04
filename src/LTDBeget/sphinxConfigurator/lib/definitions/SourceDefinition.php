@@ -52,7 +52,16 @@ class SourceDefinition extends Definition
         if($option->getSource() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
-        $this->options[] = $option;
+
+        if($option->isMultiValue()) {
+            if(! array_key_exists($option->getName(), $this->options)) {
+                $this->options[$option->getName()] = [];
+            }
+
+            $this->options[$option->getName()][] = $option;
+        } else {
+            $this->options[$option->getName()] = $option;
+        }
 
         return $this;
     }
@@ -63,7 +72,23 @@ class SourceDefinition extends Definition
     public function iterateOptions()
     {
         foreach($this->options as $option) {
-            yield $option;
+            if($option instanceof SourceOption) {
+                if($option->isDeleted()) {
+                    continue;
+                }
+                yield $option;
+            }
+            if(is_array($option)) {
+                foreach($option as $multiOption) {
+                    /**
+                     * @var SourceOption $multiOption
+                     */
+                    if($multiOption->isDeleted()) {
+                        continue;
+                    }
+                    yield $multiOption;
+                }
+            }
         }
     }
 

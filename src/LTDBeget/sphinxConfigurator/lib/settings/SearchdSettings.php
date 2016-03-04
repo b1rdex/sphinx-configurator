@@ -35,7 +35,16 @@ class SearchdSettings extends Settings
         if($option->getSearchd() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
-        $this->options[] = $option;
+
+        if($option->isMultiValue()) {
+            if(! array_key_exists($option->getName(), $this->options)) {
+                $this->options[$option->getName()] = [];
+            }
+
+            $this->options[$option->getName()][] = $option;
+        } else {
+            $this->options[$option->getName()] = $option;
+        }
 
         return $this;
     }
@@ -58,7 +67,23 @@ class SearchdSettings extends Settings
     public function iterateOptions()
     {
         foreach($this->options as $option) {
-            yield $option;
+            if($option instanceof SearchdOption) {
+                if($option->isDeleted()) {
+                    continue;
+                }
+                yield $option;
+            }
+            if(is_array($option)) {
+                foreach($option as $multiOption) {
+                    /**
+                     * @var SearchdOption $multiOption
+                     */
+                    if($multiOption->isDeleted()) {
+                        continue;
+                    }
+                    yield $multiOption;
+                }
+            }
         }
     }
 

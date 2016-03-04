@@ -13,6 +13,10 @@ use LTDBeget\sphinxConfigurator\lib\Settings;
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption;
 use LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOptionAppender;
 
+/**
+ * Class CommonSettings
+ * @package LTDBeget\sphinxConfigurator\lib\settings
+ */
 class CommonSettings extends Settings
 {
     /**
@@ -35,7 +39,7 @@ class CommonSettings extends Settings
         if($option->getCommon() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
-        $this->options[] = $option;
+        $this->options[$option->getName()] = $option;
 
         return $this;
     }
@@ -58,6 +62,10 @@ class CommonSettings extends Settings
     public function iterateOptions()
     {
         foreach($this->options as $option) {
+            if($option->isDeleted()) {
+                continue;
+            }
+
             yield $option;
         }
     }

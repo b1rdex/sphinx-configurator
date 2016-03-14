@@ -8,6 +8,9 @@
 namespace LTDBeget\sphinxConfigurator\serializers;
 
 
+use Camel\CaseTransformer;
+use Camel\Format\SnakeCase;
+use Camel\Format\StudlyCaps;
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\exceptions\SerializerException;
 use LTDBeget\sphinxConfigurator\helpers\CaseTransformerHelper;
@@ -222,7 +225,8 @@ class ArraySerializer
 
                 $optionName = $option["name"];
                 $optionValue = $option["value"];
-                $optionClassName = CaseTransformerHelper::SnakeCase2UpperCamelCase($optionName);
+
+                $optionClassName = (new CaseTransformer(new SnakeCase(), new StudlyCaps()))->transform($optionName);
                 $appenderMethodName = "add".$optionClassName;
                 try {
                     $nodeObject->getOptionAppender()->$appenderMethodName($optionValue);

@@ -8,6 +8,9 @@
 namespace LTDBeget\sphinxConfigurator\lib;
 
 
+use Camel\CaseTransformer;
+use Camel\Format\CamelCase;
+use Camel\Format\SnakeCase;
 use LTDBeget\sphinxConfigurator\helpers\CaseTransformerHelper;
 
 /**
@@ -26,7 +29,8 @@ abstract class Option
      */
     public static function getName() : string
     {
-        return CaseTransformerHelper::camelCase2SnakeCase((new \ReflectionClass(get_called_class()))->getShortName());
+        $className = (new \ReflectionClass(get_called_class()))->getShortName();
+        return (new CaseTransformer(new CamelCase(), new SnakeCase()))->transform($className);
     }
 
     /**

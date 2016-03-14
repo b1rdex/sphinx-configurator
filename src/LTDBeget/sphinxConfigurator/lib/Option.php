@@ -7,6 +7,9 @@
 
 namespace LTDBeget\sphinxConfigurator\lib;
 
+
+use LTDBeget\sphinxConfigurator\helpers\CaseTransformerHelper;
+
 /**
  * Class Option
  * @package LTDBeget\sphinxConfigurator\lib
@@ -23,7 +26,7 @@ abstract class Option
      */
     public static function getName() : string
     {
-        return self::camelCaseToUnderscore((new \ReflectionClass(get_called_class()))->getShortName());
+        return CaseTransformerHelper::camelCase2SnakeCase((new \ReflectionClass(get_called_class()))->getShortName());
     }
 
     /**
@@ -85,13 +88,4 @@ abstract class Option
      * @var boolean
      */
     private   $isDeleted = false;
-
-    /**
-     * @param string $input
-     * @return string
-     */
-    private static function camelCaseToUnderscore(string $input) : string
-    {
-        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $input)), '_');
-    }
 }

@@ -5,7 +5,7 @@
  * @time: 4:34 PM
  */
 
-use LTDBeget\sphinxConfigurator\parser\SphinxConfigurationParser;
+use LTDBeget\sphinxConfigurator\serializers\PlainSerializer;
 
 require 'vendor/autoload.php';
 
@@ -14,4 +14,5 @@ $config_path = __DIR__.DIRECTORY_SEPARATOR."stubs".DIRECTORY_SEPARATOR."sphinx.c
 $plain_config = file_get_contents($config_path);
 
 
-print_r(SphinxConfigurationParser::parse($plain_config));
+$config = PlainSerializer::deserialize($plain_config);
+echo PlainSerializer::serialize($config);

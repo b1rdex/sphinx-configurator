@@ -13,7 +13,6 @@ use LTDBeget\sphinxConfigurator\exceptions\SyntaxErrorException;
 /**
  * Class SphinxConfigurationParser
  * @package LTDBeget\sphinxConfigurator\parser
- * @internal
  */
 final class SphinxConfigurationParser
 {
@@ -270,6 +269,7 @@ final class SphinxConfigurationParser
      */
     private function saveCurrentNode()
     {
+        $this->currentNode = array_filter($this->currentNode);
         $this->parsedData[] = $this->currentNode;
     }
 

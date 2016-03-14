@@ -11,7 +11,6 @@ namespace LTDBeget\sphinxConfigurator\lib;
 use Camel\CaseTransformer;
 use Camel\Format\CamelCase;
 use Camel\Format\SnakeCase;
-use LTDBeget\sphinxConfigurator\helpers\CaseTransformerHelper;
 
 /**
  * Class Option

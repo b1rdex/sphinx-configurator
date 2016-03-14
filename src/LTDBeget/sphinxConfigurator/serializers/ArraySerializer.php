@@ -13,7 +13,6 @@ use Camel\Format\SnakeCase;
 use Camel\Format\StudlyCaps;
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\exceptions\SerializerException;
-use LTDBeget\sphinxConfigurator\helpers\CaseTransformerHelper;
 use LTDBeget\sphinxConfigurator\SphinxConfiguration;
 
 /**
@@ -211,6 +210,10 @@ class ArraySerializer
                 default:
                     throw new SerializerException("Unknown node type {$node["type"]}");
                     break;
+            }
+
+            if(!array_key_exists("options", $node)) {
+                continue;
             }
 
             foreach($node["options"] as $option) {

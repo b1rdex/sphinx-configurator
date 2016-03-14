@@ -8,6 +8,7 @@
 namespace LTDBeget\sphinxConfigurator\serializers;
 
 
+use LTDBeget\sphinxConfigurator\parser\SphinxConfigurationParser;
 use LTDBeget\sphinxConfigurator\SphinxConfiguration;
 
 /**
@@ -16,7 +17,7 @@ use LTDBeget\sphinxConfigurator\SphinxConfiguration;
  * and file content from sphinx.conf file to SphinxConfiguration object
  * @package LTDBeget\sphinxConfigurator\serializers
  */
-class PlainSerializer implements iSerializer
+final class PlainSerializer
 {
     /**
      * Make plain content for sphinx configuration file from SphinxConfiguration object
@@ -85,6 +86,6 @@ class PlainSerializer implements iSerializer
      */
     public static function deserialize(string $configuration) : SphinxConfiguration
     {
-        // TODO: Implement deserialize() method.
+        return ArraySerializer::deserialize(SphinxConfigurationParser::parse($configuration));
     }
 }

@@ -13,7 +13,8 @@
   ],
   "require": {
     "php": ">=7.0",
-    "respect/validation": "1.0.4"
+    "respect/validation": "1.0.4",
+    "mattketmo/camel": "1.1.0"
   },
   "autoload": {
     "psr-0": {

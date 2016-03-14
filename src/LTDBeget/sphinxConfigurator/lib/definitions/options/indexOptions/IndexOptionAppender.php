@@ -103,7 +103,7 @@ class IndexOptionAppender
         $optionName = str_replace("add", "", $methodName);
         $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
         if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Common settings");
+            throw new NotFoundException("Trying to add unknown option {$optionName} to Index definitions");
         }
 
         /**

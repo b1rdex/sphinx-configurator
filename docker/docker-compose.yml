@@ -1,8 +1,8 @@
 sphinx:
-  image: stefobark/sphinxdocker
+  build: image
+  dockerfile: Dockerfile
   expose:
    - "9311:9306"
   volumes:
-      - "../stubs:/config:/etc/sphinxsearch"
+      - "../stubs:/etc/sphinxsearch"
       - "../runtime:/var/log"
-  command: ./indexandsearch.sh

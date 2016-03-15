@@ -9,6 +9,7 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions;
 
 
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
+use LTDBeget\sphinxConfigurator\lib\OptionAppender;
 use LTDBeget\sphinxConfigurator\lib\settings\CommonSettings;
 
 /**
@@ -26,7 +27,7 @@ use LTDBeget\sphinxConfigurator\lib\settings\CommonSettings;
  * @method CommonOption addRlpRoot(string $value)
  *
  */
-class CommonOptionAppender
+class CommonOptionAppender extends OptionAppender
 {
     /**
      * CommonOptionAppender constructor.
@@ -45,11 +46,7 @@ class CommonOptionAppender
      */
     public function __call (string $methodName, array $arguments) : CommonOption
     {
-        $optionName = str_replace("add", "", $methodName);
-        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
-        if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Common settings");
-        }
+        $optionClass = $this->getOptionClassByMethodName($methodName);
 
         /**
          * @var CommonOption $option

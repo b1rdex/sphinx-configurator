@@ -10,6 +10,7 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions;
 
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition;
+use LTDBeget\sphinxConfigurator\lib\OptionAppender;
 
 /**
  * Class IndexOptionAppender
@@ -81,7 +82,7 @@ use LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition;
  * @method IndexOption addRtAttrMulti64(string $value)
  * @method IndexOption addRtAttrJson(string $value)
  */
-class IndexOptionAppender
+class IndexOptionAppender extends OptionAppender
 {
     /**
      * IndexOptionAppender constructor.
@@ -100,15 +101,11 @@ class IndexOptionAppender
      */
     public function __call (string $methodName, array $arguments) : IndexOption
     {
-        $optionName = str_replace("add", "", $methodName);
-        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
-        if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Index definitions");
-        }
-
+        $optionClass = $this->getOptionClassByMethodName($methodName);
         /**
          * @var IndexOption $option
          */
+
         $option = new $optionClass($this->getIndex(), $arguments[0]);
         $this->getIndex()->addOption($option);
 

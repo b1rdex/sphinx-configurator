@@ -9,6 +9,7 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions;
 
 
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
+use LTDBeget\sphinxConfigurator\lib\OptionAppender;
 use LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings;
 
 /**
@@ -24,7 +25,7 @@ use LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings;
  * @method IndexerOption addOnFileFieldError(string $value)
  * @method IndexerOption addWriteBuffer(string $value)
  */
-class IndexerOptionAppender
+class IndexerOptionAppender extends OptionAppender
 {
     /**
      * IndexerOptionAppender constructor.
@@ -43,11 +44,7 @@ class IndexerOptionAppender
      */
     public function __call (string $methodName, array $arguments) : IndexerOption
     {
-        $optionName = str_replace("add", "", $methodName);
-        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
-        if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Indexer settings");
-        }
+        $optionClass = $this->getOptionClassByMethodName($methodName);
 
         /**
          * @var IndexerOption $option

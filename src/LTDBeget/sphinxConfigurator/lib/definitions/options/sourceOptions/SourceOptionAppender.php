@@ -10,6 +10,7 @@ namespace LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions;
 
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
 use LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition;
+use LTDBeget\sphinxConfigurator\lib\OptionAppender;
 
 /**
  * Class SourceOptionAppender
@@ -67,7 +68,7 @@ use LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition;
  * @method SourceOption addXmlpipeFieldString(string $value)
  * @method SourceOption addXmlpipeFixupUtf8(string $value)
  */
-class SourceOptionAppender
+class SourceOptionAppender extends OptionAppender
 {
     /**
      * @param SourceDefinition $sourceDefinition
@@ -85,11 +86,7 @@ class SourceOptionAppender
      */
     public function __call (string $methodName, array $arguments) : SourceOption
     {
-        $optionName = str_replace("add", "", $methodName);
-        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
-        if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Source definitions");
-        }
+        $optionClass = $this->getOptionClassByMethodName($methodName);
 
         /**
          * @var SourceOption $option

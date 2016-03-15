@@ -9,6 +9,7 @@ namespace LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions;
 
 
 use LTDBeget\sphinxConfigurator\exceptions\NotFoundException;
+use LTDBeget\sphinxConfigurator\lib\OptionAppender;
 use LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings;
 
 /**
@@ -60,7 +61,7 @@ use LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings;
  * @method SearchdOption addWorkers(string $value)
  *
  */
-class SearchdOptionAppender
+class SearchdOptionAppender extends OptionAppender
 {
     /**
      * SearchdOptionAppender constructor.
@@ -79,11 +80,7 @@ class SearchdOptionAppender
      */
     public function __call (string $methodName, array $arguments) : SearchdOption
     {
-        $optionName = str_replace("add", "", $methodName);
-        $optionClass = __NAMESPACE__."\\concreteOptions\\".$optionName;
-        if(! class_exists($optionClass)) {
-            throw new NotFoundException("Trying to add unknown option {$optionName} to Searchd settings");
-        }
+        $optionClass = $this->getOptionClassByMethodName($methodName);
 
         /**
          * @var SearchdOption $option

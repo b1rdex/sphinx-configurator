@@ -1,0 +1,8 @@
+sphinx:
+  image: stefobark/sphinxdocker
+  expose:
+   - "9311:9306"
+  volumes:
+      - "../stubs:/config:/etc/sphinxsearch"
+      - "../runtime:/var/log"
+  command: ./indexandsearch.sh

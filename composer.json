@@ -13,12 +13,16 @@
   ],
   "require": {
     "php": ">=7.0",
-    "respect/validation": "1.0.4",
-    "mattketmo/camel": "1.1.0"
+    "respect/validation": "1.0.*",
+    "mattketmo/camel": "1.1.*",
+    "symfony/yaml" : "3.0.*"
   },
   "autoload": {
     "psr-0": {
       "LTDBeget\\sphinxConfigurator": "src"
+    },
+    "psr-4": {
+      "Dev\\": "dev"
     }
   }
 }

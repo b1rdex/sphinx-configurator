@@ -11,13 +11,11 @@ namespace LTDBeget\sphinx\informer;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\base\eSection;
 use LTDBeget\sphinx\enums\sections\eDefinition;
-
 use LTDBeget\sphinx\enums\sections\eSettings;
 use LTDBeget\sphinx\enums\eSphinxVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 use LTDBeget\sphinx\enums\options\eIndexOption;
-
 use LTDBeget\sphinx\enums\options\eSearchdOption;
 use LTDBeget\sphinx\enums\options\eSourceOption;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;

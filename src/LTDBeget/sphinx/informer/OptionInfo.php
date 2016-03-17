@@ -8,11 +8,9 @@
 namespace LTDBeget\sphinx\informer;
 
 
-
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\base\eSection;
 use LTDBeget\sphinx\enums\eSphinxVersion;
-
 
 /**
  * Class OptionInfo
@@ -49,6 +47,7 @@ final class OptionInfo
     }
 
     /**
+     * name of option
      * @return eOption
      */
     public function getName() : eOption
@@ -57,6 +56,7 @@ final class OptionInfo
     }
 
     /**
+     * in what section option store
      * @return eSection
      */
     public function getBlock() : eSection
@@ -74,6 +74,7 @@ final class OptionInfo
     }
 
     /**
+     * is Multi-value option (MVA)
      * @return boolean
      */
     public function isIsMultiValue() : bool
@@ -82,6 +83,7 @@ final class OptionInfo
     }
 
     /**
+     * Get description for option
      * @return string
      */
     public function getDescription() : string
@@ -90,6 +92,7 @@ final class OptionInfo
     }
 
     /**
+     * Get link on original documentation of option
      * @return string
      */
     public function getDocLink() : string

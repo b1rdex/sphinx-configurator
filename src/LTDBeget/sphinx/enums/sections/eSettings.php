@@ -23,5 +23,5 @@ final class eSettings extends eSection
 {
     const INDEXER = "indexer";
     const SEARCHD = "searchd";
-    const COMMON = "common";
+    const COMMON  = "common";
 }

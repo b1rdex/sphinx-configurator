@@ -25,5 +25,10 @@
     "psr-0": {
       "LTDBeget\\sphinx": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "LTDBeget\\dev": "src"
+    }
   }
 }

@@ -17,17 +17,17 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * multi-value, optional, default is empty
  * all xmlpipe_attr_XXX options are fully similar to sql_attr_XXX
  * examples:
- * 
- * xmlpipe_attr_timestamp	= published
- * xmlpipe_attr_uint	= author_id
- * xmlpipe_attr_bool	= is_enabled
- * xmlpipe_attr_float	= latitude
- * xmlpipe_attr_bigint	= guid
- * xmlpipe_attr_multi	= tags
- * xmlpipe_attr_multi_64	= tags64
- * xmlpipe_attr_string	= title
- * xmlpipe_attr_json	= extra_data
- * xmlpipe_field_string	= content
+ *
+ * xmlpipe_attr_timestamp    = published
+ * xmlpipe_attr_uint    = author_id
+ * xmlpipe_attr_bool    = is_enabled
+ * xmlpipe_attr_float    = latitude
+ * xmlpipe_attr_bigint    = guid
+ * xmlpipe_attr_multi    = tags
+ * xmlpipe_attr_multi_64    = tags64
+ * xmlpipe_attr_string    = title
+ * xmlpipe_attr_json    = extra_data
+ * xmlpipe_field_string    = content
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

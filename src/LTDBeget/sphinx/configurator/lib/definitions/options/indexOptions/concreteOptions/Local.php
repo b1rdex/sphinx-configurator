@@ -14,8 +14,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * Class Local
  * local index to be searched
  * there can be many local indexes configured
- * local			= test1
- * local			= test1stemmed
+ * local            = test1
+ * local            = test1stemmed
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

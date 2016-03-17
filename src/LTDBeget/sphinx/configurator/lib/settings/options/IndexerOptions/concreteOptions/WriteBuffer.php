@@ -18,7 +18,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  * write buffers are allocated in addition to mem_limit
  * optional, default is 1M
  *
- * write_buffer		= 1M
+ * write_buffer        = 1M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

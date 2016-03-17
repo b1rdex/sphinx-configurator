@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * persistenly connected remote agent
  * reduces connect() pressure, requires that workers IS threads
- * 
- * agent_persistent		= testbox:9312:testindex1,testindex2
+ *
+ * agent_persistent        = testbox:9312:testindex1,testindex2
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

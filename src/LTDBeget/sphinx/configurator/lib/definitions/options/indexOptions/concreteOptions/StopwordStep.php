@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * position increment on stopword
  * optional, allowed values are 0 and 1, default is 1
- * 
- * stopword_step		= 1
+ *
+ * stopword_step        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

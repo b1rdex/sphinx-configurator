@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * request timeout, seconds
  * optional, default is 5 minutes
- * client_timeout		= 300
+ * client_timeout        = 300
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

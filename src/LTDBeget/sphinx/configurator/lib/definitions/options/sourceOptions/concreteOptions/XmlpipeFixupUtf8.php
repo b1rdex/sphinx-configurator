@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * perform UTF-8 validation, and filter out incorrect codes
  * avoids XML parser choking on non-UTF-8 documents
  * optional, default is 0
- * 
- * xmlpipe_fixup_utf8	= 1
+ *
+ * xmlpipe_fixup_utf8    = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

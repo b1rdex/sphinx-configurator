@@ -17,7 +17,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * optional, default is 0, which means disable multi-threaded searching
  * should work with all MPMs (ie. does NOT require workers=threads)
  *
- * dist_threads		= 4
+ * dist_threads        = 4
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

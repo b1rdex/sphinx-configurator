@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * HA mirror agent strategy
  * optional, defaults to ??? (random mirror)
  * know values are nodeads, noerrors, roundrobin, nodeadstm, noerrorstm
- * 
- * ha_strategy				= nodeads
+ *
+ * ha_strategy                = nodeads
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

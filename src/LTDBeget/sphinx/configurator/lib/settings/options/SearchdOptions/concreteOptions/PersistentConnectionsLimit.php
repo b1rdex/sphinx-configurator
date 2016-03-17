@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * maximum amount of persistent connections from this master to each agent host
  * optional, but necessary if you use agent_persistent. It is reasonable to set the value
  * as max_children, or less on the agent's hosts.
- * persistent_connections_limit	= 30
+ * persistent_connections_limit    = 30
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

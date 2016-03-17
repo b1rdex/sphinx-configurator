@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * kill-list query, fetches the document IDs for kill-list
  * k-list will suppress matches from preceding indexes in the same query
  * optional, default is empty
- * 
- * sql_query_killlist	= SELECT id FROM documents WHERE edited>=@last_reindex
+ *
+ * sql_query_killlist    = SELECT id FROM documents WHERE edited>=@last_reindex
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

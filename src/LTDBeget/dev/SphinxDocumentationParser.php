@@ -24,7 +24,7 @@ final class SphinxDocumentationParser
      */
     public static function parseAll()
     {
-        foreach(self::$links as $version => $link) {
+        foreach (self::$links as $version => $link) {
             $parser = new SphinxDocumentationParser($link, $version);
             $parser->parse()->dump();
         }
@@ -36,22 +36,22 @@ final class SphinxDocumentationParser
      */
     private static $links = [
         "2.2.10" => "http://sphinxsearch.com/docs/current.html",
-        "2.2.8" => "http://sphinxsearch.com/docs/archives/manual-2.2.8.html",
-        "2.2.6" => "http://sphinxsearch.com/docs/archives/manual-2.2.6.html",
-        "2.2.5" => "http://sphinxsearch.com/docs/archives/manual-2.2.5.html",
-        "2.2.4" => "http://sphinxsearch.com/docs/archives/manual-2.2.4.html",
-        "2.2.3" => "http://sphinxsearch.com/docs/archives/manual-2.2.3.html",
-        "2.2.2" => "http://sphinxsearch.com/docs/archives/manual-2.2.2.html",
-        "2.2.1" => "http://sphinxsearch.com/docs/archives/manual-2.2.1.html",
-        "2.1.9" => "http://sphinxsearch.com/docs/archives/manual-2.1.9.html",
-        "2.1.8" => "http://sphinxsearch.com/docs/archives/manual-2.1.8.html",
-        "2.1.7" => "http://sphinxsearch.com/docs/archives/manual-2.1.7.html",
-        "2.1.6" => "http://sphinxsearch.com/docs/archives/manual-2.1.6.html",
-        "2.1.5" => "http://sphinxsearch.com/docs/archives/manual-2.1.5.html",
-        "2.1.4" => "http://sphinxsearch.com/docs/archives/manual-2.1.4.html",
-        "2.1.3" => "http://sphinxsearch.com/docs/archives/manual-2.1.3.html",
-        "2.1.2" => "http://sphinxsearch.com/docs/archives/manual-2.1.2.html",
-        "2.1.1" => "http://sphinxsearch.com/docs/archives/manual-2.1.1.html",
+        "2.2.8"  => "http://sphinxsearch.com/docs/archives/manual-2.2.8.html",
+        "2.2.6"  => "http://sphinxsearch.com/docs/archives/manual-2.2.6.html",
+        "2.2.5"  => "http://sphinxsearch.com/docs/archives/manual-2.2.5.html",
+        "2.2.4"  => "http://sphinxsearch.com/docs/archives/manual-2.2.4.html",
+        "2.2.3"  => "http://sphinxsearch.com/docs/archives/manual-2.2.3.html",
+        "2.2.2"  => "http://sphinxsearch.com/docs/archives/manual-2.2.2.html",
+        "2.2.1"  => "http://sphinxsearch.com/docs/archives/manual-2.2.1.html",
+        "2.1.9"  => "http://sphinxsearch.com/docs/archives/manual-2.1.9.html",
+        "2.1.8"  => "http://sphinxsearch.com/docs/archives/manual-2.1.8.html",
+        "2.1.7"  => "http://sphinxsearch.com/docs/archives/manual-2.1.7.html",
+        "2.1.6"  => "http://sphinxsearch.com/docs/archives/manual-2.1.6.html",
+        "2.1.5"  => "http://sphinxsearch.com/docs/archives/manual-2.1.5.html",
+        "2.1.4"  => "http://sphinxsearch.com/docs/archives/manual-2.1.4.html",
+        "2.1.3"  => "http://sphinxsearch.com/docs/archives/manual-2.1.3.html",
+        "2.1.2"  => "http://sphinxsearch.com/docs/archives/manual-2.1.2.html",
+        "2.1.1"  => "http://sphinxsearch.com/docs/archives/manual-2.1.1.html",
     ];
 
     /**
@@ -78,10 +78,10 @@ final class SphinxDocumentationParser
      */
     private function __construct(string $link, string $version)
     {
-        $this->link = $link;
+        $this->link                = $link;
         $this->parsedDocumentation = [];
-        $this->version = $version;
-        $this->document = new DOMDocument();
+        $this->version             = $version;
+        $this->document            = new DOMDocument();
         $this->document->loadHTML(file_get_contents($this->link));
     }
 
@@ -95,9 +95,9 @@ final class SphinxDocumentationParser
         $yaml = $dumper->dump($this->parsedDocumentation, 4);
 
         $content = "";
-        $content .= "# automatically generated from sphinx documentation".PHP_EOL;
-        $content .= "# version of documentation: {$this->version}".PHP_EOL;
-        $content .= "# link on documentation: $this->link".PHP_EOL;
+        $content .= "# automatically generated from sphinx documentation" . PHP_EOL;
+        $content .= "# version of documentation: {$this->version}" . PHP_EOL;
+        $content .= "# link on documentation: $this->link" . PHP_EOL;
         $content .= $yaml;
 
         file_put_contents($this->getFileName(), $content);
@@ -109,7 +109,7 @@ final class SphinxDocumentationParser
      */
     private function getFileName() : string
     {
-        return $this->getPath()."/documentation_{$this->version}.yaml";
+        return $this->getPath() . "/documentation_{$this->version}.yaml";
     }
 
     /**
@@ -118,7 +118,7 @@ final class SphinxDocumentationParser
      */
     private function getPath() : string
     {
-        return realpath(__DIR__."../../../sphinx/docs");
+        return realpath(__DIR__ . "../../../sphinx/docs");
     }
 
     /**
@@ -127,28 +127,28 @@ final class SphinxDocumentationParser
     private function parse() : SphinxDocumentationParser
     {
         $nodes = $this->document->getElementsByTagName("a");
-        foreach($nodes as $node) {
-            if(!($node instanceof DOMElement)) {
+        foreach ($nodes as $node) {
+            if (!($node instanceof DOMElement)) {
                 continue;
             }
 
-            if($this->isSource($node)) {
+            if ($this->isSource($node)) {
                 $this->parsedDocumentation["source"] = $this->parseSourceOptions($node);
             }
 
-            if($this->isIndex($node)) {
+            if ($this->isIndex($node)) {
                 $this->parsedDocumentation["index"] = $this->parseSourceOptions($node);
             }
 
-            if($this->isIndexer($node)) {
+            if ($this->isIndexer($node)) {
                 $this->parsedDocumentation["indexer"] = $this->parseSourceOptions($node);
             }
 
-            if($this->isSearchd($node)) {
+            if ($this->isSearchd($node)) {
                 $this->parsedDocumentation["searchd"] = $this->parseSourceOptions($node);
             }
 
-            if($this->isCommon($node)) {
+            if ($this->isCommon($node)) {
                 $this->parsedDocumentation["common"] = $this->parseSourceOptions($node);
             }
         }
@@ -209,13 +209,13 @@ final class SphinxDocumentationParser
     private function parseSourceOptions(DOMElement $element) : array
     {
         $source_array = [];
-        $sourceBlock = $element->parentNode->parentNode->parentNode->parentNode->parentNode;
-        foreach($sourceBlock->childNodes as $optionNode) {
-            if(!($optionNode instanceof DOMElement)) {
+        $sourceBlock  = $element->parentNode->parentNode->parentNode->parentNode->parentNode;
+        foreach ($sourceBlock->childNodes as $optionNode) {
+            if (!($optionNode instanceof DOMElement)) {
                 continue;
             }
 
-            if($this->isSect2Element($optionNode)) {
+            if ($this->isSect2Element($optionNode)) {
                 $source_array = array_merge($this->parseOptionNode($optionNode), $source_array);
             }
 
@@ -236,13 +236,13 @@ final class SphinxDocumentationParser
         $options_array = [];
 
         $option_names = $this->getOptionNames($element->firstChild);
-        $link_anchor = $this->getLinkTag($element);
-        $description = $this->getDescription($element);
+        $link_anchor  = $this->getLinkTag($element);
+        $description  = $this->getDescription($element);
         $isMultiValue = $this->isMultiValue($description);
 
-        foreach($option_names as $option_name) {
+        foreach ($option_names as $option_name) {
             $options_array[$option_name] = [
-                "link" => $this->link.$link_anchor,
+                "link"        => $this->link . $link_anchor,
                 "multi_value" => $isMultiValue,
                 "description" => $description
             ];
@@ -275,13 +275,13 @@ final class SphinxDocumentationParser
     private function getLinkTag(DOMElement $element) : string
     {
         $link_tag = null;
-        foreach($element->childNodes as $optionContent) {
-            if(!($optionContent instanceof DOMElement)) {
+        foreach ($element->childNodes as $optionContent) {
+            if (!($optionContent instanceof DOMElement)) {
                 continue;
             }
 
-            if($this->isTitlePage($optionContent)) {
-                $link_tag = "#".$optionContent
+            if ($this->isTitlePage($optionContent)) {
+                $link_tag = "#" . $optionContent
                         ->firstChild
                         ->firstChild
                         ->firstChild
@@ -290,7 +290,7 @@ final class SphinxDocumentationParser
             }
 
         }
-        if(is_null($link_tag)) {
+        if (is_null($link_tag)) {
             throw new \Exception("Couldn't parse link anchor");
         }
 
@@ -305,6 +305,7 @@ final class SphinxDocumentationParser
     private function getDescription(DOMElement $element) : string
     {
         $this->removeTitlePage($element);
+
         return trim($element->nodeValue);
     }
 
@@ -315,8 +316,9 @@ final class SphinxDocumentationParser
      */
     private function isMultiValue(string $description) : bool
     {
-        $description = strtolower($description);
+        $description  = strtolower($description);
         $match_result = (bool) preg_match("/multi-value/", $description);
+
         return $match_result;
     }
 
@@ -326,8 +328,8 @@ final class SphinxDocumentationParser
      */
     private function removeTitlePage(DOMElement $element)
     {
-        foreach($element->childNodes as $optionContent) {
-            if($this->isTitlePage($optionContent)) {
+        foreach ($element->childNodes as $optionContent) {
+            if ($this->isTitlePage($optionContent)) {
                 $element->removeChild($optionContent);
             }
         }

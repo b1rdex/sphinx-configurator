@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  *
  * memory limit, in bytes, kilobytes (16384K) or megabytes (256M)
  * optional, default is 128M, max is 2047M, recommended is 256M to 1024M
- * mem_limit		= 128M
+ * mem_limit        = 128M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

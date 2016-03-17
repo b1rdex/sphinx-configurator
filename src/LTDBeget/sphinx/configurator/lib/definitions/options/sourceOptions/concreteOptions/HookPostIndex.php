@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * hook command to run on successful indexing completion
  * $maxid expands to max document ID actually fetched from DB
  * optional, default value is empty (do nothing)
- * 
- * hook_post_index		= bash sql_post_index.sh $maxid
+ *
+ * hook_post_index        = bash sql_post_index.sh $maxid
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

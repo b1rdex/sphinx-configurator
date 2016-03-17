@@ -16,26 +16,26 @@ use LTDBeget\sphinx\enums\base\Enum;
  *
  * @package LTDBeget\sphinx\informer\enums
  *
- * @method static eSphinxVersion V_2_1_1()
- * @method static eSphinxVersion V_2_1_2()
- * @method static eSphinxVersion V_2_1_3()
- * @method static eSphinxVersion V_2_1_4()
- * @method static eSphinxVersion V_2_1_5()
- * @method static eSphinxVersion V_2_1_6()
- * @method static eSphinxVersion V_2_1_7()
- * @method static eSphinxVersion V_2_1_8()
- * @method static eSphinxVersion V_2_1_9()
- * @method static eSphinxVersion V_2_2_1()
- * @method static eSphinxVersion V_2_2_2()
- * @method static eSphinxVersion V_2_2_3()
- * @method static eSphinxVersion V_2_2_4()
- * @method static eSphinxVersion V_2_2_5()
- * @method static eSphinxVersion V_2_2_6()
- * @method static eSphinxVersion V_2_2_8()
- * @method static eSphinxVersion V_2_2_10()
+ * @method static eVersion V_2_1_1()
+ * @method static eVersion V_2_1_2()
+ * @method static eVersion V_2_1_3()
+ * @method static eVersion V_2_1_4()
+ * @method static eVersion V_2_1_5()
+ * @method static eVersion V_2_1_6()
+ * @method static eVersion V_2_1_7()
+ * @method static eVersion V_2_1_8()
+ * @method static eVersion V_2_1_9()
+ * @method static eVersion V_2_2_1()
+ * @method static eVersion V_2_2_2()
+ * @method static eVersion V_2_2_3()
+ * @method static eVersion V_2_2_4()
+ * @method static eVersion V_2_2_5()
+ * @method static eVersion V_2_2_6()
+ * @method static eVersion V_2_2_8()
+ * @method static eVersion V_2_2_10()
  *
  */
-final class eSphinxVersion extends Enum
+final class eVersion extends Enum
 {
     const V_2_1_1  = "2.1.1";
     const V_2_1_2  = "2.1.2";

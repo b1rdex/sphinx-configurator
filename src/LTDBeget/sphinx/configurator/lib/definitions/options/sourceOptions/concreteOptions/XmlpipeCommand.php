@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * shell command to invoke xmlpipe stream producer
  * mandatory
- * 
- * xmlpipe_command		= cat /var/lib/sphinxsearch/test.xml
+ *
+ * xmlpipe_command        = cat /var/lib/sphinxsearch/test.xml
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

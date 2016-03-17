@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * n-gram length to index, for CJK indexing
  * only supports 0 and 1 for now, other lengths to be implemented
  * optional, default is 0 (disable n-grams)
- * 
- * ngram_len		= 1
+ *
+ * ngram_len        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

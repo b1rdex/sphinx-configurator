@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * max allowed network packet size
  * limits both query packets from clients, and responses from agents
  * optional, default size is 8M
- * max_packet_size		= 8M
+ * max_packet_size        = 8M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

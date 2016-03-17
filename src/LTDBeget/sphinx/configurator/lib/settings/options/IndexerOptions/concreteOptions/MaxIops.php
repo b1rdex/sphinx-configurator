@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  * maximum IO calls per second (for I/O throttling)
  * optional, default is 0 (unlimited)
  *
- * max_iops		= 40
+ * max_iops        = 40
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

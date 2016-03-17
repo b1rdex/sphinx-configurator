@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * ranged query throttling, in milliseconds
  * optional, default is 0 which means no delay
  * enforces given delay before each query step
- * sql_ranged_throttle	= 0
+ * sql_ranged_throttle    = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

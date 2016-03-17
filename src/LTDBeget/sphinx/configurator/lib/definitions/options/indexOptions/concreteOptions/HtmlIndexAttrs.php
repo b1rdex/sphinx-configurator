@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * what HTML attributes to index if stripping HTML
  * optional, default is empty (do not index anything)
- * 
- * html_index_attrs	= img=alt,title; a=title;
+ *
+ * html_index_attrs    = img=alt,title; a=title;
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

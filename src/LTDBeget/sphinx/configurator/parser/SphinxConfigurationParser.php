@@ -17,6 +17,48 @@ use LTDBeget\sphinx\configurator\exceptions\SyntaxErrorException;
 final class SphinxConfigurationParser
 {
     /**
+     * @var SphinxConfigurationParser
+     */
+    private static $instance = null;
+    /**
+     * config data as it is
+     * @var string
+     */
+    private $originalData;
+    /**
+     * Spited by chars plain string
+     * @var array
+     */
+    private $data = null;
+    /**
+     * Storage of parsed result as array
+     * @var array
+     */
+    private $parsedData = [];
+    /**
+     * temporary storage of parsed data for one options block
+     * @var array
+     */
+    private $currentNode = [
+        "type"        => "",
+        "name"        => "",
+        "inheritance" => "",
+        "options"     => []
+    ];
+    /**
+     * temporary storage of parsed data for one option
+     * @var array
+     */
+    private $currentOption = [
+        "name"  => "",
+        "value" => ""
+    ];
+
+    private function __construct()
+    {
+    }
+
+    /**
      * @param string $plainData
      * @return array
      */
@@ -33,6 +75,26 @@ final class SphinxConfigurationParser
     }
 
     /**
+     * @return SphinxConfigurationParser
+     */
+    private static function getInstance() : SphinxConfigurationParser
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * @return array
+     */
+    private function getParsedData() : array
+    {
+        return $this->parsedData;
+    }
+
+    /**
      * parsing of nodes in config (source, index, indexer, searchd, common)
      * @return SphinxConfigurationParser
      */
@@ -40,7 +102,7 @@ final class SphinxConfigurationParser
     {
         start:
         $ord = current($this->data);
-        if(! $this->isEndFile($ord)) {
+        if (!$this->isEndFile($ord)) {
             $this->extractNode();
             $this->saveCurrentNode();
             $this->clearTemporaryStorage();
@@ -49,6 +111,17 @@ final class SphinxConfigurationParser
         }
 
         return $this;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isEndFile(int $ord) : bool
+    {
+        return $ord == 0;
     }
 
     /**
@@ -80,6 +153,20 @@ final class SphinxConfigurationParser
     }
 
     /**
+     * format of node
+     * @return array
+     */
+    private function getEmptyNodeData() : array
+    {
+        return [
+            "type"        => "",
+            "name"        => "",
+            "inheritance" => "",
+            "options"     => []
+        ];
+    }
+
+    /**
      * parsing type of node in config (source, index, indexer, searchd, common)
      * @throws SyntaxErrorException
      */
@@ -100,6 +187,94 @@ final class SphinxConfigurationParser
     }
 
     /**
+     * ignore all spaces and ends line
+     */
+    private function ignoreSpaceAndEndLine()
+    {
+        start:
+        $ord = current($this->data);
+
+        if ($this->isEndLine($ord) || $this->isSpace($ord) || $this->isTabulation($ord) || $this->isTabulation($ord)) {
+            next($this->data);
+            goto start;
+        }
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isEndLine(int $ord) : bool
+    {
+        return $ord == 10;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isSpace(int $ord) : bool
+    {
+        return $ord == 32;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isTabulation(int $ord) : bool
+    {
+        return $ord == 9;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isLetter(int $ord) : bool
+    {
+        return ($ord >= 65 && $ord <= 90) || ($ord >= 97 && $ord <= 122);
+    }
+
+    private function throwSyntaxErrorException()
+    {
+        print_r($this->parsedData);
+        print_r($this->currentNode);
+        throw new SyntaxErrorException(
+            chr(current($this->data)),
+            $this->originalData,
+            $this->getParseErrorLineNumber()
+        );
+    }
+
+    /**
+     * @return int
+     */
+    private function getParseErrorLineNumber() : int
+    {
+        $parse_error_char_position = key($this->data);
+        $plain_data                = pack('c*', ...$this->data);
+        $exploded_by_lines         = explode("\n", $plain_data);
+        foreach ($exploded_by_lines as $key => $line) {
+            $line_length = strlen($line) + 1;
+            $parse_error_char_position -= $line_length;
+            if ($parse_error_char_position < 0) {
+                return $key + 1;
+            }
+        }
+
+        return 1;
+    }
+
+    /**
      * parsing name of source or index
      * @throws SyntaxErrorException
      */
@@ -115,12 +290,60 @@ final class SphinxConfigurationParser
             goto start;
         } elseif ($this->isSpace($ord) || $this->isTabulation($ord) || $this->isEndLine($ord) || $this->isEndFile($ord)) {
             return;
-        } elseif($this->isColon($ord)){
+        } elseif ($this->isColon($ord)) {
             prev($this->data);
+
             return;
         } else {
             $this->throwSyntaxErrorException();
         }
+    }
+
+    /**
+     * ignore all spaces in line
+     */
+    private function ignoreSpace()
+    {
+        start:
+        $ord = current($this->data);
+
+        if ($this->isSpace($ord) || $this->isTabulation($ord)) {
+            next($this->data);
+            goto start;
+        }
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isDigit(int $ord) : bool
+    {
+        return $ord >= 48 && $ord <= 57;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isUnderscore(int $ord) : bool
+    {
+        return $ord == 95;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isColon(int $ord) : bool
+    {
+        return $ord == 58;
     }
 
     /**
@@ -141,7 +364,7 @@ final class SphinxConfigurationParser
                 goto start;
             } elseif ($this->isEndLine($ord)) {
                 return;
-            } elseif($this->isSpace($ord) || $this->isTabulation($ord)) {
+            } elseif ($this->isSpace($ord) || $this->isTabulation($ord)) {
                 goto start;
             } else {
                 $this->throwSyntaxErrorException();
@@ -164,6 +387,7 @@ final class SphinxConfigurationParser
             $ord = current($this->data);
             if ($this->isCloseBrace($ord)) {
                 next($this->data);
+
                 return;
             }
             $this->extractOption();
@@ -171,6 +395,28 @@ final class SphinxConfigurationParser
         } else {
             $this->throwSyntaxErrorException();
         }
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isOpenBrace(int $ord) : bool
+    {
+        return $ord == 123;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isCloseBrace(int $ord) : bool
+    {
+        return $ord == 125;
     }
 
     /**
@@ -184,6 +430,18 @@ final class SphinxConfigurationParser
         $this->extractOptionValue();
 
         $this->currentNode["options"][] = $this->currentOption;
+    }
+
+    /**
+     * format of option
+     * @return array
+     */
+    private function getEmptyOptionData() : array
+    {
+        return [
+            "name"  => "",
+            "value" => ""
+        ];
     }
 
     /**
@@ -228,8 +486,8 @@ final class SphinxConfigurationParser
         next($this->data);
 
         if ($this->isMeanSymbol($ord)) {
-            if($this->isBackslash($ord)) { // if possibility of multi-line
-                if($this->isEndLine(current($this->data))) { // multi-line opened
+            if ($this->isBackslash($ord)) { // if possibility of multi-line
+                if ($this->isEndLine(current($this->data))) { // multi-line opened
                     next($this->data); // ignore end line
                     $this->ignoreSpace();
                     goto start;
@@ -250,74 +508,45 @@ final class SphinxConfigurationParser
     }
 
     /**
-     * @return SphinxConfigurationParser
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
      */
-    private static function getInstance() : SphinxConfigurationParser
+    private function isEqualSign(int $ord) : bool
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
+        return $ord == 61;
     }
 
-    private function __construct(){}
-    private function __clone(){}
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isMeanSymbol(int $ord) : bool
+    {
+        return $ord > 31;
+    }
+
+    /**
+     * for understanding see link
+     * @link http://www.asciitable.com/
+     * @param int $ord
+     * @return bool
+     */
+    private function isBackslash(int $ord) : bool
+    {
+        return $ord == 92;
+    }
 
     /**
      * saves current parsed data from temporary storage to parsed data
      */
     private function saveCurrentNode()
     {
-        $this->currentNode = array_filter($this->currentNode);
+        $this->currentNode  = array_filter($this->currentNode);
         $this->parsedData[] = $this->currentNode;
-    }
-
-    /**
-     * @return array
-     */
-    private function getParsedData() : array
-    {
-        return $this->parsedData;
-    }
-
-    /**
-     * format of node
-     * @return array
-     */
-    private function getEmptyNodeData() : array
-    {
-        return [
-            "type"        => "",
-            "name"        => "",
-            "inheritance" => "",
-            "options"     => []
-        ];
-    }
-
-    /**
-     * format of option
-     * @return array
-     */
-    private function getEmptyOptionData() : array
-    {
-        return [
-            "name"  => "",
-            "value" => ""
-        ];
-    }
-
-    /**
-     * clear parsed and plain data
-     * @return SphinxConfigurationParser
-     */
-    private function clear() : SphinxConfigurationParser
-    {
-        $this->originalData = null;
-        $this->data         = null;
-        $this->parsedData   = [];
-
-        return $this;
     }
 
     /**
@@ -340,10 +569,21 @@ final class SphinxConfigurationParser
     private function defineData(string $data) : SphinxConfigurationParser
     {
         $this->originalData = $data;
-        $this->data = $data;
+        $this->data         = $data;
         $this
             ->removeComments()
             ->splitData();
+
+        return $this;
+    }
+
+    /**
+     * split plain data to array of ords
+     * @return SphinxConfigurationParser
+     */
+    private function splitData() : SphinxConfigurationParser
+    {
+        $this->data = unpack('C*', $this->data);
 
         return $this;
     }
@@ -360,257 +600,19 @@ final class SphinxConfigurationParser
     }
 
     /**
-     * split plain data to array of ords
+     * clear parsed and plain data
      * @return SphinxConfigurationParser
      */
-    private function splitData() : SphinxConfigurationParser
+    private function clear() : SphinxConfigurationParser
     {
-        $this->data = unpack('C*', $this->data);
+        $this->originalData = null;
+        $this->data         = null;
+        $this->parsedData   = [];
 
         return $this;
     }
 
-    private function throwSyntaxErrorException()
+    private function __clone()
     {
-        print_r($this->parsedData);
-        print_r($this->currentNode);
-        throw new SyntaxErrorException(
-            chr(current($this->data)),
-            $this->originalData,
-            $this->getParseErrorLineNumber()
-        );
     }
-
-    /**
-     * @return int
-     */
-    private function getParseErrorLineNumber() : int
-    {
-        $parse_error_char_position = key($this->data);
-        $plain_data = pack('c*', ...$this->data);
-        $exploded_by_lines = explode("\n", $plain_data);
-        foreach($exploded_by_lines as $key => $line) {
-            $line_length = strlen($line)+1;
-            $parse_error_char_position -= $line_length;
-            if($parse_error_char_position < 0) {
-                return $key + 1;
-            }
-        }
-        return 1;
-    }
-
-    /**
-     * ignore all spaces and ends line
-     */
-    private function ignoreSpaceAndEndLine()
-    {
-        start:
-        $ord = current($this->data);
-
-        if ($this->isEndLine($ord) || $this->isSpace($ord) || $this->isTabulation($ord) || $this->isTabulation($ord)) {
-            next($this->data);
-            goto start;
-        }
-    }
-
-    /**
-     * ignore all spaces in line
-     */
-    private function ignoreSpace()
-    {
-        start:
-        $ord = current($this->data);
-
-        if ($this->isSpace($ord) || $this->isTabulation($ord)) {
-            next($this->data);
-            goto start;
-        }
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isMeanSymbol(int $ord) : bool
-    {
-        return $ord > 31;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isSpace(int $ord) : bool
-    {
-        return $ord == 32;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isTabulation(int $ord) : bool
-    {
-        return $ord == 9;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isEndLine(int $ord) : bool
-    {
-        return $ord == 10;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isEndFile(int $ord) : bool
-    {
-        return $ord == 0;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isDigit(int $ord) : bool
-    {
-        return $ord >= 48 && $ord <= 57;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isLetter(int $ord) : bool
-    {
-        return ($ord >= 65 && $ord <= 90) || ($ord >= 97 && $ord <= 122);
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isColon(int $ord) : bool
-    {
-        return $ord == 58;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isOpenBrace(int $ord) : bool
-    {
-        return $ord == 123;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isCloseBrace(int $ord) : bool
-    {
-        return $ord == 125;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isUnderscore(int $ord) : bool
-    {
-        return $ord == 95;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isEqualSign(int $ord) : bool
-    {
-        return $ord == 61;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isBackslash(int $ord) : bool
-    {
-        return $ord == 92;
-    }
-
-    /**
-     * @var SphinxConfigurationParser
-     */
-    private static $instance = null;
-
-
-    /**
-     * config data as it is
-     * @var string
-     */
-    private $originalData;
-
-    /**
-     * Spited by chars plain string
-     * @var array
-     */
-    private $data = null;
-
-    /**
-     * Storage of parsed result as array
-     * @var array
-     */
-    private $parsedData = [];
-
-    /**
-     * temporary storage of parsed data for one options block
-     * @var array
-     */
-    private $currentNode = [
-        "type"        => "",
-        "name"        => "",
-        "inheritance" => "",
-        "options"     => []
-    ];
-
-    /**
-     * temporary storage of parsed data for one option
-     * @var array
-     */
-    private $currentOption = [
-        "name"  => "",
-        "value" => ""
-    ];
 }

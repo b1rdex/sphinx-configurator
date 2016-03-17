@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * PID file, searchd process ID file name
  * mandatory
- * pid_file		= /var/run/sphinxsearch/searchd.pid
+ * pid_file        = /var/run/sphinxsearch/searchd.pid
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

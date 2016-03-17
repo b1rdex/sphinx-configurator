@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * whether to index original keywords along with stemmed versions
  * enables "=exactform" operator to work
  * optional, default is 0
- * 
- * index_exact_words	= 1
+ *
+ * index_exact_words    = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

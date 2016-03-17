@@ -1,0 +1,19 @@
+<?php
+/**
+ * automatically generated from sphinx documentation
+ */
+
+namespace LTDBeget\sphinx\enums\options;
+
+
+use LTDBeget\sphinx\enums\base\eOption;
+
+/**
+ * Class {{CLASS_NAME}}
+ * @package LTDBeget\sphinx\informer\enums\options
+{{MAGIC_METHODS}}
+ */
+final class {{CLASS_NAME}} extends eOption
+{
+{{CONSTANTS}}
+}

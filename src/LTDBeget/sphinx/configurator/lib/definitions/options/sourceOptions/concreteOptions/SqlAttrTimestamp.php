@@ -16,10 +16,10 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * UNIX timestamp attribute declaration
  * multi-value (an arbitrary number of attributes is allowed), optional
  * similar to integer, but can also be used in date functions
- * 
- * sql_attr_timestamp	= posted_ts
- * sql_attr_timestamp	= last_edited_ts
- * sql_attr_timestamp	= date_added
+ *
+ * sql_attr_timestamp    = posted_ts
+ * sql_attr_timestamp    = last_edited_ts
+ * sql_attr_timestamp    = date_added
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

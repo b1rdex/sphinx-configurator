@@ -15,9 +15,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * ODBC specific DSN (data source name)
  * mandatory for odbc source type, no default value
- * 
- * odbc_dsn		= DBQ=C:\data;DefaultDir=C:\data;Driver={Microsoft Text Driver (*.txt; *.csv)};
- * sql_query		= SELECT id, data FROM documents.csv
+ *
+ * odbc_dsn        = DBQ=C:\data;DefaultDir=C:\data;Driver={Microsoft Text Driver (*.txt; *.csv)};
+ * sql_query        = SELECT id, data FROM documents.csv
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

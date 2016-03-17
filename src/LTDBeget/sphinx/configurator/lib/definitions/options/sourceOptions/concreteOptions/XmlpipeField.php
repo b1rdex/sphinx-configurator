@@ -15,9 +15,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * xmlpipe2 field declaration
  * multi-value, optional, default is empty
- * 
- * xmlpipe_field		= subject
- * xmlpipe_field		= content
+ *
+ * xmlpipe_field        = subject
+ * xmlpipe_field        = content
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

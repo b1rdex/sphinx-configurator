@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * maximum unpacked length allowed in MySQL COMPRESS() unpacker
  * optional, default is 16M
- * 
- * unpack_mysqlcompress_maxsize	= 16M
+ *
+ * unpack_mysqlcompress_maxsize    = 16M
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

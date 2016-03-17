@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * document attribute values (docinfo) storage mode
  * optional, default is 'extern'
  * known values are 'none', 'extern' and 'inline'
- * docinfo			= extern
+ * docinfo            = extern
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

@@ -10,7 +10,7 @@ namespace LTDBeget\sphinx\informer;
 
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\base\eSection;
-use LTDBeget\sphinx\enums\eSphinxVersion;
+use LTDBeget\sphinx\enums\eVersion;
 
 /**
  * Class OptionInfo
@@ -23,7 +23,7 @@ final class OptionInfo
      * OptionInfo constructor.
      * @param eOption $name
      * @param eSection $block
-     * @param eSphinxVersion $version
+     * @param eVersion $version
      * @param string $description
      * @param bool $isMultiValue
      * @param string $docLink
@@ -31,18 +31,18 @@ final class OptionInfo
     public function __construct(
         eOption $name,
         eSection $block,
-        eSphinxVersion $version,
+        eVersion $version,
         string $description,
         bool $isMultiValue,
         string $docLink
     )
     {
-        $this->name = $name;
-        $this->block = $block;
-        $this->version = $version;
-        $this->description = $description;
+        $this->name         = $name;
+        $this->block        = $block;
+        $this->version      = $version;
+        $this->description  = $description;
         $this->isMultiValue = $isMultiValue;
-        $this->docLink = $docLink;
+        $this->docLink      = $docLink;
 
     }
 
@@ -66,9 +66,9 @@ final class OptionInfo
 
     /**
      * Version of documentation info
-     * @return eSphinxVersion
+     * @return eVersion
      */
-    public function getVersion() : eSphinxVersion
+    public function getVersion() : eVersion
     {
         return $this->version;
     }
@@ -111,7 +111,7 @@ final class OptionInfo
     private $block;
 
     /**
-     * @var eSphinxVersion
+     * @var eVersion
      */
     private $version;
 

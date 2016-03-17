@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * preprended to file names when generating snippets using load_files option
  * WARNING, this is a prefix (not a path), trailing slash matters!
  * optional, default is empty
- * 
- * snippets_file_prefix	= /mnt/mydocs/server1
+ *
+ * snippets_file_prefix    = /mnt/mydocs/server1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

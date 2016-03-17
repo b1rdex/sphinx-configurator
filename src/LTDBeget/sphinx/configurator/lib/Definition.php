@@ -8,8 +8,8 @@
 namespace LTDBeget\sphinx\configurator\lib;
 
 
-use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
 use LTDBeget\sphinx\configurator\Configuration;
+use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
 
 abstract class Definition
 {
@@ -37,8 +37,8 @@ abstract class Definition
      */
     public function __construct(Configuration $sphinxConfiguration, string $name, string $inheritanceName = null)
     {
-        $this->name = $name;
-        $this->inheritanceName = $inheritanceName;
+        $this->name                = $name;
+        $this->inheritanceName     = $inheritanceName;
         $this->sphinxConfiguration = $sphinxConfiguration;
     }
 
@@ -65,7 +65,7 @@ abstract class Definition
      */
     public function getInheritanceName() : string
     {
-        if(! $this->isHasInheritance()) {
+        if (!$this->isHasInheritance()) {
             throw new NotFoundException("There are no inheritance definition");
         }
 
@@ -88,9 +88,10 @@ abstract class Definition
     {
         $string = "{$this->getType()} {$this->getName()}";
 
-        if($this->isHasInheritance()) {
-            $string .= " : ".$this->getInheritanceName();
+        if ($this->isHasInheritance()) {
+            $string .= " : " . $this->getInheritanceName();
         }
+
         return $string;
     }
 

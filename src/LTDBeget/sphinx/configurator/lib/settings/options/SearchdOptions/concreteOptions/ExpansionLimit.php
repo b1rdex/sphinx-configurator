@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * per-keyword expansion limit (for dict=keywords prefix searches)
  * optional, default is 0 (no limit)
  *
- * expansion_limit		= 1000
+ * expansion_limit        = 1000
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

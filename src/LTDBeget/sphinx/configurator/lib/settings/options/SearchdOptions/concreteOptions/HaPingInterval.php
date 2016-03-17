@@ -17,7 +17,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * 0 means disable pings
  * optional, default is 1000
  *
- * ha_ping_interval		= 0
+ * ha_ping_interval        = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

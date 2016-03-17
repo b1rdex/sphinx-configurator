@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * binlog files path; use empty string to disable binlog
  * optional, default is build-time configured data directory
  *
- * binlog_path		= /var/lib/sphinxsearch/data # binlog.001 etc will be created there
+ * binlog_path        = /var/lib/sphinxsearch/data # binlog.001 etc will be created there
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

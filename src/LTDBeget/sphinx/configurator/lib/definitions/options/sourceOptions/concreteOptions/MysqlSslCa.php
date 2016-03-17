@@ -15,10 +15,10 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * MySQL specific SSL certificate settings
  * optional, defaults are empty
- * 
- * mysql_ssl_cert		= /etc/ssl/client-cert.pem
- * mysql_ssl_key		= /etc/ssl/client-key.pem
- * mysql_ssl_ca		= /etc/ssl/cacert.pem
+ *
+ * mysql_ssl_cert        = /etc/ssl/client-cert.pem
+ * mysql_ssl_key        = /etc/ssl/client-key.pem
+ * mysql_ssl_ca        = /etc/ssl/cacert.pem
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

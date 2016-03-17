@@ -33,12 +33,12 @@ class IndexDefinition extends Definition
      */
     public function addOption(IndexOption $option) : IndexDefinition
     {
-        if($option->getIndex() !== $this) {
+        if ($option->getIndex() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
 
-        if($option->isMultiValue()) {
-            if(! array_key_exists($option->getName(), $this->options)) {
+        if ($option->isMultiValue()) {
+            if (!array_key_exists($option->getName(), $this->options)) {
                 $this->options[$option->getName()] = [];
             }
 
@@ -55,7 +55,7 @@ class IndexDefinition extends Definition
      */
     public function getOptionAppender() : IndexOptionAppender
     {
-        if(is_null($this->optionAppender)) {
+        if (is_null($this->optionAppender)) {
             $this->optionAppender = new IndexOptionAppender($this);
         }
 
@@ -67,19 +67,19 @@ class IndexDefinition extends Definition
      */
     public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if($option instanceof IndexOption) {
-                if($option->isDeleted()) {
+        foreach ($this->options as $option) {
+            if ($option instanceof IndexOption) {
+                if ($option->isDeleted()) {
                     continue;
                 }
                 yield $option;
             }
-            if(is_array($option)) {
-                foreach($option as $multiOption) {
+            if (is_array($option)) {
+                foreach ($option as $multiOption) {
                     /**
                      * @var IndexOption $multiOption
                      */
-                    if($multiOption->isDeleted()) {
+                    if ($multiOption->isDeleted()) {
                         continue;
                     }
                     yield $multiOption;
@@ -94,8 +94,8 @@ class IndexDefinition extends Definition
      */
     public function getInheritanceIndex() : IndexDefinition
     {
-        foreach($this->getConfiguration()->iterateIndex() as $index) {
-            if($index->getName() === $this->getInheritanceName()) {
+        foreach ($this->getConfiguration()->iterateIndex() as $index) {
+            if ($index->getName() === $this->getInheritanceName()) {
                 return $index;
             }
         }
@@ -108,8 +108,8 @@ class IndexDefinition extends Definition
      */
     public function validate() : bool
     {
-        foreach($this->iterateOptions() as $option) {
-            if(! $option->validate()) {
+        foreach ($this->iterateOptions() as $option) {
+            if (!$option->validate()) {
                 return false;
             }
         }

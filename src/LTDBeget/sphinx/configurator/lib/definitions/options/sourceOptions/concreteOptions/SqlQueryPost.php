@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * post-query, executed on sql_query completion
  * optional, default is empty
- * 
- * sql_query_post		=
+ *
+ * sql_query_post        =
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

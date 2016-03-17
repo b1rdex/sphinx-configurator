@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * in-place fine-tuning options
  * optional, defaults are listed below
  * preallocated docinfo gap size
- * 
- * inplace_docinfo_gap	= 0
+ *
+ * inplace_docinfo_gap    = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * phrase boundary characters list
  * optional, default is empty
- * 
- * phrase_boundary		= ., ?, !, U+2026 horizontal ellipsis
+ *
+ * phrase_boundary        = ., ?, !, U+2026 horizontal ellipsis
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

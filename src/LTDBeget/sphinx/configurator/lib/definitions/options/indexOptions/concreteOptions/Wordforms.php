@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * wordforms file, in "mapfrom > mapto" plain text format
  * optional, default is empty
- * 
- * wordforms		= /var/lib/sphinxsearch/data/wordforms.txt
+ *
+ * wordforms        = /var/lib/sphinxsearch/data/wordforms.txt
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

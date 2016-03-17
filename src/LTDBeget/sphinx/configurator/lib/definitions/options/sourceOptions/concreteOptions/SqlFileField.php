@@ -14,14 +14,14 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * Class SqlFileField
  *
  * file based field declaration
- * 
+ *
  * content of this field is treated as a file name
  * and the file gets loaded and indexed in place of a field
- * 
+ *
  * max file size is limited by max_file_field_buffer indexer setting
  * file IO errors are non-fatal and get reported as warnings
- * 
- * sql_file_field		= content_file_path
+ *
+ * sql_file_field        = content_file_path
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

@@ -8,8 +8,6 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions;
 
 
-
-
 use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOption;
 
 /**
@@ -18,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * threaded server watchdog (only used in workers=threads mode)
  * optional, values are 0 and 1, default is 1 (watchdog on)
  *
- * watchdog				= 1
+ * watchdog                = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

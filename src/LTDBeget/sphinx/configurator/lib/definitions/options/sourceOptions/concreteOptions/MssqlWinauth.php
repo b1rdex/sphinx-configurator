@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * MS SQL specific Windows authentication mode flag
  * MUST be in sync with charset_type index-level setting
  * optional, default is 0
- * 
- * mssql_winauth		= 1
+ *
+ * mssql_winauth        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

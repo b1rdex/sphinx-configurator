@@ -15,10 +15,10 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * columns to unpack on indexer side when indexing
  * multi-value, optional, default is empty list
- * 
- * unpack_zlib		= zlib_column
- * unpack_mysqlcompress	= compressed_column
- * unpack_mysqlcompress	= compressed_column_2
+ *
+ * unpack_zlib        = zlib_column
+ * unpack_mysqlcompress    = compressed_column
+ * unpack_mysqlcompress    = compressed_column_2
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

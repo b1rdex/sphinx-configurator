@@ -29,7 +29,7 @@ abstract class SearchdOption extends Option
      */
     public function __construct(SearchdSettings $searchdSettings, string $value)
     {
-        $this->value = $value;
+        $this->value           = $value;
         $this->searchdSettings = $searchdSettings;
     }
 

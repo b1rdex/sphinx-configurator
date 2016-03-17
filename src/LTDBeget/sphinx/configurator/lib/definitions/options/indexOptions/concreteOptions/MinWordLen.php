@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * minimum indexed word length
  * default is 1 (index everything)
- * min_word_len		= 1
+ * min_word_len        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

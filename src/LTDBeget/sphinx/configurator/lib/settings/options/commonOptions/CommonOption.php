@@ -8,8 +8,8 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\commonOptions;
 
 
-use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
 use LTDBeget\sphinx\configurator\lib\Option;
+use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
 
 /**
  * Class CommonOption
@@ -29,7 +29,7 @@ abstract class CommonOption extends Option
      */
     public function __construct(CommonSettings $commonSettings, string $value)
     {
-        $this->value = $value;
+        $this->value          = $value;
         $this->commonSettings = $commonSettings;
     }
 

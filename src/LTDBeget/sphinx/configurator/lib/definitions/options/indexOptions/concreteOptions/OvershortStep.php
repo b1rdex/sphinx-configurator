@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * position increment on overshort (less that min_word_len) words
  * optional, allowed values are 0 and 1, default is 1
- * 
- * overshort_step		= 1
+ *
+ * overshort_step        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

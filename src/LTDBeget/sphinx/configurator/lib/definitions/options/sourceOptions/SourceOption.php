@@ -8,8 +8,8 @@
 namespace LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions;
 
 
-use LTDBeget\sphinx\configurator\lib\Option;
 use LTDBeget\sphinx\configurator\lib\definitions\SourceDefinition;
+use LTDBeget\sphinx\configurator\lib\Option;
 
 /**
  * Class SourceOption
@@ -29,7 +29,7 @@ abstract class SourceOption extends Option
     public function __construct(SourceDefinition $sourceDefinition, string $value)
     {
         $this->sourceDefinition = $sourceDefinition;
-        $this->value = $value;
+        $this->value            = $value;
     }
 
     /**

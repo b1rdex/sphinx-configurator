@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * phrase boundary word position increment
  * optional, default is 0
- * 
- * phrase_boundary_step	= 100
+ *
+ * phrase_boundary_step    = 100
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

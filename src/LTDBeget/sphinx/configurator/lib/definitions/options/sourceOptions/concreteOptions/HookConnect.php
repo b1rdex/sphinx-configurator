@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * hook command to run when SQL connection succeeds
  * optional, default value is empty (do nothing)
- * 
- * hook_connect			= bash sql_connect.sh
+ *
+ * hook_connect            = bash sql_connect.sh
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

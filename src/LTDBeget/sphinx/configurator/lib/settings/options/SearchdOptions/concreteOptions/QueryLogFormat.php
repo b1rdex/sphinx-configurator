@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * query log file format
  * optional, known values are plain and sphinxql, default is plain
  *
- * query_log_format		= sphinxql
+ * query_log_format        = sphinxql
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

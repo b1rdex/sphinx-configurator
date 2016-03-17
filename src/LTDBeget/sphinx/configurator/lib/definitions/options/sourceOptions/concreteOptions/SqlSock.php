@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * optional, default is empty (reuse client library defaults)
  * usually '/var/lib/mysql/mysql.sock' on Linux
  * usually '/tmp/mysql.sock' on FreeBSD
- * 
- * sql_sock		= /tmp/mysql.sock
+ *
+ * sql_sock        = /tmp/mysql.sock
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

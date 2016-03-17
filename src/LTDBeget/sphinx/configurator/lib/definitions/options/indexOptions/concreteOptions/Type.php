@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * index type
  * optional, default is 'plain'
  * known values are 'plain', 'distributed', and 'rt' (see samples below)
- * type			= plain
+ * type            = plain
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

@@ -36,7 +36,7 @@ class CommonSettings extends Settings
      */
     public function addOption(CommonOption $option) : CommonSettings
     {
-        if($option->getCommon() !== $this) {
+        if ($option->getCommon() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
         $this->options[$option->getName()] = $option;
@@ -49,7 +49,7 @@ class CommonSettings extends Settings
      */
     public function getOptionAppender() : CommonOptionAppender
     {
-        if(is_null($this->optionAppender)) {
+        if (is_null($this->optionAppender)) {
             $this->optionAppender = new CommonOptionAppender($this);
         }
 
@@ -61,8 +61,8 @@ class CommonSettings extends Settings
      */
     public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if($option->isDeleted()) {
+        foreach ($this->options as $option) {
+            if ($option->isDeleted()) {
                 continue;
             }
 
@@ -75,8 +75,8 @@ class CommonSettings extends Settings
      */
     public function validate() : bool
     {
-        foreach($this->iterateOptions() as $option) {
-            if(! $option->validate()) {
+        foreach ($this->iterateOptions() as $option) {
+            if (!$option->validate()) {
                 return false;
             }
         }

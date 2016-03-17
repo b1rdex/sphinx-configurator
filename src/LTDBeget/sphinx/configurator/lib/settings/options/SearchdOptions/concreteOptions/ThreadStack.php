@@ -8,8 +8,6 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions;
 
 
-
-
 use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOption;
 
 /**
@@ -18,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * per-thread stack size, only affects workers=threads mode
  * optional, default is 64K
  *
- * thread_stack			= 128K
+ * thread_stack            = 128K
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

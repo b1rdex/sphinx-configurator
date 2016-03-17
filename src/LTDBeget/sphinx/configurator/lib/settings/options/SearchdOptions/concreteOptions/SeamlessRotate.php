@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * seamless rotate, prevents rotate stalls if precaching huge datasets
  * optional, default is 1
- * seamless_rotate		= 1
+ * seamless_rotate        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

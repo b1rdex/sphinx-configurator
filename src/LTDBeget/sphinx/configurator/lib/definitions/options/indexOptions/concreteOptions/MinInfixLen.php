@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * minimum word infix length to index
  * optional, default is 0 (do not index infixes)
- * 
- * min_infix_len		= 0
+ *
+ * min_infix_len        = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

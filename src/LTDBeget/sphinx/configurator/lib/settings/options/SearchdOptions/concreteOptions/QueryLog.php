@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * query log file, all search queries are logged here
  * optional, default is empty (do not log queries)
- * query_log		= /var/log/sphinxsearch/query.log
+ * query_log        = /var/log/sphinxsearch/query.log
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

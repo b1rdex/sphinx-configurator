@@ -42,7 +42,7 @@ class IndexerOptionAppender extends OptionAppender
      * @return IndexerOption
      * @throws NotFoundException
      */
-    public function __call (string $methodName, array $arguments) : IndexerOption
+    public function __call(string $methodName, array $arguments) : IndexerOption
     {
         $optionClass = $this->getOptionClassByMethodName($methodName);
 

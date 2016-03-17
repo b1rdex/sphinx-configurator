@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * maximum amount of children to fork (concurrent searches to run)
  * optional, default is 0 (unlimited)
- * max_children		= 30
+ * max_children        = 30
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

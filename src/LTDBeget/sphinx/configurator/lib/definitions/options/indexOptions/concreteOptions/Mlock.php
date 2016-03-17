@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * memory locking for cached data (.spa and .spi), to prevent swapping
  * optional, default is 0 (do not mlock)
  * requires searchd to be run from root
- * mlock			= 0
+ * mlock            = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

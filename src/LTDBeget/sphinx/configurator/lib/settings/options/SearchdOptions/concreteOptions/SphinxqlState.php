@@ -8,8 +8,6 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions;
 
 
-
-
 use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOption;
 
 /**
@@ -18,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * current SphinxQL state (uservars etc) serialization path
  * optional, default is none (do not serialize SphinxQL state)
  *
- * sphinxql_state			= sphinxvars.sql
+ * sphinxql_state            = sphinxvars.sql
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

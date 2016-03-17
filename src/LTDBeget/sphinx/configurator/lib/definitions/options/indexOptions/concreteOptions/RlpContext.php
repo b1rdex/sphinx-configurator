@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * path to RLP context file
  * optional, defaut is empty
- * 
+ *
  * rlp_context = /usr/local/share/sphinx/rlp/rlp-context.xml
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions

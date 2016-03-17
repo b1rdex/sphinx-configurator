@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * RT RAM chunks flush period
  * optional, default is 0 (no periodic flush)
  *
- * rt_flush_period		= 900
+ * rt_flush_period        = 900
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

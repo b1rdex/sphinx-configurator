@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * whether to preopen index data files on startup
  * optional, default is 0 (do not preopen), searchd-only
- * 
- * preopen			= 1
+ *
+ * preopen            = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

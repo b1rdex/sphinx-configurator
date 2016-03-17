@@ -15,9 +15,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * pre-query, executed before the main fetch query
  * multi-value, optional, default is empty list of queries
- * 
- * sql_query_pre		= SET NAMES utf8
- * sql_query_pre		= SET SESSION query_cache_type=OFF
+ *
+ * sql_query_pre        = SET NAMES utf8
+ * sql_query_pre        = SET SESSION query_cache_type=OFF
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

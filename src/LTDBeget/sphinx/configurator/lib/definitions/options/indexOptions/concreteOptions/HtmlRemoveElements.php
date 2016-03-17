@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * what HTML elements contents to strip
  * optional, default is empty (do not strip element contents)
- * 
- * html_remove_elements	= style, script
+ *
+ * html_remove_elements    = style, script
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

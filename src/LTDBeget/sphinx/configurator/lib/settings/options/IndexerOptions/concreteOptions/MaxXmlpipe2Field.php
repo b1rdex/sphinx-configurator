@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  * maximum xmlpipe2 field length, bytes
  * optional, default is 2M
  *
- * max_xmlpipe2_field	= 4M
+ * max_xmlpipe2_field    = 4M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

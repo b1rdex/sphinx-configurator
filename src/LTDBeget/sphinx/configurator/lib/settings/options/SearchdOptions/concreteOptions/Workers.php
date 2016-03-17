@@ -8,8 +8,6 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions;
 
 
-
-
 use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOption;
 
 /**
@@ -19,7 +17,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * known values are none, fork, prefork, and threads
  * threads is required for RT backend to work
  * optional, default is threads
- * workers			= threads # for RT to work
+ * workers            = threads # for RT to work
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

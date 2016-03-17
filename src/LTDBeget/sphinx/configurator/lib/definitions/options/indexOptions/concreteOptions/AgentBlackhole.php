@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * blackhole remote agent, for debugging/testing
  * network errors and search results will be ignored
- * 
- * agent_blackhole		= testbox:9312:testindex1,testindex2
+ *
+ * agent_blackhole        = testbox:9312:testindex1,testindex2
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

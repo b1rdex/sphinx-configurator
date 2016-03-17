@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * server-wide locale for libc based collations
  * optional, default is C
  *
- * collation_libc_locale	= ru_RU.UTF-8
+ * collation_libc_locale    = ru_RU.UTF-8
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

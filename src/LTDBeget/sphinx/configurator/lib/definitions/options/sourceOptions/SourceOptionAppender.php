@@ -84,7 +84,7 @@ class SourceOptionAppender extends OptionAppender
      * @return SourceOption
      * @throws NotFoundException
      */
-    public function __call (string $methodName, array $arguments) : SourceOption
+    public function __call(string $methodName, array $arguments) : SourceOption
     {
         $optionClass = $this->getOptionClassByMethodName($methodName);
 

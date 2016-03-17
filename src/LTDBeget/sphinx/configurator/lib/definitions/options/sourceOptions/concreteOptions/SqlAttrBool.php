@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * boolean attribute declaration
  * multi-value (an arbitrary number of attributes is allowed), optional
  * equivalent to sql_attr_uint with 1-bit size
- * 
- * sql_attr_bool		= is_deleted
+ *
+ * sql_attr_bool        = is_deleted
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

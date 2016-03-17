@@ -11,9 +11,9 @@ namespace LTDBeget\sphinx\configurator\serializers;
 use Camel\CaseTransformer;
 use Camel\Format\SnakeCase;
 use Camel\Format\StudlyCaps;
+use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
 use LTDBeget\sphinx\configurator\exceptions\SerializerException;
-use LTDBeget\sphinx\configurator\Configuration;
 
 /**
  * Class ArraySerializer
@@ -29,7 +29,7 @@ class ArraySerializer
      */
     public static function serialize(Configuration $configuration) : array
     {
-        $serializer = new self();
+        $serializer                      = new self();
         $serializer->objectConfiguration = $configuration;
 
         return $serializer->serializeInternal();
@@ -41,14 +41,16 @@ class ArraySerializer
      */
     public static function deserialize(array $configuration) : Configuration
     {
-        $serializer = new self();
-        $serializer->arrayConfiguration = $configuration;
+        $serializer                      = new self();
+        $serializer->arrayConfiguration  = $configuration;
         $serializer->objectConfiguration = new Configuration();
 
         return $serializer->deserializeInternal();
     }
 
-    private function __construct(){}
+    private function __construct()
+    {
+    }
 
     private function serializeInternal() : array
     {
@@ -63,7 +65,7 @@ class ArraySerializer
 
     private function serializeSource()
     {
-        foreach($this->objectConfiguration->iterateSource() as $source) {
+        foreach ($this->objectConfiguration->iterateSource() as $source) {
 
             $node = [
                 "type"        => "source",
@@ -72,11 +74,11 @@ class ArraySerializer
                 "options"     => []
             ];
 
-            if($source->isHasInheritance()) {
+            if ($source->isHasInheritance()) {
                 $node["inheritance"] = $source->getInheritanceName();
             }
 
-            foreach($source->iterateOptions() as $option) {
+            foreach ($source->iterateOptions() as $option) {
                 $node["options"][] = [
                     "name"  => $option->getName(),
                     "value" => $option->getValue()
@@ -89,7 +91,7 @@ class ArraySerializer
 
     private function serializeIndex()
     {
-        foreach($this->objectConfiguration->iterateIndex() as $index) {
+        foreach ($this->objectConfiguration->iterateIndex() as $index) {
             $node = [
                 "type"        => "index",
                 "name"        => $index->getName(),
@@ -97,11 +99,11 @@ class ArraySerializer
                 "options"     => []
             ];
 
-            if($index->isHasInheritance()) {
+            if ($index->isHasInheritance()) {
                 $node["inheritance"] = $index->getInheritanceName();
             }
 
-            foreach($index->iterateOptions() as $option) {
+            foreach ($index->iterateOptions() as $option) {
                 $node["options"][] = [
                     "name"  => $option->getName(),
                     "value" => $option->getValue()
@@ -114,13 +116,13 @@ class ArraySerializer
 
     private function serializeIndexer()
     {
-        if($this->objectConfiguration->isHasIndexer()) {
+        if ($this->objectConfiguration->isHasIndexer()) {
             $node = [
-                "type"        => "indexer",
-                "options"     => []
+                "type"    => "indexer",
+                "options" => []
             ];
 
-            foreach($this->objectConfiguration->getIndexer()->iterateOptions() as $option) {
+            foreach ($this->objectConfiguration->getIndexer()->iterateOptions() as $option) {
                 $node["options"][] = [
                     "name"  => $option->getName(),
                     "value" => $option->getValue()
@@ -133,13 +135,13 @@ class ArraySerializer
 
     private function serializeSearchhd()
     {
-        if($this->objectConfiguration->isHasSearchd()) {
+        if ($this->objectConfiguration->isHasSearchd()) {
             $node = [
-                "type"        => "searchd",
-                "options"     => []
+                "type"    => "searchd",
+                "options" => []
             ];
 
-            foreach($this->objectConfiguration->getSearchd()->iterateOptions() as $option) {
+            foreach ($this->objectConfiguration->getSearchd()->iterateOptions() as $option) {
                 $node["options"][] = [
                     "name"  => $option->getName(),
                     "value" => $option->getValue()
@@ -152,13 +154,13 @@ class ArraySerializer
 
     private function serializeCommon()
     {
-        if($this->objectConfiguration->isHasCommon()) {
+        if ($this->objectConfiguration->isHasCommon()) {
             $node = [
-                "type"        => "common",
-                "options"     => []
+                "type"    => "common",
+                "options" => []
             ];
 
-            foreach($this->objectConfiguration->getCommon()->iterateOptions() as $option) {
+            foreach ($this->objectConfiguration->getCommon()->iterateOptions() as $option) {
                 $node["options"][] = [
                     "name"  => $option->getName(),
                     "value" => $option->getValue()
@@ -171,32 +173,32 @@ class ArraySerializer
 
     private function deserializeInternal() : Configuration
     {
-        foreach($this->arrayConfiguration as $node) {
+        foreach ($this->arrayConfiguration as $node) {
 
-            if(!array_key_exists("type", $node)) {
+            if (!array_key_exists("type", $node)) {
                 throw new SerializerException("Wrong array format. All nodes must contain type.");
             }
 
-            switch($node["type"]) {
+            switch ($node["type"]) {
                 case "source":
 
-                    if(!array_key_exists("name", $node)) {
+                    if (!array_key_exists("name", $node)) {
                         throw new SerializerException("Wrong array format. All source nodes must contain name.");
                     }
 
-                    $name = $node["name"];
+                    $name            = $node["name"];
                     $inheritanceName = !empty($node["inheritance"]) ? $node["inheritance"] : null;
-                    $nodeObject = $this->objectConfiguration->addSource($name, $inheritanceName);
+                    $nodeObject      = $this->objectConfiguration->addSource($name, $inheritanceName);
                     break;
                 case "index":
                     $name = $node["name"];
 
-                    if(!array_key_exists("name", $node)) {
+                    if (!array_key_exists("name", $node)) {
                         throw new SerializerException("Wrong array format. All index nodes must contain name.");
                     }
 
                     $inheritanceName = !empty($node["inheritance"]) ? $node["inheritance"] : null;
-                    $nodeObject = $this->objectConfiguration->addIndex($name, $inheritanceName);
+                    $nodeObject      = $this->objectConfiguration->addIndex($name, $inheritanceName);
                     break;
                 case "indexer":
                     $nodeObject = $this->objectConfiguration->getIndexer();
@@ -212,28 +214,28 @@ class ArraySerializer
                     break;
             }
 
-            if(!array_key_exists("options", $node)) {
+            if (!array_key_exists("options", $node)) {
                 continue;
             }
 
-            foreach($node["options"] as $option) {
+            foreach ($node["options"] as $option) {
 
-                if(!array_key_exists("name", $option)) {
+                if (!array_key_exists("name", $option)) {
                     throw new SerializerException("Wrong array format. All options must contain name.");
                 }
 
-                if(!array_key_exists("value", $option)) {
+                if (!array_key_exists("value", $option)) {
                     throw new SerializerException("Wrong array format. All options must contain value.");
                 }
 
-                $optionName = $option["name"];
+                $optionName  = $option["name"];
                 $optionValue = $option["value"];
 
-                $optionClassName = (new CaseTransformer(new SnakeCase(), new StudlyCaps()))->transform($optionName);
-                $appenderMethodName = "add".$optionClassName;
+                $optionClassName    = (new CaseTransformer(new SnakeCase(), new StudlyCaps()))->transform($optionName);
+                $appenderMethodName = "add" . $optionClassName;
                 try {
                     $nodeObject->getOptionAppender()->$appenderMethodName($optionValue);
-                } catch(NotFoundException $e) {
+                } catch (NotFoundException $e) {
                     throw new SerializerException($e->getMessage(), 0, $e);
                 }
             }

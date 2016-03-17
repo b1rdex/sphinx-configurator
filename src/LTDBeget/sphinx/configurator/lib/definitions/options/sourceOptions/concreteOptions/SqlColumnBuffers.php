@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * ODBC and MS SQL specific, per-column buffer sizes
  * optional, default is auto-detect
- * 
- * sql_column_buffers	= content=12M, comments=1M
+ *
+ * sql_column_buffers    = content=12M, comments=1M
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * JSON attribute declaration
  * multi-value (an arbitrary number of these is allowed), optional
  * lets you store a JSON document as an (in-memory) attribute for later use
- * 
- * sql_attr_json		= properties
+ *
+ * sql_attr_json        = properties
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

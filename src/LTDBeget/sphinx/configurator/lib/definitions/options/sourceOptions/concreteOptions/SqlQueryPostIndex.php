@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * post-index-query, executed on successful indexing completion
  * optional, default is empty
  * $maxid expands to max document ID actually fetched from DB
- * 
- * sql_query_post_index	= REPLACE INTO counters ( id, val ) \
+ *
+ * sql_query_post_index    = REPLACE INTO counters ( id, val ) \
  * VALUES ( max_indexed_id, $maxid )
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions

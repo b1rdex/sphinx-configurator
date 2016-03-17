@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * in-place fine-tuning options
  * optional, defaults are listed below
  * write buffer size within arena
- * 
- * inplace_write_factor	= 0.1
+ *
+ * inplace_write_factor    = 0.1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

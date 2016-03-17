@@ -35,7 +35,7 @@ class SourceDefinition extends Definition
      */
     public function getOptionAppender() : SourceOptionAppender
     {
-        if(is_null($this->optionAppender)) {
+        if (is_null($this->optionAppender)) {
             $this->optionAppender = new SourceOptionAppender($this);
         }
 
@@ -49,12 +49,12 @@ class SourceDefinition extends Definition
      */
     public function addOption(SourceOption $option) : SourceDefinition
     {
-        if($option->getSource() !== $this) {
+        if ($option->getSource() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
 
-        if($option->isMultiValue()) {
-            if(! array_key_exists($option->getName(), $this->options)) {
+        if ($option->isMultiValue()) {
+            if (!array_key_exists($option->getName(), $this->options)) {
                 $this->options[$option->getName()] = [];
             }
 
@@ -71,19 +71,19 @@ class SourceDefinition extends Definition
      */
     public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if($option instanceof SourceOption) {
-                if($option->isDeleted()) {
+        foreach ($this->options as $option) {
+            if ($option instanceof SourceOption) {
+                if ($option->isDeleted()) {
                     continue;
                 }
                 yield $option;
             }
-            if(is_array($option)) {
-                foreach($option as $multiOption) {
+            if (is_array($option)) {
+                foreach ($option as $multiOption) {
                     /**
                      * @var SourceOption $multiOption
                      */
-                    if($multiOption->isDeleted()) {
+                    if ($multiOption->isDeleted()) {
                         continue;
                     }
                     yield $multiOption;
@@ -98,8 +98,8 @@ class SourceDefinition extends Definition
      */
     public function getInheritanceSource() : SourceDefinition
     {
-        foreach($this->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getInheritanceName()) {
+        foreach ($this->getConfiguration()->iterateSource() as $source) {
+            if ($source->getName() === $this->getInheritanceName()) {
                 return $source;
             }
         }
@@ -112,8 +112,8 @@ class SourceDefinition extends Definition
      */
     public function validate() : bool
     {
-        foreach($this->iterateOptions() as $option) {
-            if(! $option->validate()) {
+        foreach ($this->iterateOptions() as $option) {
+            if (!$option->validate()) {
                 return false;
             }
         }

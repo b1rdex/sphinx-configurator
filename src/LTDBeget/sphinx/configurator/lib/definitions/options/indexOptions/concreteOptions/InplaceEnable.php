@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * whether to enable in-place inversion (2x less disk, 90-95% speed)
  * optional, default is 0 (use separate temporary files), indexer-only
- * 
- * inplace_enable		= 1
+ *
+ * inplace_enable        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

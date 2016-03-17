@@ -47,9 +47,9 @@ class SyntaxErrorException extends \Exception
         Exception $previous = null
     )
     {
-        $message = "Sphinx configuration Parse error:  syntax error, unexpected '{$unexpected_char}' on line {$error_line}. ";
-        $this->original_data = $original_data;
-        $this->error_line = $error_line;
+        $message               = "Sphinx configuration Parse error:  syntax error, unexpected '{$unexpected_char}' on line {$error_line}. ";
+        $this->original_data   = $original_data;
+        $this->error_line      = $error_line;
         $this->unexpected_char = $unexpected_char;
         parent::__construct($message, $code, $previous);
     }

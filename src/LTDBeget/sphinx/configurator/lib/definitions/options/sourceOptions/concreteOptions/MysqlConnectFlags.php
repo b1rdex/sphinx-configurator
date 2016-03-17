@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * MySQL specific client connection flags
  * optional, default is 0
- * 
- * mysql_connect_flags	= 32
+ *
+ * mysql_connect_flags    = 32
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

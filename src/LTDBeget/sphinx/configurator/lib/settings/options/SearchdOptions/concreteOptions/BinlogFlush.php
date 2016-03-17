@@ -19,7 +19,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * 2 means flush every transaction, sync every second
  * optional, default is 2
  *
- * binlog_flush		= 2
+ * binlog_flush        = 2
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

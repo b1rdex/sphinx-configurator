@@ -25,7 +25,7 @@ abstract class IndexOption extends Option
      */
     public function __construct(IndexDefinition $indexDefinition, string $value)
     {
-        $this->value = $value;
+        $this->value           = $value;
         $this->indexDefinition = $indexDefinition;
     }
 

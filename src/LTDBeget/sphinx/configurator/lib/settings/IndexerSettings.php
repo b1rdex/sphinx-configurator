@@ -36,7 +36,7 @@ class IndexerSettings extends Settings
      */
     public function addOption(IndexerOption $option) : IndexerSettings
     {
-        if($option->getIndexer() !== $this) {
+        if ($option->getIndexer() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
         $this->options[$option->getName()] = $option;
@@ -49,7 +49,7 @@ class IndexerSettings extends Settings
      */
     public function getOptionAppender() : IndexerOptionAppender
     {
-        if(is_null($this->optionAppender)) {
+        if (is_null($this->optionAppender)) {
             $this->optionAppender = new IndexerOptionAppender($this);
         }
 
@@ -61,8 +61,8 @@ class IndexerSettings extends Settings
      */
     public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if($option->isDeleted()) {
+        foreach ($this->options as $option) {
+            if ($option->isDeleted()) {
                 continue;
             }
             yield $option;
@@ -74,8 +74,8 @@ class IndexerSettings extends Settings
      */
     public function validate() : bool
     {
-        foreach($this->iterateOptions() as $option) {
-            if(! $option->validate()) {
+        foreach ($this->iterateOptions() as $option) {
+            if (!$option->validate()) {
                 return false;
             }
         }

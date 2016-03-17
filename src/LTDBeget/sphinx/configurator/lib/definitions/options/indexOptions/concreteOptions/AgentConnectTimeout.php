@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * remote agent connection timeout, milliseconds
  * optional, default is 1000 ms, ie. 1 sec
- * agent_connect_timeout	= 1000
+ * agent_connect_timeout    = 1000
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

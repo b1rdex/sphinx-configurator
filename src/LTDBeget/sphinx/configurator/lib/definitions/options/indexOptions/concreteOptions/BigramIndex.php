@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * bigram indexing mode
  * known values are none, all, first_freq, both_freq
  * option, default is none (do not index bigrams)
- * 
- * bigram_index		= both_freq
+ *
+ * bigram_index        = both_freq
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

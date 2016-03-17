@@ -8,8 +8,6 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions;
 
 
-
-
 use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOption;
 
 /**
@@ -17,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * whether to unlink .old index copies on successful rotation.
  * optional, default is 1 (do unlink)
- * unlink_old		= 1
+ * unlink_old        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

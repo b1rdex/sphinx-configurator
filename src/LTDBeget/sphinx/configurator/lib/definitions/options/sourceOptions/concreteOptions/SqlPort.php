@@ -14,11 +14,11 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * Class SqlPort
  *
  * some straightforward parameters for SQL source types
- * sql_host		= localhost
- * sql_user		= test
- * sql_pass		=
- * sql_db		= test
- * sql_port		= 3306	# optional, default is 3306
+ * sql_host        = localhost
+ * sql_user        = test
+ * sql_pass        =
+ * sql_db        = test
+ * sql_port        = 3306    # optional, default is 3306
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

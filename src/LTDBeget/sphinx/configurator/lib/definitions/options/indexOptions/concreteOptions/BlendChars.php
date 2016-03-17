@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * blended chars are indexed both as separators and valid characters
  * for instance, AT&T will results in 3 tokens ("at", "t", and "at&t")
  * optional, default is empty
- * 
- * blend_chars		= +, &, U+23
+ *
+ * blend_chars        = +, &, U+23
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

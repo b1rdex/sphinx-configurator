@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * range query step
  * optional, default is 1024
- * 
- * sql_range_step		= 1000
+ *
+ * sql_range_step        = 1000
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * a comma separated list of tags and wildcards
  * required for the ZONE operator to work
  * optional, default is empty string (do not index zones)
- * 
- * index_zones		= title, h*, th
+ *
+ * index_zones        = title, h*, th
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

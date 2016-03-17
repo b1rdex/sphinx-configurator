@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * default server-wide collation
  * optional, default is libc_ci
  *
- * collation_server		= utf8_general_ci
+ * collation_server        = utf8_general_ci
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

@@ -19,10 +19,10 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * multi-value, multiple listen points are allowed
  * optional, defaults are 9312:sphinx and 9306:mysql41, as below
  *
- * listen			= 127.0.0.1
- * listen			= 192.168.0.1:9312
- * listen			= 9312
- * listen			= /var/run/searchd.sock
+ * listen            = 127.0.0.1
+ * listen            = 192.168.0.1:9312
+ * listen            = 9312
+ * listen            = /var/run/searchd.sock
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

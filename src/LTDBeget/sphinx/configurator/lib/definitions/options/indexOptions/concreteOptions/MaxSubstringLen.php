@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * maximum substring (prefix or infix) length to index
  * optional, default is 0 (do not limit substring length)
- * 
- * max_substring_len	= 8
+ *
+ * max_substring_len    = 8
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * binlog per-file size limit
  * optional, default is 128M, 0 means no limit
  *
- * binlog_max_log_size	= 256M
+ * binlog_max_log_size    = 256M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

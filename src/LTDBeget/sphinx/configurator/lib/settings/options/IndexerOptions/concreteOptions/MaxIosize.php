@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  * maximum IO call size, bytes (for I/O throttling)
  * optional, default is 0 (unlimited)
  *
- * max_iosize		= 1048576
+ * max_iosize        = 1048576
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

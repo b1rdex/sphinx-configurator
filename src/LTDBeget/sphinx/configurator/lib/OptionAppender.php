@@ -23,11 +23,11 @@ abstract class OptionAppender
      */
     protected function getOptionClassByMethodName(string $methodName) : string
     {
-        $optionName = str_replace("add", "", $methodName);
-        $namespace = (new \ReflectionClass(get_called_class()))->getNamespaceName();
-        $optionClass = $namespace."\\concreteOptions\\".$optionName;
+        $optionName  = str_replace("add", "", $methodName);
+        $namespace   = (new \ReflectionClass(get_called_class()))->getNamespaceName();
+        $optionClass = $namespace . "\\concreteOptions\\" . $optionName;
 
-        if(! class_exists($optionClass)) {
+        if (!class_exists($optionClass)) {
             throw new NotFoundException("Trying to add unknown option {$optionName} to Index definitions");
         }
 

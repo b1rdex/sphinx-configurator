@@ -8,8 +8,8 @@
 namespace LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions;
 
 
-use LTDBeget\sphinx\configurator\lib\settings\IndexerSettings;
 use LTDBeget\sphinx\configurator\lib\Option;
+use LTDBeget\sphinx\configurator\lib\settings\IndexerSettings;
 
 /**
  * Class IndexerOption
@@ -29,7 +29,7 @@ abstract class IndexerOption extends Option
      */
     public function __construct(IndexerSettings $indexerSettings, string $value)
     {
-        $this->value = $value;
+        $this->value           = $value;
         $this->indexerSettings = $indexerSettings;
     }
 

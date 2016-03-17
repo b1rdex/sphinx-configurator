@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * MVA updates pool size
  * shared between all instances of searchd, disables attr flushes!
  * optional, default size is 1M
- * mva_updates_pool	= 1M
+ * mva_updates_pool    = 1M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

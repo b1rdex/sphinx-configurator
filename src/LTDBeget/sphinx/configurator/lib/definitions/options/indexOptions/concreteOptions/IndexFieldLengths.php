@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * index per-document and average per-index field lengths, in tokens
  * required for the BM25A(), BM25F() in expression ranker
  * optional, default is 0 (do not index field lenghts)
- * 
- * index_field_lengths	= 1
+ *
+ * index_field_lengths    = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

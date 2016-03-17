@@ -16,9 +16,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * unsigned integer attribute declaration
  * multi-value (an arbitrary number of attributes is allowed), optional
  * optional bit size can be specified, default is 32
- * 
- * sql_attr_uint		= author_id
- * sql_attr_uint		= forum_id:9
+ *
+ * sql_attr_uint        = author_id
+ * sql_attr_uint        = forum_id:9
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

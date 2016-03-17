@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * unhinted read size (currently used when reading hits)
  * optional, default is 32K
- * read_unhinted		= 32K
+ * read_unhinted        = 32K
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

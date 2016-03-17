@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * whether to forcibly preopen all indexes on startup
  * optional, default is 1 (preopen everything)
- * preopen_indexes		= 1
+ * preopen_indexes        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

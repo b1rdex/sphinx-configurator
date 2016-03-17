@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * bigint attribute declaration
  * multi-value (an arbitrary number of attributes is allowed), optional
  * declares a signed (unlike uint!) 64-bit attribute
- * 
- * sql_attr_bigint		= my_bigint_id
+ *
+ * sql_attr_bigint        = my_bigint_id
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

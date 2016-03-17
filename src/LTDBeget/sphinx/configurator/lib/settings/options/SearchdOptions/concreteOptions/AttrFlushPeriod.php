@@ -17,7 +17,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * updates will be automatically dumped to disk this frequently
  * optional, default is 0 (disable periodic flush)
  *
- * attr_flush_period	= 900
+ * attr_flush_period    = 900
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

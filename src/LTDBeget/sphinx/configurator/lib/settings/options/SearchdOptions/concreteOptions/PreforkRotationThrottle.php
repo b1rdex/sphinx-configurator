@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * delay between preforked children restarts on rotation, in milliseconds
  * optional, default is 0 (no delay)
  *
- * prefork_rotation_throttle	= 100
+ * prefork_rotation_throttle    = 100
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * remote agent query timeout, milliseconds
  * optional, default is 3000 ms, ie. 3 sec
- * agent_query_timeout		= 3000
+ * agent_query_timeout        = 3000
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

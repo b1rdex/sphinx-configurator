@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * a comma separated list of blended token indexing variants
  * known variants are trim_none, trim_head, trim_tail, trim_both, skip_pure
  * optional, default is trim_none
- * 
- * blend_mode		= trim_tail, skip_pure
+ *
+ * blend_mode        = trim_tail, skip_pure
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

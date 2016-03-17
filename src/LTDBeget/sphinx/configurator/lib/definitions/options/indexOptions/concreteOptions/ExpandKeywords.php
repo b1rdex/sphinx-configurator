@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * expand keywords with exact forms and/or stars when searching fit indexes
  * search-time only, does not affect indexing, can be 0 or 1
  * optional, default is 0 (do not expand keywords)
- * 
- * expand_keywords		= 1
+ *
+ * expand_keywords        = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

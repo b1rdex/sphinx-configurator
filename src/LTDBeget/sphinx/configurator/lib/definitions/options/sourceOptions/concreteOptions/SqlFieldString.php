@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  *
  * combined field plus attribute declaration (from a single column)
  * stores column as an attribute, but also indexes it as a full-text field
- * 
- * sql_field_string	= author
+ *
+ * sql_field_string    = author
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

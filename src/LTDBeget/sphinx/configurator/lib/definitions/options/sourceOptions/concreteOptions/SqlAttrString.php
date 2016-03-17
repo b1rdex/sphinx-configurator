@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * string attribute declaration
  * multi-value (an arbitrary number of these is allowed), optional
  * lets you store and retrieve strings
- * 
- * sql_attr_string		= stitle
+ *
+ * sql_attr_string        = stitle
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

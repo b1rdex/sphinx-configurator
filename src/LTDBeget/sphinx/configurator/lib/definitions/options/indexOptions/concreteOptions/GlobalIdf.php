@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * path to a global (cluster-wide) keyword IDFs file
  * optional, default is empty (use local IDFs)
- * 
- * global_idf		= /usr/local/sphinx/var/global.idf
+ *
+ * global_idf        = /usr/local/sphinx/var/global.idf
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

@@ -15,11 +15,11 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * embedded file size limit
  * optional, default is 16K
- * 
+ *
  * exceptions, wordforms, and stopwords files smaller than this limit
  * are stored in the index; otherwise, their paths and sizes are stored
- * 
- * embedded_limit		= 16K
+ *
+ * embedded_limit        = 16K
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

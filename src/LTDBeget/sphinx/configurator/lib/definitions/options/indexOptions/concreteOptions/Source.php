@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * document source(s) to index
  * multi-value, mandatory
  * document IDs must be globally unique across all sources
- * source			= src1
+ * source            = src1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */
@@ -35,8 +35,8 @@ class Source extends IndexOption
      */
     public function validate() : bool
     {
-        foreach($this->getIndex()->getConfiguration()->iterateSource() as $source) {
-            if($source->getName() === $this->getValue()) {
+        foreach ($this->getIndex()->getConfiguration()->iterateSource() as $source) {
+            if ($source->getName() === $this->getValue()) {
                 return true;
             }
         }

@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * n-gram characters list, for CJK indexing
  * optional, default is empty
- * 
- * ngram_chars		= U+3000..U+2FA1F
+ *
+ * ngram_chars        = U+3000..U+2FA1F
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

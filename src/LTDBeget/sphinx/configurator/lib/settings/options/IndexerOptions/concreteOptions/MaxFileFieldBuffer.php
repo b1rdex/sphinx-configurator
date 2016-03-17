@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\IndexerOpti
  * maximum file field adaptive buffer size
  * optional, default is 8M, minimum is 1M
  *
- * max_file_field_buffer	= 32M
+ * max_file_field_buffer    = 32M
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\IndexerOptions\concreteOptions
  */

@@ -8,8 +8,8 @@
 namespace LTDBeget\sphinx\configurator\serializers;
 
 
-use LTDBeget\sphinx\configurator\parser\SphinxConfigurationParser;
 use LTDBeget\sphinx\configurator\Configuration;
+use LTDBeget\sphinx\configurator\parser\SphinxConfigurationParser;
 
 /**
  * Class PlainSerializer
@@ -28,52 +28,52 @@ final class PlainSerializer
     {
         $plainConfig = "";
 
-        foreach($configuration->iterateSource() as $source) {
-            $plainConfig .= "{$source}".PHP_EOL;
-            $plainConfig .= "{".PHP_EOL;
-            foreach($source->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}".PHP_EOL;
+        foreach ($configuration->iterateSource() as $source) {
+            $plainConfig .= "{$source}" . PHP_EOL;
+            $plainConfig .= "{" . PHP_EOL;
+            foreach ($source->iterateOptions() as $option) {
+                $plainConfig .= "\t{$option}" . PHP_EOL;
             }
-            $plainConfig .= "}".PHP_EOL.PHP_EOL;
+            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
         }
 
-        foreach($configuration->iterateIndex() as $index) {
-            $plainConfig .= "{$index}".PHP_EOL;
-            $plainConfig .= "{".PHP_EOL;
-            foreach($index->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}".PHP_EOL;
+        foreach ($configuration->iterateIndex() as $index) {
+            $plainConfig .= "{$index}" . PHP_EOL;
+            $plainConfig .= "{" . PHP_EOL;
+            foreach ($index->iterateOptions() as $option) {
+                $plainConfig .= "\t{$option}" . PHP_EOL;
             }
-            $plainConfig .= "}".PHP_EOL.PHP_EOL;
+            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
         }
 
-        if($configuration->isHasIndexer()) {
+        if ($configuration->isHasIndexer()) {
             $indexer = $configuration->getIndexer();
-            $plainConfig .= "{$indexer}".PHP_EOL;
-            $plainConfig .= "{".PHP_EOL;
-            foreach($indexer->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}".PHP_EOL;
+            $plainConfig .= "{$indexer}" . PHP_EOL;
+            $plainConfig .= "{" . PHP_EOL;
+            foreach ($indexer->iterateOptions() as $option) {
+                $plainConfig .= "\t{$option}" . PHP_EOL;
             }
-            $plainConfig .= "}".PHP_EOL.PHP_EOL;
+            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
         }
 
-        if($configuration->isHasSearchd()) {
+        if ($configuration->isHasSearchd()) {
             $searchd = $configuration->getSearchd();
-            $plainConfig .= "{$searchd}".PHP_EOL;
-            $plainConfig .= "{".PHP_EOL;
-            foreach($searchd->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}".PHP_EOL;
+            $plainConfig .= "{$searchd}" . PHP_EOL;
+            $plainConfig .= "{" . PHP_EOL;
+            foreach ($searchd->iterateOptions() as $option) {
+                $plainConfig .= "\t{$option}" . PHP_EOL;
             }
-            $plainConfig .= "}".PHP_EOL.PHP_EOL;
+            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
         }
 
-        if($configuration->isHasCommon()) {
+        if ($configuration->isHasCommon()) {
             $common = $configuration->getCommon();
-            $plainConfig .= "{$common}".PHP_EOL;
-            $plainConfig .= "{".PHP_EOL;
-            foreach($common->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}".PHP_EOL;
+            $plainConfig .= "{$common}" . PHP_EOL;
+            $plainConfig .= "{" . PHP_EOL;
+            foreach ($common->iterateOptions() as $option) {
+                $plainConfig .= "\t{$option}" . PHP_EOL;
             }
-            $plainConfig .= "}".PHP_EOL.PHP_EOL;
+            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
         }
 
         return $plainConfig;

@@ -78,7 +78,7 @@ class SearchdOptionAppender extends OptionAppender
      * @return SearchdOption
      * @throws NotFoundException
      */
-    public function __call (string $methodName, array $arguments) : SearchdOption
+    public function __call(string $methodName, array $arguments) : SearchdOption
     {
         $optionClass = $this->getOptionClassByMethodName($methodName);
 

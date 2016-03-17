@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * whether to apply stopwords before or after stemming
  * optional, default is 0 (apply stopwords after stemming)
- * 
- * stopwords_unstemmed	= 0
+ *
+ * stopwords_unstemmed    = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

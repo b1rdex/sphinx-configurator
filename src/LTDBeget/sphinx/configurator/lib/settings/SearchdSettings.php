@@ -32,12 +32,12 @@ class SearchdSettings extends Settings
      */
     public function addOption(SearchdOption $option) : SearchdSettings
     {
-        if($option->getSearchd() !== $this) {
+        if ($option->getSearchd() !== $this) {
             throw new WrongContextException("Trying to add option with wrong context");
         }
 
-        if($option->isMultiValue()) {
-            if(! array_key_exists($option->getName(), $this->options)) {
+        if ($option->isMultiValue()) {
+            if (!array_key_exists($option->getName(), $this->options)) {
                 $this->options[$option->getName()] = [];
             }
 
@@ -54,7 +54,7 @@ class SearchdSettings extends Settings
      */
     public function getOptionAppender() : SearchdOptionAppender
     {
-        if(is_null($this->optionAppender)) {
+        if (is_null($this->optionAppender)) {
             $this->optionAppender = new SearchdOptionAppender($this);
         }
 
@@ -66,19 +66,19 @@ class SearchdSettings extends Settings
      */
     public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if($option instanceof SearchdOption) {
-                if($option->isDeleted()) {
+        foreach ($this->options as $option) {
+            if ($option instanceof SearchdOption) {
+                if ($option->isDeleted()) {
                     continue;
                 }
                 yield $option;
             }
-            if(is_array($option)) {
-                foreach($option as $multiOption) {
+            if (is_array($option)) {
+                foreach ($option as $multiOption) {
                     /**
                      * @var SearchdOption $multiOption
                      */
-                    if($multiOption->isDeleted()) {
+                    if ($multiOption->isDeleted()) {
                         continue;
                     }
                     yield $multiOption;
@@ -92,8 +92,8 @@ class SearchdSettings extends Settings
      */
     public function validate() : bool
     {
-        foreach($this->iterateOptions() as $option) {
-            if(! $option->validate()) {
+        foreach ($this->iterateOptions() as $option) {
+            if (!$option->validate()) {
                 return false;
             }
         }

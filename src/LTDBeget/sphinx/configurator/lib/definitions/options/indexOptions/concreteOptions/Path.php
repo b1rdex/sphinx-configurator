@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * index files path and file name, without extension
  * mandatory, path must be writable, extensions will be auto-appended
- * path			= /var/lib/sphinxsearch/data/test1
+ * path            = /var/lib/sphinxsearch/data/test1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

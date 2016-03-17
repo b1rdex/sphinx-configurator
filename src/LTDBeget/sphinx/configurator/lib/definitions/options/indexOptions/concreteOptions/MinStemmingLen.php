@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * minimum word length at which to enable stemming
  * optional, default is 1 (stem everything)
- * 
- * min_stemming_len	= 1
+ *
+ * min_stemming_len    = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

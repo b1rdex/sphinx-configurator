@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * log file, searchd run info is logged here
  * optional, default is 'searchd.log'
- * log			= /var/log/sphinxsearch/searchd.log
+ * log            = /var/log/sphinxsearch/searchd.log
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

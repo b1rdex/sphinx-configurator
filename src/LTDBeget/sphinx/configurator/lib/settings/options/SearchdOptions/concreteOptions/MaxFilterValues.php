@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * max allowed per-filter values count
  * optional, default is 4096
- * max_filter_values	= 4096
+ * max_filter_values    = 4096
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

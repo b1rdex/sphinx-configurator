@@ -17,9 +17,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * multi-value remote agents may be specified
  * syntax for TCP connections is 'hostname:port:index1,[index2[,...]]'
  * syntax for local UNIX connections is '/path/to/socket:index1,[index2[,...]]'
- * agent			= localhost:9313:remote1
- * agent			= localhost:9314:remote2,remote3
- * agent			= /var/run/searchd.sock:remote4
+ * agent            = localhost:9313:remote1
+ * agent            = localhost:9314:remote2,remote3
+ * agent            = /var/run/searchd.sock:remote4
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

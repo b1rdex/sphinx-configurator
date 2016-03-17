@@ -18,7 +18,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * that is, they will not affect master choice of agents in any way
  * optional, default is 60 seconds
  *
- * ha_period_karma			= 60
+ * ha_period_karma            = 60
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

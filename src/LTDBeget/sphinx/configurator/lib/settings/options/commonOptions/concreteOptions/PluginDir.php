@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\commonOptions\CommonOption
  * trusted plugin directory
  * optional, default is empty (disable UDFs)
  *
- * plugin_dir			= /usr/local/sphinx/lib
+ * plugin_dir            = /usr/local/sphinx/lib
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\commonOptions\concreteOptions
  */

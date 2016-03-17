@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * full-text field declaration
  * multi-value, mandatory
- * rt_field		= title
- * rt_field		= content
+ * rt_field        = title
+ * rt_field        = content
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

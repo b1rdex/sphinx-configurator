@@ -44,7 +44,7 @@ class CommonOptionAppender extends OptionAppender
      * @return CommonOption
      * @throws NotFoundException
      */
-    public function __call (string $methodName, array $arguments) : CommonOption
+    public function __call(string $methodName, array $arguments) : CommonOption
     {
         $optionClass = $this->getOptionClassByMethodName($methodName);
 

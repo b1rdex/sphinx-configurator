@@ -10,14 +10,14 @@ namespace LTDBeget\sphinx\informer;
 
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\base\eSection;
-use LTDBeget\sphinx\enums\sections\eDefinition;
-use LTDBeget\sphinx\enums\sections\eSettings;
-use LTDBeget\sphinx\enums\eSphinxVersion;
+use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 use LTDBeget\sphinx\enums\options\eIndexOption;
 use LTDBeget\sphinx\enums\options\eSearchdOption;
 use LTDBeget\sphinx\enums\options\eSourceOption;
+use LTDBeget\sphinx\enums\sections\eDefinition;
+use LTDBeget\sphinx\enums\sections\eSettings;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;
 use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
 use LTDBeget\sphinx\informer\exceptions\YamlParseException;
@@ -32,12 +32,12 @@ final class Informer
 {
     /**
      * Get informer for concrete version, and init if did not init yet
-     * @param eSphinxVersion $version
+     * @param eVersion $version
      * @return Informer
      */
-    public static function get(eSphinxVersion $version) : Informer
+    public static function get(eVersion $version) : Informer
     {
-        if(!array_key_exists("$version", self::$instances)) {
+        if (!array_key_exists("$version", self::$instances)) {
             self::$instances["$version"] = new self($version);
         }
 
@@ -53,7 +53,7 @@ final class Informer
      */
     public function getOptionInfo(eSection $optionBlock, eOption $optionName) : OptionInfo
     {
-        if(! $this->isOptionInfoInit($optionBlock, $optionName)) {
+        if (!$this->isOptionInfoInit($optionBlock, $optionName)) {
             $this->makeOptionInfo($optionBlock, $optionName);
         }
 
@@ -80,10 +80,10 @@ final class Informer
      */
     public function iterateOptionInfo(eSection $optionBlock)
     {
-        foreach($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
-            switch($optionBlock) {
+        foreach ($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
+            switch ($optionBlock) {
                 case eDefinition::SOURCE:
-                    $optionName =  eSourceOption::get($optionName);
+                    $optionName = eSourceOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 case eDefinition::INDEX:
@@ -111,10 +111,10 @@ final class Informer
     /**
      * Informer constructor.
      * Init informer for concrete sphinx version
-     * @param eSphinxVersion $version
+     * @param eVersion $version
      * @throws NotFoundException
      */
-    private function __construct(eSphinxVersion $version)
+    private function __construct(eVersion $version)
     {
         $this->version = $version;
         $this->loadDocumentation();
@@ -129,7 +129,7 @@ final class Informer
     private function isOptionInfoInit(eSection $optionBlock, eOption $optionName) : bool
     {
         return array_key_exists((string) $optionBlock, $this->optionsInfo) &&
-               array_key_exists((string) $optionName, $this->optionsInfo[(string) $optionBlock]);
+        array_key_exists((string) $optionName, $this->optionsInfo[(string) $optionBlock]);
     }
 
     /**
@@ -140,7 +140,7 @@ final class Informer
      */
     private function makeOptionInfo(eSection $optionBlock, eOption $optionName)
     {
-        if(! $this->isKnownOption($optionBlock, $optionName)) {
+        if (!$this->isKnownOption($optionBlock, $optionName)) {
             throw new NotFoundException("For version {$this->version} {$optionName} is unknown option");
         }
         $info_data = $this->documentation[(string) $optionBlock][(string) $optionName];
@@ -165,13 +165,13 @@ final class Informer
     {
         $path = $this->getDocumentationFilePath();
 
-        if(! $this->isDocumentationExists()) {
+        if (!$this->isDocumentationExists()) {
             throw new NotFoundException("For version {$this->version} there are no file: {$path}");
         }
 
         $documentation = (new Parser())->parse(file_get_contents($path));
 
-        if(! is_array($documentation)) {
+        if (!is_array($documentation)) {
             throw new YamlParseException("Failed to parse yaml file {$path}");
         }
 
@@ -193,7 +193,7 @@ final class Informer
      */
     private function getDocumentationDirectoryPath() : string
     {
-        return realpath(__DIR__."/../../../../sphinx/docs");
+        return realpath(__DIR__ . "/../../../../sphinx/docs");
     }
 
     /**
@@ -211,7 +211,7 @@ final class Informer
     private static $instances = [];
 
     /**
-     * @var eSphinxVersion
+     * @var eVersion
      */
     private $version;
 

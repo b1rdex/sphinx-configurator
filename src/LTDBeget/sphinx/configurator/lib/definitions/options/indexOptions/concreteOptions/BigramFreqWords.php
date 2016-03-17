@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * list of the words considered frequent with respect to bigram indexing
  * optional, default is empty
- * 
- * bigram_freq_words	= the, a, i, you, my
+ *
+ * bigram_freq_words    = the, a, i, you, my
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

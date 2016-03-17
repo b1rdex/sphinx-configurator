@@ -17,8 +17,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * gets applied to data source fields when indexing
  * gets applied to search queries when searching
  * multi-value, optional, default is empty list of regexps
- * 
- * regexp_filter		= (blue|red) => color
+ *
+ * regexp_filter        = (blue|red) => color
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

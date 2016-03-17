@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * RAM chunk size limit
  * RT index will keep at most this much data in RAM, then flush to disk
  * optional, default is 128M
- * 
- * rt_mem_limit		= 512M
+ *
+ * rt_mem_limit        = 512M
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

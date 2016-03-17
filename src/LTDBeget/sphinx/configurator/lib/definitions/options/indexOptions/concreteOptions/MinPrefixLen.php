@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * minimum word prefix length to index
  * optional, default is 0 (do not index prefixes)
- * 
- * min_prefix_len		= 0
+ *
+ * min_prefix_len        = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

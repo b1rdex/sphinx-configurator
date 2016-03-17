@@ -15,8 +15,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * ignored characters list
  * optional, default value is empty
- * 
- * ignore_chars		= U+00AD
+ *
+ * ignore_chars        = U+00AD
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

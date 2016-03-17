@@ -20,7 +20,7 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * keywords is much faster to index with substrings, and index is much (3-10x) smaller
  * keywords supports wildcards, crc does not, and never will
  * optional, default is 'keywords'
- * dict			= keywords
+ * dict            = keywords
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

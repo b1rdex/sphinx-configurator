@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * in-place fine-tuning options
  * optional, defaults are listed below
  * preallocated hitlist gap size
- * 
- * inplace_hit_gap		= 0
+ *
+ * inplace_hit_gap        = 0
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

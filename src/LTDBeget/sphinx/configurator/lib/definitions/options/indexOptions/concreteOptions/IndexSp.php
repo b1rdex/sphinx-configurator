@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * detect and index sentence and paragraph boundaries
  * required for the SENTENCE and PARAGRAPH operators to work
  * optional, allowed values are 0 and 1, default is 0
- * 
- * index_sp			= 1
+ *
+ * index_sp            = 1
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

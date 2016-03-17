@@ -17,7 +17,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * useful for throttling (the background) OPTIMIZE INDEX impact
  * optional, default is 0 (unlimited)
  *
- * rt_merge_iops			= 40
+ * rt_merge_iops            = 40
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

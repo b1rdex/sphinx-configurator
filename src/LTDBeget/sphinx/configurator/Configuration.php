@@ -9,9 +9,9 @@ namespace LTDBeget\sphinx\configurator;
 
 
 use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
-use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
 use LTDBeget\sphinx\configurator\lib\definitions\IndexDefinition;
 use LTDBeget\sphinx\configurator\lib\definitions\SourceDefinition;
+use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
 use LTDBeget\sphinx\configurator\lib\settings\IndexerSettings;
 use LTDBeget\sphinx\configurator\lib\settings\SearchdSettings;
 
@@ -31,7 +31,7 @@ class Configuration
     {
         $sourceDefinition = new SourceDefinition($this, $name, $inheritanceName);
 
-        if(!is_null($inheritanceName) && !$this->isSourceParentExists($inheritanceName)) {
+        if (!is_null($inheritanceName) && !$this->isSourceParentExists($inheritanceName)) {
             throw new NotFoundException("Source parent with name {$inheritanceName} does't exists in configuration");
         }
 
@@ -45,7 +45,7 @@ class Configuration
      */
     public function iterateSource()
     {
-        foreach($this->sources as $source) {
+        foreach ($this->sources as $source) {
             yield $source;
         }
     }
@@ -60,7 +60,7 @@ class Configuration
     {
         $indexDefinition = new IndexDefinition($this, $name, $inheritanceName);
 
-        if(!is_null($inheritanceName) && !$this->isIndexParentExists($inheritanceName)) {
+        if (!is_null($inheritanceName) && !$this->isIndexParentExists($inheritanceName)) {
             throw new NotFoundException("Index parent with name {$inheritanceName} does't exists in configuration");
         }
 
@@ -74,7 +74,7 @@ class Configuration
      */
     public function iterateIndex()
     {
-        foreach($this->indexes as $index) {
+        foreach ($this->indexes as $index) {
             yield $index;
         }
     }
@@ -84,7 +84,7 @@ class Configuration
      */
     public function getIndexer() : IndexerSettings
     {
-        if(! $this->isHasIndexer()) {
+        if (!$this->isHasIndexer()) {
             $this->initIndexer();
         }
 
@@ -104,7 +104,7 @@ class Configuration
      */
     public function getSearchd() : SearchdSettings
     {
-        if(! $this->isHasSearchd()) {
+        if (!$this->isHasSearchd()) {
             $this->initSearchd();
         }
 
@@ -124,7 +124,7 @@ class Configuration
      */
     public function getCommon() : CommonSettings
     {
-        if(! $this->isHasCommon()) {
+        if (!$this->isHasCommon()) {
             $this->initCommon();
         }
 
@@ -146,27 +146,27 @@ class Configuration
     {
         $result = true;
 
-        foreach($this->iterateSource() as $source) {
-            if(! $source->validate()) {
+        foreach ($this->iterateSource() as $source) {
+            if (!$source->validate()) {
                 $result = false;
             }
         }
 
-        foreach($this->iterateIndex() as $index) {
-            if(! $index->validate()) {
+        foreach ($this->iterateIndex() as $index) {
+            if (!$index->validate()) {
                 $result = false;
             }
         }
 
-        if($this->isHasCommon() && ! $this->getCommon()->validate()) {
+        if ($this->isHasCommon() && !$this->getCommon()->validate()) {
             $result = false;
         }
 
-        if($this->isHasIndexer() && ! $this->getIndexer()->validate()) {
+        if ($this->isHasIndexer() && !$this->getIndexer()->validate()) {
             $result = false;
         }
 
-        if($this->isHasSearchd() && ! $this->getSearchd()->validate()) {
+        if ($this->isHasSearchd() && !$this->getSearchd()->validate()) {
             $result = false;
         }
 
@@ -235,8 +235,8 @@ class Configuration
     private function isSourceParentExists(string $parentName) : bool
     {
         $exist = false;
-        foreach($this->iterateSource() as $source) {
-            if($source->getName() === $parentName) {
+        foreach ($this->iterateSource() as $source) {
+            if ($source->getName() === $parentName) {
                 $exist = true;
             }
         }
@@ -251,8 +251,8 @@ class Configuration
     private function isIndexParentExists(string $parentName) : bool
     {
         $exist = false;
-        foreach($this->iterateIndex() as $index) {
-            if($index->getName() === $parentName) {
+        foreach ($this->iterateIndex() as $index) {
+            if ($index->getName() === $parentName) {
                 $exist = true;
             }
         }

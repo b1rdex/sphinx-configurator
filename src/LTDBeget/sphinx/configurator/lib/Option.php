@@ -29,6 +29,7 @@ abstract class Option
     public static function getName() : string
     {
         $className = (new \ReflectionClass(get_called_class()))->getShortName();
+
         return (new CaseTransformer(new CamelCase(), new SnakeCase()))->transform($className);
     }
 
@@ -70,7 +71,7 @@ abstract class Option
      */
     public function delete()
     {
-       $this->isDeleted = true;
+        $this->isDeleted = true;
     }
 
     /**
@@ -90,5 +91,5 @@ abstract class Option
     /**
      * @var boolean
      */
-    private   $isDeleted = false;
+    private $isDeleted = false;
 }

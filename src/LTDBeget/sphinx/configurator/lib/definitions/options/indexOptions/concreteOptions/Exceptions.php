@@ -15,11 +15,11 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  *
  * tokenizing exceptions file
  * optional, default is empty
- * 
+ *
  * plain text, case sensitive, space insensitive in map-from part
  * one "Map Several Words => ToASingleOne" entry per line
- * 
- * exceptions		= /var/lib/sphinxsearch/data/exceptions.txt
+ *
+ * exceptions        = /var/lib/sphinxsearch/data/exceptions.txt
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

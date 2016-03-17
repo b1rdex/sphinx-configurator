@@ -15,7 +15,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  *
  * max allowed per-batch query count (aka multi-query count)
  * optional, default is 32
- * max_batch_queries	= 32
+ * max_batch_queries    = 32
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

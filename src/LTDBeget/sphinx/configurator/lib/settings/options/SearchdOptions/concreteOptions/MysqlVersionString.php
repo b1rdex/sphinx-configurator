@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\SearchdOpti
  * version string returned to MySQL network protocol clients
  * optional, default is empty (use Sphinx version)
  *
- * mysql_version_string	= 5.0.37
+ * mysql_version_string    = 5.0.37
  *
  * @package LTDBeget\sphinx\configurator\lib\settings\options\SearchdOptions\concreteOptions
  */

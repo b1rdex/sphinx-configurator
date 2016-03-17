@@ -16,8 +16,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\IndexOptio
  * stopword files list (space separated)
  * optional, default is empty
  * contents are plain text, charset_table and stemming are both applied
- * 
- * stopwords		= /var/lib/sphinxsearch/data/stopwords.txt
+ *
+ * stopwords        = /var/lib/sphinxsearch/data/stopwords.txt
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\indexOptions\concreteOptions
  */

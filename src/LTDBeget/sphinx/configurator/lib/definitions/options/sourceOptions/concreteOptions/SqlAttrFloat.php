@@ -16,9 +16,9 @@ use LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\SourceOpt
  * floating point attribute declaration
  * multi-value (an arbitrary number of attributes is allowed), optional
  * values are stored in single precision, 32-bit IEEE 754 format
- * 
- * sql_attr_float		= lat_radians
- * sql_attr_float		= long_radians
+ *
+ * sql_attr_float        = lat_radians
+ * sql_attr_float        = long_radians
  *
  * @package LTDBeget\sphinx\configurator\lib\definitions\options\sourceOptions\concreteOptions
  */

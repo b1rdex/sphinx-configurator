@@ -10,7 +10,7 @@ use LTDBeget\sphinxConfigurator\serializers\PlainSerializer;
 
 require(__DIR__ . '/../vendor/autoload.php');
 
-$config_path = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."stubs".DIRECTORY_SEPARATOR."valid.example.conf";
+$config_path = realpath(__DIR__."/../sphinx/conf/valid.example.conf");
 $plain_config = file_get_contents($config_path);
 
 $times = [];

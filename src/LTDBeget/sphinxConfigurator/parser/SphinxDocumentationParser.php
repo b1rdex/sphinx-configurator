@@ -5,7 +5,7 @@
  * @time: 3:13 PM
  */
 
-namespace Dev;
+namespace LTDBeget\sphinxConfigurator\parser;
 
 
 use DOMDocument;
@@ -14,10 +14,10 @@ use Symfony\Component\Yaml\Dumper;
 
 /**
  * Functionality of class is parsing and dumping as yaml files sphinx documentation info on options
- * Class SphinxDocumentation
+ * Class SphinxDocumentationParser
  * @package Dev
  */
-final class SphinxDocumentation
+final class SphinxDocumentationParser
 {
     /**
      * Parse all sphinx configuration from self::$links
@@ -25,7 +25,7 @@ final class SphinxDocumentation
     public static function parseAll()
     {
         foreach(self::$links as $version => $link) {
-            $parser = new SphinxDocumentation($link, $version);
+            $parser = new SphinxDocumentationParser($link, $version);
             $parser->parse()->dump();
         }
     }
@@ -72,7 +72,7 @@ final class SphinxDocumentation
     private $version;
 
     /**
-     * SphinxDocumentation constructor.
+     * SphinxDocumentationParser constructor.
      * @param string $link link on single page sphinx documentation
      * @param string $version
      */
@@ -109,7 +109,7 @@ final class SphinxDocumentation
      */
     private function getFileName() : string
     {
-        return $this->getPath().DIRECTORY_SEPARATOR."documentation_{$this->version}.yaml";
+        return $this->getPath()."/documentation_{$this->version}.yaml";
     }
 
     /**
@@ -118,13 +118,13 @@ final class SphinxDocumentation
      */
     private function getPath() : string
     {
-        return realpath(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."optionsDescriptions");
+        return realpath(__DIR__."../../../../sphinx/docs");
     }
 
     /**
-     * @return SphinxDocumentation
+     * @return SphinxDocumentationParser
      */
-    private function parse() : SphinxDocumentation
+    private function parse() : SphinxDocumentationParser
     {
         $nodes = $this->document->getElementsByTagName("a");
         foreach($nodes as $node) {

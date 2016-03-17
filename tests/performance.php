@@ -6,7 +6,8 @@
  * @time: 2:04 PM
  */
 
-use LTDBeget\sphinxConfigurator\serializers\PlainSerializer;
+
+use LTDBeget\sphinx\configurator\serializers\PlainSerializer;
 
 require(__DIR__ . '/../vendor/autoload.php');
 

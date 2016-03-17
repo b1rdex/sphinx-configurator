@@ -8,7 +8,7 @@
 namespace LTDBeget\sphinx\informer\enums\blocks;
 
 
-use MyCLabs\Enum\Enum;
+use MabeEnum\Enum;
 
 /**
  * Class eOptionsBlock
@@ -16,5 +16,8 @@ use MyCLabs\Enum\Enum;
  */
 abstract class eOptionsBlock extends Enum
 {
-
+    public function __toString() : string
+    {
+        return $this->getValue();
+    }
 }

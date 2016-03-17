@@ -5,11 +5,10 @@
  * @time: 1:14 PM
  */
 
-namespace LTDBeget\sphinx\informer\enums;
+namespace LTDBeget\sphinx\enums;
 
 
-use MabeEnum\Enum;
-
+use LTDBeget\sphinx\enums\base\Enum;
 
 /**
  * Class eSphinxVersion
@@ -55,9 +54,4 @@ final class eSphinxVersion extends Enum
     const V_2_2_6  = "2.2.6";
     const V_2_2_8  = "2.2.8";
     const V_2_2_10 = "2.2.10";
-
-    public function __toString() : string
-    {
-        return $this->getValue();
-    }
 }

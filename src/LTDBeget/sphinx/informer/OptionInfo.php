@@ -8,9 +8,11 @@
 namespace LTDBeget\sphinx\informer;
 
 
-use LTDBeget\sphinx\informer\enums\blocks\eOptionsBlock;
-use LTDBeget\sphinx\informer\enums\eSphinxVersion;
-use LTDBeget\sphinx\informer\enums\options\eOption;
+
+use LTDBeget\sphinx\enums\base\eOption;
+use LTDBeget\sphinx\enums\base\eSection;
+use LTDBeget\sphinx\enums\eSphinxVersion;
+
 
 /**
  * Class OptionInfo
@@ -22,7 +24,7 @@ final class OptionInfo
     /**
      * OptionInfo constructor.
      * @param eOption $name
-     * @param eOptionsBlock $block
+     * @param eSection $block
      * @param eSphinxVersion $version
      * @param string $description
      * @param bool $isMultiValue
@@ -30,7 +32,7 @@ final class OptionInfo
      */
     public function __construct(
         eOption $name,
-        eOptionsBlock $block,
+        eSection $block,
         eSphinxVersion $version,
         string $description,
         bool $isMultiValue,
@@ -55,9 +57,9 @@ final class OptionInfo
     }
 
     /**
-     * @return eOptionsBlock
+     * @return eSection
      */
-    public function getBlock() : eOptionsBlock
+    public function getBlock() : eSection
     {
         return $this->block;
     }
@@ -101,7 +103,7 @@ final class OptionInfo
     private $name;
 
     /**
-     * @var eOptionsBlock
+     * @var eSection
      */
     private $block;
 

@@ -5,10 +5,8 @@
  * @time: 2:46 PM
  */
 
-namespace LTDBeget\sphinx\informer\enums\options;
+namespace LTDBeget\sphinx\enums\base;
 
-
-use MabeEnum\Enum;
 
 /**
  * Class eOption
@@ -16,8 +14,5 @@ use MabeEnum\Enum;
  */
 abstract class eOption extends Enum
 {
-    public function __toString() : string
-    {
-        return $this->getValue();
-    }
+
 }

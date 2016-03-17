@@ -51,7 +51,7 @@ final class Informer
      */
     public function getSourceOption(eSourceOption $optionName)
     {
-        return $this->getOptionInfo($this->optionBlocks[eDefinition::SOURCE], $optionName);
+        return $this->getOptionInfo(eDefinition::SOURCE(), $optionName);
     }
 
     /**
@@ -61,7 +61,7 @@ final class Informer
      */
     public function isKnownSourceOption(eSourceOption $optionName)
     {
-        return $this->isKnownOption($this->optionBlocks[eDefinition::SOURCE], $optionName);
+        return $this->isKnownOption(eDefinition::SOURCE(), $optionName);
     }
 
     /**
@@ -69,7 +69,7 @@ final class Informer
      */
     public function iterateSourceOptionInfo()
     {
-        return $this->iterateOptionInfo($this->optionBlocks[eDefinition::SOURCE]);
+        return $this->iterateOptionInfo(eDefinition::SOURCE());
     }
 
     /**
@@ -82,13 +82,6 @@ final class Informer
     {
         $this->version = $version;
         $this->loadDocumentation();
-        $this->optionBlocks = [
-            eDefinition::INDEX => eDefinition::INDEX(),
-            eDefinition::SOURCE => eDefinition::SOURCE(),
-            eSettings::SEARCHD => eSettings::SEARCHD(),
-            eSettings::INDEXER => eSettings::INDEXER(),
-            eSettings::COMMON => eSettings::COMMON()
-        ];
     }
 
     /**
@@ -164,26 +157,26 @@ final class Informer
      */
     private function iterateOptionInfo(eOptionsBlock $optionBlock)
     {
-        foreach($this->documentation[(string) $optionBlock] as $name => $optionData) {
+        foreach($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
             switch($optionBlock) {
                 case eDefinition::SOURCE:
-                    $optionName = new eSourceOption($name);
+                    $optionName =  eSourceOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 case eDefinition::INDEX:
-                    $optionName = new eIndexOption($name);
+                    $optionName = eIndexOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 case eSettings::SEARCHD:
-                    $optionName = new eSearchdOption($name);
+                    $optionName = eSearchdOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 case eSettings::INDEXER:
-                    $optionName = new eIndexerOption($name);
+                    $optionName = eIndexerOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 case eSettings::COMMON:
-                    $optionName = new eCommonOption($name);
+                    $optionName = eCommonOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
                 default;
@@ -254,9 +247,4 @@ final class Informer
      * @var array
      */
     private $optionsInfo = [];
-
-    /**
-     * @var array
-     */
-    private $optionBlocks;
 }

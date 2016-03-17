@@ -7,7 +7,10 @@
 
 namespace LTDBeget\sphinx\informer\exceptions;
 
-
+/**
+ * Class UnknownValueException
+ * @package LTDBeget\sphinx\informer\exceptions
+ */
 class UnknownValueException extends \Exception
 {
 

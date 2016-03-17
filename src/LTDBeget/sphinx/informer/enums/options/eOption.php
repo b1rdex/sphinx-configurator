@@ -8,7 +8,7 @@
 namespace LTDBeget\sphinx\informer\enums\options;
 
 
-use MyCLabs\Enum\Enum;
+use MabeEnum\Enum;
 
 /**
  * Class eOption
@@ -16,5 +16,8 @@ use MyCLabs\Enum\Enum;
  */
 abstract class eOption extends Enum
 {
-
+    public function __toString() : string
+    {
+        return $this->getValue();
+    }
 }

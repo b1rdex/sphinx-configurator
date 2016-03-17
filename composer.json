@@ -15,17 +15,15 @@
     "php": ">=7.0",
     "respect/validation": "1.0.*",
     "mattketmo/camel": "1.1.*",
-    "symfony/yaml" : "3.0.*"
+    "symfony/yaml" : "3.0.*",
+    "myclabs/php-enum" : "1.4.*"
   },
   "require-dev": {
     "theseer/phpdox": "0.8.*"
   },
   "autoload": {
     "psr-0": {
-      "LTDBeget\\sphinxConfigurator": "src"
-    },
-    "psr-4": {
-      "Dev\\": "dev"
+      "LTDBeget\\sphinx": "src"
     }
   }
 }

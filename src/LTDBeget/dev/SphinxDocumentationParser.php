@@ -5,7 +5,7 @@
  * @time: 3:13 PM
  */
 
-namespace LTDBeget\sphinx\informer\parser;
+namespace LTDBeget\dev;
 
 
 use DOMDocument;
@@ -118,7 +118,7 @@ final class SphinxDocumentationParser
      */
     private function getPath() : string
     {
-        return realpath(__DIR__."../../../../sphinx/docs");
+        return realpath(__DIR__."../../../sphinx/docs");
     }
 
     /**

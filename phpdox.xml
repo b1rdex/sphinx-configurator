@@ -11,7 +11,7 @@
             <enrich base="${basedir}/build"/>
             <build engine="html" enabled="true" output="html">
                 <template dir="${phpDox.home}/templates/html" />
-                <file extension="xhtml" />
+                <file extension="html" />
             </build>
         </generator>
     </project>

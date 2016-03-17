@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\Settings" namespace="LTDBeget\sphinxConfigurator\lib" name="Settings" abstract="true" final="false" start="13" end="56">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib" file="Settings.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/Settings.php" size="1080" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="098f38ebc97a9cb870404c05f76f7109c7f1d947" relative="LTDBeget/sphinxConfigurator/lib/Settings.php"/>
+  <member name="sphinxConfiguration" visibility="private" static="false" line="18">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$sphinxConfiguration">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </param>
+    </docblock>
+    <parameter name="sphinxConfiguration" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+    </parameter>
+  </constructor>
+  <method name="getConfiguration" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getType" start="47" end="50" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="validate" start="55" end="55" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <extenders>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="IndexerSettings"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="CommonSettings"/>
+  </extenders>
+</class>

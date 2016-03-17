@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/exceptions" file="NotFoundException.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/exceptions/NotFoundException.php" size="175" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="5ed23b42d9e85335421672ffc9b35027a80e30e1" relative="LTDBeget/sphinxConfigurator/exceptions/NotFoundException.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * @author: Viskov Sergey</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * @date: 3/2/16</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * @time: 5:49 PM</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinxConfigurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">exceptions</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10"/>
+  <line no="11">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">NotFoundException</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Exception</token>
+  </line>
+  <line no="12">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="13"/>
+  <line no="14">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

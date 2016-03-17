@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\WriteBuffer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="WriteBuffer" abstract="false" final="false" start="25" end="34">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions" file="WriteBuffer.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions/WriteBuffer.php" size="723" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="1fdf31d867dba03d884c013a0f775ebba7471ed3" relative="LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions/WriteBuffer.php"/>
+  <docblock>
+    <description compact="Class WriteBuffer">write buffer size, bytes
+several (currently up to 4) buffers will be allocated
+write buffers are allocated in addition to mem_limit
+optional, default is 1M
+
+write_buffer		= 1M</description>
+    <package value="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="IndexerOption"/>
+  <method name="validate" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\bool" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="IndexerOption">
+    <extends full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option"/>
+    <constructor name="__construct" start="30" end="34" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="IndexerOption constructor."/>
+        <param type="object" variable="$indexerSettings">
+          <type full="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="IndexerSettings"/>
+        </param>
+        <param type="string" variable="$value"/>
+      </docblock>
+      <parameter name="indexerSettings" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="IndexerSettings"/>
+      </parameter>
+      <parameter name="value" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="string"/>
+      </parameter>
+    </constructor>
+    <method name="isMultiValue" start="40" end="43" abstract="false" final="true" static="false" visibility="public">
+      <docblock>
+        <description compact="Indexer settings has no multi-value options"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\bool" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getIndexer" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="IndexerSettings"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option">
+    <member name="value" visibility="protected" static="false" line="24">
+      <docblock>
+        <description/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <method name="getName" start="29" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getValue" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setValue" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$value"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\void" namespace="LTDBeget\sphinxConfigurator\lib" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="isMultiValue" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="delete" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="mark option as deleted"/>
+      </docblock>
+    </method>
+    <method name="isDeleted" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="is option marked as deleted"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="validate" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

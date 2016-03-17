@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\serializers\PlainSerializer" namespace="LTDBeget\sphinxConfigurator\serializers" name="PlainSerializer" abstract="false" final="true" start="20" end="91">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/serializers" file="PlainSerializer.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/serializers/PlainSerializer.php" size="2989" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="67588e8cc9cc0a1064380d639da5ce8d81ec2246" relative="LTDBeget/sphinxConfigurator/serializers/PlainSerializer.php"/>
+  <docblock>
+    <description compact="Class PlainSerializer serialize SphinxConfiguration object to string and file content from sphinx.conf file to SphinxConfiguration object"/>
+    <package value="LTDBeget\sphinxConfigurator\serializers"/>
+  </docblock>
+  <method name="serialize" start="27" end="80" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make plain content for sphinx configuration file from SphinxConfiguration object"/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+    </parameter>
+  </method>
+  <method name="deserialize" start="87" end="90" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make SphinxConfiguration object from plain content of sphinx configuration file"/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinxConfigurator\serializers\String" namespace="LTDBeget\sphinxConfigurator\serializers" name="String"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </return>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\serializers\string" namespace="LTDBeget\sphinxConfigurator\serializers" name="string"/>
+    </parameter>
+  </method>
+</class>

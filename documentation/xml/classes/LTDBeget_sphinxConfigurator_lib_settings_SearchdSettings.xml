@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings" abstract="false" final="false" start="16" end="103">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings" file="SearchdSettings.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/SearchdSettings.php" size="2577" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="b241cf0bee73ef2b973b5d5c1efd600284ae0604" relative="LTDBeget/sphinxConfigurator/lib/settings/SearchdSettings.php"/>
+  <extends full="LTDBeget\sphinxConfigurator\lib\Settings" namespace="LTDBeget\sphinxConfigurator\lib" name="Settings"/>
+  <member name="optionAppender" type="{unknown}" default="" constant="null" visibility="private" static="false" line="21">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOptionAppender"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="private" static="false" line="26">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdOption"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="addOption" start="33" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$option">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\WrongContextException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="WrongContextException"/>
+      </throws>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOption"/>
+    </parameter>
+  </method>
+  <method name="getOptionAppender" start="55" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOptionAppender"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="iterateOptions" start="67" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdOption"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="validate" start="93" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\bool" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Settings" namespace="LTDBeget\sphinxConfigurator\lib" name="Settings">
+    <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$sphinxConfiguration">
+          <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+        </param>
+      </docblock>
+      <parameter name="sphinxConfiguration" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </parameter>
+    </constructor>
+    <method name="getConfiguration" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="__toString" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getType" start="47" end="50" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="validate" start="55" end="55" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

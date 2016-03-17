@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions" file="MaxXmlpipe2Field.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions/MaxXmlpipe2Field.php" size="637" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="fa6ef72f0a013ea2bb13534f77c73a03502d932f" relative="LTDBeget/sphinxConfigurator/lib/settings/options/IndexerOptions/concreteOptions/MaxXmlpipe2Field.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * @author: Viskov Sergey</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * @date: 3/3/16</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * @time: 8:02 PM</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinxConfigurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">lib</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">settings</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">options</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">IndexerOptions</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">concreteOptions</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10"/>
+  <line no="11">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinxConfigurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">lib</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">settings</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">options</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">IndexerOptions</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">IndexerOption</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="12"/>
+  <line no="13">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> * Class MaxXmlpipe2Field</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * maximum xmlpipe2 field length, bytes</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * optional, default is 2M</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * max_xmlpipe2_field	= 4M</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT"> * @package LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="23">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MaxXmlpipe2Field</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">IndexerOption</token>
+  </line>
+  <line no="24">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="25">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT">     * @return bool</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="28">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">validate</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_COLON">:</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">bool</token>
+  </line>
+  <line no="29">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="30">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="31">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="32">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

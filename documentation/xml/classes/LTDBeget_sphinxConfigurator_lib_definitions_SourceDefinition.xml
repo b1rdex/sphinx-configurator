@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition" abstract="false" final="false" start="21" end="123">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions" file="SourceDefinition.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/SourceDefinition.php" size="3211" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="af8f19c872991a57130db6132ff0350041086f5a" relative="LTDBeget/sphinxConfigurator/lib/definitions/SourceDefinition.php"/>
+  <docblock>
+    <description compact="Class SourceDefinition"/>
+    <package value="LTDBeget\sphinxConfigurator\lib\definitions"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\Definition" namespace="LTDBeget\sphinxConfigurator\lib" name="Definition"/>
+  <member name="optionAppender" visibility="private" static="false" line="26">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOptionAppender"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="private" static="false" line="31">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceOption"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getOptionAppender" start="36" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOptionAppender"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addOption" start="50" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$option">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\WrongContextException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="WrongContextException"/>
+      </throws>
+    </docblock>
+    <parameter name="option" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption"/>
+    </parameter>
+  </method>
+  <method name="iterateOptions" start="72" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceOption"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getInheritanceSource" start="99" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="validate" start="113" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\bool" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Definition" namespace="LTDBeget\sphinxConfigurator\lib" name="Definition">
+    <constructor name="__construct" start="38" end="43" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$sphinxConfiguration">
+          <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+        </param>
+        <param type="string" variable="$name"/>
+        <param type="string" variable="$inheritanceName"/>
+      </docblock>
+      <parameter name="sphinxConfiguration" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </parameter>
+      <parameter name="name" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\string" namespace="LTDBeget\sphinxConfigurator\lib" name="string"/>
+      </parameter>
+      <parameter name="inheritanceName" byreference="false" type="{unknown}" default="" constant="null">
+        <type full="LTDBeget\sphinxConfigurator\lib\string" namespace="LTDBeget\sphinxConfigurator\lib" name="string"/>
+      </parameter>
+    </constructor>
+    <method name="getConfiguration" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getName" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Name of source"/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getInheritanceName" start="66" end="73" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+        <throws type="object">
+          <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+        </throws>
+      </docblock>
+    </method>
+    <method name="isHasInheritance" start="78" end="81" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="__toString" start="87" end="95" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+        <throws type="object">
+          <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+        </throws>
+      </docblock>
+    </method>
+    <method name="getType" start="100" end="103" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="validate" start="108" end="108" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

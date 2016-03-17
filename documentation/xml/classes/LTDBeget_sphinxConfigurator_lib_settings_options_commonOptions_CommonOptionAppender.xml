@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions" name="CommonOptionAppender" abstract="false" final="false" start="30" end="72">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/commonOptions" file="CommonOptionAppender.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/commonOptions/CommonOptionAppender.php" size="1974" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="8c521902240aa643f5e608a54e092962ab491246" relative="LTDBeget/sphinxConfigurator/lib/settings/options/commonOptions/CommonOptionAppender.php"/>
+  <docblock>
+    <description compact="Class CommonOptionAppender"/>
+    <package value="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions"/>
+    <method value="CommonOption addJsonAutoconvKeynames(string $value)"/>
+    <method value="CommonOption addJsonAutoconvNumbers(string $value)"/>
+    <method value="CommonOption addLemmatizerBase(string $value)"/>
+    <method value="CommonOption addOnJsonAttrError(string $value)"/>
+    <method value="CommonOption addPluginDir(string $value)"/>
+    <method value="CommonOption addRlpEnvironment(string $value)"/>
+    <method value="CommonOption addRlpMaxBatchDocs(string $value)"/>
+    <method value="CommonOption addRlpMaxBatchSize(string $value)"/>
+    <method value="CommonOption addRlpRoot(string $value)"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\OptionAppender" namespace="LTDBeget\sphinxConfigurator\lib" name="OptionAppender"/>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="CommonOptionAppender constructor."/>
+      <param type="object" variable="$commonSettings">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="CommonSettings"/>
+      </param>
+    </docblock>
+    <parameter name="commonSettings" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="CommonSettings"/>
+    </parameter>
+  </constructor>
+  <method name="__call" start="47" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$methodName"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions" name="CommonOption"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="methodName" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions" name="string"/>
+    </parameter>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <member name="commonSettings" visibility="private" static="false" line="63">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="CommonSettings"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getCommon" start="68" end="71" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="CommonSettings"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\OptionAppender" namespace="LTDBeget\sphinxConfigurator\lib" name="OptionAppender">
+    <method name="getOptionClassByMethodName" start="24" end="35" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <param type="string" variable="$methodName"/>
+        <return type="string"/>
+        <throws type="object">
+          <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+        </throws>
+      </docblock>
+      <parameter name="methodName" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\string" namespace="LTDBeget\sphinxConfigurator\lib" name="string"/>
+      </parameter>
+    </method>
+  </parent>
+</class>

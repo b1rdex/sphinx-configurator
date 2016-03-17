@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookPostIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookPostIndex" abstract="false" final="false" start="24" end="33">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions/concreteOptions" file="HookPostIndex.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions/concreteOptions/HookPostIndex.php" size="762" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="bc896199d7ced790838cb23d60859a3c29eb315e" relative="LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions/concreteOptions/HookPostIndex.php"/>
+  <docblock>
+    <description compact="Class HookPostIndex">hook command to run on successful indexing completion
+$maxid expands to max document ID actually fetched from DB
+optional, default value is empty (do nothing)
+
+hook_post_index		= bash sql_post_index.sh $maxid</description>
+    <package value="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption"/>
+  <method name="validate" start="29" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\bool" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption">
+    <extends full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option"/>
+    <constructor name="__construct" start="29" end="33" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$sourceDefinition">
+          <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+        </param>
+        <param type="string" variable="$value"/>
+      </docblock>
+      <parameter name="sourceDefinition" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </parameter>
+      <parameter name="value" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="string"/>
+      </parameter>
+    </constructor>
+    <method name="getSource" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option">
+    <member name="value" visibility="protected" static="false" line="24">
+      <docblock>
+        <description/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <method name="getName" start="29" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getValue" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setValue" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$value"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\void" namespace="LTDBeget\sphinxConfigurator\lib" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="isMultiValue" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="delete" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="mark option as deleted"/>
+      </docblock>
+    </method>
+    <method name="isDeleted" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="is option marked as deleted"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="validate" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

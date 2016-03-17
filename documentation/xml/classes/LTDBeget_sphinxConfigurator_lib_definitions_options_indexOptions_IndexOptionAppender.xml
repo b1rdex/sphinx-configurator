@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions" name="IndexOptionAppender" abstract="false" final="false" start="85" end="127">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/indexOptions" file="IndexOptionAppender.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/indexOptions/IndexOptionAppender.php" size="4953" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="08aea2b8cef92bb643303810280a8040b010c850" relative="LTDBeget/sphinxConfigurator/lib/definitions/options/indexOptions/IndexOptionAppender.php"/>
+  <docblock>
+    <description compact="Class IndexOptionAppender"/>
+    <package value="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions"/>
+    <method value="IndexOption addType(string $value)"/>
+    <method value="IndexOption addSource(string $value)"/>
+    <method value="IndexOption addPath(string $value)"/>
+    <method value="IndexOption addDocinfo(string $value)"/>
+    <method value="IndexOption addDict(string $value)"/>
+    <method value="IndexOption addMlock(string $value)"/>
+    <method value="IndexOption addMorphology(string $value)"/>
+    <method value="IndexOption addMinStemmingLen(string $value)"/>
+    <method value="IndexOption addStopwords(string $value)"/>
+    <method value="IndexOption addWordforms(string $value)"/>
+    <method value="IndexOption addExceptions(string $value)"/>
+    <method value="IndexOption addEmbeddedLimit(string $value)"/>
+    <method value="IndexOption addMinWordLen(string $value)"/>
+    <method value="IndexOption addIgnoreChars(string $value)"/>
+    <method value="IndexOption addMinPrefixLen(string $value)"/>
+    <method value="IndexOption addMinInfixLen(string $value)"/>
+    <method value="IndexOption addMaxSubstringLen(string $value)"/>
+    <method value="IndexOption addPrefixFields(string $value)"/>
+    <method value="IndexOption addInfixFields(string $value)"/>
+    <method value="IndexOption addExpandKeywords(string $value)"/>
+    <method value="IndexOption addNgramLen(string $value)"/>
+    <method value="IndexOption addNgramChars(string $value)"/>
+    <method value="IndexOption addPhraseBoundary(string $value)"/>
+    <method value="IndexOption addPhraseBoundaryStep(string $value)"/>
+    <method value="IndexOption addBlendChars(string $value)"/>
+    <method value="IndexOption addBlendMode(string $value)"/>
+    <method value="IndexOption addHtmlStrip(string $value)"/>
+    <method value="IndexOption addHtmlIndexAttrs(string $value)"/>
+    <method value="IndexOption addHtmlRemoveElements(string $value)"/>
+    <method value="IndexOption addPreopen(string $value)"/>
+    <method value="IndexOption addInplaceEnable(string $value)"/>
+    <method value="IndexOption addInplaceHitGap(string $value)"/>
+    <method value="IndexOption addInplaceDocinfoGap(string $value)"/>
+    <method value="IndexOption addInplaceRelocFactor(string $value)"/>
+    <method value="IndexOption addInplaceWriteFactor(string $value)"/>
+    <method value="IndexOption addIndexExactWords(string $value)"/>
+    <method value="IndexOption addOvershortStep(string $value)"/>
+    <method value="IndexOption addStopwordStep(string $value)"/>
+    <method value="IndexOption addHitlessWords(string $value)"/>
+    <method value="IndexOption addIndexSp(string $value)"/>
+    <method value="IndexOption addIndexZones(string $value)"/>
+    <method value="IndexOption addIndexFieldLengths(string $value)"/>
+    <method value="IndexOption addRegexpFilter(string $value)"/>
+    <method value="IndexOption addBigramFreqWords(string $value)"/>
+    <method value="IndexOption addBigramIndex(string $value)"/>
+    <method value="IndexOption addSnippetsFilePrefix(string $value)"/>
+    <method value="IndexOption addStopwordsUnstemmed(string $value)"/>
+    <method value="IndexOption addGlobalIdf(string $value)"/>
+    <method value="IndexOption addAgent(string $value)"/>
+    <method value="IndexOption addAgentBlackhole(string $value)"/>
+    <method value="IndexOption addAgentPersistent(string $value)"/>
+    <method value="IndexOption addAgentConnectTimeout(string $value)"/>
+    <method value="IndexOption addAgentQueryTimeout(string $value)"/>
+    <method value="IndexOption addHaStrategy(string $value)"/>
+    <method value="IndexOption addRlpContext(string $value)"/>
+    <method value="IndexOption addRtMemLimit(string $value)"/>
+    <method value="IndexOption addRtField(string $value)"/>
+    <method value="IndexOption addRtAttrUint(string $value)"/>
+    <method value="IndexOption addRtAttrBigint(string $value)"/>
+    <method value="IndexOption addRtAttrFloat(string $value)"/>
+    <method value="IndexOption addRtAttrTimestamp(string $value)"/>
+    <method value="IndexOption addRtAttrString(string $value)"/>
+    <method value="IndexOption addRtAttrMulti(string $value)"/>
+    <method value="IndexOption addRtAttrMulti64(string $value)"/>
+    <method value="IndexOption addRtAttrJson(string $value)"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\OptionAppender" namespace="LTDBeget\sphinxConfigurator\lib" name="OptionAppender"/>
+  <constructor name="__construct" start="91" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="IndexOptionAppender constructor."/>
+      <param type="object" variable="$indexDefinition">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="IndexDefinition"/>
+      </param>
+    </docblock>
+    <parameter name="indexDefinition" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="IndexDefinition"/>
+    </parameter>
+  </constructor>
+  <method name="__call" start="102" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$methodName"/>
+      <param type="array" variable="$arguments"/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions" name="IndexOption"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="methodName" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions" name="string"/>
+    </parameter>
+    <parameter name="arguments" byreference="false" type="array"/>
+  </method>
+  <member name="indexDefinition" visibility="private" static="false" line="118">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="IndexDefinition"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getIndex" start="123" end="126" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\IndexDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="IndexDefinition"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="LTDBeget\sphinxConfigurator\lib\OptionAppender" namespace="LTDBeget\sphinxConfigurator\lib" name="OptionAppender">
+    <method name="getOptionClassByMethodName" start="24" end="35" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <param type="string" variable="$methodName"/>
+        <return type="string"/>
+        <throws type="object">
+          <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+        </throws>
+      </docblock>
+      <parameter name="methodName" byreference="false" type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\string" namespace="LTDBeget\sphinxConfigurator\lib" name="string"/>
+      </parameter>
+    </method>
+  </parent>
+</class>

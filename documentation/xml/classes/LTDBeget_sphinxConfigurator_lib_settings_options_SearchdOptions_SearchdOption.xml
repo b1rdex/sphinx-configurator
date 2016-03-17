@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOption" abstract="true" final="false" start="18" end="43">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/SearchdOptions" file="SearchdOption.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/settings/options/SearchdOptions/SearchdOption.php" size="939" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="defb9bd405adf0578f302d52a0b4f42cc72135c8" relative="LTDBeget/sphinxConfigurator/lib/settings/options/SearchdOptions/SearchdOption.php"/>
+  <docblock>
+    <description compact="Class SearchdOption"/>
+    <package value="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option"/>
+  <member name="searchdSettings" visibility="private" static="false" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="SearchdOption constructor."/>
+      <param type="object" variable="$searchdSettings">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+      </param>
+      <param type="string" variable="$value"/>
+    </docblock>
+    <parameter name="searchdSettings" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+    </parameter>
+    <parameter name="value" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="string"/>
+    </parameter>
+  </constructor>
+  <method name="getSearchd" start="39" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" namespace="LTDBeget\sphinxConfigurator\lib\settings" name="SearchdSettings"/>
+      </return>
+    </docblock>
+  </method>
+  <extenders>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MvaUpdatesPool" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MvaUpdatesPool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Watchdog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Watchdog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\HaPingInterval" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="HaPingInterval"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxChildren" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxChildren"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\DistThreads" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="DistThreads"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PidFile" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PidFile"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Workers" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Workers"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Log" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Log"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PreforkRotationThrottle" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PreforkRotationThrottle"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MysqlVersionString" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MysqlVersionString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SnippetsFilePrefix" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SnippetsFilePrefix"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\AttrFlushPeriod" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="AttrFlushPeriod"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\QueryLog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="QueryLog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxFilters" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxFilters"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogFlush" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogFlush"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SubtreeHitsCache" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SubtreeHitsCache"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SphinxqlState" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SphinxqlState"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ListenBacklog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ListenBacklog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadTimeout" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogPath" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogPath"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtFlushPeriod" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtFlushPeriod"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxPacketSize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxPacketSize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtMergeIops" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtMergeIops"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PreopenIndexes" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PreopenIndexes"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\CollationServer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="CollationServer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxBatchQueries" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxBatchQueries"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PersistentConnectionsLimit" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PersistentConnectionsLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PredictedTimeCosts" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PredictedTimeCosts"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SubtreeDocsCache" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SubtreeDocsCache"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtMergeMaxiosize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtMergeMaxiosize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadBuffer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadBuffer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\UnlinkOld" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="UnlinkOld"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadUnhinted" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadUnhinted"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Listen" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Listen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ExpansionLimit" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ExpansionLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\CollationLibcLocale" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="CollationLibcLocale"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\HaPeriodKarma" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="HaPeriodKarma"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SeamlessRotate" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SeamlessRotate"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ClientTimeout" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ClientTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\QueryLogFormat" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="QueryLogFormat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogMaxLogSize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogMaxLogSize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ThreadStack" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ThreadStack"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxFilterValues" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxFilterValues"/>
+  </extenders>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option">
+    <member name="value" visibility="protected" static="false" line="24">
+      <docblock>
+        <description/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <method name="getName" start="29" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getValue" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setValue" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$value"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\void" namespace="LTDBeget\sphinxConfigurator\lib" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="isMultiValue" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="delete" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="mark option as deleted"/>
+      </docblock>
+    </method>
+    <method name="isDeleted" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="is option marked as deleted"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="validate" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

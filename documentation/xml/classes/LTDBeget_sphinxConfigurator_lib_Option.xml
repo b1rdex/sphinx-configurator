@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option" abstract="true" final="false" start="19" end="94">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib" file="Option.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/Option.php" size="1576" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="4bcdde6dec348c60eff5b8ef0d6fe2469eed4e96" relative="LTDBeget/sphinxConfigurator/lib/Option.php"/>
+  <docblock>
+    <description compact="Class Option"/>
+    <package value="LTDBeget\sphinxConfigurator\lib"/>
+  </docblock>
+  <member name="value" visibility="protected" static="false" line="24">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="getName" start="29" end="33" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getValue" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setValue" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$value"/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\void" namespace="LTDBeget\sphinxConfigurator\lib" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__toString" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isMultiValue" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="delete" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="mark option as deleted"/>
+    </docblock>
+  </method>
+  <method name="isDeleted" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="is option marked as deleted"/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="validate" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <member name="isDeleted" type="boolean" default="false" visibility="private" static="false" line="93">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <extenders>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MvaUpdatesPool" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MvaUpdatesPool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Watchdog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Watchdog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\HaPingInterval" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="HaPingInterval"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxChildren" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxChildren"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\DistThreads" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="DistThreads"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PidFile" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PidFile"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Workers" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Workers"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Log" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Log"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PreforkRotationThrottle" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PreforkRotationThrottle"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MysqlVersionString" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MysqlVersionString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SnippetsFilePrefix" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SnippetsFilePrefix"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\AttrFlushPeriod" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="AttrFlushPeriod"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\QueryLog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="QueryLog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxFilters" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxFilters"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogFlush" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogFlush"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SubtreeHitsCache" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SubtreeHitsCache"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SphinxqlState" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SphinxqlState"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ListenBacklog" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ListenBacklog"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadTimeout" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogPath" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogPath"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtFlushPeriod" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtFlushPeriod"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxPacketSize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxPacketSize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtMergeIops" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtMergeIops"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PreopenIndexes" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PreopenIndexes"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\CollationServer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="CollationServer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxBatchQueries" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxBatchQueries"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PersistentConnectionsLimit" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PersistentConnectionsLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\PredictedTimeCosts" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="PredictedTimeCosts"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SubtreeDocsCache" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SubtreeDocsCache"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\RtMergeMaxiosize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="RtMergeMaxiosize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadBuffer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadBuffer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\UnlinkOld" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="UnlinkOld"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ReadUnhinted" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ReadUnhinted"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\Listen" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="Listen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ExpansionLimit" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ExpansionLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\CollationLibcLocale" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="CollationLibcLocale"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\HaPeriodKarma" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="HaPeriodKarma"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\SeamlessRotate" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="SeamlessRotate"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ClientTimeout" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ClientTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\QueryLogFormat" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="QueryLogFormat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\BinlogMaxLogSize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="BinlogMaxLogSize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\ThreadStack" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="ThreadStack"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions\MaxFilterValues" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\concreteOptions" name="MaxFilterValues"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOption"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions" name="CommonOption"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\RlpEnvironment" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="RlpEnvironment"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\RlpRoot" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="RlpRoot"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\PluginDir" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="PluginDir"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\RlpMaxBatchDocs" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="RlpMaxBatchDocs"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\RlpMaxBatchSize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="RlpMaxBatchSize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\JsonAutoconvKeynames" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="JsonAutoconvKeynames"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\JsonAutoconvNumbers" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="JsonAutoconvNumbers"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\LemmatizerBase" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="LemmatizerBase"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions\OnJsonAttrError" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\concreteOptions" name="OnJsonAttrError"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOption" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="IndexerOption"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MaxIops" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="MaxIops"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MaxXmlpipe2Field" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="MaxXmlpipe2Field"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MaxIosize" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="MaxIosize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\LemmatizerCache" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="LemmatizerCache"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\WriteBuffer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="WriteBuffer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MemLimit" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="MemLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\MaxFileFieldBuffer" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="MaxFileFieldBuffer"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions\OnFileFieldError" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\concreteOptions" name="OnFileFieldError"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQuery" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQuery"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrBigint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrBigint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrJson" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrJson"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrBool" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrBool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\Type" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="Type"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlPass" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlPass"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MssqlWinauth" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MssqlWinauth"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrMulti" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrMulti"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlDb" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlDb"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlRangeStep" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlRangeStep"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrJson" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrJson"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlFieldString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlFieldString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlSock" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlSock"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookQueryRange" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookQueryRange"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlRangedThrottle" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlRangedThrottle"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlColumnBuffers" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlColumnBuffers"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlConnectFlags" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlConnectFlags"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrFloat" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrFloat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrUint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrUint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrUint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrUint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookPostIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookPostIndex"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslCert" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslCert"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrTimestamp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrTimestamp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryKilllist" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryKilllist"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrMulti" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrMulti"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrBigint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrBigint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrTimestamp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrTimestamp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlUser" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlUser"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPost" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPost"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackMysqlcompress" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackMysqlcompress"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackZlib" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackZlib"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlFileField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlFileField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlPort" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlPort"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeCommand" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeCommand"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\OdbcDsn" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="OdbcDsn"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookConnect" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookConnect"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrBool" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrBool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryRange" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryRange"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlJoinedField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlJoinedField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslCa" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslCa"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackMysqlcompressMaxsize" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackMysqlcompressMaxsize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslKey" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslKey"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeFieldString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeFieldString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPostIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPostIndex"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrFloat" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrFloat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrMulti64" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrMulti64"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPre" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPre"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlHost" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlHost"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeFixupUtf8" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeFixupUtf8"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\BlendChars" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="BlendChars"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\AgentConnectTimeout" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="AgentConnectTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Exceptions" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Exceptions"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Agent" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Agent"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Type" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Type"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Dict" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Dict"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\PhraseBoundary" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="PhraseBoundary"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\NgramLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="NgramLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Local" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Local"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InplaceDocinfoGap" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InplaceDocinfoGap"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrBigint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrBigint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\HtmlIndexAttrs" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="HtmlIndexAttrs"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\SnippetsFilePrefix" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="SnippetsFilePrefix"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\MinPrefixLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="MinPrefixLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\OvershortStep" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="OvershortStep"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\IndexFieldLengths" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="IndexFieldLengths"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Morphology" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Morphology"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\PrefixFields" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="PrefixFields"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrUint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrUint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InplaceHitGap" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InplaceHitGap"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RlpContext" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RlpContext"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtMemLimit" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtMemLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\AgentPersistent" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="AgentPersistent"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\NgramChars" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="NgramChars"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\IndexExactWords" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="IndexExactWords"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Mlock" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Mlock"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\CharsetType" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="CharsetType"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Wordforms" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Wordforms"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InplaceEnable" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InplaceEnable"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\BigramIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="BigramIndex"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\BigramFreqWords" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="BigramFreqWords"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrMulti" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrMulti"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\HitlessWords" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="HitlessWords"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\MinStemmingLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="MinStemmingLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\HtmlRemoveElements" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="HtmlRemoveElements"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InfixFields" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InfixFields"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrFloat" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrFloat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\IgnoreChars" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="IgnoreChars"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InplaceWriteFactor" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InplaceWriteFactor"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\MinInfixLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="MinInfixLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\HtmlStrip" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="HtmlStrip"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\GlobalIdf" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="GlobalIdf"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\AgentBlackhole" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="AgentBlackhole"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\HaStrategy" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="HaStrategy"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\IndexSp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="IndexSp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrTimestamp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrTimestamp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Docinfo" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Docinfo"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\AgentQueryTimeout" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="AgentQueryTimeout"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\StopwordStep" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="StopwordStep"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Preopen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Preopen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrMulti64" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrMulti64"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Source" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Source"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Stopwords" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Stopwords"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\MinWordLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="MinWordLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\InplaceRelocFactor" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="InplaceRelocFactor"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RegexpFilter" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RegexpFilter"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\BlendMode" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="BlendMode"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\EmbeddedLimit" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="EmbeddedLimit"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\Path" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="Path"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\StopwordsUnstemmed" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="StopwordsUnstemmed"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\MaxSubstringLen" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="MaxSubstringLen"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\IndexZones" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="IndexZones"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtAttrJson" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtAttrJson"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\PhraseBoundaryStep" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="PhraseBoundaryStep"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\RtField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="RtField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions\ExpandKeywords" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\concreteOptions" name="ExpandKeywords"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions" name="IndexOption"/>
+  </extenders>
+</class>

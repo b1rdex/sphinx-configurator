@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOption" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOption" abstract="true" final="false" start="18" end="42">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions" file="SourceOption.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions/SourceOption.php" size="921" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="54f7e46f01de2dbd076b7f84f5b8d3d5e4b74bbc" relative="LTDBeget/sphinxConfigurator/lib/definitions/options/sourceOptions/SourceOption.php"/>
+  <docblock>
+    <description compact="Class SourceOption"/>
+    <package value="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions"/>
+  </docblock>
+  <extends full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option"/>
+  <member name="sourceDefinition" visibility="private" static="false" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="29" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$sourceDefinition">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </param>
+      <param type="string" variable="$value"/>
+    </docblock>
+    <parameter name="sourceDefinition" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+    </parameter>
+    <parameter name="value" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\string" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="string"/>
+    </parameter>
+  </constructor>
+  <method name="getSource" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\lib\definitions\SourceDefinition" namespace="LTDBeget\sphinxConfigurator\lib\definitions" name="SourceDefinition"/>
+      </return>
+    </docblock>
+  </method>
+  <extenders>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQuery" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQuery"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrBigint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrBigint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrJson" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrJson"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrBool" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrBool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\Type" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="Type"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlPass" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlPass"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MssqlWinauth" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MssqlWinauth"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrMulti" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrMulti"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlDb" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlDb"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlRangeStep" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlRangeStep"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrJson" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrJson"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlFieldString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlFieldString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlSock" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlSock"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookQueryRange" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookQueryRange"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlRangedThrottle" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlRangedThrottle"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlColumnBuffers" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlColumnBuffers"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlConnectFlags" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlConnectFlags"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrFloat" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrFloat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrUint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrUint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrUint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrUint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookPostIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookPostIndex"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslCert" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslCert"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrTimestamp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrTimestamp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryKilllist" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryKilllist"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrMulti" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrMulti"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrBigint" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrBigint"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrTimestamp" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrTimestamp"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlUser" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlUser"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPost" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPost"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackMysqlcompress" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackMysqlcompress"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackZlib" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackZlib"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlFileField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlFileField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlPort" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlPort"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeCommand" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeCommand"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\OdbcDsn" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="OdbcDsn"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\HookConnect" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="HookConnect"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrBool" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrBool"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryRange" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryRange"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlJoinedField" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlJoinedField"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslCa" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslCa"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\UnpackMysqlcompressMaxsize" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="UnpackMysqlcompressMaxsize"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\MysqlSslKey" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="MysqlSslKey"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeFieldString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeFieldString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPostIndex" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPostIndex"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlAttrFloat" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlAttrFloat"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrMulti64" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrMulti64"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeAttrString" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeAttrString"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlQueryPre" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlQueryPre"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\SqlHost" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="SqlHost"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions\XmlpipeFixupUtf8" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\concreteOptions" name="XmlpipeFixupUtf8"/>
+  </extenders>
+  <parent full="LTDBeget\sphinxConfigurator\lib\Option" namespace="LTDBeget\sphinxConfigurator\lib" name="Option">
+    <member name="value" visibility="protected" static="false" line="24">
+      <docblock>
+        <description/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <method name="getName" start="29" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getValue" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setValue" start="47" end="50" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$value"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\void" namespace="LTDBeget\sphinxConfigurator\lib" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="55" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="isMultiValue" start="63" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="delete" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="mark option as deleted"/>
+      </docblock>
+    </method>
+    <method name="isDeleted" start="80" end="83" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="is option marked as deleted"/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="validate" start="88" end="88" abstract="true" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="LTDBeget\sphinxConfigurator\lib\bool" namespace="LTDBeget\sphinxConfigurator\lib" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+</class>

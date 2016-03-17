@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\lib\OptionAppender" namespace="LTDBeget\sphinxConfigurator\lib" name="OptionAppender" abstract="true" final="false" start="17" end="36">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib" file="OptionAppender.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/lib/OptionAppender.php" size="894" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="bff7ef0226cbcf9f49a300e3c325f986165b9e5d" relative="LTDBeget/sphinxConfigurator/lib/OptionAppender.php"/>
+  <docblock>
+    <description compact="Class OptionAppender"/>
+    <package value="LTDBeget\sphinxConfigurator\lib"/>
+  </docblock>
+  <method name="getOptionClassByMethodName" start="24" end="35" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string" variable="$methodName"/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="LTDBeget\sphinxConfigurator\exceptions\NotFoundException" namespace="LTDBeget\sphinxConfigurator\exceptions" name="NotFoundException"/>
+      </throws>
+    </docblock>
+    <parameter name="methodName" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\lib\string" namespace="LTDBeget\sphinxConfigurator\lib" name="string"/>
+    </parameter>
+  </method>
+  <extenders>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions\SearchdOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\SearchdOptions" name="SearchdOptionAppender"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions\CommonOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\commonOptions" name="CommonOptionAppender"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions\IndexerOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\settings\options\IndexerOptions" name="IndexerOptionAppender"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions\SourceOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\sourceOptions" name="SourceOptionAppender"/>
+    <extender full="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions\IndexOptionAppender" namespace="LTDBeget\sphinxConfigurator\lib\definitions\options\indexOptions" name="IndexOptionAppender"/>
+  </extenders>
+</class>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinxConfigurator\serializers\ArraySerializer" namespace="LTDBeget\sphinxConfigurator\serializers" name="ArraySerializer" abstract="false" final="false" start="24" end="254">
+  <file path="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/serializers" file="ArraySerializer.php" realpath="/home/voksiv/projects/sphinx-configurator/src/LTDBeget/sphinxConfigurator/serializers/ArraySerializer.php" size="7951" time="2016-03-17T01:59:23+00:00" unixtime="1458179963" sha1="067b8ac0db71cfdadd00add70cf11790cbe68570" relative="LTDBeget/sphinxConfigurator/serializers/ArraySerializer.php"/>
+  <docblock>
+    <description compact="Class ArraySerializer serialize SphinxConfiguration object to array and array to SphinxConfiguration object"/>
+    <package value="LTDBeget\sphinxConfigurator\serializers"/>
+  </docblock>
+  <method name="serialize" start="30" end="36" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+    </parameter>
+  </method>
+  <method name="deserialize" start="42" end="49" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$configuration"/>
+      <return type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </return>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="array"/>
+  </method>
+  <constructor name="__construct" start="51" end="51" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeInternal" start="53" end="62" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeSource" start="64" end="88" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeIndex" start="90" end="113" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeIndexer" start="115" end="132" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeSearchhd" start="134" end="151" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="serializeCommon" start="153" end="170" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="deserializeInternal" start="172" end="243" abstract="false" final="false" static="false" visibility="private"/>
+  <member name="arrayConfiguration" type="array" default="" visibility="private" static="false" line="248">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="objectConfiguration" type="{unknown}" default="" constant="null" visibility="private" static="false" line="253">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinxConfigurator\SphinxConfiguration" namespace="LTDBeget\sphinxConfigurator" name="SphinxConfiguration"/>
+      </var>
+    </docblock>
+  </member>
+</class>

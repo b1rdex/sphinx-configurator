@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - LTDBeget\sphinxConfigurator\SphinxConfiguration</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#LTDBeget_sphinxConfigurator">LTDBeget\sphinxConfigurator</a>
+          </li>
+          <li class="separator">SphinxConfiguration</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/LTDBeget/sphinxConfigurator/SphinxConfiguration.php.xhtml#line22">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>LTDBeget\sphinxConfigurator\</small>SphinxConfiguration</h1>
+        <h4>Class SphinxConfiguration</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SphinxConfiguration
+            {<br/><ul class="none"><li>// members</li><li>private array <a href="#members">$sources</a> =
+                        ;
+                    </li><li>private array <a href="#members">$indexes</a> =
+                        ;
+                    </li><li>private <span title="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings">IndexerSettings</span> <a href="#members">$indexer</a> =
+                        null;
+                    </li><li>private <span title="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings">SearchdSettings</span> <a href="#members">$searchd</a> =
+                        null;
+                    </li><li>private <span title="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings">CommonSettings</span> <a href="#members">$common</a> =
+                        null;
+                    </li></ul><ul class="none"><li>// methods</li><li>public SourceDefinition <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/addSource.xhtml">addSource</a>()
+                    </li><li>public array <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/iterateSource.xhtml">iterateSource</a>()
+                    </li><li>public IndexDefinition <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/addIndex.xhtml">addIndex</a>()
+                    </li><li>public array <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/iterateIndex.xhtml">iterateIndex</a>()
+                    </li><li>public IndexerSettings <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getIndexer.xhtml">getIndexer</a>()
+                    </li><li>public bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasIndexer.xhtml">isHasIndexer</a>()
+                    </li><li>public SearchdSettings <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getSearchd.xhtml">getSearchd</a>()
+                    </li><li>public bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasSearchd.xhtml">isHasSearchd</a>()
+                    </li><li>public CommonSettings <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getCommon.xhtml">getCommon</a>()
+                    </li><li>public bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasCommon.xhtml">isHasCommon</a>()
+                    </li><li>public bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/validate.xhtml">validate</a>()
+                    </li><li>private SphinxConfiguration <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initIndexer.xhtml">initIndexer</a>()
+                    </li><li>private SphinxConfiguration <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initSearchd.xhtml">initSearchd</a>()
+                    </li><li>private SphinxConfiguration <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initCommon.xhtml">initCommon</a>()
+                    </li><li>private bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isSourceParentExists.xhtml">isSourceParentExists</a>()
+                    </li><li>private bool <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isIndexParentExists.xhtml">isIndexParentExists</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="common"><strong>$common</strong>
+                —
+                <a title="LTDBeget\sphinxConfigurator\lib\settings\CommonSettings" href="../classes/LTDBeget_sphinxConfigurator_lib_settings_CommonSettings.xhtml">LTDBeget\sphinxConfigurator\lib\settings\CommonSettings</a></li>
+            <li id="indexer"><strong>$indexer</strong>
+                —
+                <a title="LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings" href="../classes/LTDBeget_sphinxConfigurator_lib_settings_IndexerSettings.xhtml">LTDBeget\sphinxConfigurator\lib\settings\IndexerSettings</a></li>
+            <li id="indexes"><strong>$indexes</strong>
+                —
+                array</li>
+            <li id="searchd"><strong>$searchd</strong>
+                —
+                <a title="LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings" href="../classes/LTDBeget_sphinxConfigurator_lib_settings_SearchdSettings.xhtml">LTDBeget\sphinxConfigurator\lib\settings\SearchdSettings</a></li>
+            <li id="sources"><strong>$sources</strong>
+                —
+                array</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="initCommon">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initCommon.xhtml">initCommon()</a>
+            </li>
+            <li id="initIndexer">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initIndexer.xhtml">initIndexer()</a>
+            </li>
+            <li id="initSearchd">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/initSearchd.xhtml">initSearchd()</a>
+            </li>
+            <li id="isIndexParentExists">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isIndexParentExists.xhtml">isIndexParentExists()</a>
+            </li>
+            <li id="isSourceParentExists">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isSourceParentExists.xhtml">isSourceParentExists()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="addIndex">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/addIndex.xhtml">addIndex()</a>
+            </li>
+            <li id="addSource">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/addSource.xhtml">addSource()</a>
+            </li>
+            <li id="getCommon">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getCommon.xhtml">getCommon()</a>
+            </li>
+            <li id="getIndexer">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getIndexer.xhtml">getIndexer()</a>
+            </li>
+            <li id="getSearchd">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/getSearchd.xhtml">getSearchd()</a>
+            </li>
+            <li id="isHasCommon">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasCommon.xhtml">isHasCommon()</a>
+            </li>
+            <li id="isHasIndexer">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasIndexer.xhtml">isHasIndexer()</a>
+            </li>
+            <li id="isHasSearchd">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/isHasSearchd.xhtml">isHasSearchd()</a>
+            </li>
+            <li id="iterateIndex">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/iterateIndex.xhtml">iterateIndex()</a>
+            </li>
+            <li id="iterateSource">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/iterateSource.xhtml">iterateSource()</a>
+            </li>
+            <li id="validate">
+              <a title="LTDBeget\sphinxConfigurator\SphinxConfiguration" href="../classes/LTDBeget_sphinxConfigurator_SphinxConfiguration/validate.xhtml">validate()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.2-dev - Copyright (C) 2010 - 2016 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

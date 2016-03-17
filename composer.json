@@ -17,6 +17,9 @@
     "mattketmo/camel": "1.1.*",
     "symfony/yaml" : "3.0.*"
   },
+  "require-dev": {
+    "theseer/phpdox": "0.8.*"
+  },
   "autoload": {
     "psr-0": {
       "LTDBeget\\sphinxConfigurator": "src"

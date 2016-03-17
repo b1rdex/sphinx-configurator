@@ -189,6 +189,11 @@ Check concrete config from stubs directory via sphinx indextool
 docker-compose run --rm sphinx indextool --checkconfig -c /etc/sphinxsearch/valid.example.conf
 ```
 
+## Regenerate documentation
+```shell
+$ ./vendor/bin/phpdox
+```
+
 ## Notes
 list of options was generated from docs of Sphinx 2.2.10-release 
 [see manual](http://sphinxsearch.com/docs/current.html)

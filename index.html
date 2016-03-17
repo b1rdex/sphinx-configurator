@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sphinx-configurator by voksiv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Sphinx-configurator</h1>
+      <h2 class="project-tagline">Php library for parsing and editing sphinx.conf files</h2>
+      <a href="https://github.com/voksiv/sphinx-configurator" class="btn">View on GitHub</a>
+      <a href="https://github.com/voksiv/sphinx-configurator/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/voksiv/sphinx-configurator/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="sphinx-configurator" class="anchor" href="#sphinx-configurator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sphinx-configurator</h1>
+
+<p><a href="https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/?branch=master"><img src="https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/build-status/master"><img src="https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/badges/build.png?b=master" alt="Build Status"></a>
+<a href="https://github.com/voksiv/sphinx-configurator/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT"></a></p>
+
+<p>Php library for parsing and editing sphinx.conf files. pragmatically with high level abstraction</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-source-shell"><pre>composer require voksiv/sphinx-configurator</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">LTDBeget\sphinxConfigurator\serializers\ArraySerializer</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">LTDBeget\sphinxConfigurator\serializers\JsonSerializer</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">LTDBeget\sphinxConfigurator\serializers\PlainSerializer</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$config_path</span>  <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>path/to/your/config/file<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$plain_config</span> <span class="pl-k">=</span> <span class="pl-c1">file_get_contents</span>(<span class="pl-smi">$config_path</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// Parsing configuration to configuration file object</span></span>
+<span class="pl-s1"><span class="pl-smi">$config</span> <span class="pl-k">=</span> <span class="pl-c1">PlainSerializer</span><span class="pl-k">::</span>deserialize(<span class="pl-smi">$plain_config</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// check config</span></span>
+<span class="pl-s1"><span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>validate();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// is has settings blocks</span></span>
+<span class="pl-s1"><span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>isHasCommon();</span>
+<span class="pl-s1"><span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>isHasIndexer();</span>
+<span class="pl-s1"><span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>isHasSearchd();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// get settings block (create if don't exists)</span></span>
+<span class="pl-s1"><span class="pl-smi">$common</span>  <span class="pl-k">=</span> <span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>getCommon();</span>
+<span class="pl-s1"><span class="pl-smi">$indexer</span> <span class="pl-k">=</span> <span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>getIndexer();</span>
+<span class="pl-s1"><span class="pl-smi">$searchd</span> <span class="pl-k">=</span> <span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>getSearchd();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// work with common settings</span></span>
+<span class="pl-s1"><span class="pl-c">// get option appender, class that creates and appends all possible options for common</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span> <span class="pl-k">=</span> <span class="pl-smi">$common</span><span class="pl-k">-&gt;</span>getOptionAppender();</span>
+<span class="pl-s1"><span class="pl-c">// example of option add</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span><span class="pl-k">-&gt;</span>addJsonAutoconvKeynames(<span class="pl-s"><span class="pl-pds">"</span>option value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// iterate via all options</span></span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$common</span><span class="pl-k">-&gt;</span>iterateOptions() <span class="pl-k">as</span> <span class="pl-smi">$option</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// option data</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getValue();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// modify value</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>setValue(<span class="pl-s"><span class="pl-pds">"</span>new value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// remove option from</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>delete();</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// work with indexer settings</span></span>
+<span class="pl-s1"><span class="pl-c">// get option appender, class that creates and appends all possible options for indexer</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span> <span class="pl-k">=</span> <span class="pl-smi">$indexer</span><span class="pl-k">-&gt;</span>getOptionAppender();</span>
+<span class="pl-s1"><span class="pl-c">// example of option add</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span><span class="pl-k">-&gt;</span>addMaxFileFieldBuffer(<span class="pl-s"><span class="pl-pds">"</span>option value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// iterate via all options</span></span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$indexer</span><span class="pl-k">-&gt;</span>iterateOptions() <span class="pl-k">as</span> <span class="pl-smi">$option</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// option data</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getValue();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// modify value</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>setValue(<span class="pl-s"><span class="pl-pds">"</span>new value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// remove option from</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>delete();</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// work with searchd settings</span></span>
+<span class="pl-s1"><span class="pl-c">// get option appender, class that creates and appends all possible options for indexer</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span> <span class="pl-k">=</span> <span class="pl-smi">$searchd</span><span class="pl-k">-&gt;</span>getOptionAppender();</span>
+<span class="pl-s1"><span class="pl-c">// example of option add</span></span>
+<span class="pl-s1"><span class="pl-smi">$appender</span><span class="pl-k">-&gt;</span>addBinlogMaxLogSize(<span class="pl-s"><span class="pl-pds">"</span>option value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// iterate via all options</span></span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$searchd</span><span class="pl-k">-&gt;</span>iterateOptions() <span class="pl-k">as</span> <span class="pl-smi">$option</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// option data</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getValue();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// modify value</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>setValue(<span class="pl-s"><span class="pl-pds">"</span>new value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// remove option from</span></span>
+<span class="pl-s1">    <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>delete();</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// iterate via sources</span></span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>iterateSource() <span class="pl-k">as</span> <span class="pl-smi">$source</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// source name</span></span>
+<span class="pl-s1">    <span class="pl-smi">$source</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">    <span class="pl-c">// is has inheritance</span></span>
+<span class="pl-s1">    <span class="pl-k">if</span>(<span class="pl-smi">$source</span><span class="pl-k">-&gt;</span>isHasInheritance()) {</span>
+<span class="pl-s1">        <span class="pl-smi">$source</span><span class="pl-k">-&gt;</span>getInheritanceName();</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// get option appender, class that creates and appends all possible options for source</span></span>
+<span class="pl-s1">    <span class="pl-smi">$appender</span> <span class="pl-k">=</span> <span class="pl-smi">$source</span><span class="pl-k">-&gt;</span>getOptionAppender();</span>
+<span class="pl-s1">    <span class="pl-c">// example of option add</span></span>
+<span class="pl-s1">    <span class="pl-smi">$appender</span><span class="pl-k">-&gt;</span>addHookPostIndex(<span class="pl-s"><span class="pl-pds">"</span>option value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// iterate via all options</span></span>
+<span class="pl-s1">    <span class="pl-k">foreach</span>(<span class="pl-smi">$source</span><span class="pl-k">-&gt;</span>iterateOptions() <span class="pl-k">as</span> <span class="pl-smi">$option</span>) {</span>
+<span class="pl-s1">        <span class="pl-c">// option data</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getValue();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-c">// modify value</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>setValue(<span class="pl-s"><span class="pl-pds">"</span>new value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-c">// remove option from</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>delete();</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// iterate via indexes</span></span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$config</span><span class="pl-k">-&gt;</span>iterateIndex() <span class="pl-k">as</span> <span class="pl-smi">$index</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// source name</span></span>
+<span class="pl-s1">    <span class="pl-smi">$index</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">    <span class="pl-c">// is has inheritance</span></span>
+<span class="pl-s1">    <span class="pl-k">if</span>(<span class="pl-smi">$index</span><span class="pl-k">-&gt;</span>isHasInheritance()) {</span>
+<span class="pl-s1">        <span class="pl-smi">$index</span><span class="pl-k">-&gt;</span>getInheritanceName();</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// get option appender, class that creates and appends all possible options for index</span></span>
+<span class="pl-s1">    <span class="pl-smi">$appender</span> <span class="pl-k">=</span> <span class="pl-smi">$index</span><span class="pl-k">-&gt;</span>getOptionAppender();</span>
+<span class="pl-s1">    <span class="pl-c">// example of option add</span></span>
+<span class="pl-s1">    <span class="pl-smi">$appender</span><span class="pl-k">-&gt;</span>addAgent(<span class="pl-s"><span class="pl-pds">"</span>option value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// iterate via all options</span></span>
+<span class="pl-s1">    <span class="pl-k">foreach</span>(<span class="pl-smi">$index</span><span class="pl-k">-&gt;</span>iterateOptions() <span class="pl-k">as</span> <span class="pl-smi">$option</span>) {</span>
+<span class="pl-s1">        <span class="pl-c">// option data</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getName();</span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>getValue();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-c">// modify value</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>setValue(<span class="pl-s"><span class="pl-pds">"</span>new value<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-c">// remove option from</span></span>
+<span class="pl-s1">        <span class="pl-smi">$option</span><span class="pl-k">-&gt;</span>delete();</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// serialize object to plain configuration</span></span>
+<span class="pl-s1"><span class="pl-smi">$plain_config</span> <span class="pl-k">=</span> <span class="pl-c1">PlainSerializer</span><span class="pl-k">::</span>serialize(<span class="pl-smi">$config</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// serialize object to array</span></span>
+<span class="pl-s1"><span class="pl-smi">$array_config</span> <span class="pl-k">=</span> <span class="pl-c1">ArraySerializer</span><span class="pl-k">::</span>serialize(<span class="pl-smi">$config</span>);</span>
+<span class="pl-s1"><span class="pl-c">// deserialize array to object from array serialized configuration file </span></span>
+<span class="pl-s1"><span class="pl-c1">ArraySerializer</span><span class="pl-k">::</span>deserialize(<span class="pl-smi">$array_config</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// serialize object to json encoded string</span></span>
+<span class="pl-s1"><span class="pl-smi">$json_config</span>  <span class="pl-k">=</span> <span class="pl-c1">JsonSerializer</span><span class="pl-k">::</span>serialize(<span class="pl-smi">$config</span>);</span>
+<span class="pl-s1"><span class="pl-c">// deserialize json to object from json serialized configuration file</span></span>
+<span class="pl-s1"><span class="pl-c1">JsonSerializer</span><span class="pl-k">::</span>deserialize(<span class="pl-smi">$json_config</span>);</span></pre></div>
+
+<h2>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker</h2>
+
+<p>install docker and docker-compose</p>
+
+<p>Go to docker </p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker</pre></div>
+
+<p>Build image</p>
+
+<div class="highlight highlight-source-shell"><pre>docker-compose build</pre></div>
+
+<p>Check concrete config from stubs directory via sphinx indextool</p>
+
+<div class="highlight highlight-source-shell"><pre>docker-compose run --rm sphinx indextool --checkconfig -c /etc/sphinxsearch/valid.example.conf</pre></div>
+
+<h2>
+<a id="regenerate-documentation" class="anchor" href="#regenerate-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regenerate documentation</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ ./vendor/bin/phpdox</pre></div>
+
+<h2>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h2>
+
+<p>list of options was generated from docs of Sphinx 2.2.10-release 
+<a href="http://sphinxsearch.com/docs/current.html">see manual</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>sphinx-configurator is released under the MIT License.
+See the <a href="LICENSE">bundled LICENSE file</a> for details.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/voksiv/sphinx-configurator">Sphinx-configurator</a> is maintained by <a href="https://github.com/voksiv">voksiv</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

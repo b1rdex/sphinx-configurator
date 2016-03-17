@@ -5,8 +5,10 @@
  * @time: 2:49 PM
  */
 
-namespace LTDBeget\sphinx\informer\enums\blocks;
+namespace LTDBeget\sphinx\enums\sections;
 
+
+use LTDBeget\sphinx\enums\base\eSection;
 
 /**
  * Class eSettings
@@ -17,7 +19,7 @@ namespace LTDBeget\sphinx\informer\enums\blocks;
  * @method static eSettings COMMON()
  *
  */
-class eSettings extends eOptionsBlock
+final class eSettings extends eSection
 {
     const INDEXER = "indexer";
     const SEARCHD = "searchd";

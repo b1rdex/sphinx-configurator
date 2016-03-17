@@ -5,14 +5,16 @@
  * @time: 4:29 PM
  */
 
-namespace LTDBeget\sphinx\informer\enums\options;
+namespace LTDBeget\sphinx\enums\options;
 
+
+use LTDBeget\sphinx\enums\base\eOption;
 
 /**
  * Class eSearchdOption
  * @package LTDBeget\sphinx\informer\enums\options
  */
-class eSearchdOption extends eOption
+final class eSearchdOption extends eOption
 {
 
 }

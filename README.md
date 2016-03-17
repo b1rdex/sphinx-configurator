@@ -3,7 +3,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/voksiv/sphinx-configurator/build-status/master)
 [![License MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/voksiv/sphinx-configurator/blob/master/LICENSE)
-
+[![Documentation](https://img.shields.io/badge/code-documented-brightgreen.svg)](http://voksiv.github.io/sphinx-configurator/documentation/html/index.html)
 Php library for parsing and editing sphinx.conf files. pragmatically with high level abstraction
 
 ## Installation

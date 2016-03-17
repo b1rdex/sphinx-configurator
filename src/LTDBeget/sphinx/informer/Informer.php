@@ -20,6 +20,7 @@ use LTDBeget\sphinx\enums\options\eSearchdOption;
 use LTDBeget\sphinx\enums\options\eSourceOption;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;
 use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
+use LTDBeget\sphinx\informer\exceptions\YamlParseException;
 use Symfony\Component\Yaml\Parser;
 
 /**
@@ -168,8 +169,13 @@ final class Informer
             throw new NotFoundException("For version {$this->version} there are no file: {$path}");
         }
 
-        $content = file_get_contents($path);
-        $this->documentation = (new Parser())->parse($content);
+        $documentation = (new Parser())->parse(file_get_contents($path));
+
+        if(! is_array($documentation)) {
+            throw new YamlParseException("Failed to parse yaml file {$path}");
+        }
+
+        $this->documentation = $documentation;
     }
 
     /**

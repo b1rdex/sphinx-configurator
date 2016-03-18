@@ -7,7 +7,8 @@
  */
 
 
-use LTDBeget\sphinx\configurator\serializers\PlainSerializer;
+use LTDBeget\sphinx\configurator\Configuration;
+use LTDBeget\sphinx\enums\eVersion;
 
 require(__DIR__ . '/../vendor/autoload.php');
 
@@ -16,11 +17,11 @@ $plain_config = file_get_contents($config_path);
 
 $times = [];
 
-$n = 1000;
+$n = 10;
 for($i = 1; $i <= $n; $i++) {
     $start = microtime(true); //начало измерения
 
-    $config = PlainSerializer::deserialize($plain_config);
+    $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
 
     $end = microtime(true); //конец измерения
 

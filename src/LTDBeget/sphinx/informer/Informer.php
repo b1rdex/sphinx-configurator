@@ -9,15 +9,13 @@ namespace LTDBeget\sphinx\informer;
 
 
 use LTDBeget\sphinx\enums\base\eOption;
-use LTDBeget\sphinx\enums\base\eSection;
+use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 use LTDBeget\sphinx\enums\options\eIndexOption;
 use LTDBeget\sphinx\enums\options\eSearchdOption;
 use LTDBeget\sphinx\enums\options\eSourceOption;
-use LTDBeget\sphinx\enums\sections\eDefinition;
-use LTDBeget\sphinx\enums\sections\eSettings;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;
 use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
 use LTDBeget\sphinx\informer\exceptions\YamlParseException;
@@ -82,23 +80,23 @@ final class Informer
     {
         foreach ($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
             switch ($optionBlock) {
-                case eDefinition::SOURCE:
+                case eSection::SOURCE:
                     $optionName = eSourceOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
-                case eDefinition::INDEX:
+                case eSection::INDEX:
                     $optionName = eIndexOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
-                case eSettings::SEARCHD:
+                case eSection::SEARCHD:
                     $optionName = eSearchdOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
-                case eSettings::INDEXER:
+                case eSection::INDEXER:
                     $optionName = eIndexerOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
-                case eSettings::COMMON:
+                case eSection::COMMON:
                     $optionName = eCommonOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;

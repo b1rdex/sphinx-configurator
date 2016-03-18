@@ -11,6 +11,7 @@ use LTDBeget\sphinx\enums\base\eOption;
 /**
  * Class eIndexOption
  * @package LTDBeget\sphinx\informer\enums\options
+ *
  * @method static eIndexOption GLOBAL_IDF()
  * @method static eIndexOption STOPWORDS_UNSTEMMED()
  * @method static eIndexOption REGEXP_FILTER()

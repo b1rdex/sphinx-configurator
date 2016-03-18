@@ -11,6 +11,7 @@ use LTDBeget\sphinx\enums\base\eOption;
 /**
  * Class eIndexerOption
  * @package LTDBeget\sphinx\informer\enums\options
+ *
  * @method static eIndexerOption LEMMATIZER_CACHE()
  * @method static eIndexerOption LEMMATIZER_BASE()
  * @method static eIndexerOption ON_FILE_FIELD_ERROR()

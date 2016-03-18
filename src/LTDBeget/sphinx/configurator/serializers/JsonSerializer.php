@@ -29,12 +29,8 @@ final class JsonSerializer
     }
 
     /**
-     * Make Configuration object from json encoded content of sphinx configuration file
-     * @param String $configuration
-     * @return Configuration
+     * @internal
+     * ArrayDeserializer constructor.
      */
-    public static function deserialize(string $configuration) : Configuration
-    {
-        return ArraySerializer::deserialize(json_decode($configuration, true));
-    }
+    private function __construct() {}
 }

@@ -8,12 +8,18 @@
 namespace LTDBeget\sphinx\configurator;
 
 
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Common;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Index;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Indexer;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Searchd;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Source;
+use LTDBeget\sphinx\configurator\deserializers\ArrayDeserializer;
+use LTDBeget\sphinx\configurator\deserializers\JsonDeserializer;
+use LTDBeget\sphinx\configurator\deserializers\PlainDeserializer;
 use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
-use LTDBeget\sphinx\configurator\lib\definitions\IndexDefinition;
-use LTDBeget\sphinx\configurator\lib\definitions\SourceDefinition;
-use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
-use LTDBeget\sphinx\configurator\lib\settings\IndexerSettings;
-use LTDBeget\sphinx\configurator\lib\settings\SearchdSettings;
+use LTDBeget\sphinx\configurator\serializers\ArraySerializer;
+use LTDBeget\sphinx\configurator\serializers\JsonSerializer;
+use LTDBeget\sphinx\configurator\serializers\PlainSerializer;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\informer\Informer;
 
@@ -23,12 +29,58 @@ use LTDBeget\sphinx\informer\Informer;
  */
 class Configuration
 {
-    private $version;
-
-    public function __construct(eVersion $version)
+    /**
+     * @param string $plainData
+     * @param eVersion $version
+     * @return Configuration
+     */
+    public static function fromString(string $plainData, eVersion $version) : Configuration
     {
-        $this->version = $version;
-        $this->informer = Informer::get($this->version);
+        return PlainDeserializer::deserialize($plainData, new self($version));
+    }
+
+    /**
+     * @param array $plainData
+     * @param eVersion $version
+     * @return Configuration
+     */
+    public static function fromArray(array $plainData, eVersion $version) : Configuration
+    {
+        return ArrayDeserializer::deserialize($plainData, new self($version));
+    }
+
+    /**
+     * @param string $plainData
+     * @param eVersion $version
+     * @return Configuration
+     */
+    public static function fromJson(string $plainData, eVersion $version) : Configuration
+    {
+        return JsonDeserializer::deserialize($plainData, new self($version));
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString() : string
+    {
+        return PlainSerializer::serialize($this);
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray() : array
+    {
+        return ArraySerializer::serialize($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function toJson() : string
+    {
+        return JsonSerializer::serialize($this);
     }
 
     /**
@@ -39,28 +91,30 @@ class Configuration
         return $this->informer;
     }
 
+    /**
+     * @return eVersion
+     */
+    public function getVersion() : eVersion
+    {
+        return $this->version;
+    }
 
     /**
      * @param string $name
      * @param string|null $inheritanceName
-     * @return SourceDefinition
+     * @return Source
      * @throws NotFoundException
      */
-    public function addSource(string $name, string $inheritanceName = null) : SourceDefinition
+    public function addSource(string $name, string $inheritanceName = null) : Source
     {
-        $sourceDefinition = new SourceDefinition($this, $name, $inheritanceName);
+        $source = new Source($this, $name, $inheritanceName);
+        $this->sources[] = $source;
 
-        if (!is_null($inheritanceName) && !$this->isSourceParentExists($inheritanceName)) {
-            throw new NotFoundException("Source parent with name {$inheritanceName} does't exists in configuration");
-        }
-
-        $this->sources[] = $sourceDefinition;
-
-        return $sourceDefinition;
+        return $source;
     }
 
     /**
-     * @return SourceDefinition[]
+     * @return Source[]
      */
     public function iterateSource()
     {
@@ -72,24 +126,18 @@ class Configuration
     /**
      * @param string $name
      * @param string|null $inheritanceName
-     * @return IndexDefinition
-     * @throws NotFoundException
+     * @return Index
      */
-    public function addIndex(string $name, string $inheritanceName = null) : IndexDefinition
+    public function addIndex(string $name, string $inheritanceName = null) : Index
     {
-        $indexDefinition = new IndexDefinition($this, $name, $inheritanceName);
-
-        if (!is_null($inheritanceName) && !$this->isIndexParentExists($inheritanceName)) {
-            throw new NotFoundException("Index parent with name {$inheritanceName} does't exists in configuration");
-        }
-
+        $indexDefinition = new Index($this, $name, $inheritanceName);
         $this->indexes[] = $indexDefinition;
 
         return $indexDefinition;
     }
 
     /**
-     * @return IndexDefinition[]
+     * @return Index[]
      */
     public function iterateIndex()
     {
@@ -99,9 +147,9 @@ class Configuration
     }
 
     /**
-     * @return IndexerSettings
+     * @return Indexer
      */
-    public function getIndexer() : IndexerSettings
+    public function getIndexer() : Indexer
     {
         if (!$this->isHasIndexer()) {
             $this->initIndexer();
@@ -111,17 +159,9 @@ class Configuration
     }
 
     /**
-     * @return bool
+     * @return Searchd
      */
-    public function isHasIndexer() : bool
-    {
-        return !is_null($this->indexer);
-    }
-
-    /**
-     * @return SearchdSettings
-     */
-    public function getSearchd() : SearchdSettings
+    public function getSearchd() : Searchd
     {
         if (!$this->isHasSearchd()) {
             $this->initSearchd();
@@ -131,17 +171,9 @@ class Configuration
     }
 
     /**
-     * @return bool
+     * @return Common
      */
-    public function isHasSearchd() : bool
-    {
-        return !is_null($this->searchd);
-    }
-
-    /**
-     * @return CommonSettings
-     */
-    public function getCommon() : CommonSettings
+    public function getCommon() : Common
     {
         if (!$this->isHasCommon()) {
             $this->initCommon();
@@ -153,76 +185,43 @@ class Configuration
     /**
      * @return bool
      */
+    public function isHasIndexer() : bool
+    {
+        return !is_null($this->indexer);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasSearchd() : bool
+    {
+        return !is_null($this->searchd);
+    }
+
+    /**
+     * @return bool
+     */
     public function isHasCommon() : bool
     {
         return !is_null($this->common);
     }
 
     /**
-     * @return bool
+     * Configuration constructor.
+     * @param eVersion $version
      */
-    public function validate() : bool
+    protected function __construct(eVersion $version)
     {
-        $result = true;
-
-        foreach ($this->iterateSource() as $source) {
-            if (!$source->validate()) {
-                $result = false;
-            }
-        }
-
-        foreach ($this->iterateIndex() as $index) {
-            if (!$index->validate()) {
-                $result = false;
-            }
-        }
-
-        if ($this->isHasCommon() && !$this->getCommon()->validate()) {
-            $result = false;
-        }
-
-        if ($this->isHasIndexer() && !$this->getIndexer()->validate()) {
-            $result = false;
-        }
-
-        if ($this->isHasSearchd() && !$this->getSearchd()->validate()) {
-            $result = false;
-        }
-
-        return $result;
+        $this->version = $version;
+        $this->informer = Informer::get($this->version);
     }
-
-    /**
-     * @var SourceDefinition[]
-     */
-    private $sources = [];
-
-    /**
-     * @var IndexDefinition[]
-     */
-    private $indexes = [];
-
-    /**
-     * @var IndexerSettings
-     */
-    private $indexer = null;
-
-    /**
-     * @var SearchdSettings
-     */
-    private $searchd = null;
-
-    /**
-     * @var CommonSettings
-     */
-    private $common = null;
 
     /**
      * @return Configuration
      */
     private function initIndexer() : self
     {
-        $this->indexer = new IndexerSettings($this);
+        $this->indexer = new Indexer($this);
 
         return $this;
     }
@@ -232,7 +231,7 @@ class Configuration
      */
     private function initSearchd() : self
     {
-        $this->searchd = new SearchdSettings($this);
+        $this->searchd = new Searchd($this);
 
         return $this;
     }
@@ -242,40 +241,38 @@ class Configuration
      */
     private function initCommon() : self
     {
-        $this->common = new CommonSettings($this);
+        $this->common = new Common($this);
 
         return $this;
     }
 
     /**
-     * @param string $parentName
-     * @return bool
+     * @var eVersion
      */
-    private function isSourceParentExists(string $parentName) : bool
-    {
-        $exist = false;
-        foreach ($this->iterateSource() as $source) {
-            if ($source->getName() === $parentName) {
-                $exist = true;
-            }
-        }
-
-        return $exist;
-    }
+    private $version;
 
     /**
-     * @param string $parentName
-     * @return bool
+     * @var Source[]
      */
-    private function isIndexParentExists(string $parentName) : bool
-    {
-        $exist = false;
-        foreach ($this->iterateIndex() as $index) {
-            if ($index->getName() === $parentName) {
-                $exist = true;
-            }
-        }
+    private $sources = [];
 
-        return $exist;
-    }
+    /**
+     * @var Index[]
+     */
+    private $indexes = [];
+
+    /**
+     * @var Indexer
+     */
+    private $indexer = null;
+
+    /**
+     * @var Searchd
+     */
+    private $searchd = null;
+
+    /**
+     * @var Common
+     */
+    private $common = null;
 }

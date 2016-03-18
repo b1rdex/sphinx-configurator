@@ -13,7 +13,6 @@ use LTDBeget\sphinx\enums\base\Enum;
 /**
  * Class eSphinxVersion
  * list of available sphinx version for library
- *
  * @package LTDBeget\sphinx\informer\enums
  *
  * @method static eVersion V_2_1_1()

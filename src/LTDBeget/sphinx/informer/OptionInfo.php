@@ -9,7 +9,7 @@ namespace LTDBeget\sphinx\informer;
 
 
 use LTDBeget\sphinx\enums\base\eOption;
-use LTDBeget\sphinx\enums\base\eSection;
+use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
 
 /**

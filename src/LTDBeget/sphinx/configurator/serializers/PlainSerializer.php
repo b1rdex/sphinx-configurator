@@ -9,12 +9,10 @@ namespace LTDBeget\sphinx\configurator\serializers;
 
 
 use LTDBeget\sphinx\configurator\Configuration;
-use LTDBeget\sphinx\configurator\parser\SphinxConfigurationParser;
 
 /**
  * Class PlainSerializer
- * serialize Configuration object to string
- * and file content from sphinx.conf file to Configuration object
+ * serialize Configuration object to string for file .conf
  * @package LTDBeget\sphinx\configurator\serializers
  */
 final class PlainSerializer
@@ -80,12 +78,8 @@ final class PlainSerializer
     }
 
     /**
-     * Make Configuration object from plain content of sphinx configuration file
-     * @param String $configuration
-     * @return Configuration
+     * @internal
+     * ArrayDeserializer constructor.
      */
-    public static function deserialize(string $configuration) : Configuration
-    {
-        return ArraySerializer::deserialize(SphinxConfigurationParser::parse($configuration));
-    }
+    private function __construct() {}
 }

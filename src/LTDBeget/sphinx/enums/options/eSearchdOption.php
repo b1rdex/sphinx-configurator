@@ -11,6 +11,7 @@ use LTDBeget\sphinx\enums\base\eOption;
 /**
  * Class eSearchdOption
  * @package LTDBeget\sphinx\informer\enums\options
+ *
  * @method static eSearchdOption PREDICTED_TIME_COSTS()
  * @method static eSearchdOption RT_MERGE_MAXIOSIZE()
  * @method static eSearchdOption RT_MERGE_IOPS()

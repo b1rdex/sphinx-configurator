@@ -5,15 +5,16 @@
  * @time: 8:04 PM
  */
 
-namespace LTDBeget\sphinx\configurator\lib;
+namespace LTDBeget\sphinx\configurator\configurationEntities;
 
 
+use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\informer\OptionInfo;
 
 /**
  * Class Option
- * @package LTDBeget\sphinx\configurator\lib
+ * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
 class Option
 {
@@ -77,7 +78,7 @@ class Option
             ->getConfiguration()
             ->getInformer()
             ->getOptionInfo(
-                $this->getSection()->getName(),
+                $this->getSection()->getType(),
                 $this->getName());
     }
 

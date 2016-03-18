@@ -8,29 +8,44 @@
 namespace LTDBeget\sphinx\configurator\lib;
 
 
-use Camel\CaseTransformer;
-use Camel\Format\CamelCase;
-use Camel\Format\SnakeCase;
+use LTDBeget\sphinx\enums\base\eOption;
+use LTDBeget\sphinx\informer\OptionInfo;
 
 /**
  * Class Option
  * @package LTDBeget\sphinx\configurator\lib
  */
-abstract class Option
+class Option
 {
     /**
-     * @var string
+     * Option constructor.
+     * @param Section $section
+     * @param eOption $optionName
+     * @param string $value
+     * @param bool $multiValue
      */
-    protected $value;
+    public function __construct(Section $section, eOption $optionName, string $value, bool $multiValue)
+    {
+        $this->section = $section;
+        $this->optionName = $optionName;
+        $this->value = $value;
+        $this->isMultiValue = $multiValue;
+    }
 
     /**
-     * @return string
+     * @return Section
      */
-    public static function getName() : string
+    public function getSection() : Section
     {
-        $className = (new \ReflectionClass(get_called_class()))->getShortName();
+        return $this->section;
+    }
 
-        return (new CaseTransformer(new CamelCase(), new SnakeCase()))->transform($className);
+    /**
+     * @return eOption
+     */
+    public function getName() : eOption
+    {
+        return $this->optionName;
     }
 
     /**
@@ -42,12 +57,28 @@ abstract class Option
     }
 
     /**
-     * @param $value
-     * @return void
+     * @param string $value
+     * @return Option
      */
-    public function setValue($value)
+    public function setValue(string  $value) : Option
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return OptionInfo
+     */
+    public function getInfo() : OptionInfo
+    {
+        return $this
+            ->getSection()
+            ->getConfiguration()
+            ->getInformer()
+            ->getOptionInfo(
+                $this->getSection()->getName(),
+                $this->getName());
     }
 
     /**
@@ -63,7 +94,7 @@ abstract class Option
      */
     public function isMultiValue() : bool
     {
-        return false;
+        return $this->isMultiValue;
     }
 
     /**
@@ -84,12 +115,21 @@ abstract class Option
     }
 
     /**
-     * @return bool
+     * @var string
      */
-    abstract public function validate() : bool;
+    protected $value;
 
     /**
      * @var boolean
      */
     private $isDeleted = false;
+
+    /**
+     * @var Section
+     */
+    private $section;
+    /**
+     * @var eOption
+     */
+    private $optionName;
 }

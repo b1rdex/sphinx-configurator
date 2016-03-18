@@ -14,6 +14,8 @@ use LTDBeget\sphinx\configurator\lib\definitions\SourceDefinition;
 use LTDBeget\sphinx\configurator\lib\settings\CommonSettings;
 use LTDBeget\sphinx\configurator\lib\settings\IndexerSettings;
 use LTDBeget\sphinx\configurator\lib\settings\SearchdSettings;
+use LTDBeget\sphinx\enums\eVersion;
+use LTDBeget\sphinx\informer\Informer;
 
 /**
  * Class Configuration
@@ -21,6 +23,23 @@ use LTDBeget\sphinx\configurator\lib\settings\SearchdSettings;
  */
 class Configuration
 {
+    private $version;
+
+    public function __construct(eVersion $version)
+    {
+        $this->version = $version;
+        $this->informer = Informer::get($this->version);
+    }
+
+    /**
+     * @return Informer
+     */
+    public function getInformer() : Informer
+    {
+        return $this->informer;
+    }
+
+
     /**
      * @param string $name
      * @param string|null $inheritanceName

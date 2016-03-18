@@ -13,10 +13,10 @@
   ],
   "require": {
     "php": ">=7.0",
-    "respect/validation": "1.0.*",
     "mattketmo/camel": "1.1.*",
     "symfony/yaml" : "3.0.*",
-    "marc-mabe/php-enum" : "2.2.*"
+    "marc-mabe/php-enum" : "2.2.*",
+    "ltd-beget/stringstream" : "1.0.*"
   },
   "require-dev": {
     "theseer/phpdox": "0.8.*"

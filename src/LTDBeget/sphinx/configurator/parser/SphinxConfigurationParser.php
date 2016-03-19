@@ -40,7 +40,7 @@ final class SphinxConfigurationParser
      */
     private function __construct(string $string)
     {
-        $string = $this->removeComments($string);
+        $string       = $this->removeComments($string);
         $this->stream = new StringStream($string);
     }
 
@@ -65,7 +65,7 @@ final class SphinxConfigurationParser
             $this->extractSection();
             $this->saveCurrentSection();
 
-        } while (! $this->stream->isEnd());
+        } while (!$this->stream->isEnd());
 
         return $this;
     }
@@ -94,7 +94,6 @@ final class SphinxConfigurationParser
         }
 
         $this->extractOptions();
-
 
 
         $this->stream->ignoreWhitespace();
@@ -139,6 +138,7 @@ final class SphinxConfigurationParser
             return;
         } elseif ($char->is(AsciiChar::COLON())) {
             $this->stream->previous();
+
             return;
         } else {
             throw new SyntaxErrorException($this->stream);
@@ -155,11 +155,11 @@ final class SphinxConfigurationParser
 
         $char = $this->stream->currentAscii();
 
-        if($char->isVerticalSpace() || $char->is(AsciiChar::OPENING_BRACE())) {
+        if ($char->isVerticalSpace() || $char->is(AsciiChar::OPENING_BRACE())) {
             return;
         }
 
-        if($char->is(AsciiChar::COLON())) {
+        if ($char->is(AsciiChar::COLON())) {
             $this->stream->next();
             $this->extractInheritanceName();
         } else {
@@ -183,7 +183,7 @@ final class SphinxConfigurationParser
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
-        }  else {
+        } else {
             throw new SyntaxErrorException($this->stream);
         }
     }
@@ -203,6 +203,7 @@ final class SphinxConfigurationParser
             $this->stream->ignoreWhitespace();
             if ($this->stream->currentAscii()->is(AsciiChar::CLOSING_BRACE())) {
                 $this->stream->next();
+
                 return;
             }
             $this->extractOption();
@@ -256,7 +257,7 @@ final class SphinxConfigurationParser
         $char = $this->stream->currentAscii();
         $this->stream->next();
 
-        if (! $char->is(AsciiChar::EQUALS())) {
+        if (!$char->is(AsciiChar::EQUALS())) {
             throw new SyntaxErrorException($this->stream);
         }
 

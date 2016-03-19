@@ -27,9 +27,9 @@ class Option
      */
     public function __construct(Section $section, eOption $optionName, string $value, bool $multiValue)
     {
-        $this->section = $section;
-        $this->optionName = $optionName;
-        $this->value = $value;
+        $this->section      = $section;
+        $this->optionName   = $optionName;
+        $this->value        = $value;
         $this->isMultiValue = $multiValue;
     }
 
@@ -61,7 +61,7 @@ class Option
      * @param string $value
      * @return Option
      */
-    public function setValue(string  $value) : Option
+    public function setValue(string $value) : Option
     {
         $this->value = $value;
 

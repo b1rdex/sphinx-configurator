@@ -107,7 +107,7 @@ class Configuration
      */
     public function addSource(string $name, string $inheritanceName = null) : Source
     {
-        $source = new Source($this, $name, $inheritanceName);
+        $source          = new Source($this, $name, $inheritanceName);
         $this->sources[] = $source;
 
         return $source;
@@ -212,7 +212,7 @@ class Configuration
      */
     protected function __construct(eVersion $version)
     {
-        $this->version = $version;
+        $this->version  = $version;
         $this->informer = Informer::get($this->version);
     }
 

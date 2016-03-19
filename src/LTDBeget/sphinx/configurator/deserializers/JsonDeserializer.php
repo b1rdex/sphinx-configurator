@@ -18,6 +18,14 @@ use LTDBeget\sphinx\configurator\Configuration;
 final class JsonDeserializer
 {
     /**
+     * @internal
+     * ArrayDeserializer constructor.
+     */
+    private function __construct()
+    {
+    }
+
+    /**
      * Make Configuration object from json encoded content of sphinx configuration file
      * @param string $jsonConfiguration
      * @param Configuration $objectConfiguration
@@ -27,10 +35,4 @@ final class JsonDeserializer
     {
         return ArrayDeserializer::deserialize(json_decode($jsonConfiguration, true), $objectConfiguration);
     }
-
-    /**
-     * @internal
-     * ArrayDeserializer constructor.
-     */
-    private function __construct() {}
 }

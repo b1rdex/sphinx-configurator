@@ -9,6 +9,7 @@ namespace LTDBeget\sphinx\configurator\serializers;
 
 
 use LTDBeget\sphinx\configurator\Configuration;
+use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 
 /**
  * Class PlainSerializer
@@ -24,62 +25,106 @@ final class PlainSerializer
      */
     public static function serialize(Configuration $configuration) : string
     {
-        $plainConfig = "";
+        $serializer         = new self();
+        $serializer->object = $configuration;
 
-        foreach ($configuration->iterateSource() as $source) {
-            $plainConfig .= "{$source}" . PHP_EOL;
-            $plainConfig .= "{" . PHP_EOL;
-            foreach ($source->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}" . PHP_EOL;
-            }
-            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
+        return $serializer->serializeInternal();
+    }
+
+    /**
+     * @internal
+     * @return string
+     */
+    public function serializeInternal() : string
+    {
+        $this->serializeSources();
+        $this->serializeIndexes();
+        $this->serializeIndexer();
+        $this->serializeSearchd();
+        $this->serializeCommon();
+
+        return $this->string;
+    }
+
+    /**
+     * @internal
+     */
+    private function serializeSources()
+    {
+        foreach ($this->object->iterateSource() as $source) {
+            $this->serializeSection($source);
         }
+    }
 
-        foreach ($configuration->iterateIndex() as $index) {
-            $plainConfig .= "{$index}" . PHP_EOL;
-            $plainConfig .= "{" . PHP_EOL;
-            foreach ($index->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}" . PHP_EOL;
-            }
-            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
+    /**
+     * @internal
+     */
+    private function serializeIndexes()
+    {
+        foreach ($this->object->iterateIndex() as $index) {
+            $this->serializeSection($index);
         }
+    }
 
-        if ($configuration->isHasIndexer()) {
-            $indexer = $configuration->getIndexer();
-            $plainConfig .= "{$indexer}" . PHP_EOL;
-            $plainConfig .= "{" . PHP_EOL;
-            foreach ($indexer->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}" . PHP_EOL;
-            }
-            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
+    /**
+     * @internal
+     */
+    private function serializeIndexer()
+    {
+        if ($this->object->isHasIndexer()) {
+            $this->serializeSection($this->object->getIndexer());
         }
+    }
 
-        if ($configuration->isHasSearchd()) {
-            $searchd = $configuration->getSearchd();
-            $plainConfig .= "{$searchd}" . PHP_EOL;
-            $plainConfig .= "{" . PHP_EOL;
-            foreach ($searchd->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}" . PHP_EOL;
-            }
-            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
+    /**
+     * @internal
+     */
+    private function serializeSearchd()
+    {
+        if ($this->object->isHasSearchd()) {
+            $this->serializeSection($this->object->getSearchd());
         }
+    }
 
-        if ($configuration->isHasCommon()) {
-            $common = $configuration->getCommon();
-            $plainConfig .= "{$common}" . PHP_EOL;
-            $plainConfig .= "{" . PHP_EOL;
-            foreach ($common->iterateOptions() as $option) {
-                $plainConfig .= "\t{$option}" . PHP_EOL;
-            }
-            $plainConfig .= "}" . PHP_EOL . PHP_EOL;
+    /**
+     * @internal
+     */
+    private function serializeCommon()
+    {
+        if ($this->object->isHasCommon()) {
+            $this->serializeSection($this->object->getCommon());
         }
+    }
 
-        return $plainConfig;
+    /**
+     * @internal
+     * @param Section $section
+     */
+    private function serializeSection(Section $section)
+    {
+        $this->string .= "{$section}" . PHP_EOL;
+        $this->string .= "{" . PHP_EOL;
+        foreach ($section->iterateOptions() as $option) {
+            $this->string .= "\t{$option}" . PHP_EOL;
+        }
+        $this->string .= "}" . PHP_EOL . PHP_EOL;
     }
 
     /**
      * @internal
      * ArrayDeserializer constructor.
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
+
+    /**
+     * @var string
+     */
+    private $string = "";
+
+    /**
+     * @var Configuration
+     */
+    private $object;
 }

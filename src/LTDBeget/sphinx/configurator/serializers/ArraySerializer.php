@@ -37,7 +37,9 @@ class ArraySerializer
      * @internal
      * ArraySerializer constructor.
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     /**
      * @internal

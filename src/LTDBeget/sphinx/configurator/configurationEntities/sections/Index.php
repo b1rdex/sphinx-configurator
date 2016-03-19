@@ -8,9 +8,9 @@
 namespace LTDBeget\sphinx\configurator\configurationEntities\sections;
 
 
-use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Definition;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
+use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\enums\options\eIndexOption;
 
 /**

@@ -39,11 +39,11 @@ abstract class Definition extends Section
         string $inheritance = null
     )
     {
-        if(empty($name)) {
+        if (empty($name)) {
             throw new LogicException("Name of section {$this->getType()} can't be empty.");
         }
 
-        if(! is_null($inheritance) && empty($name)) {
+        if (!is_null($inheritance) && empty($name)) {
             throw new LogicException("Inheritance of section {$this->getType()} can't be empty.");
         }
 
@@ -51,7 +51,7 @@ abstract class Definition extends Section
         // TODO CHECK INHERITANCE PARENT EXISTS
 
         parent::__construct($configuration);
-        $this->name = $name;
+        $this->name        = $name;
         $this->inheritance = $inheritance;
     }
 
@@ -61,10 +61,11 @@ abstract class Definition extends Section
     public function __toString() : string
     {
         $string = "{$this->getType()} {$this->getName()}";
-        if($this->isHasInheritance()) {
+        if ($this->isHasInheritance()) {
             // TODO if object parent get name
             $string .= " : {$this->getInheritance()}";
         }
+
         return $string;
     }
 
@@ -73,7 +74,7 @@ abstract class Definition extends Section
      */
     public function isHasInheritance() : bool
     {
-        return ! is_null($this->inheritance);
+        return !is_null($this->inheritance);
     }
 
     /**
@@ -83,7 +84,7 @@ abstract class Definition extends Section
      */
     public function getInheritance() : string
     {
-        if(! $this->isHasInheritance()) {
+        if (!$this->isHasInheritance()) {
             throw new LogicException("Trying to get inheritance for {$this->getType()} which doesn't' have it.");
         }
 

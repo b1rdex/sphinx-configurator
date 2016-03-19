@@ -32,5 +32,7 @@ final class PlainDeserializer
      * @internal
      * ArrayDeserializer constructor.
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 }

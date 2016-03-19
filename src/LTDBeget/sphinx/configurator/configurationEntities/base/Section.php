@@ -58,7 +58,7 @@ abstract class Section
      */
     final public function getType() : eSection
     {
-        if(is_null($this->type)) {
+        if (is_null($this->type)) {
             $this->initType();
         }
 
@@ -86,9 +86,9 @@ abstract class Section
      */
     final public function iterateOptions()
     {
-        foreach($this->options as $option) {
-            if(is_array($option)) {
-                foreach($option as $multiOption) {
+        foreach ($this->options as $option) {
+            if (is_array($option)) {
+                foreach ($option as $multiOption) {
                     yield $multiOption;
                 }
             } else {
@@ -107,7 +107,7 @@ abstract class Section
     final protected function addOptionInternal(eOption $name, string $value) : Option
     {
         $informer = $this->getInformer();
-        if(! $informer->isKnownOption($this->getType(), $name)) {
+        if (!$informer->isKnownOption($this->getType(), $name)) {
             $version = $this->getConfiguration()->getVersion();
             throw new WrongContextException(
                 "For sphinx v. {$version} option {$name}  in {$this->getType()} isn't available"
@@ -117,8 +117,8 @@ abstract class Section
 
         $option = new Option($this, $name, $value, $isMultiValue);
 
-        if($option->isMultiValue()) {
-            if(!array_key_exists( (string) $option->getName(), $this->options)) {
+        if ($option->isMultiValue()) {
+            if (!array_key_exists((string) $option->getName(), $this->options)) {
                 $this->options[(string) $option->getName()] = [];
             }
             $this->options[(string) $option->getName()][] = $option;
@@ -151,7 +151,7 @@ abstract class Section
     private function initType()
     {
         $section_name = strtolower($this->shortClassName());
-        switch($section_name) {
+        switch ($section_name) {
             case eSection::INDEX:
                 $this->type = eSection::INDEX();
                 break;

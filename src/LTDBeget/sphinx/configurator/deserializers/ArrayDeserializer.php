@@ -46,7 +46,9 @@ final class ArrayDeserializer
      * @internal
      * ArrayDeserializer constructor.
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     /**
      * @internal
@@ -76,24 +78,24 @@ final class ArrayDeserializer
      */
     private function deserializeSection(array $section) : Section
     {
-        $type = $section['type'] ?? null;
-        $name = $section['name'] ?? null;
+        $type        = $section['type'] ?? null;
+        $name        = $section['name'] ?? null;
         $inheritance = $section['inheritance'] ?? null;
 
-        switch($type) {
-            case eSection::INDEXER():
-                $section =  $this->objectConfiguration->getIndexer();
+        switch ($type) {
+            case eSection::INDEXER:
+                $section = $this->objectConfiguration->getIndexer();
                 break;
-            case eSection::SEARCHD():
-                $section =  $this->objectConfiguration->getSearchd();
+            case eSection::SEARCHD:
+                $section = $this->objectConfiguration->getSearchd();
                 break;
-            case eSection::COMMON():
-                $section =  $this->objectConfiguration->getCommon();
+            case eSection::COMMON:
+                $section = $this->objectConfiguration->getCommon();
                 break;
-            case eSection::SOURCE():
+            case eSection::SOURCE:
                 $section = $this->objectConfiguration->addSource($name, $inheritance);
                 break;
-            case eSection::INDEX():
+            case eSection::INDEX:
                 $section = $this->objectConfiguration->addIndex($name, $inheritance);
                 break;
             default:
@@ -141,20 +143,20 @@ final class ArrayDeserializer
      */
     private function getOptionName(Section $section, string $name) : eOption
     {
-        switch($section->getType()) {
-            case eSection::SOURCE():
+        switch ($section->getType()) {
+            case eSection::SOURCE:
                 $option = eSourceOption::get($name);
                 break;
-            case eSection::INDEX():
+            case eSection::INDEX:
                 $option = eIndexOption::get($name);
                 break;
-            case eSection::INDEXER():
+            case eSection::INDEXER:
                 $option = eIndexerOption::get($name);
                 break;
-            case eSection::SEARCHD():
+            case eSection::SEARCHD:
                 $option = eSearchdOption::get($name);
                 break;
-            case eSection::COMMON():
+            case eSection::COMMON:
                 $option = eCommonOption::get($name);
                 break;
             default:

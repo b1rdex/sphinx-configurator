@@ -8,16 +8,16 @@
 namespace LTDBeget\sphinx\configurator\configurationEntities\sections;
 
 
+use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 
 /**
  * Class Common
  * @package LTDBeget\sphinx\configurator\configurationEntities\base\sections
  */
-class Common extends Section
+class Common extends Settings
 {
     /**
      * @param eCommonOption $name

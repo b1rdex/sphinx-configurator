@@ -11,6 +11,10 @@ namespace LTDBeget\sphinx\configurator\configurationEntities\base;
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\exceptions\LogicException;
 
+/**
+ * Class Definition
+ * @package LTDBeget\sphinx\configurator\configurationEntities\base
+ */
 abstract class Definition extends Section
 {
     /**

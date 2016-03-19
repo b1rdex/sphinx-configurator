@@ -22,6 +22,7 @@ for($i = 1; $i <= $n; $i++) {
     $start = microtime(true); //начало измерения
 
     $config = Configuration::fromString($plain_config, eVersion::V_2_2_1());
+    $config->toArray();
 
     $end = microtime(true); //конец измерения
 

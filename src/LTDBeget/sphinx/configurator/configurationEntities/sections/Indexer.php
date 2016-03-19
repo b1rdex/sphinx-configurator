@@ -8,16 +8,16 @@
 namespace LTDBeget\sphinx\configurator\configurationEntities\sections;
 
 
+use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 
 /**
  * Class Indexer
  * @package LTDBeget\sphinx\configurator\configurationEntities\base\sections
  */
-class Indexer extends Section
+class Indexer extends Settings
 {
     /**
      * @param eIndexerOption $name

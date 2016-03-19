@@ -9,6 +9,7 @@ namespace LTDBeget\sphinx\configurator\exceptions;
 
 
 use Exception;
+use LTDBeget\stringstream\StringStream;
 
 /**
  * Class SyntaxErrorException
@@ -17,49 +18,17 @@ use Exception;
 class SyntaxErrorException extends \Exception
 {
     /**
-     * @var string
-     */
-    private $original_data;
-    /**
-     * @var int
-     */
-    private $error_line;
-    /**
-     * @var string
-     */
-    private $unexpected_char;
-
-
-    /**
      * SyntaxErrorException constructor.
-     * @param string $unexpected_char
-     * @param string $original_data
-     * @param int $error_line
+     * @param StringStream $stream
      * @param int $code
      * @param Exception|null $previous
      */
-    public function __construct
-    (
-        string $unexpected_char,
-        string $original_data,
-        int $error_line,
-        int $code = 0,
-        Exception $previous = null
-    )
+    public function __construct(StringStream $stream, int $code = 0, Exception $previous = null)
     {
-        $message               = "Sphinx configuration Parse error:  syntax error, unexpected '{$unexpected_char}' on line {$error_line}. ";
-        $this->original_data   = $original_data;
-        $this->error_line      = $error_line;
-        $this->unexpected_char = $unexpected_char;
+        $this->unexpected_char = (string) $stream->current();
+        $this->error_line      = $this->getParseErrorLineNumber($stream);
+        $message               = sprintf($this->messageTemplate, $this->unexpected_char, $this->error_line);
         parent::__construct($message, $code, $previous);
-    }
-
-    /**
-     * @return string
-     */
-    public function getOriginalData()
-    {
-        return $this->original_data;
     }
 
     /**
@@ -77,4 +46,39 @@ class SyntaxErrorException extends \Exception
     {
         return $this->unexpected_char;
     }
+
+    /**
+     * @internal
+     * @param StringStream $stream
+     * @return int
+     */
+    private function getParseErrorLineNumber(StringStream $stream) : int
+    {
+        $parse_error_char_position = $stream->position();
+        $plain_data                = $stream->getString();
+        $exploded_by_lines         = explode("\n", $plain_data);
+        foreach ($exploded_by_lines as $key => $line) {
+            $line_length = strlen($line) + 1;
+            $parse_error_char_position -= $line_length;
+            if ($parse_error_char_position < 0) {
+                return $key + 1;
+            }
+        }
+
+        return 1;
+    }
+
+    /**
+     * @var int
+     */
+    private $error_line;
+    /**
+     * @var string
+     */
+    private $unexpected_char;
+
+    /**
+     * @var string
+     */
+    private $messageTemplate = "Parse error: syntax error, unexpected '%s' on line %d. ";
 }

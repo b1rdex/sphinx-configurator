@@ -8,7 +8,11 @@
 namespace LTDBeget\sphinx\configurator\parser;
 
 
+use BadMethodCallException;
+use LTDBeget\ascii\AsciiChar;
 use LTDBeget\sphinx\configurator\exceptions\SyntaxErrorException;
+use LTDBeget\sphinx\enums\eSection;
+use LTDBeget\stringstream\StringStream;
 
 /**
  * Class SphinxConfigurationParser
@@ -17,146 +21,300 @@ use LTDBeget\sphinx\configurator\exceptions\SyntaxErrorException;
 final class SphinxConfigurationParser
 {
     /**
-     * @var SphinxConfigurationParser
-     */
-    private static $instance = null;
-    /**
-     * config data as it is
-     * @var string
-     */
-    private $originalData;
-    /**
-     * Spited by chars plain string
-     * @var array
-     */
-    private $data = null;
-    /**
-     * Storage of parsed result as array
-     * @var array
-     */
-    private $parsedData = [];
-    /**
-     * temporary storage of parsed data for one options block
-     * @var array
-     */
-    private $currentNode = [
-        "type"        => "",
-        "name"        => "",
-        "inheritance" => "",
-        "options"     => []
-    ];
-    /**
-     * temporary storage of parsed data for one option
-     * @var array
-     */
-    private $currentOption = [
-        "name"  => "",
-        "value" => ""
-    ];
-
-    private function __construct()
-    {
-    }
-
-    /**
+     * parse and tokenize input string
      * @param string $plainData
+     * @throws SyntaxErrorException
+     * @throws BadMethodCallException
      * @return array
      */
     public static function parse(string $plainData) : array
     {
-        $parser     = self::getInstance();
-        $parsedData = $parser
-            ->defineData($plainData)
-            ->extractNodes()
-            ->getParsedData();
-        $parser->clear();
-
-        return $parsedData;
+        return (new self($plainData))->tokenize()->tokens;
     }
 
     /**
+     * SphinxConfigurationParser constructor.
+     * @internal
+     * @param string $string
+     * @throws BadMethodCallException
+     */
+    private function __construct(string $string)
+    {
+        $this->originalString = $string;
+        $string = $this->removeComments($string);
+        $this->stream = new StringStream($string);
+    }
+
+    /**
+     * @internal
+     * @param string $string
+     * @return string
+     */
+    private function removeComments(string $string) : string
+    {
+        return preg_replace("/(^#| #|	#).*\n/im", "\n", $string);
+    }
+
+    /**
+     * @internal
      * @return SphinxConfigurationParser
+     * @throws SyntaxErrorException
      */
-    private static function getInstance() : SphinxConfigurationParser
+    private function tokenize() : SphinxConfigurationParser
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
+        do {
+            $this->extractSection();
+            $this->saveCurrentSection();
 
-        return self::$instance;
-    }
-
-    /**
-     * @return array
-     */
-    private function getParsedData() : array
-    {
-        return $this->parsedData;
-    }
-
-    /**
-     * parsing of nodes in config (source, index, indexer, searchd, common)
-     * @return SphinxConfigurationParser
-     */
-    private function extractNodes() : SphinxConfigurationParser
-    {
-        start:
-        $ord = current($this->data);
-        if (!$this->isEndFile($ord)) {
-            $this->extractNode();
-            $this->saveCurrentNode();
-            $this->clearTemporaryStorage();
-            $this->ignoreSpaceAndEndLine();
-            goto start;
-        }
+        } while (! $this->stream->isEnd());
 
         return $this;
     }
 
     /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isEndFile(int $ord) : bool
-    {
-        return $ord == 0;
-    }
-
-    /**
-     * parsing of node in config (source, index, indexer, searchd, common)
+     * @internal
      * @throws SyntaxErrorException
      */
-    private function extractNode()
+    private function extractSection()
     {
-        $this->currentNode = $this->getEmptyNodeData();
+        $this->extractSectionType();
 
-        $this->extractNodeType();
+        switch ($this->currentSection["type"]) {
+            case eSection::SOURCE():
+            case eSection::INDEX():
+                $this->extractSectionName();
 
-        switch ($this->currentNode["type"]) {
-            case "source":
-            case "index":
-                $this->extractNodeName();
-                $this->extractNodeInheritance();
+                $this->extractInheritance();
                 break;
-            case "indexer":
-            case "searchd":
-            case "common":
+            case eSection::INDEXER():
+            case eSection::SEARCHD():
+            case eSection::COMMON():
                 break;
             default:
-                $this->throwSyntaxErrorException();
-                break;
+                throw new SyntaxErrorException($this->stream);
         }
 
         $this->extractOptions();
+
+
+
+        $this->stream->ignoreWhitespace();
     }
 
     /**
-     * format of node
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractSectionType()
+    {
+        $this->stream->ignoreWhitespace();
+        start:
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+        if ($char->isLetter()) {
+            $this->currentSection["type"] .= (string) $char;
+            goto start;
+        } elseif ($char->isWhiteSpace()) {
+            return;
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractSectionName()
+    {
+        $this->stream->ignoreHorizontalSpace();
+
+        start:
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
+            $this->currentSection["name"] .= (string) $char;
+            goto start;
+        } elseif ($char->isWhiteSpace()) {
+            return;
+        } elseif ($char->is(AsciiChar::COLON())) {
+            $this->stream->previous();
+            return;
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractInheritance()
+    {
+        $this->stream->ignoreHorizontalSpace();
+
+        $char = $this->stream->currentAscii();
+
+        if($char->isVerticalSpace() || $char->is(AsciiChar::OPENING_BRACE())) {
+            return;
+        }
+
+        if($char->is(AsciiChar::COLON())) {
+            $this->stream->next();
+            $this->extractInheritanceName();
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractInheritanceName()
+    {
+        $this->stream->ignoreHorizontalSpace();
+        start:
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
+            $this->currentSection["inheritance"] .= (string) $char;
+            goto start;
+        } elseif ($char->isWhiteSpace()) {
+            return;
+        }  else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractOptions()
+    {
+        $this->stream->ignoreWhitespace();
+
+        if ($this->stream->currentAscii()->is(AsciiChar::OPENING_BRACE())) {
+            $this->stream->next();
+
+            start:
+            $this->stream->ignoreWhitespace();
+            if ($this->stream->currentAscii()->is(AsciiChar::CLOSING_BRACE())) {
+                $this->stream->next();
+                return;
+            }
+            $this->extractOption();
+            goto start;
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractOption()
+    {
+        $this->extractOptionName();
+        $this->extractOptionValue();
+        $this->saveCurrentOption();
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractOptionName()
+    {
+        $this->stream->ignoreWhitespace();
+
+        start:
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
+            $this->currentOption["name"] .= (string) $char;
+            goto start;
+        } elseif ($char->isHorizontalSpace()) {
+            return;
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     * @throws SyntaxErrorException
+     */
+    private function extractOptionValue()
+    {
+        $this->stream->ignoreHorizontalSpace();
+
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+
+        if (! $char->is(AsciiChar::EQUALS())) {
+            throw new SyntaxErrorException($this->stream);
+        }
+
+        $this->stream->ignoreHorizontalSpace();
+
+        start:
+        $char = $this->stream->currentAscii();
+        $this->stream->next();
+
+        if ($char->isPrintableChar()) {
+            if ($char->is(AsciiChar::BACKSLASH())) { // if possibility of multi-line
+                $char = $this->stream->currentAscii();
+
+                if ($char->isVerticalSpace()) { // multi-line opened
+                    $this->currentOption["value"] .= (string) AsciiChar::SPACE();
+                    $this->stream->next(); // ignore end line
+                    $this->stream->ignoreHorizontalSpace();
+                    goto start;
+                } else { // backslash as mean symbol
+                    $this->currentOption["value"] .= (string) AsciiChar::BACKSLASH();
+                    goto start;
+                }
+            } else {
+                $this->currentOption["value"] .= (string) $char;
+                goto start;
+            }
+        } elseif ($char->isVerticalSpace()) {
+            return;
+        } else {
+            throw new SyntaxErrorException($this->stream);
+        }
+    }
+
+    /**
+     * @internal
+     */
+    private function saveCurrentSection()
+    {
+        $this->currentSection = array_filter($this->currentSection);
+        $this->tokens[]       = $this->currentSection;
+        $this->currentSection = $this->getEmptySectionData();
+    }
+
+    /**
+     * @internal
+     */
+    private function saveCurrentOption()
+    {
+        $this->currentSection["options"][] = $this->currentOption;
+        $this->currentOption               = $this->getEmptyOptionData();
+    }
+
+    /**
+     * @internal
      * @return array
      */
-    private function getEmptyNodeData() : array
+    private function getEmptySectionData() : array
     {
         return [
             "type"        => "",
@@ -167,273 +325,7 @@ final class SphinxConfigurationParser
     }
 
     /**
-     * parsing type of node in config (source, index, indexer, searchd, common)
-     * @throws SyntaxErrorException
-     */
-    private function extractNodeType()
-    {
-        $this->ignoreSpaceAndEndLine();
-        start:
-        $ord = current($this->data);
-        next($this->data);
-        if ($this->isLetter($ord)) {
-            $this->currentNode["type"] .= chr($ord);
-            goto start;
-        } elseif ($this->isSpace($ord) || $this->isTabulation($ord) || $this->isEndLine($ord) || $this->isEndFile($ord)) {
-            return;
-        } else {
-            $this->throwSyntaxErrorException();
-        }
-    }
-
-    /**
-     * ignore all spaces and ends line
-     */
-    private function ignoreSpaceAndEndLine()
-    {
-        start:
-        $ord = current($this->data);
-
-        if ($this->isEndLine($ord) || $this->isSpace($ord) || $this->isTabulation($ord) || $this->isTabulation($ord)) {
-            next($this->data);
-            goto start;
-        }
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isEndLine(int $ord) : bool
-    {
-        return $ord == 10;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isSpace(int $ord) : bool
-    {
-        return $ord == 32;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isTabulation(int $ord) : bool
-    {
-        return $ord == 9;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isLetter(int $ord) : bool
-    {
-        return ($ord >= 65 && $ord <= 90) || ($ord >= 97 && $ord <= 122);
-    }
-
-    private function throwSyntaxErrorException()
-    {
-        print_r($this->parsedData);
-        print_r($this->currentNode);
-        throw new SyntaxErrorException(
-            chr(current($this->data)),
-            $this->originalData,
-            $this->getParseErrorLineNumber()
-        );
-    }
-
-    /**
-     * @return int
-     */
-    private function getParseErrorLineNumber() : int
-    {
-        $parse_error_char_position = key($this->data);
-        $plain_data                = pack('c*', ...$this->data);
-        $exploded_by_lines         = explode("\n", $plain_data);
-        foreach ($exploded_by_lines as $key => $line) {
-            $line_length = strlen($line) + 1;
-            $parse_error_char_position -= $line_length;
-            if ($parse_error_char_position < 0) {
-                return $key + 1;
-            }
-        }
-
-        return 1;
-    }
-
-    /**
-     * parsing name of source or index
-     * @throws SyntaxErrorException
-     */
-    private function extractNodeName()
-    {
-        $this->ignoreSpace();
-        start:
-        $ord = current($this->data);
-        next($this->data);
-
-        if ($this->isLetter($ord) || $this->isDigit($ord) || $this->isUnderscore($ord)) {
-            $this->currentNode["name"] .= chr($ord);
-            goto start;
-        } elseif ($this->isSpace($ord) || $this->isTabulation($ord) || $this->isEndLine($ord) || $this->isEndFile($ord)) {
-            return;
-        } elseif ($this->isColon($ord)) {
-            prev($this->data);
-
-            return;
-        } else {
-            $this->throwSyntaxErrorException();
-        }
-    }
-
-    /**
-     * ignore all spaces in line
-     */
-    private function ignoreSpace()
-    {
-        start:
-        $ord = current($this->data);
-
-        if ($this->isSpace($ord) || $this->isTabulation($ord)) {
-            next($this->data);
-            goto start;
-        }
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isDigit(int $ord) : bool
-    {
-        return $ord >= 48 && $ord <= 57;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isUnderscore(int $ord) : bool
-    {
-        return $ord == 95;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isColon(int $ord) : bool
-    {
-        return $ord == 58;
-    }
-
-    /**
-     * parsing inheritance of source or index if has
-     * @throws SyntaxErrorException
-     */
-    private function extractNodeInheritance()
-    {
-        $this->ignoreSpace();
-        $ord = current($this->data);
-        if ($this->isColon($ord)) {
-            next($this->data);
-            start:
-            $ord = current($this->data);
-            next($this->data);
-            if ($this->isLetter($ord) || $this->isDigit($ord) || $this->isUnderscore($ord)) {
-                $this->currentNode["inheritance"] .= chr($ord);
-                goto start;
-            } elseif ($this->isEndLine($ord)) {
-                return;
-            } elseif ($this->isSpace($ord) || $this->isTabulation($ord)) {
-                goto start;
-            } else {
-                $this->throwSyntaxErrorException();
-            }
-        }
-    }
-
-    /**
-     * parsing options of node
-     * @throws SyntaxErrorException
-     */
-    private function extractOptions()
-    {
-        $this->ignoreSpaceAndEndLine();
-
-        if ($this->isOpenBrace(current($this->data))) {
-            next($this->data);
-            start:
-            $this->ignoreSpaceAndEndLine();
-            $ord = current($this->data);
-            if ($this->isCloseBrace($ord)) {
-                next($this->data);
-
-                return;
-            }
-            $this->extractOption();
-            goto start;
-        } else {
-            $this->throwSyntaxErrorException();
-        }
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isOpenBrace(int $ord) : bool
-    {
-        return $ord == 123;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isCloseBrace(int $ord) : bool
-    {
-        return $ord == 125;
-    }
-
-    /**
-     * parsing concrete option
-     * @throws SyntaxErrorException
-     */
-    private function extractOption()
-    {
-        $this->currentOption = $this->getEmptyOptionData();
-        $this->extractOptionName();
-        $this->extractOptionValue();
-
-        $this->currentNode["options"][] = $this->currentOption;
-    }
-
-    /**
-     * format of option
+     * @internal
      * @return array
      */
     private function getEmptyOptionData() : array
@@ -445,174 +337,27 @@ final class SphinxConfigurationParser
     }
 
     /**
-     * parsing concrete option name
-     * @throws SyntaxErrorException
+     * Result of tokenize input string
+     * @var array
      */
-    private function extractOptionName()
-    {
-        $this->ignoreSpaceAndEndLine();
-        start:
-        $ord = current($this->data);
-        next($this->data);
-
-        if ($this->isLetter($ord) || $this->isDigit($ord) || $this->isUnderscore($ord)) {
-            $this->currentOption["name"] .= chr($ord);
-            goto start;
-        } elseif ($this->isSpace($ord) || $this->isTabulation($ord)) {
-            return;
-        } else {
-            $this->throwSyntaxErrorException();
-        }
-    }
+    private $tokens = [];
 
     /**
-     * parsing concrete option value
-     * @throws SyntaxErrorException
+     * temporary storage of tokens for one section
+     * @var array
      */
-    private function extractOptionValue()
-    {
-        $this->ignoreSpace();
-
-        $ord = current($this->data);
-        next($this->data);
-
-        if (!$this->isEqualSign($ord)) {
-            $this->throwSyntaxErrorException();
-        }
-        $this->ignoreSpace();
-
-        start:
-        $ord = current($this->data);
-        next($this->data);
-
-        if ($this->isMeanSymbol($ord)) {
-            if ($this->isBackslash($ord)) { // if possibility of multi-line
-                if ($this->isEndLine(current($this->data))) { // multi-line opened
-                    next($this->data); // ignore end line
-                    $this->ignoreSpace();
-                    goto start;
-                } else { // backslash as mean symbol
-                    $this->currentOption["value"] .= chr($ord);
-                    $this->currentOption["value"] .= chr(current($this->data));
-                    goto start;
-                }
-            } else {
-                $this->currentOption["value"] .= chr($ord);
-                goto start;
-            }
-        } elseif ($this->isEndLine($ord)) {
-            return;
-        } else {
-            $this->throwSyntaxErrorException();
-        }
-    }
-
+    private $currentSection = [
+        "type"        => "",
+        "name"        => "",
+        "inheritance" => "",
+        "options"     => []
+    ];
     /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
+     * temporary storage of tokens for one option
+     * @var array
      */
-    private function isEqualSign(int $ord) : bool
-    {
-        return $ord == 61;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isMeanSymbol(int $ord) : bool
-    {
-        return $ord > 31;
-    }
-
-    /**
-     * for understanding see link
-     * @link http://www.asciitable.com/
-     * @param int $ord
-     * @return bool
-     */
-    private function isBackslash(int $ord) : bool
-    {
-        return $ord == 92;
-    }
-
-    /**
-     * saves current parsed data from temporary storage to parsed data
-     */
-    private function saveCurrentNode()
-    {
-        $this->currentNode  = array_filter($this->currentNode);
-        $this->parsedData[] = $this->currentNode;
-    }
-
-    /**
-     * clear temporary storage's of parsed data
-     * @return SphinxConfigurationParser
-     */
-    private function clearTemporaryStorage() : SphinxConfigurationParser
-    {
-        $this->currentNode   = $this->getEmptyNodeData();
-        $this->currentOption = $this->getEmptyOptionData();
-
-        return $this;
-    }
-
-    /**
-     * Split data on array of chars
-     * @param String $data
-     * @return SphinxConfigurationParser
-     */
-    private function defineData(string $data) : SphinxConfigurationParser
-    {
-        $this->originalData = $data;
-        $this->data         = $data;
-        $this
-            ->removeComments()
-            ->splitData();
-
-        return $this;
-    }
-
-    /**
-     * split plain data to array of ords
-     * @return SphinxConfigurationParser
-     */
-    private function splitData() : SphinxConfigurationParser
-    {
-        $this->data = unpack('C*', $this->data);
-
-        return $this;
-    }
-
-    /**
-     * remove all comments from configuration
-     * @return SphinxConfigurationParser
-     */
-    private function removeComments() : SphinxConfigurationParser
-    {
-        $this->data = preg_replace("/(^#| #|	#).*\n/im", "\n", $this->data);
-
-        return $this;
-    }
-
-    /**
-     * clear parsed and plain data
-     * @return SphinxConfigurationParser
-     */
-    private function clear() : SphinxConfigurationParser
-    {
-        $this->originalData = null;
-        $this->data         = null;
-        $this->parsedData   = [];
-
-        return $this;
-    }
-
-    private function __clone()
-    {
-    }
+    private $currentOption = [
+        "name"  => "",
+        "value" => ""
+    ];
 }

@@ -40,7 +40,6 @@ final class SphinxConfigurationParser
      */
     private function __construct(string $string)
     {
-        $this->originalString = $string;
         $string = $this->removeComments($string);
         $this->stream = new StringStream($string);
     }
@@ -335,6 +334,11 @@ final class SphinxConfigurationParser
             "value" => ""
         ];
     }
+
+    /**
+     * @var StringStream
+     */
+    private $stream;
 
     /**
      * Result of tokenize input string

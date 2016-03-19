@@ -76,11 +76,11 @@ final class ArrayDeserializer
      */
     private function deserializeSection(array $section) : Section
     {
-        if (!array_key_exists("type", $section)) {
-            throw new SerializerException("Wrong array format. All sections must contain type.");
-        }
+        $type = $section['type'] ?? null;
+        $name = $section['name'] ?? null;
+        $inheritance = $section['inheritance'] ?? null;
 
-        switch($section["type"]) {
+        switch($type) {
             case eSection::INDEXER():
                 $section =  $this->objectConfiguration->getIndexer();
                 break;
@@ -91,22 +91,13 @@ final class ArrayDeserializer
                 $section =  $this->objectConfiguration->getCommon();
                 break;
             case eSection::SOURCE():
+                $section = $this->objectConfiguration->addSource($name, $inheritance);
+                break;
             case eSection::INDEX():
-                if (!array_key_exists("name", $section)) {
-                    throw new SerializerException("Wrong array format. All source nodes must contain name.");
-                }
-
-                $name            = $section["name"];
-                $inheritanceName = !empty($section["inheritance"]) ? $section["inheritance"] : null;
-
-                if($section["type"] == eSection::SOURCE()) {
-                    $section = $this->objectConfiguration->addSource($name, $inheritanceName);
-                } else {
-                    $section = $this->objectConfiguration->addIndex($name, $inheritanceName);
-                }
+                $section = $this->objectConfiguration->addIndex($name, $inheritance);
                 break;
             default:
-                throw new SerializerException("Unknown section type {$section["type"]}");
+                throw new SerializerException("Unknown section type");
         }
 
         return $section;

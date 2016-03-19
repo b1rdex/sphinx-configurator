@@ -80,38 +80,33 @@ final class ArrayDeserializer
             throw new SerializerException("Wrong array format. All sections must contain type.");
         }
 
-        switch ($section["type"]) {
+        switch($section["type"]) {
+            case eSection::INDEXER():
+                $section =  $this->objectConfiguration->getIndexer();
+                break;
+            case eSection::SEARCHD():
+                $section =  $this->objectConfiguration->getSearchd();
+                break;
+            case eSection::COMMON():
+                $section =  $this->objectConfiguration->getCommon();
+                break;
             case eSection::SOURCE():
+            case eSection::INDEX():
                 if (!array_key_exists("name", $section)) {
                     throw new SerializerException("Wrong array format. All source nodes must contain name.");
                 }
 
                 $name            = $section["name"];
                 $inheritanceName = !empty($section["inheritance"]) ? $section["inheritance"] : null;
-                $section      = $this->objectConfiguration->addSource($name, $inheritanceName);
-                break;
-            case eSection::INDEX():
-                $name = $section["name"];
 
-                if (!array_key_exists("name", $section)) {
-                    throw new SerializerException("Wrong array format. All index nodes must contain name.");
+                if($section["type"] == eSection::SOURCE()) {
+                    $section = $this->objectConfiguration->addSource($name, $inheritanceName);
+                } else {
+                    $section = $this->objectConfiguration->addIndex($name, $inheritanceName);
                 }
-
-                $inheritanceName = !empty($section["inheritance"]) ? $section["inheritance"] : null;
-                $section      = $this->objectConfiguration->addIndex($name, $inheritanceName);
-                break;
-            case eSection::INDEXER():
-                $section = $this->objectConfiguration->getIndexer();
-                break;
-            case eSection::SEARCHD():
-                $section = $this->objectConfiguration->getSearchd();
-                break;
-            case eSection::COMMON():
-                $section = $this->objectConfiguration->getCommon();
                 break;
             default:
                 throw new SerializerException("Unknown section type {$section["type"]}");
-                break;
         }
 
         return $section;

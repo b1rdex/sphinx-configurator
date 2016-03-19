@@ -13,13 +13,13 @@
   ],
   "require": {
     "php": ">=7.0",
-    "mattketmo/camel": "1.1.*",
     "symfony/yaml" : "3.0.*",
     "marc-mabe/php-enum" : "2.2.*",
     "ltd-beget/stringstream" : "1.0.*"
   },
   "require-dev": {
-    "theseer/phpdox": "0.8.*"
+    "theseer/phpdox": "0.8.*",
+    "phpunit/phpunit": "5.2.*"
   },
   "autoload": {
     "psr-0": {

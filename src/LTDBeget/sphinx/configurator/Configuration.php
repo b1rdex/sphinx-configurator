@@ -252,6 +252,11 @@ class Configuration
     private $version;
 
     /**
+     * @var Informer
+     */
+    private $informer;
+
+    /**
      * @var Source[]
      */
     private $sources = [];

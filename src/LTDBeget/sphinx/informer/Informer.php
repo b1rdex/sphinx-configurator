@@ -100,7 +100,7 @@ final class Informer
                     $optionName = eCommonOption::get($optionName);
                     yield $this->getOptionInfo($optionBlock, $optionName);
                     break;
-                default;
+                default:
                     throw new UnknownValueException("{$optionBlock} is unknown value for iterating via options");
             }
         }

@@ -121,6 +121,11 @@ class Option
     protected $value;
 
     /**
+     * @var bool
+     */
+    private $isMultiValue;
+
+    /**
      * @var boolean
      */
     private $isDeleted = false;

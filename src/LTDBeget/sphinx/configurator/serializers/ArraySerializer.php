@@ -116,7 +116,7 @@ class ArraySerializer
     private function serializeDefinition(Definition $definition)
     {
         $node = [
-            "type"        => "source",
+            "type"        => (string) $definition->getType(),
             "name"        => (string) $definition->getName(),
             "inheritance" => "",
             "options"     => []

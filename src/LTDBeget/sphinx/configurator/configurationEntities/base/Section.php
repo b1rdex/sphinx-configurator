@@ -150,25 +150,6 @@ abstract class Section
      */
     private function initType()
     {
-        $section_name = strtolower($this->shortClassName());
-        switch ($section_name) {
-            case eSection::INDEX:
-                $this->type = eSection::INDEX();
-                break;
-            case eSection::SOURCE:
-                $this->type = eSection::SOURCE();
-                break;
-            case eSection::SEARCHD:
-                $this->type = eSection::SEARCHD();
-                break;
-            case eSection::INDEXER:
-                $this->type = eSection::INDEXER();
-                break;
-            case eSection::COMMON:
-                $this->type = eSection::COMMON();
-                break;
-            default:
-                throw new LogicException("Unknown section type: {$section_name}");
-        }
+        $this->type = eSection::get(strtolower($this->shortClassName()));
     }
 }

@@ -102,6 +102,10 @@ final class PlainSerializer
      */
     private function serializeSection(Section $section)
     {
+        if($section->isDeleted()) {
+            return;
+        }
+
         $this->string .= "{$section}" . PHP_EOL;
         $this->string .= "{" . PHP_EOL;
         foreach ($section->iterateOptions() as $option) {

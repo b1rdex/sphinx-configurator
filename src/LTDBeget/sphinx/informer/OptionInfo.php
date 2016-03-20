@@ -59,7 +59,7 @@ final class OptionInfo
      * in what section option store
      * @return eSection
      */
-    public function getBlock() : eSection
+    public function getSection() : eSection
     {
         return $this->block;
     }

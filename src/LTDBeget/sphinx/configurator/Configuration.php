@@ -20,6 +20,7 @@ use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
 use LTDBeget\sphinx\configurator\serializers\ArraySerializer;
 use LTDBeget\sphinx\configurator\serializers\JsonSerializer;
 use LTDBeget\sphinx\configurator\serializers\PlainSerializer;
+use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\informer\Informer;
 
@@ -147,6 +148,15 @@ class Configuration
     }
 
     /**
+     * @param eSection $section
+     * @return bool
+     */
+    public function isAllowedSection(eSection $section) : bool
+    {
+        return $this->informer->isSectionExist($section);
+    }
+
+    /**
      * @return Indexer
      */
     public function getIndexer() : Indexer
@@ -175,6 +185,11 @@ class Configuration
      */
     public function getCommon() : Common
     {
+        $section = eSection::COMMON();
+        if(! $this->isAllowedSection($section)) {
+            throw new \LogicException("Sphinx of version {$this->version} does't have section {$section}");
+        }
+
         if (!$this->isHasCommon()) {
             $this->initCommon();
         }

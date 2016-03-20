@@ -11,11 +11,6 @@ namespace LTDBeget\sphinx\informer;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
-use LTDBeget\sphinx\enums\options\eCommonOption;
-use LTDBeget\sphinx\enums\options\eIndexerOption;
-use LTDBeget\sphinx\enums\options\eIndexOption;
-use LTDBeget\sphinx\enums\options\eSearchdOption;
-use LTDBeget\sphinx\enums\options\eSourceOption;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;
 use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
 use LTDBeget\sphinx\informer\exceptions\YamlParseException;
@@ -71,6 +66,20 @@ final class Informer
     }
 
     /**
+     * Is this section exists in current sphinx version
+     * @param eSection $section
+     * @return bool
+     */
+    public function isSectionExist(eSection $section) : bool
+    {
+        if($section == eSection::COMMON && version_compare( (string) $this->version, eVersion::V_2_2_1, '<')) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Iterate via all option in documentation via option block type
      * @param eSection $optionBlock
      * @return OptionInfo[]
@@ -78,32 +87,29 @@ final class Informer
      */
     public function iterateOptionInfo(eSection $optionBlock)
     {
-        foreach ($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
-            switch ($optionBlock) {
-                case eSection::SOURCE:
-                    $optionName = eSourceOption::get($optionName);
-                    yield $this->getOptionInfo($optionBlock, $optionName);
-                    break;
-                case eSection::INDEX:
-                    $optionName = eIndexOption::get($optionName);
-                    yield $this->getOptionInfo($optionBlock, $optionName);
-                    break;
-                case eSection::SEARCHD:
-                    $optionName = eSearchdOption::get($optionName);
-                    yield $this->getOptionInfo($optionBlock, $optionName);
-                    break;
-                case eSection::INDEXER:
-                    $optionName = eIndexerOption::get($optionName);
-                    yield $this->getOptionInfo($optionBlock, $optionName);
-                    break;
-                case eSection::COMMON:
-                    $optionName = eCommonOption::get($optionName);
-                    yield $this->getOptionInfo($optionBlock, $optionName);
-                    break;
-                default:
-                    throw new UnknownValueException("{$optionBlock} is unknown value for iterating via options");
-            }
+        if (! $this->isSectionExist($optionBlock)) {
+            throw new \LogicException("Sphinx of version {$this->version} does't have section {$optionBlock}");
         }
+
+        foreach ($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
+            yield $this->getOptionInfo($optionBlock, $this->getOptionName($optionBlock, $optionName));
+        }
+    }
+
+    /**
+     * Get enum for given section and string name
+     * @internal
+     * @param eSection $section
+     * @param string $optionName
+     * @return eOption
+     */
+    private function getOptionName(eSection $section, string $optionName) : eOption
+    {
+        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e".ucfirst( (string) $section)."Option";
+        /**
+         * @var eOption $enumClassName
+         */
+        return $enumClassName::get($optionName);
     }
 
     /**

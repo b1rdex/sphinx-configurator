@@ -19,14 +19,6 @@ use LTDBeget\sphinx\configurator\Configuration;
 final class JsonSerializer
 {
     /**
-     * @internal
-     * ArrayDeserializer constructor.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
      * Make json encoded content for sphinx configuration file from Configuration object
      * @param Configuration $configuration
      * @return string

@@ -28,12 +28,4 @@ final class PlainDeserializer
     {
         return ArrayDeserializer::deserialize(Tokenizer::tokenize($stringConfiguration), $objectConfiguration);
     }
-
-    /**
-     * @internal
-     * ArrayDeserializer constructor.
-     */
-    private function __construct()
-    {
-    }
 }

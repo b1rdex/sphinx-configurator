@@ -64,6 +64,9 @@ class ArraySerializer
     private function serializeSource()
     {
         foreach ($this->objectConfiguration->iterateSource() as $source) {
+            if($source->isDeleted()) {
+                continue;
+            }
             $this->serializeDefinition($source);
         }
     }
@@ -75,6 +78,9 @@ class ArraySerializer
     private function serializeIndex()
     {
         foreach ($this->objectConfiguration->iterateIndex() as $index) {
+            if($index->isDeleted()) {
+                continue;
+            }
             $this->serializeDefinition($index);
         }
     }
@@ -84,7 +90,7 @@ class ArraySerializer
      */
     private function serializeIndexer()
     {
-        if ($this->objectConfiguration->isHasIndexer()) {
+        if ($this->objectConfiguration->isHasIndexer() && ! $this->objectConfiguration->getIndexer()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getIndexer());
         }
     }
@@ -94,7 +100,7 @@ class ArraySerializer
      */
     private function serializeSearchhd()
     {
-        if ($this->objectConfiguration->isHasSearchd()) {
+        if ($this->objectConfiguration->isHasSearchd() && ! $this->objectConfiguration->getSearchd()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getSearchd());
         }
     }
@@ -104,7 +110,7 @@ class ArraySerializer
      */
     private function serializeCommon()
     {
-        if ($this->objectConfiguration->isHasCommon()) {
+        if ($this->objectConfiguration->isHasCommon() && ! $this->objectConfiguration->getCommon()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getCommon());
         }
     }

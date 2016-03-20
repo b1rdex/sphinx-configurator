@@ -40,6 +40,11 @@ abstract class Section
     private $options = [];
 
     /**
+     * @var boolean
+     */
+    private $isDeleted = false;
+
+    /**
      * Section constructor.
      * @param Configuration $configuration
      */
@@ -89,13 +94,38 @@ abstract class Section
         foreach ($this->options as $option) {
             if (is_array($option)) {
                 foreach ($option as $multiOption) {
-                    yield $multiOption;
+                    /**
+                     * @var Option $multiOption
+                     */
+                    if(! $multiOption->isDeleted()) {
+                        yield $multiOption;
+                    }
+
                 }
             } else {
-                yield $option;
+                if(! $option->isDeleted()) {
+                    yield $option;
+                }
             }
 
         }
+    }
+
+    /**
+     * mark section as deleted
+     */
+    final public function delete()
+    {
+        $this->isDeleted = true;
+    }
+
+    /**
+     * is option marked as deleted
+     * @return bool
+     */
+    final public function isDeleted()
+    {
+        return $this->isDeleted;
     }
 
     /**

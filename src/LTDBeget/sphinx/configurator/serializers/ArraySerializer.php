@@ -10,6 +10,7 @@ namespace LTDBeget\sphinx\configurator\serializers;
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Definition;
+use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 use LTDBeget\sphinx\configurator\exceptions\LogicException;
 
@@ -115,25 +116,12 @@ class ArraySerializer
      */
     private function serializeDefinition(Definition $definition)
     {
-        $node = [
+        $this->arrayConfiguration[] = [
             "type"        => (string) $definition->getType(),
             "name"        => (string) $definition->getName(),
-            "inheritance" => "",
-            "options"     => []
+            "inheritance" => $definition->isHasInheritance() ? $definition->getInheritance() : null,
+            "options"     => $this->serializeOptions($definition)
         ];
-
-        if ($definition->isHasInheritance()) {
-            $node["inheritance"] = $definition->getInheritance();
-        }
-
-        foreach ($definition->iterateOptions() as $option) {
-            $node["options"][] = [
-                "name"  => (string) $option->getName(),
-                "value" => $option->getValue()
-            ];
-        }
-
-        $this->arrayConfiguration[] = $node;
     }
 
     /**
@@ -142,19 +130,29 @@ class ArraySerializer
      */
     private function serializeSettings(Settings $settings)
     {
-        $node = [
+        $this->arrayConfiguration[] = [
             "type"    => (string) $settings->getType(),
-            "options" => []
+            "options" => $this->serializeOptions($settings)
         ];
+    }
 
-        foreach ($settings->iterateOptions() as $option) {
-            $node["options"][] = [
+    /**
+     * @internal
+     * @param Section $section
+     * @return array
+     */
+    private function serializeOptions(Section $section) : array
+    {
+        $options = [];
+
+        foreach ($section->iterateOptions() as $option) {
+            $options[] = [
                 "name"  => (string) $option->getName(),
                 "value" => $option->getValue()
             ];
         }
 
-        $this->arrayConfiguration[] = $node;
+        return $options;
     }
 
     /**

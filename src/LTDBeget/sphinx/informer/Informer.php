@@ -14,7 +14,8 @@ use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\informer\exceptions\NotFoundException;
 use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
 use LTDBeget\sphinx\informer\exceptions\YamlParseException;
-use Symfony\Component\Yaml\Parser;
+use /** @noinspection PhpUndefinedClassInspection */
+    Symfony\Component\Yaml\Parser;
 
 /**
  * Class Informer
@@ -38,31 +39,31 @@ final class Informer
     }
 
     /**
-     * return option info for concrete option of concrete block
-     * @param eSection $optionBlock
+     * return option info for concrete option of concrete section
+     * @param eSection $section
      * @param eOption $optionName
      * @return OptionInfo
      * @throws NotFoundException
      */
-    public function getOptionInfo(eSection $optionBlock, eOption $optionName) : OptionInfo
+    public function getOptionInfo(eSection $section, eOption $optionName) : OptionInfo
     {
-        if (!$this->isOptionInfoInit($optionBlock, $optionName)) {
-            $this->makeOptionInfo($optionBlock, $optionName);
+        if (!$this->isOptionInfoInit($section, $optionName)) {
+            $this->makeOptionInfo($section, $optionName);
         }
 
-        return $this->optionsInfo[(string) $optionBlock][(string) $optionName];
+        return $this->optionsInfo[(string) $section][(string) $optionName];
     }
 
     /**
      * check is known option for yaml documentation for concrete version
-     * @param eSection $optionBlock
+     * @param eSection $section
      * @param eOption $optionName
      * @return bool
      */
-    public function isKnownOption(eSection $optionBlock, eOption $optionName)
+    public function isKnownOption(eSection $section, eOption $optionName)
     {
-        return array_key_exists((string) $optionBlock, $this->documentation) &&
-        array_key_exists((string) $optionName, $this->documentation[(string) $optionBlock]);
+        return array_key_exists((string) $section, $this->documentation) &&
+        array_key_exists((string) $optionName, $this->documentation[(string) $section]);
     }
 
     /**
@@ -80,19 +81,19 @@ final class Informer
     }
 
     /**
-     * Iterate via all option in documentation via option block type
-     * @param eSection $optionBlock
+     * Iterate via all option in documentation via option section type
+     * @param eSection $section
      * @return OptionInfo[]
      * @throws UnknownValueException
      */
-    public function iterateOptionInfo(eSection $optionBlock)
+    public function iterateOptionInfo(eSection $section)
     {
-        if (! $this->isSectionExist($optionBlock)) {
-            throw new \LogicException("Sphinx of version {$this->version} does't have section {$optionBlock}");
+        if (! $this->isSectionExist($section)) {
+            throw new \LogicException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
-        foreach ($this->documentation[(string) $optionBlock] as $optionName => $optionData) {
-            yield $this->getOptionInfo($optionBlock, $this->getOptionName($optionBlock, $optionName));
+        foreach ($this->documentation[(string) $section] as $optionName => $optionData) {
+            yield $this->getOptionInfo($section, $this->getOptionName($section, $optionName));
         }
     }
 
@@ -126,39 +127,39 @@ final class Informer
 
     /**
      * check is option info object already init
-     * @param eSection $optionBlock
+     * @param eSection $section
      * @param eOption $optionName
      * @return bool
      */
-    private function isOptionInfoInit(eSection $optionBlock, eOption $optionName) : bool
+    private function isOptionInfoInit(eSection $section, eOption $optionName) : bool
     {
-        return array_key_exists((string) $optionBlock, $this->optionsInfo) &&
-        array_key_exists((string) $optionName, $this->optionsInfo[(string) $optionBlock]);
+        return array_key_exists((string) $section, $this->optionsInfo) &&
+        array_key_exists((string) $optionName, $this->optionsInfo[(string) $section]);
     }
 
     /**
      * make option info object from plain data
-     * @param eSection $optionBlock
+     * @param eSection $section
      * @param eOption $optionName
      * @throws NotFoundException
      */
-    private function makeOptionInfo(eSection $optionBlock, eOption $optionName)
+    private function makeOptionInfo(eSection $section, eOption $optionName)
     {
-        if (!$this->isKnownOption($optionBlock, $optionName)) {
+        if (!$this->isKnownOption($section, $optionName)) {
             throw new NotFoundException("For version {$this->version} {$optionName} is unknown option");
         }
-        $info_data = $this->documentation[(string) $optionBlock][(string) $optionName];
+        $info_data = $this->documentation[(string) $section][(string) $optionName];
 
         $optionInfo = new OptionInfo(
             $optionName,
-            $optionBlock,
+            $section,
             $this->version,
             $info_data["description"],
             $info_data["multi_value"],
             $info_data["link"]
         );
 
-        $this->optionsInfo[(string) $optionBlock][(string) $optionName] = $optionInfo;
+        $this->optionsInfo[(string) $section][(string) $optionName] = $optionInfo;
     }
 
     /**
@@ -173,6 +174,7 @@ final class Informer
             throw new NotFoundException("For version {$this->version} there are no file: {$path}");
         }
 
+        /** @noinspection PhpUndefinedClassInspection */
         $documentation = (new Parser())->parse(file_get_contents($path));
 
         if (!is_array($documentation)) {

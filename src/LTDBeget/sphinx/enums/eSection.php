@@ -11,7 +11,7 @@ namespace LTDBeget\sphinx\enums;
 use LTDBeget\sphinx\enums\base\Enum;
 
 /**
- * Class eOptionsBlock
+ * Class eSection
  * @package LTDBeget\sphinx\informer\enums\blocks
  *
  * @method static eSection SOURCE()

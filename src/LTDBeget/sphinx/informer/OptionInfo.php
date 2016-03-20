@@ -22,7 +22,7 @@ final class OptionInfo
     /**
      * OptionInfo constructor.
      * @param eOption $name
-     * @param eSection $block
+     * @param eSection $section
      * @param eVersion $version
      * @param string $description
      * @param bool $isMultiValue
@@ -30,7 +30,7 @@ final class OptionInfo
      */
     public function __construct(
         eOption $name,
-        eSection $block,
+        eSection $section,
         eVersion $version,
         string $description,
         bool $isMultiValue,
@@ -38,7 +38,7 @@ final class OptionInfo
     )
     {
         $this->name         = $name;
-        $this->block        = $block;
+        $this->section      = $section;
         $this->version      = $version;
         $this->description  = $description;
         $this->isMultiValue = $isMultiValue;
@@ -61,7 +61,7 @@ final class OptionInfo
      */
     public function getSection() : eSection
     {
-        return $this->block;
+        return $this->section;
     }
 
     /**
@@ -108,7 +108,7 @@ final class OptionInfo
     /**
      * @var eSection
      */
-    private $block;
+    private $section;
 
     /**
      * @var eVersion

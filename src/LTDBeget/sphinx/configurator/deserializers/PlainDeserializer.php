@@ -9,7 +9,8 @@ namespace LTDBeget\sphinx\configurator\deserializers;
 
 
 use LTDBeget\sphinx\configurator\Configuration;
-use LTDBeget\sphinx\configurator\parser\SphinxConfigurationParser;
+use LTDBeget\sphinx\Tokenizer;
+
 
 /**
  * Class PlainDeserializer
@@ -25,7 +26,7 @@ final class PlainDeserializer
      */
     public static function deserialize(string $stringConfiguration, Configuration $objectConfiguration) : Configuration
     {
-        return ArrayDeserializer::deserialize(SphinxConfigurationParser::parse($stringConfiguration), $objectConfiguration);
+        return ArrayDeserializer::deserialize(Tokenizer::tokenize($stringConfiguration), $objectConfiguration);
     }
 
     /**

@@ -42,6 +42,17 @@ docker-compose run --rm sphinx indextool --checkconfig -c /etc/sphinxsearch/vali
 $ ./vendor/bin/phpdox
 ```
 
+### Run tests
+
+```shell
+$ wget https://phar.phpunit.de/phpunit.phar
+```
+
+```shell
+$ php phpunit.phar --coverage-html coverage
+```
+
+
 ## Notes
 list of options was generated from docs of Sphinx 2.2.10-release 
 [see manual](http://sphinxsearch.com/docs/current.html)

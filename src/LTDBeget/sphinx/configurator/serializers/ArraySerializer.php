@@ -117,7 +117,7 @@ class ArraySerializer
     {
         $node = [
             "type"        => "source",
-            "name"        => $definition->getName(),
+            "name"        => (string) $definition->getName(),
             "inheritance" => "",
             "options"     => []
         ];
@@ -128,7 +128,7 @@ class ArraySerializer
 
         foreach ($definition->iterateOptions() as $option) {
             $node["options"][] = [
-                "name"  => $option->getName(),
+                "name"  => (string) $option->getName(),
                 "value" => $option->getValue()
             ];
         }
@@ -149,7 +149,7 @@ class ArraySerializer
 
         foreach ($settings->iterateOptions() as $option) {
             $node["options"][] = [
-                "name"  => $option->getName(),
+                "name"  => (string) $option->getName(),
                 "value" => $option->getValue()
             ];
         }

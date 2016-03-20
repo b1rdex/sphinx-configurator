@@ -106,25 +106,14 @@ abstract class Section
      */
     final protected function addOptionInternal(eOption $name, string $value) : Option
     {
-        $informer = $this->getInformer();
-        if (!$informer->isKnownOption($this->getType(), $name)) {
-            $version = $this->getConfiguration()->getVersion();
-            throw new WrongContextException(
-                "For sphinx v. {$version} option {$name}  in {$this->getType()} isn't available"
-            );
-        }
-        $isMultiValue = $informer->getOptionInfo($this->getType(), $name)->isIsMultiValue();
-
-        $option = new Option($this, $name, $value, $isMultiValue);
+        $option = $this->createOption($name, $value);
+        $option_name = (string) $option->getName();
 
         if ($option->isMultiValue()) {
-            if (!array_key_exists((string) $option->getName(), $this->options)) {
-                $this->options[(string) $option->getName()] = [];
-            }
-            $this->options[(string) $option->getName()][] = $option;
-
+            $this->options[$option_name] = $this->options[$option_name] ?? [];
+            $this->options[$option_name][] = $option;
         } else {
-            $this->options[(string) $option->getName()] = $option;
+            $this->options[$option_name] = $option;
         }
 
         return $option;
@@ -140,12 +129,38 @@ abstract class Section
             ->getInformer();
     }
 
-    protected function shortClassName() : string
+    /**
+     * @internal
+     * @return string
+     */
+    private function shortClassName() : string
     {
         return (new ReflectionClass($this->className()))->getShortName();
     }
 
     /**
+     * @internal
+     * @param eOption $name
+     * @param string $value
+     * @return Option
+     * @throws WrongContextException
+     */
+    final private function createOption(eOption $name, string $value)
+    {
+        $informer = $this->getInformer();
+        if (!$informer->isKnownOption($this->getType(), $name)) {
+            $version = $this->getConfiguration()->getVersion();
+            throw new WrongContextException(
+                "For sphinx v. {$version} option {$name} in {$this->getType()} isn't available"
+            );
+        }
+        $isMultiValue = $informer->getOptionInfo($this->getType(), $name)->isIsMultiValue();
+
+        return new Option($this, $name, $value, $isMultiValue);
+    }
+
+    /**
+     * @internal
      * @throws LogicException
      */
     private function initType()

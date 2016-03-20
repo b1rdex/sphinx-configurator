@@ -29,7 +29,7 @@ class Option
     {
         $this->section      = $section;
         $this->optionName   = $optionName;
-        $this->value        = $value;
+        $this->value        = trim($value);
         $this->isMultiValue = $multiValue;
     }
 

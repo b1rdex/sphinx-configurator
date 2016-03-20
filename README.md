@@ -6,7 +6,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configurator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configurator/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configurator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configurator/build-status/master)
 [![Documentation](https://img.shields.io/badge/code-documented-brightgreen.svg)](http://ltd-beget.github.io/sphinx-configurator/documentation/html/index.html)
-[![Documentation](https://img.shields.io/badge/code-coverage-brightgreen.svg)](http://ltd-beget.github.io/sphinx-configurator/coverage/index.html)
+[![Documentation](https://img.shields.io/badge/code-coverage-brightgreen.svg)](http://ltd-beget.github.io/sphinx-configurator/coverage/)
 [![License MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/LTD-Beget/sphinx-configurator/blob/master/LICENSE)
 
 

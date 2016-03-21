@@ -28,6 +28,7 @@ use LTDBeget\sphinx\informer\Informer;
  * Class Configuration
  * @package LTDBeget\sphinx\configurator
  */
+/** @noinspection SingletonFactoryPatternViolationInspection */
 class Configuration
 {
     /**
@@ -87,7 +88,13 @@ class Configuration
      */
     public function __toString() : string
     {
-        return PlainSerializer::serialize($this);
+        try {
+            $string = PlainSerializer::serialize($this);
+        } catch (\Exception $e) {
+            $string = '';
+        }
+        
+        return $string;
     }
 
     /**
@@ -238,7 +245,7 @@ class Configuration
      */
     public function isHasIndexer() : bool
     {
-        return !is_null($this->indexer);
+        return null !== $this->indexer;
     }
 
     /**
@@ -246,7 +253,7 @@ class Configuration
      */
     public function isHasSearchd() : bool
     {
-        return !is_null($this->searchd);
+        return null !== $this->searchd;
     }
 
     /**
@@ -254,7 +261,7 @@ class Configuration
      */
     public function isHasCommon() : bool
     {
-        return !is_null($this->common);
+        return null !== $this->common;
     }
 
     /**
@@ -322,15 +329,15 @@ class Configuration
     /**
      * @var Indexer
      */
-    private $indexer = null;
+    private $indexer;
 
     /**
      * @var Searchd
      */
-    private $searchd = null;
+    private $searchd;
 
     /**
      * @var Common
      */
-    private $common = null;
+    private $common;
 }

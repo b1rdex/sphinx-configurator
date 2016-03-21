@@ -191,5 +191,5 @@ class ArraySerializer
     /**
      * @var Configuration
      */
-    private $objectConfiguration = null;
+    private $objectConfiguration;
 }

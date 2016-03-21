@@ -63,12 +63,16 @@ abstract class Definition extends Section
      */
     public function __toString() : string
     {
-        $string = "{$this->getType()} {$this->getName()}";
-        if ($this->isHasInheritance()) {
-            // TODO if object parent get name
-            $string .= " : {$this->getInheritance()}";
+        try {
+            $string = "{$this->getType()} {$this->getName()}";
+            if ($this->isHasInheritance()) {
+                // TODO if object parent get name
+                $string .= " : {$this->getInheritance()}";
+            }
+        } catch (\Exception $e) {
+            $string = '';
         }
-
+        
         return $string;
     }
 
@@ -77,7 +81,7 @@ abstract class Definition extends Section
      */
     public function isHasInheritance() : bool
     {
-        return !is_null($this->inheritance);
+        return null !== $this->inheritance;
     }
 
     /**

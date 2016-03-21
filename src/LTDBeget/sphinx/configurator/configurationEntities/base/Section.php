@@ -30,7 +30,7 @@ abstract class Section
     /**
      * @var eSection
      */
-    private $type = null;
+    private $type;
 
     /**
      * @var Option[]
@@ -63,7 +63,7 @@ abstract class Section
      */
     final public function getType() : eSection
     {
-        if (is_null($this->type)) {
+        if (null === $this->type) {
             $this->initType();
         }
 
@@ -83,7 +83,13 @@ abstract class Section
      */
     public function __toString() : string
     {
-        return $this->getType();
+        try {
+            $string = (string) $this->getType();
+        } catch (\Exception $e) {
+            $string = '';
+        }
+        
+        return $string;
     }
 
     /**
@@ -143,6 +149,7 @@ abstract class Section
 
         if ($option->isMultiValue()) {
             $this->options[$option_name] = $this->options[$option_name] ?? [];
+            /** @noinspection OffsetOperationsInspection */
             $this->options[$option_name][] = $option;
         } else {
             $this->options[$option_name] = $option;

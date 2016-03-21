@@ -80,19 +80,19 @@ final class ArrayDeserializer
 
     /**
      * @internal
-     * @param array $section
+     * @param array $section_data
      * @return Section
      * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
-     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
-    private function deserializeSection(array $section) : Section
+    private function deserializeSection(array $section_data) : Section
     {
-        $type        = $section['type'] ?? null;
-        $name        = $section['name'] ?? null;
-        $inheritance = $section['inheritance'] ?? null;
+        $type        = $section_data['type'] ?? null;
+        $name        = $section_data['name'] ?? null;
+        $inheritance = $section_data['inheritance'] ?? null;
 
         switch ($type) {
             case eSection::INDEXER:
@@ -188,5 +188,5 @@ final class ArrayDeserializer
     /**
      * @var Configuration
      */
-    private $objectConfiguration = null;
+    private $objectConfiguration;
 }

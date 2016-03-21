@@ -6,12 +6,14 @@
  */
 
 
+
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\enums\eVersion;
 
 /**
  * Class ConfiguratorTest
  */
+
 class ConfiguratorTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -20,15 +22,16 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckConfigValidInNewerVersionAndInvalidInPrevious()
     {
-        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
+        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Configuration::fromString($plain_config, eVersion::V_2_1_8());
         
     }
 
     public function testChainSerializeDeserialize()
     {
-        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
+        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
 
         $referenceHash = md5((string) Configuration::fromString($plain_config, eVersion::V_2_2_10()));
@@ -46,7 +49,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     public function testDelete()
     {
-        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
+        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
 
         $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
@@ -72,8 +75,9 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         }
 
         $hash = md5((string) $config);
-
-        static::assertEquals("f26517544c25d8ef994622380a0afbe9", $hash);
+        
+        /** @noinspection SpellCheckingInspection */
+        static::assertEquals('f26517544c25d8ef994622380a0afbe9', $hash);
     }
 
 }

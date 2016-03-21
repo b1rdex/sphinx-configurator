@@ -40,13 +40,15 @@ class InformerTest extends PHPUnit_Framework_TestCase
      */
     public function testUnknownSection()
     {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer = Informer::get(eVersion::V_2_1_9());
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer->getOptionInfo(eSection::COMMON(), eCommonOption::JSON_AUTOCONV_KEYNAMES());
     }
 
     public function testGetInfoFromConfiguration()
     {
-        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
+        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
         $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
         foreach($config->iterateIndex() as $section) {

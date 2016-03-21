@@ -16,7 +16,7 @@ use LTDBeget\sphinx\configurator\configurationEntities\sections\Source;
 use LTDBeget\sphinx\configurator\deserializers\ArrayDeserializer;
 use LTDBeget\sphinx\configurator\deserializers\JsonDeserializer;
 use LTDBeget\sphinx\configurator\deserializers\PlainDeserializer;
-use LTDBeget\sphinx\configurator\exceptions\NotFoundException;
+use LTDBeget\sphinx\configurator\exceptions\ConfigurationException;
 use LTDBeget\sphinx\configurator\serializers\ArraySerializer;
 use LTDBeget\sphinx\configurator\serializers\JsonSerializer;
 use LTDBeget\sphinx\configurator\serializers\PlainSerializer;
@@ -28,12 +28,21 @@ use LTDBeget\sphinx\informer\Informer;
  * Class Configuration
  * @package LTDBeget\sphinx\configurator
  */
+/** @noinspection SingletonFactoryPatternViolationInspection */
 class Configuration
 {
     /**
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \LTDBeget\sphinx\SyntaxErrorException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     public static function fromString(string $plainData, eVersion $version) : Configuration
     {
@@ -44,6 +53,13 @@ class Configuration
      * @param array $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      */
     public static function fromArray(array $plainData, eVersion $version) : Configuration
     {
@@ -54,6 +70,13 @@ class Configuration
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     public static function fromJson(string $plainData, eVersion $version) : Configuration
     {
@@ -65,11 +88,21 @@ class Configuration
      */
     public function __toString() : string
     {
-        return PlainSerializer::serialize($this);
+        try {
+            $string = PlainSerializer::serialize($this);
+        } catch (\Exception $e) {
+            $string = '';
+        }
+        
+        return $string;
     }
 
     /**
      * @return array
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public function toArray() : array
     {
@@ -78,6 +111,10 @@ class Configuration
 
     /**
      * @return string
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public function toJson() : string
     {
@@ -104,7 +141,9 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Source
-     * @throws NotFoundException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
      */
     public function addSource(string $name, string $inheritanceName = null) : Source
     {
@@ -128,6 +167,9 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Index
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
      */
     public function addIndex(string $name, string $inheritanceName = null) : Index
     {
@@ -182,12 +224,13 @@ class Configuration
 
     /**
      * @return Common
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public function getCommon() : Common
     {
         $section = eSection::COMMON();
         if(! $this->isAllowedSection($section)) {
-            throw new \LogicException("Sphinx of version {$this->version} does't have section {$section}");
+            throw new ConfigurationException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
         if (!$this->isHasCommon()) {
@@ -202,7 +245,7 @@ class Configuration
      */
     public function isHasIndexer() : bool
     {
-        return !is_null($this->indexer);
+        return null !== $this->indexer;
     }
 
     /**
@@ -210,7 +253,7 @@ class Configuration
      */
     public function isHasSearchd() : bool
     {
-        return !is_null($this->searchd);
+        return null !== $this->searchd;
     }
 
     /**
@@ -218,12 +261,14 @@ class Configuration
      */
     public function isHasCommon() : bool
     {
-        return !is_null($this->common);
+        return null !== $this->common;
     }
 
     /**
      * Configuration constructor.
      * @param eVersion $version
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     protected function __construct(eVersion $version)
     {
@@ -284,15 +329,15 @@ class Configuration
     /**
      * @var Indexer
      */
-    private $indexer = null;
+    private $indexer;
 
     /**
      * @var Searchd
      */
-    private $searchd = null;
+    private $searchd;
 
     /**
      * @var Common
      */
-    private $common = null;
+    private $common;
 }

@@ -10,7 +10,6 @@ namespace LTDBeget\sphinx\configurator\configurationEntities\sections;
 
 use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
-use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 
 /**
@@ -23,7 +22,9 @@ class Common extends Settings
      * @param eCommonOption $name
      * @param string $value
      * @return Option
-     * @throws WrongContextException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function addOption(eCommonOption $name, string $value) : Option
     {

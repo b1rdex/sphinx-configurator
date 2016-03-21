@@ -23,6 +23,12 @@ final class PlainDeserializer
      * @param string $stringConfiguration
      * @param Configuration $objectConfiguration
      * @return Configuration
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\SyntaxErrorException
      */
     public static function deserialize(string $stringConfiguration, Configuration $objectConfiguration) : Configuration
     {

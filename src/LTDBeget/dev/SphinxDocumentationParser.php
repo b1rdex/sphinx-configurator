@@ -21,6 +21,7 @@ final class SphinxDocumentationParser
 {
     /**
      * Parse all sphinx configuration from self::$links
+     * @throws \RuntimeException
      */
     public static function parseAll()
     {
@@ -35,23 +36,23 @@ final class SphinxDocumentationParser
      * @var array
      */
     private static $links = [
-        "2.2.10" => "http://sphinxsearch.com/docs/current.html",
-        "2.2.8"  => "http://sphinxsearch.com/docs/archives/manual-2.2.8.html",
-        "2.2.6"  => "http://sphinxsearch.com/docs/archives/manual-2.2.6.html",
-        "2.2.5"  => "http://sphinxsearch.com/docs/archives/manual-2.2.5.html",
-        "2.2.4"  => "http://sphinxsearch.com/docs/archives/manual-2.2.4.html",
-        "2.2.3"  => "http://sphinxsearch.com/docs/archives/manual-2.2.3.html",
-        "2.2.2"  => "http://sphinxsearch.com/docs/archives/manual-2.2.2.html",
-        "2.2.1"  => "http://sphinxsearch.com/docs/archives/manual-2.2.1.html",
-        "2.1.9"  => "http://sphinxsearch.com/docs/archives/manual-2.1.9.html",
-        "2.1.8"  => "http://sphinxsearch.com/docs/archives/manual-2.1.8.html",
-        "2.1.7"  => "http://sphinxsearch.com/docs/archives/manual-2.1.7.html",
-        "2.1.6"  => "http://sphinxsearch.com/docs/archives/manual-2.1.6.html",
-        "2.1.5"  => "http://sphinxsearch.com/docs/archives/manual-2.1.5.html",
-        "2.1.4"  => "http://sphinxsearch.com/docs/archives/manual-2.1.4.html",
-        "2.1.3"  => "http://sphinxsearch.com/docs/archives/manual-2.1.3.html",
-        "2.1.2"  => "http://sphinxsearch.com/docs/archives/manual-2.1.2.html",
-        "2.1.1"  => "http://sphinxsearch.com/docs/archives/manual-2.1.1.html",
+        '2.2.10' => 'http://sphinxsearch.com/docs/current.html',
+        '2.2.8'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.8.html',
+        '2.2.6'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.6.html',
+        '2.2.5'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.5.html',
+        '2.2.4'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.4.html',
+        '2.2.3'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.3.html',
+        '2.2.2'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.2.html',
+        '2.2.1'  => 'http://sphinxsearch.com/docs/archives/manual-2.2.1.html',
+        '2.1.9'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.9.html',
+        '2.1.8'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.8.html',
+        '2.1.7'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.7.html',
+        '2.1.6'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.6.html',
+        '2.1.5'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.5.html',
+        '2.1.4'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.4.html',
+        '2.1.3' => 'http://sphinxsearch.com/docs/archives/manual-2.1.3.html',
+        '2.1.2' => 'http://sphinxsearch.com/docs/archives/manual-2.1.2.html',
+        '2.1.1' => 'http://sphinxsearch.com/docs/archives/manual-2.1.1.html',
     ];
 
     /**
@@ -94,8 +95,8 @@ final class SphinxDocumentationParser
 
         $yaml = $dumper->dump($this->parsedDocumentation, 4);
 
-        $content = "";
-        $content .= "# automatically generated from sphinx documentation" . PHP_EOL;
+        $content = '';
+        $content .= '# automatically generated from sphinx documentation' . PHP_EOL;
         $content .= "# version of documentation: {$this->version}" . PHP_EOL;
         $content .= "# link on documentation: $this->link" . PHP_EOL;
         $content .= $yaml;
@@ -118,38 +119,39 @@ final class SphinxDocumentationParser
      */
     private function getPath() : string
     {
-        return realpath(__DIR__ . "../../../sphinx/docs");
+        return __DIR__ . '../../../sphinx/docs';
     }
 
     /**
      * @return SphinxDocumentationParser
+     * @throws \RuntimeException
      */
     private function parse() : SphinxDocumentationParser
     {
-        $nodes = $this->document->getElementsByTagName("a");
+        $nodes = $this->document->getElementsByTagName('a');
         foreach ($nodes as $node) {
             if (!($node instanceof DOMElement)) {
                 continue;
             }
 
             if ($this->isSource($node)) {
-                $this->parsedDocumentation["source"] = $this->parseSourceOptions($node);
+                $this->parsedDocumentation['source'] = $this->parseSourceOptions($node);
             }
 
             if ($this->isIndex($node)) {
-                $this->parsedDocumentation["index"] = $this->parseSourceOptions($node);
+                $this->parsedDocumentation['index'] = $this->parseSourceOptions($node);
             }
 
             if ($this->isIndexer($node)) {
-                $this->parsedDocumentation["indexer"] = $this->parseSourceOptions($node);
+                $this->parsedDocumentation['indexer'] = $this->parseSourceOptions($node);
             }
 
             if ($this->isSearchd($node)) {
-                $this->parsedDocumentation["searchd"] = $this->parseSourceOptions($node);
+                $this->parsedDocumentation['searchd'] = $this->parseSourceOptions($node);
             }
 
             if ($this->isCommon($node)) {
-                $this->parsedDocumentation["common"] = $this->parseSourceOptions($node);
+                $this->parsedDocumentation['common'] = $this->parseSourceOptions($node);
             }
         }
 
@@ -162,7 +164,7 @@ final class SphinxDocumentationParser
      */
     private function isSource(DOMElement $element) : bool
     {
-        return $element->hasAttribute("name") && $element->getAttribute("name") == "confgroup-source";
+        return $element->hasAttribute('name') && $element->getAttribute('name') === 'confgroup-source';
     }
 
     /**
@@ -171,7 +173,7 @@ final class SphinxDocumentationParser
      */
     private function isIndex(DOMElement $element) : bool
     {
-        return $element->hasAttribute("name") && $element->getAttribute("name") == "confgroup-index";
+        return $element->hasAttribute('name') && $element->getAttribute('name') === 'confgroup-index';
     }
 
     /**
@@ -180,7 +182,7 @@ final class SphinxDocumentationParser
      */
     private function isIndexer(DOMElement $element) : bool
     {
-        return $element->hasAttribute("name") && $element->getAttribute("name") == "confgroup-indexer";
+        return $element->hasAttribute('name') && $element->getAttribute('name') === 'confgroup-indexer';
     }
 
     /**
@@ -189,7 +191,7 @@ final class SphinxDocumentationParser
      */
     private function isSearchd(DOMElement $element) : bool
     {
-        return $element->hasAttribute("name") && $element->getAttribute("name") == "confgroup-searchd";
+        return $element->hasAttribute('name') && $element->getAttribute('name') === 'confgroup-searchd';
     }
 
     /**
@@ -198,13 +200,14 @@ final class SphinxDocumentationParser
      */
     private function isCommon(DOMElement $element) : bool
     {
-        return $element->hasAttribute("name") && $element->getAttribute("name") == "confgroup-common";
+        return $element->hasAttribute('name') && $element->getAttribute('name') === 'confgroup-common';
     }
 
     /**
      * Parse source options
      * @param DOMElement $element
      * @return array
+     * @throws \RuntimeException
      */
     private function parseSourceOptions(DOMElement $element) : array
     {
@@ -216,6 +219,7 @@ final class SphinxDocumentationParser
             }
 
             if ($this->isSect2Element($optionNode)) {
+                /** @noinspection SlowArrayOperationsInLoopInspection */
                 $source_array = array_merge($this->parseOptionNode($optionNode), $source_array);
             }
 
@@ -229,7 +233,7 @@ final class SphinxDocumentationParser
      * parse concrete option block
      * @param DOMElement $element
      * @return array
-     * @throws \Exception
+     * @throws \RuntimeException
      */
     private function parseOptionNode(DOMElement $element) : array
     {
@@ -242,9 +246,9 @@ final class SphinxDocumentationParser
 
         foreach ($option_names as $option_name) {
             $options_array[$option_name] = [
-                "link"        => $this->link . $link_anchor,
-                "multi_value" => $isMultiValue,
-                "description" => $description
+                'link'        => $this->link . $link_anchor,
+                'multi_value' => $isMultiValue,
+                'description' => $description
             ];
         }
 
@@ -254,23 +258,22 @@ final class SphinxDocumentationParser
     /**
      * @param DOMElement $element
      * @return array
-     * @throws \Exception
      */
     private function getOptionNames(DOMElement $element) : array
     {
         $optionName = $element->textContent;
         $optionName = htmlentities($optionName, null, 'utf-8');
-        $optionName = str_replace("&nbsp;", "", $optionName);
-        $optionName = trim(preg_replace("/[0-9]*\.[0-9]*\.[0-9]*\./", "", $optionName));
+        $optionName = str_replace('&nbsp;', '', $optionName);
+        $optionName = trim(preg_replace("/\d*\.\d*\.\d*\./", '', $optionName));
 
-        return explode(", ", $optionName);
+        return explode(', ', $optionName);
     }
 
     /**
      * Get link on option in documentation
      * @param DOMElement $element
      * @return string
-     * @throws \Exception
+     * @throws \RuntimeException
      */
     private function getLinkTag(DOMElement $element) : string
     {
@@ -281,17 +284,17 @@ final class SphinxDocumentationParser
             }
 
             if ($this->isTitlePage($optionContent)) {
-                $link_tag = "#" . $optionContent
+                $link_tag = '#' . $optionContent
                         ->firstChild
                         ->firstChild
                         ->firstChild
                         ->firstChild
-                        ->getAttribute("name");
+                        ->getAttribute('name');
             }
 
         }
-        if (is_null($link_tag)) {
-            throw new \Exception("Couldn't parse link anchor");
+        if (null === $link_tag) {
+            throw new \RuntimeException("Couldn't parse link anchor");
         }
 
         return $link_tag;
@@ -317,9 +320,8 @@ final class SphinxDocumentationParser
     private function isMultiValue(string $description) : bool
     {
         $description  = strtolower($description);
-        $match_result = (bool) preg_match("/multi-value/", $description);
-
-        return $match_result;
+        
+        return false !== strpos($description, 'multi-value');
     }
 
     /**
@@ -342,7 +344,7 @@ final class SphinxDocumentationParser
      */
     private function isTitlePage(DOMElement $element)
     {
-        return $element->hasAttribute("class") && $element->getAttribute("class") == "titlepage";
+        return $element->hasAttribute('class') && $element->getAttribute('class') === 'titlepage';
     }
 
     /**
@@ -351,6 +353,6 @@ final class SphinxDocumentationParser
      */
     private function isSect2Element(DOMElement $element) : bool
     {
-        return $element->hasAttribute("class") && $element->getAttribute("class") == "sect2";
+        return $element->hasAttribute('class') && $element->getAttribute('class') === 'sect2';
     }
 }

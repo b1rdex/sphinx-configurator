@@ -2,6 +2,7 @@
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
+use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\informer\Informer;
 
 /**
@@ -34,21 +35,20 @@ class InformerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      * @expectedExceptionMessage Sphinx of version 2.1.9 does't have section common
      */
     public function testUnknownSection()
     {
-        $sectionName = eSection::COMMON();
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer = Informer::get(eVersion::V_2_1_9());
-        foreach($informer->iterateOptionInfo($sectionName) as $section) {
-
-        }
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $informer->getOptionInfo(eSection::COMMON(), eCommonOption::JSON_AUTOCONV_KEYNAMES());
     }
 
     public function testGetInfoFromConfiguration()
     {
-        $config_path = realpath(__DIR__."/../sphinx/conf/valid.example.conf");
+        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
         $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
         foreach($config->iterateIndex() as $section) {

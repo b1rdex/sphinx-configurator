@@ -22,9 +22,9 @@ use LTDBeget\sphinx\enums\base\Enum;
  */
 final class eSection extends Enum
 {
-    const SOURCE  = "source";
-    const INDEX   = "index";
-    const INDEXER = "indexer";
-    const SEARCHD = "searchd";
-    const COMMON  = "common";
+    const SOURCE  = 'source';
+    const INDEX   = 'index';
+    const INDEXER = 'indexer';
+    const SEARCHD = 'searchd';
+    const COMMON  = 'common';
 }

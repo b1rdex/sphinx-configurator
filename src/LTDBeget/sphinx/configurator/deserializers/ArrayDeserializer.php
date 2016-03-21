@@ -10,7 +10,7 @@ namespace LTDBeget\sphinx\configurator\deserializers;
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
-use LTDBeget\sphinx\configurator\exceptions\SerializerException;
+use LTDBeget\sphinx\configurator\exceptions\DeserializeException;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\options\eCommonOption;
@@ -31,7 +31,11 @@ final class ArrayDeserializer
      * @param array $arrayConfiguration
      * @param Configuration $objectConfiguration
      * @return Configuration
-     * @throws SerializerException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      */
     public static function deserialize(array $arrayConfiguration, Configuration $objectConfiguration) : Configuration
     {
@@ -53,18 +57,22 @@ final class ArrayDeserializer
     /**
      * @internal
      * @return Configuration
-     * @throws SerializerException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      */
     private function deserializeInternal() : Configuration
     {
         foreach ($this->arrayConfiguration as $section) {
             $sectionObject = $this->deserializeSection($section);
 
-            if (!array_key_exists("options", $section)) {
+            if (!array_key_exists('options', $section)) {
                 continue;
             }
 
-            $this->deserializeOptions($section["options"], $sectionObject);
+            $this->deserializeOptions($section['options'], $sectionObject);
         }
 
         return $this->objectConfiguration;
@@ -72,15 +80,19 @@ final class ArrayDeserializer
 
     /**
      * @internal
-     * @param array $section
+     * @param array $section_data
      * @return Section
-     * @throws SerializerException
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \InvalidArgumentException
+     * @throws \BadMethodCallException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
-    private function deserializeSection(array $section) : Section
+    private function deserializeSection(array $section_data) : Section
     {
-        $type        = $section['type'] ?? null;
-        $name        = $section['name'] ?? null;
-        $inheritance = $section['inheritance'] ?? null;
+        $type        = $section_data['type'] ?? null;
+        $name        = $section_data['name'] ?? null;
+        $inheritance = $section_data['inheritance'] ?? null;
 
         switch ($type) {
             case eSection::INDEXER:
@@ -99,7 +111,7 @@ final class ArrayDeserializer
                 $section = $this->objectConfiguration->addIndex($name, $inheritance);
                 break;
             default:
-                throw new SerializerException("Unknown section type");
+                throw new DeserializeException('Unknown section type');
         }
 
         return $section;
@@ -109,27 +121,27 @@ final class ArrayDeserializer
      * @internal
      * @param array $options
      * @param Section $section
-     * @throws SerializerException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      */
     private function deserializeOptions(array $options, Section $section)
     {
         foreach ($options as $option) {
 
-            if (!array_key_exists("name", $option)) {
-                throw new SerializerException("Wrong array format. All options must contain name.");
+            if (!array_key_exists('name', $option)) {
+                throw new DeserializeException('Wrong array format. All options must contain name.');
             }
 
-            if (!array_key_exists("value", $option)) {
-                throw new SerializerException("Wrong array format. All options must contain value.");
+            if (!array_key_exists('value', $option)) {
+                throw new DeserializeException('Wrong array format. All options must contain value.');
             }
 
-            $optionName  = $option["name"];
-            $optionValue = $option["value"];
+            $optionName  = $option['name'];
+            $optionValue = $option['value'];
 
             try {
                 $section->addOption($this->getOptionName($section, $optionName), $optionValue);
             } catch (\Exception $e) {
-                throw new SerializerException($e->getMessage(), 0, $e);
+                throw new DeserializeException($e->getMessage(), 0, $e);
             }
         }
     }
@@ -139,7 +151,9 @@ final class ArrayDeserializer
      * @param Section $section
      * @param string $name
      * @return eOption
-     * @throws SerializerException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      */
     private function getOptionName(Section $section, string $name) : eOption
     {
@@ -160,7 +174,7 @@ final class ArrayDeserializer
                 $option = eCommonOption::get($name);
                 break;
             default:
-                throw new SerializerException("Unknown section type {$section->getType()}");
+                throw new DeserializeException("Unknown section type {$section->getType()}");
         }
 
         return $option;
@@ -174,5 +188,5 @@ final class ArrayDeserializer
     /**
      * @var Configuration
      */
-    private $objectConfiguration = null;
+    private $objectConfiguration;
 }

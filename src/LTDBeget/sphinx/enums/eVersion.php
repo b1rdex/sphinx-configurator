@@ -36,21 +36,21 @@ use LTDBeget\sphinx\enums\base\Enum;
  */
 final class eVersion extends Enum
 {
-    const V_2_1_1  = "2.1.1";
-    const V_2_1_2  = "2.1.2";
-    const V_2_1_3  = "2.1.3";
-    const V_2_1_4  = "2.1.4";
-    const V_2_1_5  = "2.1.5";
-    const V_2_1_6  = "2.1.6";
-    const V_2_1_7  = "2.1.7";
-    const V_2_1_8  = "2.1.8";
-    const V_2_1_9  = "2.1.9";
-    const V_2_2_1  = "2.2.1";
-    const V_2_2_2  = "2.2.2";
-    const V_2_2_3  = "2.2.3";
-    const V_2_2_4  = "2.2.4";
-    const V_2_2_5  = "2.2.5";
-    const V_2_2_6  = "2.2.6";
-    const V_2_2_8  = "2.2.8";
-    const V_2_2_10 = "2.2.10";
+    const V_2_1_1  = '2.1.1';
+    const V_2_1_2  = '2.1.2';
+    const V_2_1_3  = '2.1.3';
+    const V_2_1_4  = '2.1.4';
+    const V_2_1_5  = '2.1.5';
+    const V_2_1_6  = '2.1.6';
+    const V_2_1_7  = '2.1.7';
+    const V_2_1_8  = '2.1.8';
+    const V_2_1_9  = '2.1.9';
+    const V_2_2_1  = '2.2.1';
+    const V_2_2_2  = '2.2.2';
+    const V_2_2_3  = '2.2.3';
+    const V_2_2_4  = '2.2.4';
+    const V_2_2_5  = '2.2.5';
+    const V_2_2_6  = '2.2.6';
+    const V_2_2_8  = '2.2.8';
+    const V_2_2_10 = '2.2.10';
 }

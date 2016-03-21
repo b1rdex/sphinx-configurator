@@ -12,7 +12,6 @@ use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Definition;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
-use LTDBeget\sphinx\configurator\exceptions\LogicException;
 
 /**
  * Class ArraySerializer
@@ -25,6 +24,10 @@ class ArraySerializer
      * Make array represent of Configuration object
      * @param Configuration $configuration
      * @return array
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public static function serialize(Configuration $configuration) : array
     {
@@ -45,6 +48,10 @@ class ArraySerializer
     /**
      * @internal
      * @return array
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     private function serializeInternal() : array
     {
@@ -59,7 +66,9 @@ class ArraySerializer
 
     /**
      * @internal
-     * @throws LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
      */
     private function serializeSource()
     {
@@ -73,7 +82,9 @@ class ArraySerializer
 
     /**
      * @internal
-     * @throws LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
      */
     private function serializeIndex()
     {
@@ -87,6 +98,8 @@ class ArraySerializer
 
     /**
      * @internal
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function serializeIndexer()
     {
@@ -97,6 +110,8 @@ class ArraySerializer
 
     /**
      * @internal
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function serializeSearchhd()
     {
@@ -107,6 +122,9 @@ class ArraySerializer
 
     /**
      * @internal
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function serializeCommon()
     {
@@ -118,27 +136,31 @@ class ArraySerializer
     /**
      * @internal
      * @param Definition $definition
-     * @throws LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function serializeDefinition(Definition $definition)
     {
         $this->arrayConfiguration[] = [
-            "type"        => (string) $definition->getType(),
-            "name"        => (string) $definition->getName(),
-            "inheritance" => $definition->isHasInheritance() ? $definition->getInheritance() : null,
-            "options"     => $this->serializeOptions($definition)
+            'type'        => (string) $definition->getType(),
+            'name'        => (string) $definition->getName(),
+            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance() : null,
+            'options'     => $this->serializeOptions($definition)
         ];
     }
 
     /**
      * @internal
      * @param Settings $settings
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function serializeSettings(Settings $settings)
     {
         $this->arrayConfiguration[] = [
-            "type"    => (string) $settings->getType(),
-            "options" => $this->serializeOptions($settings)
+            'type'    => (string) $settings->getType(),
+            'options' => $this->serializeOptions($settings)
         ];
     }
 
@@ -153,8 +175,8 @@ class ArraySerializer
 
         foreach ($section->iterateOptions() as $option) {
             $options[] = [
-                "name"  => (string) $option->getName(),
-                "value" => $option->getValue()
+                'name'  => (string) $option->getName(),
+                'value' => $option->getValue()
             ];
         }
 
@@ -169,5 +191,5 @@ class ArraySerializer
     /**
      * @var Configuration
      */
-    private $objectConfiguration = null;
+    private $objectConfiguration;
 }

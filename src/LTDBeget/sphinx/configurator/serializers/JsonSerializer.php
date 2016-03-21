@@ -22,6 +22,10 @@ final class JsonSerializer
      * Make json encoded content for sphinx configuration file from Configuration object
      * @param Configuration $configuration
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public static function serialize(Configuration $configuration) : string
     {

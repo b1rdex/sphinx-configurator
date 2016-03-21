@@ -30,6 +30,9 @@ final class EnumGenerator
 
     /**
      * parse and prepare info from docks
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     private function prepareDocumentation()
     {
@@ -62,24 +65,24 @@ final class EnumGenerator
             $methods   = [];
             $constants = [];
             foreach ($options as $option) {
-                $method    = " * @method static {{CLASS_NAME}} {{CONST}}()";
-                $method    = str_replace("{{CLASS_NAME}}", $class_name, $method);
-                $method    = str_replace("{{CONST}}", strtoupper($option), $method);
+                $method    = ' * @method static {{CLASS_NAME}} {{CONST}}()';
+                $method    = str_replace('{{CLASS_NAME}}', $class_name, $method);
+                $method    = str_replace('{{CONST}}', strtoupper($option), $method);
                 $methods[] = $method;
 
                 $const       = '    const {{CONST}} = "{{OPTION_NAME}}";';
-                $const       = str_replace("{{OPTION_NAME}}", $option, $const);
-                $const       = str_replace("{{CONST}}", strtoupper($option), $const);
+                $const       = str_replace('{{OPTION_NAME}}', $option, $const);
+                $const       = str_replace('{{CONST}}', strtoupper($option), $const);
                 $constants[] = $const;
             }
             $methods   = implode("\n", $methods);
             $constants = implode("\n", $constants);
-            $template  = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . "enum");
-            $template  = str_replace("{{CLASS_NAME}}", $class_name, $template);
-            $template  = str_replace("{{MAGIC_METHODS}}", $methods, $template);
-            $template  = str_replace("{{CONSTANTS}}", $constants, $template);
+            $template  = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'enum');
+            $template  = str_replace('{{CLASS_NAME}}', $class_name, $template);
+            $template  = str_replace('{{MAGIC_METHODS}}', $methods, $template);
+            $template  = str_replace('{{CONSTANTS}}', $constants, $template);
 
-            $this->fileContents[$class_name . ".php"] = $template;
+            $this->fileContents[$class_name . '.php'] = $template;
         }
 
     }
@@ -107,6 +110,8 @@ final class EnumGenerator
     private function removeDuplicates()
     {
         foreach ($this->documentation as $section => $options) {
+            /** @noinspection LowPerformanceArrayUniqueUsageInspection */
+            /** @noinspection AlterInForeachInspection */
             $this->documentation[$section] = array_values(array_unique($options));
         }
 
@@ -115,6 +120,7 @@ final class EnumGenerator
     /**
      * @param eVersion $version
      * @return array
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     private function getDocumentation(eVersion $version) : array
     {
@@ -139,7 +145,7 @@ final class EnumGenerator
      */
     private function getPath() : string
     {
-        return realpath(__DIR__ . "/../../../sphinx/docs");
+        return __DIR__ . '/../../../sphinx/docs';
     }
 
     /**
@@ -148,7 +154,7 @@ final class EnumGenerator
      */
     private function getOutputDir()
     {
-        return realpath(__DIR__ . "/../sphinx/enums/options");
+        return __DIR__ . '/../sphinx/enums/options';
     }
 
 }

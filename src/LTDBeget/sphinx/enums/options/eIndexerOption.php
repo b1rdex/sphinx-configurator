@@ -24,13 +24,13 @@ use LTDBeget\sphinx\enums\base\eOption;
  */
 final class eIndexerOption extends eOption
 {
-    const LEMMATIZER_CACHE      = "lemmatizer_cache";
-    const LEMMATIZER_BASE       = "lemmatizer_base";
-    const ON_FILE_FIELD_ERROR   = "on_file_field_error";
-    const MAX_FILE_FIELD_BUFFER = "max_file_field_buffer";
-    const WRITE_BUFFER          = "write_buffer";
-    const MAX_XMLPIPE2_FIELD    = "max_xmlpipe2_field";
-    const MAX_IOSIZE            = "max_iosize";
-    const MAX_IOPS              = "max_iops";
-    const MEM_LIMIT             = "mem_limit";
+    const LEMMATIZER_CACHE      = 'lemmatizer_cache';
+    const LEMMATIZER_BASE       = 'lemmatizer_base';
+    const ON_FILE_FIELD_ERROR   = 'on_file_field_error';
+    const MAX_FILE_FIELD_BUFFER = 'max_file_field_buffer';
+    const WRITE_BUFFER          = 'write_buffer';
+    const MAX_XMLPIPE2_FIELD    = 'max_xmlpipe2_field';
+    const MAX_IOSIZE            = 'max_iosize';
+    const MAX_IOPS              = 'max_iops';
+    const MEM_LIMIT             = 'mem_limit';
 }

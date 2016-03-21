@@ -22,6 +22,7 @@ final class PlainSerializer
      * Make plain content for sphinx configuration file from Configuration object
      * @param Configuration $configuration
      * @return string
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public static function serialize(Configuration $configuration) : string
     {
@@ -34,6 +35,7 @@ final class PlainSerializer
     /**
      * @internal
      * @return string
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     public function serializeInternal() : string
     {
@@ -88,6 +90,7 @@ final class PlainSerializer
 
     /**
      * @internal
+     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
     private function serializeCommon()
     {
@@ -107,11 +110,11 @@ final class PlainSerializer
         }
 
         $this->string .= "{$section}" . PHP_EOL;
-        $this->string .= "{" . PHP_EOL;
+        $this->string .= '{' . PHP_EOL;
         foreach ($section->iterateOptions() as $option) {
             $this->string .= "\t{$option}" . PHP_EOL;
         }
-        $this->string .= "}" . PHP_EOL . PHP_EOL;
+        $this->string .= '}' . PHP_EOL . PHP_EOL;
     }
 
     /**
@@ -125,7 +128,7 @@ final class PlainSerializer
     /**
      * @var string
      */
-    private $string = "";
+    private $string = '';
 
     /**
      * @var Configuration

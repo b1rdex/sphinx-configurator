@@ -10,8 +10,6 @@ namespace LTDBeget\sphinx\configurator\configurationEntities\base;
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
-use LTDBeget\sphinx\configurator\exceptions\LogicException;
-use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\informer\Informer;
@@ -60,6 +58,8 @@ abstract class Section
 
     /**
      * @return eSection
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     final public function getType() : eSection
     {
@@ -132,7 +132,9 @@ abstract class Section
      * @param eOption $name
      * @param string $value
      * @return Option
-     * @throws WrongContextException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     final protected function addOptionInternal(eOption $name, string $value) : Option
     {
@@ -173,17 +175,13 @@ abstract class Section
      * @param eOption $name
      * @param string $value
      * @return Option
-     * @throws WrongContextException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     final private function createOption(eOption $name, string $value)
     {
         $informer = $this->getInformer();
-        if (!$informer->isKnownOption($this->getType(), $name)) {
-            $version = $this->getConfiguration()->getVersion();
-            throw new WrongContextException(
-                "For sphinx v. {$version} option {$name} in {$this->getType()} isn't available"
-            );
-        }
         $isMultiValue = $informer->getOptionInfo($this->getType(), $name)->isIsMultiValue();
 
         return new Option($this, $name, $value, $isMultiValue);
@@ -191,7 +189,8 @@ abstract class Section
 
     /**
      * @internal
-     * @throws LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function initType()
     {

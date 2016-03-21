@@ -10,7 +10,6 @@ namespace LTDBeget\sphinx\configurator\configurationEntities\sections;
 
 use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
-use LTDBeget\sphinx\configurator\exceptions\WrongContextException;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 
 /**
@@ -23,7 +22,9 @@ class Indexer extends Settings
      * @param eIndexerOption $name
      * @param string $value
      * @return Option
-     * @throws WrongContextException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function addOption(eIndexerOption $name, string $value) : Option
     {

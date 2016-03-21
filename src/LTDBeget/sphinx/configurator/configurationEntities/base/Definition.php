@@ -8,8 +8,9 @@
 namespace LTDBeget\sphinx\configurator\configurationEntities\base;
 
 
+use BadMethodCallException;
 use LTDBeget\sphinx\configurator\Configuration;
-use LTDBeget\sphinx\configurator\exceptions\LogicException;
+use LTDBeget\sphinx\configurator\exceptions\SectionException;
 
 /**
  * Class Definition
@@ -31,7 +32,9 @@ abstract class Definition extends Section
      * @param Configuration $configuration
      * @param string $name
      * @param string|null $inheritance
-     * @throws LogicException
+     * @throws \BadMethodCallException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     public function __construct(
         Configuration $configuration,
@@ -39,12 +42,12 @@ abstract class Definition extends Section
         string $inheritance = null
     )
     {
-        if (empty($name)) {
-            throw new LogicException("Name of section {$this->getType()} can't be empty.");
+        if ('' === $name) {
+            throw new BadMethodCallException("Name of section {$this->getType()} can't be empty.");
         }
 
-        if (!is_null($inheritance) && empty($name)) {
-            throw new LogicException("Inheritance of section {$this->getType()} can't be empty.");
+        if (null !== $inheritance && '' === $inheritance) {
+            throw new BadMethodCallException("Inheritance of section {$this->getType()} can't be empty.");
         }
 
         // TODO CHECK NAME DUPLICATE
@@ -78,14 +81,17 @@ abstract class Definition extends Section
     }
 
     /**
+     * TODO если удален родитель удалить наследника
      * TODO RETURN Object Parent not it name
      * @return string
-     * @throws LogicException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      */
     public function getInheritance() : string
     {
         if (!$this->isHasInheritance()) {
-            throw new LogicException("Trying to get inheritance for {$this->getType()} which doesn't' have it.");
+            throw new SectionException("Trying to get inheritance for {$this->getType()} which doesn't' have it.");
         }
 
         return $this->inheritance;

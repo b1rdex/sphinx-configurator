@@ -70,6 +70,9 @@ class Option
 
     /**
      * @return OptionInfo
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function getInfo() : OptionInfo
     {

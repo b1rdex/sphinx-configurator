@@ -50,6 +50,10 @@ final class Informer
         if (! $this->isSectionExist($section)) {
             throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
         }
+
+        if (! $this->isKnownOption($section, $optionName)) {
+            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} isn't available");
+        }
         
         if (!$this->isOptionInfoInit($section, $optionName)) {
             $this->makeOptionInfo($section, $optionName);

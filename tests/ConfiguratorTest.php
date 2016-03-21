@@ -15,19 +15,20 @@ use LTDBeget\sphinx\enums\eVersion;
 class ConfiguratorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException LogicException
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      * @expectedExceptionMessage Sphinx of version 2.1.8 does't have section common
      */
     public function testCheckConfigValidInNewerVersionAndInvalidInPrevious()
     {
-        $config_path = realpath(__DIR__."/../sphinx/conf/valid.example.conf");
+        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
         $plain_config = file_get_contents($config_path);
         Configuration::fromString($plain_config, eVersion::V_2_1_8());
+        
     }
 
     public function testChainSerializeDeserialize()
     {
-        $config_path = realpath(__DIR__."/../sphinx/conf/valid.example.conf");
+        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
         $plain_config = file_get_contents($config_path);
 
         $referenceHash = md5((string) Configuration::fromString($plain_config, eVersion::V_2_2_10()));
@@ -40,12 +41,12 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
         $hash = md5((string) $config);
 
-        $this->assertEquals($referenceHash, $hash);
+        static::assertEquals($referenceHash, $hash);
     }
 
     public function testDelete()
     {
-        $config_path = realpath(__DIR__."/../sphinx/conf/valid.example.conf");
+        $config_path = __DIR__."/../sphinx/conf/valid.example.conf";
         $plain_config = file_get_contents($config_path);
 
         $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
@@ -72,7 +73,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
         $hash = md5((string) $config);
 
-        $this->assertEquals("f26517544c25d8ef994622380a0afbe9", $hash);
+        static::assertEquals("f26517544c25d8ef994622380a0afbe9", $hash);
     }
 
 }

@@ -7,11 +7,13 @@
 
 namespace LTDBeget\sphinx\informer\exceptions;
 
+
 /**
- * Class NotFoundException
+ * Class InformerRuntimeException
+ * 
  * @package LTDBeget\sphinx\informer\exceptions
  */
-class NotFoundException extends \Exception
+class InformerRuntimeException extends \RuntimeException
 {
 
 }

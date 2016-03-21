@@ -11,11 +11,9 @@ namespace LTDBeget\sphinx\informer;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
-use LTDBeget\sphinx\informer\exceptions\NotFoundException;
-use LTDBeget\sphinx\informer\exceptions\UnknownValueException;
-use LTDBeget\sphinx\informer\exceptions\YamlParseException;
-use /** @noinspection PhpUndefinedClassInspection */
-    Symfony\Component\Yaml\Parser;
+use LTDBeget\sphinx\informer\exceptions\DocumentationSourceException;
+use LTDBeget\sphinx\informer\exceptions\InformerRuntimeException;
+use Symfony\Component\Yaml\Parser;
 
 /**
  * Class Informer
@@ -28,6 +26,8 @@ final class Informer
      * Get informer for concrete version, and init if did not init yet
      * @param eVersion $version
      * @return Informer
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      */
     public static function get(eVersion $version) : Informer
     {
@@ -43,10 +43,14 @@ final class Informer
      * @param eSection $section
      * @param eOption $optionName
      * @return OptionInfo
-     * @throws NotFoundException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function getOptionInfo(eSection $section, eOption $optionName) : OptionInfo
     {
+        if (! $this->isSectionExist($section)) {
+            throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
+        }
+        
         if (!$this->isOptionInfoInit($section, $optionName)) {
             $this->makeOptionInfo($section, $optionName);
         }
@@ -73,23 +77,21 @@ final class Informer
      */
     public function isSectionExist(eSection $section) : bool
     {
-        if($section == eSection::COMMON && version_compare( (string) $this->version, eVersion::V_2_2_1, '<')) {
-            return false;
-        }
-
-        return true;
+        return !$section->is(eSection::COMMON) || !version_compare((string) $this->version, eVersion::V_2_2_1, '<');
     }
 
     /**
      * Iterate via all option in documentation via option section type
      * @param eSection $section
      * @return OptionInfo[]
-     * @throws UnknownValueException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function iterateOptionInfo(eSection $section)
     {
         if (! $this->isSectionExist($section)) {
-            throw new \LogicException("Sphinx of version {$this->version} does't have section {$section}");
+            throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
         foreach ($this->documentation[(string) $section] as $optionName => $optionData) {
@@ -103,10 +105,12 @@ final class Informer
      * @param eSection $section
      * @param string $optionName
      * @return eOption
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     private function getOptionName(eSection $section, string $optionName) : eOption
     {
-        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e".ucfirst( (string) $section)."Option";
+        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e".ucfirst( (string) $section). 'Option';
         /**
          * @var eOption $enumClassName
          */
@@ -117,7 +121,8 @@ final class Informer
      * Informer constructor.
      * Init informer for concrete sphinx version
      * @param eVersion $version
-     * @throws NotFoundException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     private function __construct(eVersion $version)
     {
@@ -141,12 +146,12 @@ final class Informer
      * make option info object from plain data
      * @param eSection $section
      * @param eOption $optionName
-     * @throws NotFoundException
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     private function makeOptionInfo(eSection $section, eOption $optionName)
     {
         if (!$this->isKnownOption($section, $optionName)) {
-            throw new NotFoundException("For version {$this->version} {$optionName} is unknown option");
+            throw new InformerRuntimeException("For version {$this->version} {$optionName} is unknown option");
         }
         $info_data = $this->documentation[(string) $section][(string) $optionName];
 
@@ -154,9 +159,9 @@ final class Informer
             $optionName,
             $section,
             $this->version,
-            $info_data["description"],
-            $info_data["multi_value"],
-            $info_data["link"]
+            $info_data['description'],
+            $info_data['multi_value'],
+            $info_data['link']
         );
 
         $this->optionsInfo[(string) $section][(string) $optionName] = $optionInfo;
@@ -164,21 +169,22 @@ final class Informer
 
     /**
      * loads configuration from yaml files and save as array
-     * @throws NotFoundException
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
     private function loadDocumentation()
     {
         $path = $this->getDocumentationFilePath();
 
         if (!$this->isDocumentationExists()) {
-            throw new NotFoundException("For version {$this->version} there are no file: {$path}");
+            throw new DocumentationSourceException("For version {$this->version} there are no file: {$path}");
         }
 
         /** @noinspection PhpUndefinedClassInspection */
         $documentation = (new Parser())->parse(file_get_contents($path));
 
         if (!is_array($documentation)) {
-            throw new YamlParseException("Failed to parse yaml file {$path}");
+            throw new DocumentationSourceException("Failed to parse yaml file {$path}");
         }
 
         $this->documentation = $documentation;
@@ -199,7 +205,7 @@ final class Informer
      */
     private function getDocumentationDirectoryPath() : string
     {
-        return realpath(__DIR__ . "/../../../../sphinx/docs");
+        return __DIR__ . '/../../../../sphinx/docs';
     }
 
     /**

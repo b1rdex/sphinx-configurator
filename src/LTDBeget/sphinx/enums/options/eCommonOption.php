@@ -24,13 +24,13 @@ use LTDBeget\sphinx\enums\base\eOption;
  */
 final class eCommonOption extends eOption
 {
-    const RLP_MAX_BATCH_DOCS     = "rlp_max_batch_docs";
-    const RLP_MAX_BATCH_SIZE     = "rlp_max_batch_size";
-    const RLP_ENVIRONMENT        = "rlp_environment";
-    const RLP_ROOT               = "rlp_root";
-    const JSON_AUTOCONV_KEYNAMES = "json_autoconv_keynames";
-    const JSON_AUTOCONV_NUMBERS  = "json_autoconv_numbers";
-    const ON_JSON_ATTR_ERROR     = "on_json_attr_error";
-    const LEMMATIZER_BASE        = "lemmatizer_base";
-    const PLUGIN_DIR             = "plugin_dir";
+    const RLP_MAX_BATCH_DOCS     = 'rlp_max_batch_docs';
+    const RLP_MAX_BATCH_SIZE     = 'rlp_max_batch_size';
+    const RLP_ENVIRONMENT        = 'rlp_environment';
+    const RLP_ROOT               = 'rlp_root';
+    const JSON_AUTOCONV_KEYNAMES = 'json_autoconv_keynames';
+    const JSON_AUTOCONV_NUMBERS  = 'json_autoconv_numbers';
+    const ON_JSON_ATTR_ERROR     = 'on_json_attr_error';
+    const LEMMATIZER_BASE        = 'lemmatizer_base';
+    const PLUGIN_DIR             = 'plugin_dir';
 }

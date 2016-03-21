@@ -14,8 +14,11 @@ namespace LTDBeget\sphinx\enums\base;
  */
 abstract class Enum extends \MabeEnum\Enum
 {
+    /**
+     * @return string
+     */
     public function __toString() : string
     {
-        return $this->getValue();
+        return (string) $this->getValue();
     }
 }

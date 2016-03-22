@@ -88,7 +88,7 @@ abstract class Section
     public function __toString() : string
     {
         try {
-            $string = (string)$this->getType();
+            $string = (string) $this->getType();
         } catch (\Exception $e) {
             $string = '';
         }
@@ -149,7 +149,7 @@ abstract class Section
     final protected function addOptionInternal(eOption $name, string $value) : Option
     {
         $option      = $this->createOption($name, $value);
-        $option_name = (string)$option->getName();
+        $option_name = (string) $option->getName();
 
         if ($option->isMultiValue()) {
             $this->options[$option_name] = $this->options[$option_name] ?? [];

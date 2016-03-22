@@ -19,6 +19,6 @@ abstract class Enum extends \MabeEnum\Enum
      */
     public function __toString() : string
     {
-        return (string)$this->getValue();
+        return (string) $this->getValue();
     }
 }

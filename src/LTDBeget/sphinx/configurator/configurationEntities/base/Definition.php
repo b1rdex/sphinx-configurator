@@ -124,6 +124,7 @@ abstract class Definition extends Section
      *
      * @throws LogicException
      * @throws SectionException
+     * @throws \InvalidArgumentException
      */
     private function defineName(string $name)
     {
@@ -141,6 +142,7 @@ abstract class Definition extends Section
      *
      * @throws SectionException
      * @throws LogicException
+     * @throws \InvalidArgumentException
      */
     private function setParent(string $inheritance)
     {
@@ -159,6 +161,7 @@ abstract class Definition extends Section
      * @param string $name
      *
      * @return string
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws SectionException
      */
@@ -184,7 +187,7 @@ abstract class Definition extends Section
      */
     private function isValidName($name) : bool
     {
-        return (bool)preg_match("/^[A-Za-z_\d]*$/", $name);
+        return (bool) preg_match("/^[A-Za-z_\d]*$/", $name);
     }
 
     /**

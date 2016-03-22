@@ -62,7 +62,7 @@ class PermanentlyRemovedGenerator
             if ($informer->isSectionExist($section)) {
                 $removed = $this->getPermanentlyRemoved($section, $targetVersion, $versions);
                 if (count($removed)) {
-                    $all_permanently_removed[(string)$section] = $removed;
+                    $all_permanently_removed[(string) $section] = $removed;
                 }
             }
         }
@@ -123,7 +123,7 @@ class PermanentlyRemovedGenerator
 
         if ($informer->isSectionExist($section)) {
             foreach ($informer->iterateOptionInfo($section) as $optionInfo) {
-                $options[] = (string)$optionInfo->getName();
+                $options[] = (string) $optionInfo->getName();
             }
         }
 

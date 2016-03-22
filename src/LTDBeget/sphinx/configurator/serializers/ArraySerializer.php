@@ -141,8 +141,8 @@ class ArraySerializer
     private function serializeDefinition(Definition $definition)
     {
         $this->arrayConfiguration[] = [
-            'type'        => (string)$definition->getType(),
-            'name'        => (string)$definition->getName(),
+            'type'        => (string) $definition->getType(),
+            'name'        => (string) $definition->getName(),
             'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance()->getName() : NULL,
             'options'     => $this->serializeOptions($definition)
         ];
@@ -159,7 +159,7 @@ class ArraySerializer
     private function serializeSettings(Settings $settings)
     {
         $this->arrayConfiguration[] = [
-            'type'    => (string)$settings->getType(),
+            'type'    => (string) $settings->getType(),
             'options' => $this->serializeOptions($settings)
         ];
     }
@@ -177,7 +177,7 @@ class ArraySerializer
 
         foreach ($section->iterateOptions() as $option) {
             $options[] = [
-                'name'  => (string)$option->getName(),
+                'name'  => (string) $option->getName(),
                 'value' => $option->getValue()
             ];
         }

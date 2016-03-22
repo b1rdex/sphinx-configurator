@@ -12,11 +12,6 @@ use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\configurator\exceptions\DeserializeException;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
-use LTDBeget\sphinx\enums\options\eCommonOption;
-use LTDBeget\sphinx\enums\options\eIndexerOption;
-use LTDBeget\sphinx\enums\options\eIndexOption;
-use LTDBeget\sphinx\enums\options\eSearchdOption;
-use LTDBeget\sphinx\enums\options\eSourceOption;
 
 /**
  * Class ArrayDeserializer
@@ -189,27 +184,29 @@ final class ArrayDeserializer
      */
     private function getOptionName(Section $section, string $name) : eOption
     {
-        switch ($section->getType()) {
-            case eSection::SOURCE:
-                $option = eSourceOption::get($name);
-                break;
-            case eSection::INDEX:
-                $option = eIndexOption::get($name);
-                break;
-            case eSection::INDEXER:
-                $option = eIndexerOption::get($name);
-                break;
-            case eSection::SEARCHD:
-                $option = eSearchdOption::get($name);
-                break;
-            case eSection::COMMON:
-                $option = eCommonOption::get($name);
-                break;
-            default:
-                throw new DeserializeException("Unknown section type {$section->getType()}");
+        try {
+            /**
+             * @var eOption $optionClass
+             */
+            $optionClass = $this->getOptionNameClass($section->getType());
+            $option      = $optionClass::get($name);
+        } catch (\InvalidArgumentException $e) {
+            throw new DeserializeException("Unknown section type {$section->getType()}");
         }
 
         return $option;
+    }
+
+    /**
+     * @param eSection $section
+     *
+     * @return string
+     */
+    private function getOptionNameClass(eSection $section) : string
+    {
+        $sectionName = ucfirst((string) $section);
+
+        return "LTDBeget\\sphinx\\enums\\options\\e{$sectionName}Option";
     }
 
     /**

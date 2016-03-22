@@ -55,7 +55,7 @@ final class Informer
             $this->makeOptionInfo($section, $optionName);
         }
 
-        return $this->optionsInfo[(string)$section][(string)$optionName];
+        return $this->optionsInfo[(string) $section][(string) $optionName];
     }
 
     /**
@@ -68,8 +68,8 @@ final class Informer
      */
     public function isKnownOption(eSection $section, eOption $optionName)
     {
-        return array_key_exists((string)$section, $this->documentation) &&
-        array_key_exists((string)$optionName, $this->documentation[(string)$section]);
+        return array_key_exists((string) $section, $this->documentation) &&
+        array_key_exists((string) $optionName, $this->documentation[(string) $section]);
     }
 
     /**
@@ -82,8 +82,8 @@ final class Informer
      */
     public function isRemovedOption(eSection $section, eOption $optionName)
     {
-        return array_key_exists((string)$section, $this->removedOptions) &&
-        array_key_exists((string)$optionName, $this->removedOptions[(string)$section]);
+        return array_key_exists((string) $section, $this->removedOptions) &&
+        array_key_exists((string) $optionName, $this->removedOptions[(string) $section]);
     }
 
     /**
@@ -95,7 +95,7 @@ final class Informer
      */
     public function isSectionExist(eSection $section) : bool
     {
-        return !$section->is(eSection::COMMON) || !version_compare((string)$this->version, eVersion::V_2_2_1, '<');
+        return !$section->is(eSection::COMMON) || !version_compare((string) $this->version, eVersion::V_2_2_1, '<');
     }
 
     /**
@@ -114,7 +114,7 @@ final class Informer
             throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
-        foreach ($this->documentation[(string)$section] as $optionName => $optionData) {
+        foreach ($this->documentation[(string) $section] as $optionName => $optionData) {
             yield $this->getOptionInfo($section, $this->getOptionName($section, $optionName));
         }
     }
@@ -133,7 +133,7 @@ final class Informer
      */
     private function getOptionName(eSection $section, string $optionName) : eOption
     {
-        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e" . ucfirst((string)$section) . 'Option';
+        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e" . ucfirst((string) $section) . 'Option';
 
         /**
          * @var eOption $enumClassName
@@ -167,8 +167,8 @@ final class Informer
      */
     private function isOptionInfoInit(eSection $section, eOption $optionName) : bool
     {
-        return array_key_exists((string)$section, $this->optionsInfo) &&
-        array_key_exists((string)$optionName, $this->optionsInfo[(string)$section]);
+        return array_key_exists((string) $section, $this->optionsInfo) &&
+        array_key_exists((string) $optionName, $this->optionsInfo[(string) $section]);
     }
 
     /**
@@ -183,7 +183,7 @@ final class Informer
     {
         $this->checkOptionInfoAvailability($section, $optionName);
 
-        $info_data = $this->documentation[(string)$section][(string)$optionName];
+        $info_data = $this->documentation[(string) $section][(string) $optionName];
 
         $optionInfo = new OptionInfo(
             $optionName,
@@ -194,7 +194,7 @@ final class Informer
             $info_data['link']
         );
 
-        $this->optionsInfo[(string)$section][(string)$optionName] = $optionInfo;
+        $this->optionsInfo[(string) $section][(string) $optionName] = $optionInfo;
     }
 
     /**

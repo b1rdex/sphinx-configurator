@@ -51,18 +51,6 @@ final class Informer
      */
     public function getOptionInfo(eSection $section, eOption $optionName) : OptionInfo
     {
-        if (!$this->isSectionExist($section)) {
-            throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
-        }
-
-        if (!$this->isKnownOption($section, $optionName)) {
-            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} isn't available");
-        }
-
-        if ($this->isRemovedOption($section, $optionName)) {
-            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} is permanently removed");
-        }
-
         if (!$this->isOptionInfoInit($section, $optionName)) {
             $this->makeOptionInfo($section, $optionName);
         }
@@ -193,9 +181,8 @@ final class Informer
      */
     private function makeOptionInfo(eSection $section, eOption $optionName)
     {
-        if (!$this->isKnownOption($section, $optionName)) {
-            throw new InformerRuntimeException("For version {$this->version} {$optionName} is unknown option");
-        }
+        $this->checkOptionInfoAvailability($section, $optionName);
+
         $info_data = $this->documentation[(string)$section][(string)$optionName];
 
         $optionInfo = new OptionInfo(
@@ -208,6 +195,27 @@ final class Informer
         );
 
         $this->optionsInfo[(string)$section][(string)$optionName] = $optionInfo;
+    }
+
+    /**
+     * @param eSection $section
+     * @param eOption  $optionName
+     *
+     * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
+     */
+    private function checkOptionInfoAvailability(eSection $section, eOption $optionName)
+    {
+        if (!$this->isSectionExist($section)) {
+            throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
+        }
+
+        if (!$this->isKnownOption($section, $optionName)) {
+            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} isn't available");
+        }
+
+        if ($this->isRemovedOption($section, $optionName)) {
+            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} is permanently removed");
+        }
     }
 
     /**

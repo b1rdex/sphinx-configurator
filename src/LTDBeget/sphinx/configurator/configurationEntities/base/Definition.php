@@ -48,10 +48,10 @@ abstract class Definition extends Section
     {
         parent::__construct($configuration);
 
-        $this->defineName($name);
+        $this->defineName($this->sanitizeName($name));
 
         if (!empty($inheritance)) {
-            $this->defineInheritance($inheritance);
+            $this->setParent($this->sanitizeName($inheritance));
         }
     }
 
@@ -84,7 +84,7 @@ abstract class Definition extends Section
      * @return Definition
      * @throws LogicException
      * @throws InvalidArgumentException
-     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws SectionException
      */
     public function getInheritance() : Definition
     {
@@ -122,22 +122,11 @@ abstract class Definition extends Section
     /**
      * @param string $name
      *
-     * @throws SectionException
-     * @throws InvalidArgumentException
      * @throws LogicException
+     * @throws SectionException
      */
     private function defineName(string $name)
     {
-        $name = trim($name);
-
-        if (empty($name)) {
-            throw new SectionException("Name of section {$this->getType()} can't be empty.");
-        }
-
-        if (!$this->isValidName($name)) {
-            throw new SectionException('Name of definition must contains only A-Za-z and _ symbols');
-        }
-
         foreach ($this->getSelfTypeIterator() as $definition) {
             if ($definition->getName() === $name) {
                 throw new SectionException("Duplicate name {$name} found in {$this->getType()} section");
@@ -152,16 +141,9 @@ abstract class Definition extends Section
      *
      * @throws SectionException
      * @throws LogicException
-     * @throws InvalidArgumentException
      */
-    private function defineInheritance(string $inheritance)
+    private function setParent(string $inheritance)
     {
-        $inheritance = trim($inheritance);
-
-        if (!$this->isValidName($inheritance)) {
-            throw new SectionException('Inheritance of definition must contains only A-Za-z and _ symbols');
-        }
-
         foreach ($this->getSelfTypeIterator() as $definition) {
             if ($definition->getName() === $inheritance) {
                 $this->inheritance = $definition;
@@ -171,6 +153,28 @@ abstract class Definition extends Section
         if (!$this->isHasInheritance()) {
             throw new SectionException("Inheritance with name {$inheritance} of section {$this->getType()} doesn't exists in configuration");
         }
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return string
+     * @throws \InvalidArgumentException
+     * @throws SectionException
+     */
+    private function sanitizeName(string $name) : string
+    {
+        $name = trim($name);
+
+        if (empty($name)) {
+            throw new SectionException("Name or inheritance of section {$this->getType()} can't be empty.");
+        }
+
+        if (!$this->isValidName($name)) {
+            throw new SectionException("Name or inheritance of section {$this->getType()} must contains only A-Za-z and _ symbols");
+        }
+
+        return $name;
     }
 
     /**

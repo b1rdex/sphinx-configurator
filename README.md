@@ -120,7 +120,8 @@ require './vendor/autoload.php';
     
     // create object from string
     // if your configuration is valid it will be deserialized into the object
-    // note that if your configuration has options which was permanently removed from newer versions of sphinx
+    // note that if your configuration has options which 
+    // was permanently removed from newer versions of sphinx
     // they will be ignored
     $configuration = Configuration::fromString($content, $version);
     

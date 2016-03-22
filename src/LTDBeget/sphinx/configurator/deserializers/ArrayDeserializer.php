@@ -148,6 +148,8 @@ final class ArrayDeserializer
     }
 
     /**
+     * @internal
+     * 
      * @param Section $section
      * @param         $optionName
      * @param         $optionValue
@@ -198,6 +200,8 @@ final class ArrayDeserializer
     }
 
     /**
+     * @internal
+     * 
      * @param eSection $section
      *
      * @return string

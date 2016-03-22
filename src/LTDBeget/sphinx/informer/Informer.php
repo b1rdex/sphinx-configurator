@@ -198,6 +198,8 @@ final class Informer
     }
 
     /**
+     * Check is option info avaliable for this version
+     * 
      * @param eSection $section
      * @param eOption  $optionName
      *

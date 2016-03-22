@@ -21,15 +21,6 @@ use LTDBeget\sphinx\enums\eSection;
 abstract class Definition extends Section
 {
     /**
-     * @var string
-     */
-    private $name;
-    /**
-     * @var Definition
-     */
-    private $inheritance;
-
-    /**
      * Source constructor.
      *
      * @param Configuration $configuration
@@ -104,6 +95,7 @@ abstract class Definition extends Section
     }
 
     /**
+     * Delete option and its child
      * @throws LogicException
      * @throws SectionException
      * @throws InvalidArgumentException
@@ -120,6 +112,8 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal 
+     * 
      * @param string $name
      *
      * @throws LogicException
@@ -138,6 +132,8 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @param string $inheritance
      *
      * @throws SectionException
@@ -158,6 +154,8 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @param string $name
      *
      * @return string
@@ -181,6 +179,8 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @param $name
      *
      * @return bool
@@ -191,6 +191,8 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @return Definition[]
      * @throws LogicException
      */
@@ -209,4 +211,13 @@ abstract class Definition extends Section
 
         return $iterator;
     }
+
+    /**
+     * @var string
+     */
+    private $name;
+    /**
+     * @var Definition
+     */
+    private $inheritance;
 }

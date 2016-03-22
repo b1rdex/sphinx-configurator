@@ -96,6 +96,7 @@ class Option
     }
 
     /**
+     * is option multi value, see sphinx documentation
      * @return bool
      */
     public function isMultiValue() : bool

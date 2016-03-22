@@ -23,26 +23,6 @@ use ReflectionClass;
 abstract class Section
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
-     * @var eSection
-     */
-    private $type;
-
-    /**
-     * @var Option[]
-     */
-    private $options = [];
-
-    /**
-     * @var boolean
-     */
-    private $isDeleted = false;
-
-    /**
      * Section constructor.
      *
      * @param Configuration $configuration
@@ -163,6 +143,7 @@ abstract class Section
     }
 
     /**
+     * @internal
      * @return Informer
      */
     protected function getInformer() : Informer
@@ -209,4 +190,24 @@ abstract class Section
     {
         $this->type = eSection::get(strtolower($this->shortClassName()));
     }
+
+    /**
+     * @var Configuration
+     */
+    private $configuration;
+
+    /**
+     * @var eSection
+     */
+    private $type;
+
+    /**
+     * @var Option[]
+     */
+    private $options = [];
+
+    /**
+     * @var boolean
+     */
+    private $isDeleted = false;
 }

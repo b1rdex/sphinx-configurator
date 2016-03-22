@@ -293,6 +293,7 @@ class Configuration
     }
 
     /**
+     * @internal
      * @return Configuration
      */
     private function initIndexer() : self
@@ -303,6 +304,7 @@ class Configuration
     }
 
     /**
+     * @internal
      * @return Configuration
      */
     private function initSearchd() : self
@@ -313,6 +315,7 @@ class Configuration
     }
 
     /**
+     * @internal
      * @return Configuration
      */
     private function initCommon() : self

@@ -22,6 +22,7 @@ final class JsonDeserializer
      * @param string $jsonConfiguration
      * @param Configuration $objectConfiguration
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException

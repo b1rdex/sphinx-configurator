@@ -23,6 +23,7 @@ final class PlainDeserializer
      * @param string $stringConfiguration
      * @param Configuration $objectConfiguration
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException

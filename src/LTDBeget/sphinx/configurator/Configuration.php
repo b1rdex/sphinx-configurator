@@ -35,6 +35,7 @@ class Configuration
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
@@ -53,6 +54,7 @@ class Configuration
      * @param array $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -70,6 +72,7 @@ class Configuration
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -141,6 +144,7 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Source
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -167,6 +171,7 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Index
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException

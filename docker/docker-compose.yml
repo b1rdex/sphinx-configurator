@@ -4,5 +4,5 @@ sphinx:
   expose:
    - "9311:9306"
   volumes:
-      - "../stubs:/etc/sphinxsearch"
+      - "../sphinx/conf:/etc/sphinxsearch"
       - "../runtime:/var/log"

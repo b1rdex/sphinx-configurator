@@ -145,7 +145,7 @@ class ArraySerializer
         $this->arrayConfiguration[] = [
             'type'        => (string) $definition->getType(),
             'name'        => (string) $definition->getName(),
-            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance() : null,
+            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance()->getName() : null,
             'options'     => $this->serializeOptions($definition)
         ];
     }

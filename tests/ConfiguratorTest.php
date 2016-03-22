@@ -29,6 +29,54 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         
     }
 
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance with name SOmeDummyInheritance of section source doesn't exists in configuration
+     */
+    public function testNotFoundInheritanceSource()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_source.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance with name some_dummy_inheritance of section index doesn't exists in configuration
+     */
+    public function testNotFoundInheritanceIndex()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_index.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Duplicate name mainSource found in source section
+     */
+    public function testDuplicateNameSource()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_source_name.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Duplicate name user_index found in index section
+     */
+    public function testDuplicateNameIndex()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_index_name.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
     public function testChainSerializeDeserialize()
     {
         $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';

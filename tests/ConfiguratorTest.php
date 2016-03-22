@@ -80,7 +80,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Name of definition must contains only A-Za-z and _ symbols
+     * @expectedExceptionMessage Name or inheritance of section source must contains only A-Za-z and _ symbols
      */
     public function testWrongName()
     {
@@ -90,7 +90,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Inheritance of definition must contains only A-Za-z and _ symbols
+     * @expectedExceptionMessage Name or inheritance of section source must contains only A-Za-z and _ symbols
      */
     public function testWrongInheritance()
     {

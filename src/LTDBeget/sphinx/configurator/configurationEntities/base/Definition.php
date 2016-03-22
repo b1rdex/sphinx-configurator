@@ -16,7 +16,6 @@ use LTDBeget\sphinx\enums\eSection;
 
 /**
  * Class Definition
- * TODO name validation
  * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
 abstract class Definition extends Section

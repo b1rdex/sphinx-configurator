@@ -1,0 +1,11 @@
+# automatically generated from sphinx documentation
+# version of documentation: 2.2.1
+
+source:
+    on_json_attr_error: true
+    json_autoconv_keynames: true
+    json_autoconv_numbers: true
+indexer:
+    lemmatizer_base: true
+searchd:
+    compat_sphinxql_magics: true

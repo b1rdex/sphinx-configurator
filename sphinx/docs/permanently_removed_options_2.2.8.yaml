@@ -1,0 +1,29 @@
+# automatically generated from sphinx documentation
+# version of documentation: 2.2.8
+
+source:
+    mssql_unicode: true
+    xmlpipe_attr_wordcount: true
+    xmlpipe_attr_str2ordinal: true
+    xmlpipe_field_wordcount: true
+    sql_query_info: true
+    sql_field_str2wordcount: true
+    sql_attr_str2wordcount: true
+    sql_attr_str2ordinal: true
+    on_json_attr_error: true
+    json_autoconv_keynames: true
+    json_autoconv_numbers: true
+index:
+    ondisk_dict: true
+    enable_star: true
+    charset_type: true
+indexer:
+    lemmatizer_base: true
+searchd:
+    compat_sphinxql_magics: true
+    plugin_dir: true
+    crash_log_path: true
+    ondisk_dict_default: true
+    max_matches: true
+    port: true
+    address: true

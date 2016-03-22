@@ -55,6 +55,10 @@ final class Informer
             throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} isn't available");
         }
         
+        if ($this->isRemovedOption($section, $optionName)) {
+            throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} is permanently removed");
+        }
+        
         if (!$this->isOptionInfoInit($section, $optionName)) {
             $this->makeOptionInfo($section, $optionName);
         }
@@ -72,6 +76,18 @@ final class Informer
     {
         return array_key_exists((string) $section, $this->documentation) &&
         array_key_exists((string) $optionName, $this->documentation[(string) $section]);
+    }
+
+    /**
+     * checks is this option was permanently removed in newer sphinx version
+     * @param eSection $section
+     * @param eOption $optionName
+     * @return bool
+     */
+    public function isRemovedOption(eSection $section, eOption $optionName)
+    {
+        return array_key_exists((string) $section, $this->removedOptions) && 
+            array_key_exists((string) $optionName, $this->removedOptions[(string) $section]);
     }
 
     /**
@@ -132,6 +148,7 @@ final class Informer
     {
         $this->version = $version;
         $this->loadDocumentation();
+        $this->loadRemovedList();
     }
 
     /**
@@ -169,6 +186,27 @@ final class Informer
         );
 
         $this->optionsInfo[(string) $section][(string) $optionName] = $optionInfo;
+    }
+
+    /**
+     * load to object info about permanently removed options
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     */
+    private function loadRemovedList()
+    {
+        $path = $this->getRemovedListFilePath();
+
+        if ($this->isRemovedListFileExists()) {
+            /** @noinspection PhpUndefinedClassInspection */
+            $removed_list = (new Parser())->parse(file_get_contents($path));
+
+            if (!is_array($removed_list)) {
+                throw new DocumentationSourceException("Failed to parse yaml file {$path}");
+            }
+
+            $this->removedOptions = $removed_list;
+        }
     }
 
     /**
@@ -222,6 +260,24 @@ final class Informer
     }
 
     /**
+     * Return path to file with removed options list
+     * @return string
+     */
+    private function getRemovedListFilePath() : string
+    {
+        return $this->getDocumentationDirectoryPath() . "/permanently_removed_options_{$this->version}.yaml";
+    }
+
+    /**
+     * Is file with removed options list exists
+     * @return bool
+     */
+    private function isRemovedListFileExists() : bool
+    {
+        return is_file($this->getRemovedListFilePath());
+    }
+
+    /**
      * @var Informer[]
      */
     private static $instances = [];
@@ -235,6 +291,11 @@ final class Informer
      * @var array
      */
     private $documentation;
+
+    /**
+     * @var array
+     */
+    private $removedOptions = [];
 
     /**
      * @var array

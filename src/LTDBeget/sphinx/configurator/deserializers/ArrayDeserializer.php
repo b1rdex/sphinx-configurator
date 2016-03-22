@@ -125,6 +125,8 @@ final class ArrayDeserializer
      * @param array $options
      * @param Section $section
      * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function deserializeOptions(array $options, Section $section)
     {
@@ -140,12 +142,30 @@ final class ArrayDeserializer
 
             $optionName  = $option['name'];
             $optionValue = $option['value'];
+            $this->deserializeOption($section, $optionName, $optionValue);
+        }
+    }
 
-            try {
-                $section->addOption($this->getOptionName($section, $optionName), $optionValue);
-            } catch (\Exception $e) {
-                throw new DeserializeException($e->getMessage(), 0, $e);
-            }
+    /**
+     * @param Section $section
+     * @param $optionName
+     * @param $optionValue
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     */
+    private function deserializeOption(Section $section, $optionName, $optionValue)
+    {
+        $sectionType = $section->getType();
+        $informer = $section->getConfiguration()->getInformer();
+        $optionName = $this->getOptionName($section, $optionName);
+
+        if($informer->isKnownOption($sectionType, $optionName)) {
+            $section->addOption($optionName, $optionValue);
+        } elseif($informer->isRemovedOption($sectionType, $optionName)) {
+            return;
+        } else {
+            throw new DeserializeException("Unknown option name {$optionName} in section {$section->getType()}");
         }
     }
 

@@ -9,6 +9,7 @@
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\enums\eVersion;
+use LTDBeget\sphinx\enums\options\eIndexOption;
 
 /**
  * Class ConfiguratorTest
@@ -95,6 +96,18 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
     {
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         (new Configuration(eVersion::V_2_2_10()))->addSource('valid_name', 'S o m&^ e shit');
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
+     * @expectedExceptionMessage For sphinx v. 2.2.10 option charset_type in index isn't available
+     */
+    public function testAddPermanentlyRemovedOption()
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $index = (new Configuration(eVersion::V_2_2_10()))->addIndex('valid_name');
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $index->addOption(eIndexOption::CHARSET_TYPE(), "utf-8");
     }
 
     public function testChainSerializeDeserialize()

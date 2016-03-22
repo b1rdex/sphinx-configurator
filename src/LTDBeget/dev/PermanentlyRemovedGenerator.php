@@ -94,8 +94,12 @@ class PermanentlyRemovedGenerator
 
         $options_intersect =  array_intersect($target_version_options, $old_versions_options);
 
+        $values = array_flip(array_values(array_diff($old_versions_options, $options_intersect)));
+        array_walk($values, function(&$value) {
+            $value = true;
+        });
 
-        return array_values(array_diff($old_versions_options, $options_intersect));
+        return $values;
     }
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection" abstract="false" final="true" start="23" end="30">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums" file="eSection.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/eSection.php" size="604" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="d2d60f35d95795ffc8f0d95c055265a0eacf64ce" relative="LTDBeget/sphinx/enums/eSection.php"/>
+  <docblock>
+    <description compact="Class eSection"/>
+    <package value="LTDBeget\sphinx\informer\enums\blocks"/>
+    <method value="static eSection SOURCE()"/>
+    <method value="static eSection INDEX()"/>
+    <method value="static eSection INDEXER()"/>
+    <method value="static eSection SEARCHD()"/>
+    <method value="static eSection COMMON()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  <constant type="string" name="SOURCE" value="'source'"/>
+  <constant type="string" name="INDEX" value="'index'"/>
+  <constant type="string" name="INDEXER" value="'indexer'"/>
+  <constant type="string" name="SEARCHD" value="'searchd'"/>
+  <constant type="string" name="COMMON" value="'common'"/>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

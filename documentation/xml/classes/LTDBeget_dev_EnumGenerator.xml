@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\dev\EnumGenerator" namespace="LTDBeget\dev" name="EnumGenerator" abstract="false" final="true" start="18" end="171">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev" file="EnumGenerator.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev/EnumGenerator.php" size="4879" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="48daba66a29a39962e1b65cb86818284351fd1e3" relative="LTDBeget/dev/EnumGenerator.php"/>
+  <docblock>
+    <description compact="Class EnumGenerator"/>
+    <package value="LTDBeget\dev"/>
+  </docblock>
+  <member name="fileContents" type="array" default="" visibility="protected" static="false" line="21"/>
+  <member name="documentation" type="array" default="" visibility="protected" static="false" line="22"/>
+  <constructor name="__construct" start="31" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="EnumGenerator constructor."/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+  </constructor>
+  <method name="prepareDocumentation" start="45" end="53" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="parse and prepare info from docks"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="writeFiles" start="55" end="61" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="prepareContents" start="66" end="94" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="make enum file contents"/>
+    </docblock>
+  </method>
+  <method name="processDocumentation" start="101" end="112" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="save names from documentation to this documentation"/>
+      <param type="array" variable="$documentation"/>
+    </docblock>
+    <parameter name="documentation" byreference="false" type="array"/>
+  </method>
+  <method name="removeDuplicates" start="117" end="124" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="remove duplicates options names"/>
+    </docblock>
+  </method>
+  <method name="getDocumentation" start="132" end="137" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="getFileName" start="146" end="149" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of file for save parsed data"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="getPath" start="156" end="159" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of directory where needs to save parsed data"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getOutputDir" start="166" end="169" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="get path to output dir"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

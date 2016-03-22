@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - LTDBeget\sphinx\enums\options\eSourceOption</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.html">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.html">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.html">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.html">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.html">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html#LTDBeget_sphinx_enums_options">LTDBeget\sphinx\enums\options</a>
+          </li>
+          <li class="separator">eSourceOption</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/LTDBeget/sphinx/enums/options/eSourceOption.php.html#line77">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>LTDBeget\sphinx\enums\options\</small>eSourceOption</h1>
+        <h4>Class eSourceOption</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class eSourceOption
+                extends <a title="LTDBeget\sphinx\enums\base\eOption" href="../classes/LTDBeget_sphinx_enums_base_eOption.html">eOption</a>
+            {<br/><ul class="none"><li>// constants</li><li>const UNPACK_MYSQLCOMPRESS_MAXSIZE = 'unpack_mysqlcompress_maxsize';</li><li>const UNPACK_MYSQLCOMPRESS = 'unpack_mysqlcompress';</li><li>const UNPACK_ZLIB = 'unpack_zlib';</li><li>const MSSQL_UNICODE = 'mssql_unicode';</li><li>const MSSQL_WINAUTH = 'mssql_winauth';</li><li>const XMLPIPE_FIXUP_UTF8 = 'xmlpipe_fixup_utf8';</li><li>const XMLPIPE_ATTR_JSON = 'xmlpipe_attr_json';</li><li>const XMLPIPE_ATTR_WORDCOUNT = 'xmlpipe_attr_wordcount';</li><li>const XMLPIPE_ATTR_STRING = 'xmlpipe_attr_string';</li><li>const XMLPIPE_ATTR_MULTI_64 = 'xmlpipe_attr_multi_64';</li><li>const XMLPIPE_ATTR_MULTI = 'xmlpipe_attr_multi';</li><li>const XMLPIPE_ATTR_FLOAT = 'xmlpipe_attr_float';</li><li>const XMLPIPE_ATTR_STR2ORDINAL = 'xmlpipe_attr_str2ordinal';</li><li>const XMLPIPE_ATTR_TIMESTAMP = 'xmlpipe_attr_timestamp';</li><li>const XMLPIPE_ATTR_BOOL = 'xmlpipe_attr_bool';</li><li>const XMLPIPE_ATTR_BIGINT = 'xmlpipe_attr_bigint';</li><li>const XMLPIPE_ATTR_UINT = 'xmlpipe_attr_uint';</li><li>const XMLPIPE_FIELD_WORDCOUNT = 'xmlpipe_field_wordcount';</li><li>const XMLPIPE_FIELD_STRING = 'xmlpipe_field_string';</li><li>const XMLPIPE_FIELD = 'xmlpipe_field';</li><li>const XMLPIPE_COMMAND = 'xmlpipe_command';</li><li>const SQL_QUERY_INFO = 'sql_query_info';</li><li>const SQL_RANGED_THROTTLE = 'sql_ranged_throttle';</li><li>const SQL_QUERY_POST_INDEX = 'sql_query_post_index';</li><li>const SQL_QUERY_POST = 'sql_query_post';</li><li>const SQL_FILE_FIELD = 'sql_file_field';</li><li>const SQL_FIELD_STR2WORDCOUNT = 'sql_field_str2wordcount';</li><li>const SQL_FIELD_STRING = 'sql_field_string';</li><li>const SQL_COLUMN_BUFFERS = 'sql_column_buffers';</li><li>const SQL_ATTR_STR2WORDCOUNT = 'sql_attr_str2wordcount';</li><li>const SQL_ATTR_JSON = 'sql_attr_json';</li><li>const SQL_ATTR_STRING = 'sql_attr_string';</li><li>const SQL_ATTR_MULTI = 'sql_attr_multi';</li><li>const SQL_ATTR_FLOAT = 'sql_attr_float';</li><li>const SQL_ATTR_STR2ORDINAL = 'sql_attr_str2ordinal';</li><li>const SQL_ATTR_TIMESTAMP = 'sql_attr_timestamp';</li><li>const SQL_ATTR_BIGINT = 'sql_attr_bigint';</li><li>const SQL_ATTR_BOOL = 'sql_attr_bool';</li><li>const SQL_ATTR_UINT = 'sql_attr_uint';</li><li>const SQL_QUERY_KILLLIST = 'sql_query_killlist';</li><li>const SQL_RANGE_STEP = 'sql_range_step';</li><li>const SQL_QUERY_RANGE = 'sql_query_range';</li><li>const SQL_JOINED_FIELD = 'sql_joined_field';</li><li>const SQL_QUERY = 'sql_query';</li><li>const SQL_QUERY_PRE = 'sql_query_pre';</li><li>const ODBC_DSN = 'odbc_dsn';</li><li>const MYSQL_SSL_CERT = 'mysql_ssl_cert';</li><li>const MYSQL_SSL_KEY = 'mysql_ssl_key';</li><li>const MYSQL_SSL_CA = 'mysql_ssl_ca';</li><li>const MYSQL_CONNECT_FLAGS = 'mysql_connect_flags';</li><li>const ON_JSON_ATTR_ERROR = 'on_json_attr_error';</li><li>const JSON_AUTOCONV_KEYNAMES = 'json_autoconv_keynames';</li><li>const JSON_AUTOCONV_NUMBERS = 'json_autoconv_numbers';</li><li>const SQL_SOCK = 'sql_sock';</li><li>const SQL_DB = 'sql_db';</li><li>const SQL_PASS = 'sql_pass';</li><li>const SQL_USER = 'sql_user';</li><li>const SQL_PORT = 'sql_port';</li><li>const SQL_HOST = 'sql_host';</li><li>const TYPE = 'type';</li><li>const CSVPIPE_DELIMITER = 'csvpipe_delimiter';</li></ul><ul class="none"><li>// Inherited methods from <span title="LTDBeget\sphinx\enums\base\Enum">Enum</span></li><li>public string <a title="LTDBeget\sphinx\enums\base\Enum" href="../classes/LTDBeget_sphinx_enums_base_Enum/__toString.html">__toString</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a title="LTDBeget\sphinx\enums\base\eOption" href="../classes/LTDBeget_sphinx_enums_base_eOption.html">LTDBeget\sphinx\enums\base\eOption</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="UNPACK_MYSQLCOMPRESS_MAXSIZE">UNPACK_MYSQLCOMPRESS_MAXSIZE</td>
+              <td>'unpack_mysqlcompress_maxsize'</td>
+            </tr>
+            <tr>
+              <td id="UNPACK_MYSQLCOMPRESS">UNPACK_MYSQLCOMPRESS</td>
+              <td>'unpack_mysqlcompress'</td>
+            </tr>
+            <tr>
+              <td id="UNPACK_ZLIB">UNPACK_ZLIB</td>
+              <td>'unpack_zlib'</td>
+            </tr>
+            <tr>
+              <td id="MSSQL_UNICODE">MSSQL_UNICODE</td>
+              <td>'mssql_unicode'</td>
+            </tr>
+            <tr>
+              <td id="MSSQL_WINAUTH">MSSQL_WINAUTH</td>
+              <td>'mssql_winauth'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_FIXUP_UTF8">XMLPIPE_FIXUP_UTF8</td>
+              <td>'xmlpipe_fixup_utf8'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_JSON">XMLPIPE_ATTR_JSON</td>
+              <td>'xmlpipe_attr_json'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_WORDCOUNT">XMLPIPE_ATTR_WORDCOUNT</td>
+              <td>'xmlpipe_attr_wordcount'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_STRING">XMLPIPE_ATTR_STRING</td>
+              <td>'xmlpipe_attr_string'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_MULTI_64">XMLPIPE_ATTR_MULTI_64</td>
+              <td>'xmlpipe_attr_multi_64'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_MULTI">XMLPIPE_ATTR_MULTI</td>
+              <td>'xmlpipe_attr_multi'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_FLOAT">XMLPIPE_ATTR_FLOAT</td>
+              <td>'xmlpipe_attr_float'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_STR2ORDINAL">XMLPIPE_ATTR_STR2ORDINAL</td>
+              <td>'xmlpipe_attr_str2ordinal'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_TIMESTAMP">XMLPIPE_ATTR_TIMESTAMP</td>
+              <td>'xmlpipe_attr_timestamp'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_BOOL">XMLPIPE_ATTR_BOOL</td>
+              <td>'xmlpipe_attr_bool'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_BIGINT">XMLPIPE_ATTR_BIGINT</td>
+              <td>'xmlpipe_attr_bigint'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_ATTR_UINT">XMLPIPE_ATTR_UINT</td>
+              <td>'xmlpipe_attr_uint'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_FIELD_WORDCOUNT">XMLPIPE_FIELD_WORDCOUNT</td>
+              <td>'xmlpipe_field_wordcount'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_FIELD_STRING">XMLPIPE_FIELD_STRING</td>
+              <td>'xmlpipe_field_string'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_FIELD">XMLPIPE_FIELD</td>
+              <td>'xmlpipe_field'</td>
+            </tr>
+            <tr>
+              <td id="XMLPIPE_COMMAND">XMLPIPE_COMMAND</td>
+              <td>'xmlpipe_command'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_INFO">SQL_QUERY_INFO</td>
+              <td>'sql_query_info'</td>
+            </tr>
+            <tr>
+              <td id="SQL_RANGED_THROTTLE">SQL_RANGED_THROTTLE</td>
+              <td>'sql_ranged_throttle'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_POST_INDEX">SQL_QUERY_POST_INDEX</td>
+              <td>'sql_query_post_index'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_POST">SQL_QUERY_POST</td>
+              <td>'sql_query_post'</td>
+            </tr>
+            <tr>
+              <td id="SQL_FILE_FIELD">SQL_FILE_FIELD</td>
+              <td>'sql_file_field'</td>
+            </tr>
+            <tr>
+              <td id="SQL_FIELD_STR2WORDCOUNT">SQL_FIELD_STR2WORDCOUNT</td>
+              <td>'sql_field_str2wordcount'</td>
+            </tr>
+            <tr>
+              <td id="SQL_FIELD_STRING">SQL_FIELD_STRING</td>
+              <td>'sql_field_string'</td>
+            </tr>
+            <tr>
+              <td id="SQL_COLUMN_BUFFERS">SQL_COLUMN_BUFFERS</td>
+              <td>'sql_column_buffers'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_STR2WORDCOUNT">SQL_ATTR_STR2WORDCOUNT</td>
+              <td>'sql_attr_str2wordcount'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_JSON">SQL_ATTR_JSON</td>
+              <td>'sql_attr_json'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_STRING">SQL_ATTR_STRING</td>
+              <td>'sql_attr_string'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_MULTI">SQL_ATTR_MULTI</td>
+              <td>'sql_attr_multi'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_FLOAT">SQL_ATTR_FLOAT</td>
+              <td>'sql_attr_float'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_STR2ORDINAL">SQL_ATTR_STR2ORDINAL</td>
+              <td>'sql_attr_str2ordinal'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_TIMESTAMP">SQL_ATTR_TIMESTAMP</td>
+              <td>'sql_attr_timestamp'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_BIGINT">SQL_ATTR_BIGINT</td>
+              <td>'sql_attr_bigint'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_BOOL">SQL_ATTR_BOOL</td>
+              <td>'sql_attr_bool'</td>
+            </tr>
+            <tr>
+              <td id="SQL_ATTR_UINT">SQL_ATTR_UINT</td>
+              <td>'sql_attr_uint'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_KILLLIST">SQL_QUERY_KILLLIST</td>
+              <td>'sql_query_killlist'</td>
+            </tr>
+            <tr>
+              <td id="SQL_RANGE_STEP">SQL_RANGE_STEP</td>
+              <td>'sql_range_step'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_RANGE">SQL_QUERY_RANGE</td>
+              <td>'sql_query_range'</td>
+            </tr>
+            <tr>
+              <td id="SQL_JOINED_FIELD">SQL_JOINED_FIELD</td>
+              <td>'sql_joined_field'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY">SQL_QUERY</td>
+              <td>'sql_query'</td>
+            </tr>
+            <tr>
+              <td id="SQL_QUERY_PRE">SQL_QUERY_PRE</td>
+              <td>'sql_query_pre'</td>
+            </tr>
+            <tr>
+              <td id="ODBC_DSN">ODBC_DSN</td>
+              <td>'odbc_dsn'</td>
+            </tr>
+            <tr>
+              <td id="MYSQL_SSL_CERT">MYSQL_SSL_CERT</td>
+              <td>'mysql_ssl_cert'</td>
+            </tr>
+            <tr>
+              <td id="MYSQL_SSL_KEY">MYSQL_SSL_KEY</td>
+              <td>'mysql_ssl_key'</td>
+            </tr>
+            <tr>
+              <td id="MYSQL_SSL_CA">MYSQL_SSL_CA</td>
+              <td>'mysql_ssl_ca'</td>
+            </tr>
+            <tr>
+              <td id="MYSQL_CONNECT_FLAGS">MYSQL_CONNECT_FLAGS</td>
+              <td>'mysql_connect_flags'</td>
+            </tr>
+            <tr>
+              <td id="ON_JSON_ATTR_ERROR">ON_JSON_ATTR_ERROR</td>
+              <td>'on_json_attr_error'</td>
+            </tr>
+            <tr>
+              <td id="JSON_AUTOCONV_KEYNAMES">JSON_AUTOCONV_KEYNAMES</td>
+              <td>'json_autoconv_keynames'</td>
+            </tr>
+            <tr>
+              <td id="JSON_AUTOCONV_NUMBERS">JSON_AUTOCONV_NUMBERS</td>
+              <td>'json_autoconv_numbers'</td>
+            </tr>
+            <tr>
+              <td id="SQL_SOCK">SQL_SOCK</td>
+              <td>'sql_sock'</td>
+            </tr>
+            <tr>
+              <td id="SQL_DB">SQL_DB</td>
+              <td>'sql_db'</td>
+            </tr>
+            <tr>
+              <td id="SQL_PASS">SQL_PASS</td>
+              <td>'sql_pass'</td>
+            </tr>
+            <tr>
+              <td id="SQL_USER">SQL_USER</td>
+              <td>'sql_user'</td>
+            </tr>
+            <tr>
+              <td id="SQL_PORT">SQL_PORT</td>
+              <td>'sql_port'</td>
+            </tr>
+            <tr>
+              <td id="SQL_HOST">SQL_HOST</td>
+              <td>'sql_host'</td>
+            </tr>
+            <tr>
+              <td id="TYPE">TYPE</td>
+              <td>'type'</td>
+            </tr>
+            <tr>
+              <td id="CSVPIPE_DELIMITER">CSVPIPE_DELIMITER</td>
+              <td>'csvpipe_delimiter'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h3>Inherited from <a title="LTDBeget\sphinx\enums\base\Enum" href="../classes/LTDBeget_sphinx_enums_base_Enum.html">LTDBeget\sphinx\enums\base\Enum</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="__toString">
+              <a title="LTDBeget\sphinx\enums\base\Enum" href="../classes/LTDBeget_sphinx_enums_base_Enum/__toString.html">__toString()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.2-dev - Copyright (C) 2010 - 2016 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

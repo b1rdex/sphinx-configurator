@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\options\eIndexerOption" namespace="LTDBeget\sphinx\enums\options" name="eIndexerOption" abstract="false" final="true" start="25" end="36">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eIndexerOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eIndexerOption.php" size="1208" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="0ce8966583bf8d31f095b45fa3d0c9d17bf21668" relative="LTDBeget/sphinx/enums/options/eIndexerOption.php"/>
+  <docblock>
+    <description compact="Class eIndexerOption"/>
+    <package value="LTDBeget\sphinx\informer\enums\options"/>
+    <method value="static eIndexerOption LEMMATIZER_CACHE()"/>
+    <method value="static eIndexerOption LEMMATIZER_BASE()"/>
+    <method value="static eIndexerOption ON_FILE_FIELD_ERROR()"/>
+    <method value="static eIndexerOption MAX_FILE_FIELD_BUFFER()"/>
+    <method value="static eIndexerOption WRITE_BUFFER()"/>
+    <method value="static eIndexerOption MAX_XMLPIPE2_FIELD()"/>
+    <method value="static eIndexerOption MAX_IOSIZE()"/>
+    <method value="static eIndexerOption MAX_IOPS()"/>
+    <method value="static eIndexerOption MEM_LIMIT()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+  <constant type="string" name="LEMMATIZER_CACHE" value="'lemmatizer_cache'"/>
+  <constant type="string" name="LEMMATIZER_BASE" value="'lemmatizer_base'"/>
+  <constant type="string" name="ON_FILE_FIELD_ERROR" value="'on_file_field_error'"/>
+  <constant type="string" name="MAX_FILE_FIELD_BUFFER" value="'max_file_field_buffer'"/>
+  <constant type="string" name="WRITE_BUFFER" value="'write_buffer'"/>
+  <constant type="string" name="MAX_XMLPIPE2_FIELD" value="'max_xmlpipe2_field'"/>
+  <constant type="string" name="MAX_IOSIZE" value="'max_iosize'"/>
+  <constant type="string" name="MAX_IOPS" value="'max_iops'"/>
+  <constant type="string" name="MEM_LIMIT" value="'mem_limit'"/>
+  <parent full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption">
+    <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  </parent>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

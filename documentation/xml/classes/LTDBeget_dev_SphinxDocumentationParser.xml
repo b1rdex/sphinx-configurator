@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\dev\SphinxDocumentationParser" namespace="LTDBeget\dev" name="SphinxDocumentationParser" abstract="false" final="true" start="20" end="380">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev" file="SphinxDocumentationParser.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev/SphinxDocumentationParser.php" size="10693" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="a8fcac6f369579401555eb499ae22864260a980e" relative="LTDBeget/dev/SphinxDocumentationParser.php"/>
+  <docblock>
+    <description compact="Functionality of class is parsing and dumping as yaml files sphinx documentation info on options Class SphinxDocumentationParser"/>
+    <package value="Dev"/>
+  </docblock>
+  <method name="parseAll" start="27" end="33" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Parse all sphinx configuration from self::$links"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <member name="links" type="array" default="" visibility="private" static="true" line="40">
+    <docblock>
+      <description compact="links via version on sphinx documentations"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="link" visibility="private" static="false" line="63">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="document" visibility="private" static="false" line="67">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="DOMDocument" namespace="" name="DOMDocument"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="parsedDocumentation" visibility="private" static="false" line="71">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="version" visibility="private" static="false" line="75">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="83" end="90" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="SphinxDocumentationParser constructor."/>
+      <param description="link on single page sphinx documentation" type="string" variable="$link"/>
+      <param type="string" variable="$version"/>
+    </docblock>
+    <parameter name="link" byreference="false" type="object">
+      <type full="LTDBeget\dev\string" namespace="LTDBeget\dev" name="string"/>
+    </parameter>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\dev\string" namespace="LTDBeget\dev" name="string"/>
+    </parameter>
+  </constructor>
+  <method name="dump" start="95" end="108" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="save result of parsing as yaml file"/>
+    </docblock>
+  </method>
+  <method name="getFileName" start="115" end="118" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of file for save parsed data"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getPath" start="125" end="128" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of directory where needs to save parsed data"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="parse" start="134" end="164" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\dev\SphinxDocumentationParser" namespace="LTDBeget\dev" name="SphinxDocumentationParser"/>
+      </return>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="isSource" start="171" end="174" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isIndex" start="181" end="184" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isIndexer" start="191" end="194" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isSearchd" start="201" end="204" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isCommon" start="211" end="214" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="parseSourceOptions" start="224" end="240" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Parse source options"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="parseOptionNode" start="250" end="268" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="parse concrete option block"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="getOptionNames" start="275" end="283" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="getLinkTag" start="293" end="315" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get link on option in documentation"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\RuntimeException" namespace="" name="RuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="getDescription" start="324" end="329" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get full description of option"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isMultiValue" start="338" end="343" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Check is option is multi value option"/>
+      <param type="string" variable="$description"/>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="description" byreference="false" type="object">
+      <type full="LTDBeget\dev\string" namespace="LTDBeget\dev" name="string"/>
+    </parameter>
+  </method>
+  <method name="removeTitlePage" start="350" end="357" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="remove title block from dom element"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isTitlePage" start="366" end="369" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Check is element is title in option block"/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+  <method name="isSect2Element" start="376" end="379" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\dev\bool" namespace="LTDBeget\dev" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="object">
+      <type full="DOMElement" namespace="" name="DOMElement"/>
+    </parameter>
+  </method>
+</class>

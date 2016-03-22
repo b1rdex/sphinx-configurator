@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section" abstract="true" final="false" start="23" end="213">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/configurationEntities/base" file="Section.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/configurationEntities/base/Section.php" size="4732" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="c49ddaed18f232b0c60e4666a9b5689d47331a5e" relative="LTDBeget/sphinx/configurator/configurationEntities/base/Section.php"/>
+  <docblock>
+    <description compact="Class Section"/>
+    <package value="LTDBeget\sphinx\configurator\configurationEntities\base"/>
+    <method value="Option addOption(eOption $name, string $value)"/>
+  </docblock>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Section constructor."/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </constructor>
+  <method name="className" start="38" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getType" start="48" end="55" abstract="false" final="true" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </return>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="getConfiguration" start="60" end="63" abstract="false" final="true" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="68" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="iterateOptions" start="82" end="100" abstract="false" final="true" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Option" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Option"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="delete" start="105" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="mark section as deleted"/>
+    </docblock>
+  </method>
+  <method name="isDeleted" start="115" end="118" abstract="false" final="true" static="false" visibility="public">
+    <docblock>
+      <description compact="is option marked as deleted"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\bool" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addOptionInternal" start="129" end="143" abstract="false" final="true" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$name">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\Option" namespace="LTDBeget\sphinx\configurator\configurationEntities" name="Option"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+    <parameter name="value" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\string" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="string"/>
+    </parameter>
+  </method>
+  <method name="getInformer" start="149" end="154" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="shortClassName" start="160" end="163" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="createOption" start="176" end="182" abstract="false" final="true" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$name">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\Option" namespace="LTDBeget\sphinx\configurator\configurationEntities" name="Option"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+    <parameter name="value" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\string" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="string"/>
+    </parameter>
+  </method>
+  <method name="initType" start="189" end="192" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <member name="configuration" visibility="private" static="false" line="197">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="type" visibility="private" static="false" line="202">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="options" type="array" default="" visibility="private" static="false" line="207">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Option" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Option"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="isDeleted" type="boolean" default="false" visibility="private" static="false" line="212">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <extenders>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\base\Definition" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Definition"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\base\Settings" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Settings"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\sections\Common" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Common"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\sections\Source" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Source"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\sections\Indexer" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Indexer"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\sections\Searchd" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Searchd"/>
+    <extender full="LTDBeget\sphinx\configurator\configurationEntities\sections\Index" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Index"/>
+  </extenders>
+</class>

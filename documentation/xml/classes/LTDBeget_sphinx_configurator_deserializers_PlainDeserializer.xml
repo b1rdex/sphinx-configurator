@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\deserializers\PlainDeserializer" namespace="LTDBeget\sphinx\configurator\deserializers" name="PlainDeserializer" abstract="false" final="true" start="18" end="39">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers" file="PlainDeserializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers/PlainDeserializer.php" size="1215" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="d38f5132837166868b5622313c28de5af737403d" relative="LTDBeget/sphinx/configurator/deserializers/PlainDeserializer.php"/>
+  <docblock>
+    <description compact="Class PlainDeserializer"/>
+    <package value="LTDBeget\sphinx\configurator\deserializers"/>
+  </docblock>
+  <method name="deserialize" start="35" end="38" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make Configuration object from plain content of sphinx configuration file"/>
+      <param type="string" variable="$stringConfiguration"/>
+      <param type="object" variable="$objectConfiguration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\SyntaxErrorException" namespace="\LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+    <parameter name="stringConfiguration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\deserializers\string" namespace="LTDBeget\sphinx\configurator\deserializers" name="string"/>
+    </parameter>
+    <parameter name="objectConfiguration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </method>
+</class>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/base" file="Enum.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/base/Enum.php" size="364" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="2b5f04392e4834b4e3fb387917b7df1fd4ca4bd3" relative="LTDBeget/sphinx/enums/base/Enum.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * @author: Viskov Sergey</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * @date  : 17/03/16</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * @time  : 22:40</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">enums</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">base</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * Class Enum</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * @package LTDBeget\sphinx\enums\base</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="15">
+    <token name="T_ABSTRACT">abstract</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Enum</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">MabeEnum</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Enum</token>
+  </line>
+  <line no="16">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="17">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">     * @return string</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="20">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">__toString</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_COLON">:</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">string</token>
+  </line>
+  <line no="21">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="22">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING_CAST">(string)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getValue</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="23">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="24">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

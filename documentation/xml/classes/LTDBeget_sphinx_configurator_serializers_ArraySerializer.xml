@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\serializers\ArraySerializer" namespace="LTDBeget\sphinx\configurator\serializers" name="ArraySerializer" abstract="false" final="false" start="21" end="197">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers" file="ArraySerializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers/ArraySerializer.php" size="5377" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="3f38e47ad7ab2fcb33c25a9950338a6ee4571bdb" relative="LTDBeget/sphinx/configurator/serializers/ArraySerializer.php"/>
+  <docblock>
+    <description compact="Class ArraySerializer serialize Configuration object to array"/>
+    <package value="LTDBeget\sphinx\configurator\serializers"/>
+  </docblock>
+  <method name="serialize" start="34" end="40" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make array represent of Configuration object"/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="46" end="48" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </constructor>
+  <method name="serializeInternal" start="58" end="67" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeSource" start="75" end="80" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeIndex" start="88" end="93" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeIndexer" start="100" end="105" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeSearchhd" start="112" end="117" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeCommon" start="125" end="130" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeDefinition" start="141" end="149" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$definition">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Definition" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Definition"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="definition" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Definition" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Definition"/>
+    </parameter>
+  </method>
+  <method name="serializeSettings" start="159" end="165" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$settings">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Settings" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Settings"/>
+      </param>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="settings" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Settings" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Settings"/>
+    </parameter>
+  </method>
+  <method name="serializeOptions" start="174" end="186" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+    </parameter>
+  </method>
+  <member name="arrayConfiguration" type="array" default="" visibility="private" static="false" line="191">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="objectConfiguration" visibility="private" static="false" line="196">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </var>
+    </docblock>
+  </member>
+</class>

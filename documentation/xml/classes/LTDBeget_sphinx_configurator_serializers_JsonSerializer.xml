@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\serializers\JsonSerializer" namespace="LTDBeget\sphinx\configurator\serializers" name="JsonSerializer" abstract="false" final="true" start="19" end="36">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers" file="JsonSerializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers/JsonSerializer.php" size="975" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="208117eafab0a5400c88d19fb31ba6fbd98585b3" relative="LTDBeget/sphinx/configurator/serializers/JsonSerializer.php"/>
+  <docblock>
+    <description compact="Class JsonSerializer serialize Configuration object to json encoded array and json encoded array to Configuration object"/>
+    <package value="LTDBeget\sphinx\configurator\serializers"/>
+  </docblock>
+  <method name="serialize" start="32" end="35" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make json encoded content for sphinx configuration file from Configuration object"/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </method>
+</class>

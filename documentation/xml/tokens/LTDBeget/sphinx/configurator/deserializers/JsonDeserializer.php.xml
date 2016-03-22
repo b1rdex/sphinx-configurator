@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers" file="JsonDeserializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers/JsonDeserializer.php" size="1186" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="9975a4118ce9b624dab4ef6906fff648608e16f8" relative="LTDBeget/sphinx/configurator/deserializers/JsonDeserializer.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * @author: Viskov Sergey</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * @date  : 19.03.16</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * @time  : 2:00</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">configurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">deserializers</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">configurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Configuration</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="11"/>
+  <line no="12">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * Class JsonDeserializer</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> * Deserialize json encoded array to Configuration object</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * @package LTDBeget\sphinx\configurator\deserializers</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="18">
+    <token name="T_FINAL">final</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">JsonDeserializer</token>
+  </line>
+  <line no="19">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="20">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT">     * Make Configuration object from json encoded content of sphinx configuration file</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT">     * @param string        $jsonConfiguration</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT">     * @param Configuration $objectConfiguration</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT">     * @return Configuration</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT">     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException</token>
+  </line>
+  <line no="28">
+    <token name="T_DOC_COMMENT">     * @throws \LogicException</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT">     * @throws \InvalidArgumentException</token>
+  </line>
+  <line no="30">
+    <token name="T_DOC_COMMENT">     * @throws \BadMethodCallException</token>
+  </line>
+  <line no="31">
+    <token name="T_DOC_COMMENT">     * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">     * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException</token>
+  </line>
+  <line no="33">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="34">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">deserialize</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">string</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$jsonConfiguration</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Configuration</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$objectConfiguration</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_COLON">:</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Configuration</token>
+  </line>
+  <line no="35">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="36">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">ArrayDeserializer</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">deserialize</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">json_decode</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$jsonConfiguration</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$objectConfiguration</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="37">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="38">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

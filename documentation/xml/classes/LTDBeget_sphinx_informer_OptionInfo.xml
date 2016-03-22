@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\informer\OptionInfo" namespace="LTDBeget\sphinx\informer" name="OptionInfo" abstract="false" final="true" start="20" end="138">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/informer" file="OptionInfo.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/informer/OptionInfo.php" size="2454" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="ca82a07c51c75e3294f855209dad359e4a4b6cb7" relative="LTDBeget/sphinx/informer/OptionInfo.php"/>
+  <docblock>
+    <description compact="Class OptionInfo structure class for storing option info"/>
+    <package value="LTDBeget\sphinx\informer"/>
+  </docblock>
+  <constructor name="__construct" start="32" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="OptionInfo constructor."/>
+      <param type="object" variable="$name">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <param type="string" variable="$description"/>
+      <param type="object" variable="$isMultiValue">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </param>
+      <param type="string" variable="$docLink"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+    <parameter name="description" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\informer\string" namespace="LTDBeget\sphinx\informer" name="string"/>
+    </parameter>
+    <parameter name="isMultiValue" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+    </parameter>
+    <parameter name="docLink" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\informer\string" namespace="LTDBeget\sphinx\informer" name="string"/>
+    </parameter>
+  </constructor>
+  <method name="getName" start="54" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="name of option"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSection" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="in what section option store"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getVersion" start="74" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Version of documentation info"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isIsMultiValue" start="84" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="is Multi-value option (MVA)"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="getDescription" start="94" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get description for option"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getDocLink" start="104" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get link on original documentation of option"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <member name="name" visibility="private" static="false" line="112">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="section" visibility="private" static="false" line="117">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="version" visibility="private" static="false" line="122">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="isMultiValue" visibility="private" static="false" line="127">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="description" visibility="private" static="false" line="132">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="docLink" visibility="private" static="false" line="137">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+</class>

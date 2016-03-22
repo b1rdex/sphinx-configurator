@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\dev\PermanentlyRemovedGenerator" namespace="LTDBeget\dev" name="PermanentlyRemovedGenerator" abstract="false" final="false" start="20" end="174">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev" file="PermanentlyRemovedGenerator.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/dev/PermanentlyRemovedGenerator.php" size="5411" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="55ad8b068ab3118b1e922605023c8ee8f13073dd" relative="LTDBeget/dev/PermanentlyRemovedGenerator.php"/>
+  <docblock>
+    <description compact="Class PermanentlyRemovedGenerator"/>
+    <package value="LTDBeget\dev"/>
+  </docblock>
+  <constructor name="__construct" start="31" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="PermanentlyRemovedGenerator constructor."/>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+  </constructor>
+  <method name="processVersion" start="53" end="73" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$targetVersion">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <param type="array" variable="$versions"/>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="targetVersion" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+    <parameter name="versions" byreference="false" type="array"/>
+  </method>
+  <method name="getPermanentlyRemoved" start="87" end="106" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$targetVersion">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <param type="array" variable="$versions"/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="targetVersion" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+    <parameter name="versions" byreference="false" type="array"/>
+  </method>
+  <method name="getVersionOptions" start="119" end="131" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="dump" start="139" end="151" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="save result as yaml file"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <param type="array" variable="$options"/>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="getFileName" start="160" end="163" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of file for save parsed data"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="getPath" start="170" end="173" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="name of directory where needs to save parsed data"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

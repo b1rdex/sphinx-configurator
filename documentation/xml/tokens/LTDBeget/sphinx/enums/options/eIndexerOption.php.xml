@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eIndexerOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eIndexerOption.php" size="1208" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="0ce8966583bf8d31f095b45fa3d0c9d17bf21668" relative="LTDBeget/sphinx/enums/options/eIndexerOption.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * automatically generated from sphinx documentation</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="5"/>
+  <line no="6">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">enums</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">options</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">enums</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">base</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">eOption</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * Class eIndexerOption</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * @package LTDBeget\sphinx\informer\enums\options</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption LEMMATIZER_CACHE()</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption LEMMATIZER_BASE()</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption ON_FILE_FIELD_ERROR()</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption MAX_FILE_FIELD_BUFFER()</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption WRITE_BUFFER()</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption MAX_XMLPIPE2_FIELD()</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption MAX_IOSIZE()</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption MAX_IOPS()</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT"> * @method static eIndexerOption MEM_LIMIT()</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="25">
+    <token name="T_FINAL">final</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">eIndexerOption</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">eOption</token>
+  </line>
+  <line no="26">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="27">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LEMMATIZER_CACHE</token>
+    <token name="T_WHITESPACE">      </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'lemmatizer_cache'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="28">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LEMMATIZER_BASE</token>
+    <token name="T_WHITESPACE">       </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'lemmatizer_base'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="29">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">ON_FILE_FIELD_ERROR</token>
+    <token name="T_WHITESPACE">   </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'on_file_field_error'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="30">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MAX_FILE_FIELD_BUFFER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'max_file_field_buffer'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="31">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">WRITE_BUFFER</token>
+    <token name="T_WHITESPACE">          </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'write_buffer'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="32">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MAX_XMLPIPE2_FIELD</token>
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'max_xmlpipe2_field'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="33">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MAX_IOSIZE</token>
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'max_iosize'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="34">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MAX_IOPS</token>
+    <token name="T_WHITESPACE">              </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'max_iops'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="35">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">MEM_LIMIT</token>
+    <token name="T_WHITESPACE">             </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'mem_limit'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="36">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

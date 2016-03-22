@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer" abstract="false" final="true" start="23" end="343">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/informer" file="Informer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/informer/Informer.php" size="9866" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="ae7d32151e5a286dac49ea21e6559f340a4a8ebd" relative="LTDBeget/sphinx/informer/Informer.php"/>
+  <docblock>
+    <description compact="Class Informer Class for manipulating with options info"/>
+    <package value="LTDBeget\sphinx\informer"/>
+  </docblock>
+  <method name="get" start="34" end="41" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get informer for concrete version, and init if did not init yet"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer"/>
+      </return>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="getOptionInfo" start="52" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="return option info for concrete option of concrete section"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\OptionInfo" namespace="LTDBeget\sphinx\informer" name="OptionInfo"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="isKnownOption" start="69" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="check is known option for yaml documentation for concrete version"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="isRemovedOption" start="83" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="checks is this option was permanently removed in newer sphinx version"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="isSectionExist" start="96" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is this section exists in current sphinx version"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+  </method>
+  <method name="iterateOptionInfo" start="111" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterate via all option in documentation via option section type"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinx\informer\OptionInfo" namespace="LTDBeget\sphinx\informer" name="OptionInfo"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+  </method>
+  <method name="getOptionName" start="134" end="142" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Get enum for given section and string name"/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="string" variable="$optionName"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\informer\string" namespace="LTDBeget\sphinx\informer" name="string"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="153" end="158" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Informer constructor.">Init informer for concrete sphinx version</description>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </constructor>
+  <method name="isOptionInfoInit" start="168" end="172" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="check is option info object already init"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="makeOptionInfo" start="182" end="198" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="make option info object from plain data"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="checkOptionInfoAvailability" start="208" end="221" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Check is option info available for this version"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <param type="object" variable="$optionName">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException" namespace="\LTDBeget\sphinx\informer\exceptions" name="InformerRuntimeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    </parameter>
+  </method>
+  <method name="loadRemovedList" start="229" end="243" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="load to object info about permanently removed options"/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="loadDocumentation" start="251" end="267" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="loads configuration from yaml files and save as array"/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <inline>
+      <comment value="@noinspection PhpUndefinedClassInspection" line="259"/>
+    </inline>
+  </method>
+  <method name="isDocumentationExists" start="274" end="277" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="check is documentation yaml file exists"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getDocumentationDirectoryPath" start="284" end="287" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="path to yaml sphinx documentation"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getDocumentationFilePath" start="294" end="297" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="path to yaml sphinx documentation file"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getRemovedListFilePath" start="304" end="307" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Return path to file with removed options list"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="isRemovedListFileExists" start="314" end="317" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Is file with removed options list exists"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\bool" namespace="LTDBeget\sphinx\informer" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <member name="instances" type="array" default="" visibility="private" static="true" line="322">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="version" visibility="private" static="false" line="327">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="documentation" visibility="private" static="false" line="332">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="removedOptions" type="array" default="" visibility="private" static="false" line="337">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="optionsInfo" type="array" default="" visibility="private" static="false" line="342">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

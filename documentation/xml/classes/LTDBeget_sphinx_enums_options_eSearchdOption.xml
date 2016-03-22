@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\options\eSearchdOption" namespace="LTDBeget\sphinx\enums\options" name="eSearchdOption" abstract="false" final="true" start="73" end="132">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eSearchdOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eSearchdOption.php" size="6581" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="a626c637ec60fd7aa57ea9dd61aea6bca8cf75a9" relative="LTDBeget/sphinx/enums/options/eSearchdOption.php"/>
+  <docblock>
+    <description compact="Class eSearchdOption"/>
+    <package value="LTDBeget\sphinx\informer\enums\options"/>
+    <method value="static eSearchdOption PREDICTED_TIME_COSTS()"/>
+    <method value="static eSearchdOption RT_MERGE_MAXIOSIZE()"/>
+    <method value="static eSearchdOption RT_MERGE_IOPS()"/>
+    <method value="static eSearchdOption PERSISTENT_CONNECTIONS_LIMIT()"/>
+    <method value="static eSearchdOption HA_PERIOD_KARMA()"/>
+    <method value="static eSearchdOption HA_PING_INTERVAL()"/>
+    <method value="static eSearchdOption SPHINXQL_STATE()"/>
+    <method value="static eSearchdOption PREFORK_ROTATION_THROTTLE()"/>
+    <method value="static eSearchdOption WATCHDOG()"/>
+    <method value="static eSearchdOption COMPAT_SPHINXQL_MAGICS()"/>
+    <method value="static eSearchdOption EXPANSION_LIMIT()"/>
+    <method value="static eSearchdOption THREAD_STACK()"/>
+    <method value="static eSearchdOption RT_FLUSH_PERIOD()"/>
+    <method value="static eSearchdOption MYSQL_VERSION_STRING()"/>
+    <method value="static eSearchdOption PLUGIN_DIR()"/>
+    <method value="static eSearchdOption COLLATION_LIBC_LOCALE()"/>
+    <method value="static eSearchdOption COLLATION_SERVER()"/>
+    <method value="static eSearchdOption SNIPPETS_FILE_PREFIX()"/>
+    <method value="static eSearchdOption BINLOG_MAX_LOG_SIZE()"/>
+    <method value="static eSearchdOption BINLOG_FLUSH()"/>
+    <method value="static eSearchdOption BINLOG_PATH()"/>
+    <method value="static eSearchdOption DIST_THREADS()"/>
+    <method value="static eSearchdOption WORKERS()"/>
+    <method value="static eSearchdOption SUBTREE_HITS_CACHE()"/>
+    <method value="static eSearchdOption SUBTREE_DOCS_CACHE()"/>
+    <method value="static eSearchdOption MAX_BATCH_QUERIES()"/>
+    <method value="static eSearchdOption READ_UNHINTED()"/>
+    <method value="static eSearchdOption READ_BUFFER()"/>
+    <method value="static eSearchdOption LISTEN_BACKLOG()"/>
+    <method value="static eSearchdOption MAX_FILTER_VALUES()"/>
+    <method value="static eSearchdOption MAX_FILTERS()"/>
+    <method value="static eSearchdOption CRASH_LOG_PATH()"/>
+    <method value="static eSearchdOption MVA_UPDATES_POOL()"/>
+    <method value="static eSearchdOption MAX_PACKET_SIZE()"/>
+    <method value="static eSearchdOption ONDISK_DICT_DEFAULT()"/>
+    <method value="static eSearchdOption ATTR_FLUSH_PERIOD()"/>
+    <method value="static eSearchdOption UNLINK_OLD()"/>
+    <method value="static eSearchdOption PREOPEN_INDEXES()"/>
+    <method value="static eSearchdOption SEAMLESS_ROTATE()"/>
+    <method value="static eSearchdOption MAX_MATCHES()"/>
+    <method value="static eSearchdOption PID_FILE()"/>
+    <method value="static eSearchdOption MAX_CHILDREN()"/>
+    <method value="static eSearchdOption CLIENT_TIMEOUT()"/>
+    <method value="static eSearchdOption READ_TIMEOUT()"/>
+    <method value="static eSearchdOption QUERY_LOG_FORMAT()"/>
+    <method value="static eSearchdOption QUERY_LOG()"/>
+    <method value="static eSearchdOption LOG()"/>
+    <method value="static eSearchdOption PORT()"/>
+    <method value="static eSearchdOption ADDRESS()"/>
+    <method value="static eSearchdOption LISTEN()"/>
+    <method value="static eSearchdOption ONDISK_ATTRS_DEFAULT()"/>
+    <method value="static eSearchdOption SHUTDOWN_TIMEOUT()"/>
+    <method value="static eSearchdOption QUERY_LOG_MIN_MSEC()"/>
+    <method value="static eSearchdOption AGENT_RETRY_DELAY()"/>
+    <method value="static eSearchdOption AGENT_RETRY_COUNT()"/>
+    <method value="static eSearchdOption AGENT_QUERY_TIMEOUT()"/>
+    <method value="static eSearchdOption AGENT_CONNECT_TIMEOUT()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+  <constant type="string" name="PREDICTED_TIME_COSTS" value="'predicted_time_costs'"/>
+  <constant type="string" name="RT_MERGE_MAXIOSIZE" value="'rt_merge_maxiosize'"/>
+  <constant type="string" name="RT_MERGE_IOPS" value="'rt_merge_iops'"/>
+  <constant type="string" name="PERSISTENT_CONNECTIONS_LIMIT" value="'persistent_connections_limit'"/>
+  <constant type="string" name="HA_PERIOD_KARMA" value="'ha_period_karma'"/>
+  <constant type="string" name="HA_PING_INTERVAL" value="'ha_ping_interval'"/>
+  <constant type="string" name="SPHINXQL_STATE" value="'sphinxql_state'"/>
+  <constant type="string" name="PREFORK_ROTATION_THROTTLE" value="'prefork_rotation_throttle'"/>
+  <constant type="string" name="WATCHDOG" value="'watchdog'"/>
+  <constant type="string" name="COMPAT_SPHINXQL_MAGICS" value="'compat_sphinxql_magics'"/>
+  <constant type="string" name="EXPANSION_LIMIT" value="'expansion_limit'"/>
+  <constant type="string" name="THREAD_STACK" value="'thread_stack'"/>
+  <constant type="string" name="RT_FLUSH_PERIOD" value="'rt_flush_period'"/>
+  <constant type="string" name="MYSQL_VERSION_STRING" value="'mysql_version_string'"/>
+  <constant type="string" name="PLUGIN_DIR" value="'plugin_dir'"/>
+  <constant type="string" name="COLLATION_LIBC_LOCALE" value="'collation_libc_locale'"/>
+  <constant type="string" name="COLLATION_SERVER" value="'collation_server'"/>
+  <constant type="string" name="SNIPPETS_FILE_PREFIX" value="'snippets_file_prefix'"/>
+  <constant type="string" name="BINLOG_MAX_LOG_SIZE" value="'binlog_max_log_size'"/>
+  <constant type="string" name="BINLOG_FLUSH" value="'binlog_flush'"/>
+  <constant type="string" name="BINLOG_PATH" value="'binlog_path'"/>
+  <constant type="string" name="DIST_THREADS" value="'dist_threads'"/>
+  <constant type="string" name="WORKERS" value="'workers'"/>
+  <constant type="string" name="SUBTREE_HITS_CACHE" value="'subtree_hits_cache'"/>
+  <constant type="string" name="SUBTREE_DOCS_CACHE" value="'subtree_docs_cache'"/>
+  <constant type="string" name="MAX_BATCH_QUERIES" value="'max_batch_queries'"/>
+  <constant type="string" name="READ_UNHINTED" value="'read_unhinted'"/>
+  <constant type="string" name="READ_BUFFER" value="'read_buffer'"/>
+  <constant type="string" name="LISTEN_BACKLOG" value="'listen_backlog'"/>
+  <constant type="string" name="MAX_FILTER_VALUES" value="'max_filter_values'"/>
+  <constant type="string" name="MAX_FILTERS" value="'max_filters'"/>
+  <constant type="string" name="CRASH_LOG_PATH" value="'crash_log_path'"/>
+  <constant type="string" name="MVA_UPDATES_POOL" value="'mva_updates_pool'"/>
+  <constant type="string" name="MAX_PACKET_SIZE" value="'max_packet_size'"/>
+  <constant type="string" name="ONDISK_DICT_DEFAULT" value="'ondisk_dict_default'"/>
+  <constant type="string" name="ATTR_FLUSH_PERIOD" value="'attr_flush_period'"/>
+  <constant type="string" name="UNLINK_OLD" value="'unlink_old'"/>
+  <constant type="string" name="PREOPEN_INDEXES" value="'preopen_indexes'"/>
+  <constant type="string" name="SEAMLESS_ROTATE" value="'seamless_rotate'"/>
+  <constant type="string" name="MAX_MATCHES" value="'max_matches'"/>
+  <constant type="string" name="PID_FILE" value="'pid_file'"/>
+  <constant type="string" name="MAX_CHILDREN" value="'max_children'"/>
+  <constant type="string" name="CLIENT_TIMEOUT" value="'client_timeout'"/>
+  <constant type="string" name="READ_TIMEOUT" value="'read_timeout'"/>
+  <constant type="string" name="QUERY_LOG_FORMAT" value="'query_log_format'"/>
+  <constant type="string" name="QUERY_LOG" value="'query_log'"/>
+  <constant type="string" name="LOG" value="'log'"/>
+  <constant type="string" name="PORT" value="'port'"/>
+  <constant type="string" name="ADDRESS" value="'address'"/>
+  <constant type="string" name="LISTEN" value="'listen'"/>
+  <constant type="string" name="ONDISK_ATTRS_DEFAULT" value="'ondisk_attrs_default'"/>
+  <constant type="string" name="SHUTDOWN_TIMEOUT" value="'shutdown_timeout'"/>
+  <constant type="string" name="QUERY_LOG_MIN_MSEC" value="'query_log_min_msec'"/>
+  <constant type="string" name="AGENT_RETRY_DELAY" value="'agent_retry_delay'"/>
+  <constant type="string" name="AGENT_RETRY_COUNT" value="'agent_retry_count'"/>
+  <constant type="string" name="AGENT_QUERY_TIMEOUT" value="'agent_query_timeout'"/>
+  <constant type="string" name="AGENT_CONNECT_TIMEOUT" value="'agent_connect_timeout'"/>
+  <parent full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption">
+    <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  </parent>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

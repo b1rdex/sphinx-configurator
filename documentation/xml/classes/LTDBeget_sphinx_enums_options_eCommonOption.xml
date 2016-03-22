@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\options\eCommonOption" namespace="LTDBeget\sphinx\enums\options" name="eCommonOption" abstract="false" final="true" start="25" end="36">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eCommonOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eCommonOption.php" size="1240" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="46ee26f51a111bc00059df71330e057e052ff1a8" relative="LTDBeget/sphinx/enums/options/eCommonOption.php"/>
+  <docblock>
+    <description compact="Class eCommonOption"/>
+    <package value="LTDBeget\sphinx\informer\enums\options"/>
+    <method value="static eCommonOption RLP_MAX_BATCH_DOCS()"/>
+    <method value="static eCommonOption RLP_MAX_BATCH_SIZE()"/>
+    <method value="static eCommonOption RLP_ENVIRONMENT()"/>
+    <method value="static eCommonOption RLP_ROOT()"/>
+    <method value="static eCommonOption JSON_AUTOCONV_KEYNAMES()"/>
+    <method value="static eCommonOption JSON_AUTOCONV_NUMBERS()"/>
+    <method value="static eCommonOption ON_JSON_ATTR_ERROR()"/>
+    <method value="static eCommonOption LEMMATIZER_BASE()"/>
+    <method value="static eCommonOption PLUGIN_DIR()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+  <constant type="string" name="RLP_MAX_BATCH_DOCS" value="'rlp_max_batch_docs'"/>
+  <constant type="string" name="RLP_MAX_BATCH_SIZE" value="'rlp_max_batch_size'"/>
+  <constant type="string" name="RLP_ENVIRONMENT" value="'rlp_environment'"/>
+  <constant type="string" name="RLP_ROOT" value="'rlp_root'"/>
+  <constant type="string" name="JSON_AUTOCONV_KEYNAMES" value="'json_autoconv_keynames'"/>
+  <constant type="string" name="JSON_AUTOCONV_NUMBERS" value="'json_autoconv_numbers'"/>
+  <constant type="string" name="ON_JSON_ATTR_ERROR" value="'on_json_attr_error'"/>
+  <constant type="string" name="LEMMATIZER_BASE" value="'lemmatizer_base'"/>
+  <constant type="string" name="PLUGIN_DIR" value="'plugin_dir'"/>
+  <parent full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption">
+    <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  </parent>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

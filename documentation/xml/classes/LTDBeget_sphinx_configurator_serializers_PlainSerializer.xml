@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\serializers\PlainSerializer" namespace="LTDBeget\sphinx\configurator\serializers" name="PlainSerializer" abstract="false" final="true" start="19" end="140">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers" file="PlainSerializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/serializers/PlainSerializer.php" size="3129" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="ac8d32ae0cf5e2ebfda15942a505ae838f1f8af1" relative="LTDBeget/sphinx/configurator/serializers/PlainSerializer.php"/>
+  <docblock>
+    <description compact="Class PlainSerializer serialize Configuration object to string for file .conf"/>
+    <package value="LTDBeget\sphinx\configurator\serializers"/>
+  </docblock>
+  <method name="serialize" start="29" end="35" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make plain content for sphinx configuration file from Configuration object"/>
+      <param type="object" variable="$configuration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+    <parameter name="configuration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </method>
+  <method name="serializeInternal" start="42" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeSources" start="56" end="61" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="serializeIndexes" start="66" end="71" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="serializeIndexer" start="76" end="81" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="serializeSearchd" start="86" end="91" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="serializeCommon" start="97" end="102" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="serializeSection" start="109" end="121" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </param>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="127" end="129" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </constructor>
+  <member name="string" type="string" default="''" visibility="private" static="false" line="134">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="object" visibility="private" static="false" line="139">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </var>
+    </docblock>
+  </member>
+</class>

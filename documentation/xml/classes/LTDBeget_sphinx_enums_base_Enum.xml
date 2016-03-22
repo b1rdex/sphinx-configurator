@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum" abstract="true" final="false" start="15" end="24">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/base" file="Enum.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/base/Enum.php" size="364" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="2b5f04392e4834b4e3fb387917b7df1fd4ca4bd3" relative="LTDBeget/sphinx/enums/base/Enum.php"/>
+  <docblock>
+    <description compact="Class Enum"/>
+    <package value="LTDBeget\sphinx\enums\base"/>
+  </docblock>
+  <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+  <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <extenders>
+    <extender full="LTDBeget\sphinx\enums\options\eSourceOption" namespace="LTDBeget\sphinx\enums\options" name="eSourceOption"/>
+    <extender full="LTDBeget\sphinx\enums\options\eIndexerOption" namespace="LTDBeget\sphinx\enums\options" name="eIndexerOption"/>
+    <extender full="LTDBeget\sphinx\enums\options\eSearchdOption" namespace="LTDBeget\sphinx\enums\options" name="eSearchdOption"/>
+    <extender full="LTDBeget\sphinx\enums\options\eCommonOption" namespace="LTDBeget\sphinx\enums\options" name="eCommonOption"/>
+    <extender full="LTDBeget\sphinx\enums\options\eIndexOption" namespace="LTDBeget\sphinx\enums\options" name="eIndexOption"/>
+    <extender full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+    <extender full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    <extender full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+  </extenders>
+</class>

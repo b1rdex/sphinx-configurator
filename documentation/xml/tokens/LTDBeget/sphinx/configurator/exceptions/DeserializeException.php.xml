@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/exceptions" file="DeserializeException.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/exceptions/DeserializeException.php" size="281" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="60ef434ff1d865586abe309037dd04d2e80d341c" relative="LTDBeget/sphinx/configurator/exceptions/DeserializeException.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * @author: Viskov Sergey</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * @date  : 22.03.16</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * @time  : 0:27</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">LTDBeget</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">sphinx</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">configurator</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">exceptions</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9"/>
+  <line no="10">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * Class DeserializeException</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * @package LTDBeget\sphinx\configurator\exceptions</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="15">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">DeserializeException</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">RuntimeException</token>
+  </line>
+  <line no="16">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="17"/>
+  <line no="18">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+</source>

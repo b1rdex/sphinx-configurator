@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\options\eSourceOption" namespace="LTDBeget\sphinx\enums\options" name="eSourceOption" abstract="false" final="true" start="77" end="140">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eSourceOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eSourceOption.php" size="7088" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="13f0440bf439b6312b9d9df9b526c98c6b96e8f0" relative="LTDBeget/sphinx/enums/options/eSourceOption.php"/>
+  <docblock>
+    <description compact="Class eSourceOption"/>
+    <package value="LTDBeget\sphinx\informer\enums\options"/>
+    <method value="static eSourceOption UNPACK_MYSQLCOMPRESS_MAXSIZE()"/>
+    <method value="static eSourceOption UNPACK_MYSQLCOMPRESS()"/>
+    <method value="static eSourceOption UNPACK_ZLIB()"/>
+    <method value="static eSourceOption MSSQL_UNICODE()"/>
+    <method value="static eSourceOption MSSQL_WINAUTH()"/>
+    <method value="static eSourceOption XMLPIPE_FIXUP_UTF8()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_JSON()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_WORDCOUNT()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_STRING()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_MULTI_64()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_MULTI()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_FLOAT()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_STR2ORDINAL()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_TIMESTAMP()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_BOOL()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_BIGINT()"/>
+    <method value="static eSourceOption XMLPIPE_ATTR_UINT()"/>
+    <method value="static eSourceOption XMLPIPE_FIELD_WORDCOUNT()"/>
+    <method value="static eSourceOption XMLPIPE_FIELD_STRING()"/>
+    <method value="static eSourceOption XMLPIPE_FIELD()"/>
+    <method value="static eSourceOption XMLPIPE_COMMAND()"/>
+    <method value="static eSourceOption SQL_QUERY_INFO()"/>
+    <method value="static eSourceOption SQL_RANGED_THROTTLE()"/>
+    <method value="static eSourceOption SQL_QUERY_POST_INDEX()"/>
+    <method value="static eSourceOption SQL_QUERY_POST()"/>
+    <method value="static eSourceOption SQL_FILE_FIELD()"/>
+    <method value="static eSourceOption SQL_FIELD_STR2WORDCOUNT()"/>
+    <method value="static eSourceOption SQL_FIELD_STRING()"/>
+    <method value="static eSourceOption SQL_COLUMN_BUFFERS()"/>
+    <method value="static eSourceOption SQL_ATTR_STR2WORDCOUNT()"/>
+    <method value="static eSourceOption SQL_ATTR_JSON()"/>
+    <method value="static eSourceOption SQL_ATTR_STRING()"/>
+    <method value="static eSourceOption SQL_ATTR_MULTI()"/>
+    <method value="static eSourceOption SQL_ATTR_FLOAT()"/>
+    <method value="static eSourceOption SQL_ATTR_STR2ORDINAL()"/>
+    <method value="static eSourceOption SQL_ATTR_TIMESTAMP()"/>
+    <method value="static eSourceOption SQL_ATTR_BIGINT()"/>
+    <method value="static eSourceOption SQL_ATTR_BOOL()"/>
+    <method value="static eSourceOption SQL_ATTR_UINT()"/>
+    <method value="static eSourceOption SQL_QUERY_KILLLIST()"/>
+    <method value="static eSourceOption SQL_RANGE_STEP()"/>
+    <method value="static eSourceOption SQL_QUERY_RANGE()"/>
+    <method value="static eSourceOption SQL_JOINED_FIELD()"/>
+    <method value="static eSourceOption SQL_QUERY()"/>
+    <method value="static eSourceOption SQL_QUERY_PRE()"/>
+    <method value="static eSourceOption ODBC_DSN()"/>
+    <method value="static eSourceOption MYSQL_SSL_CERT()"/>
+    <method value="static eSourceOption MYSQL_SSL_KEY()"/>
+    <method value="static eSourceOption MYSQL_SSL_CA()"/>
+    <method value="static eSourceOption MYSQL_CONNECT_FLAGS()"/>
+    <method value="static eSourceOption ON_JSON_ATTR_ERROR()"/>
+    <method value="static eSourceOption JSON_AUTOCONV_KEYNAMES()"/>
+    <method value="static eSourceOption JSON_AUTOCONV_NUMBERS()"/>
+    <method value="static eSourceOption SQL_SOCK()"/>
+    <method value="static eSourceOption SQL_DB()"/>
+    <method value="static eSourceOption SQL_PASS()"/>
+    <method value="static eSourceOption SQL_USER()"/>
+    <method value="static eSourceOption SQL_PORT()"/>
+    <method value="static eSourceOption SQL_HOST()"/>
+    <method value="static eSourceOption TYPE()"/>
+    <method value="static eSourceOption CSVPIPE_DELIMITER()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+  <constant type="string" name="UNPACK_MYSQLCOMPRESS_MAXSIZE" value="'unpack_mysqlcompress_maxsize'"/>
+  <constant type="string" name="UNPACK_MYSQLCOMPRESS" value="'unpack_mysqlcompress'"/>
+  <constant type="string" name="UNPACK_ZLIB" value="'unpack_zlib'"/>
+  <constant type="string" name="MSSQL_UNICODE" value="'mssql_unicode'"/>
+  <constant type="string" name="MSSQL_WINAUTH" value="'mssql_winauth'"/>
+  <constant type="string" name="XMLPIPE_FIXUP_UTF8" value="'xmlpipe_fixup_utf8'"/>
+  <constant type="string" name="XMLPIPE_ATTR_JSON" value="'xmlpipe_attr_json'"/>
+  <constant type="string" name="XMLPIPE_ATTR_WORDCOUNT" value="'xmlpipe_attr_wordcount'"/>
+  <constant type="string" name="XMLPIPE_ATTR_STRING" value="'xmlpipe_attr_string'"/>
+  <constant type="string" name="XMLPIPE_ATTR_MULTI_64" value="'xmlpipe_attr_multi_64'"/>
+  <constant type="string" name="XMLPIPE_ATTR_MULTI" value="'xmlpipe_attr_multi'"/>
+  <constant type="string" name="XMLPIPE_ATTR_FLOAT" value="'xmlpipe_attr_float'"/>
+  <constant type="string" name="XMLPIPE_ATTR_STR2ORDINAL" value="'xmlpipe_attr_str2ordinal'"/>
+  <constant type="string" name="XMLPIPE_ATTR_TIMESTAMP" value="'xmlpipe_attr_timestamp'"/>
+  <constant type="string" name="XMLPIPE_ATTR_BOOL" value="'xmlpipe_attr_bool'"/>
+  <constant type="string" name="XMLPIPE_ATTR_BIGINT" value="'xmlpipe_attr_bigint'"/>
+  <constant type="string" name="XMLPIPE_ATTR_UINT" value="'xmlpipe_attr_uint'"/>
+  <constant type="string" name="XMLPIPE_FIELD_WORDCOUNT" value="'xmlpipe_field_wordcount'"/>
+  <constant type="string" name="XMLPIPE_FIELD_STRING" value="'xmlpipe_field_string'"/>
+  <constant type="string" name="XMLPIPE_FIELD" value="'xmlpipe_field'"/>
+  <constant type="string" name="XMLPIPE_COMMAND" value="'xmlpipe_command'"/>
+  <constant type="string" name="SQL_QUERY_INFO" value="'sql_query_info'"/>
+  <constant type="string" name="SQL_RANGED_THROTTLE" value="'sql_ranged_throttle'"/>
+  <constant type="string" name="SQL_QUERY_POST_INDEX" value="'sql_query_post_index'"/>
+  <constant type="string" name="SQL_QUERY_POST" value="'sql_query_post'"/>
+  <constant type="string" name="SQL_FILE_FIELD" value="'sql_file_field'"/>
+  <constant type="string" name="SQL_FIELD_STR2WORDCOUNT" value="'sql_field_str2wordcount'"/>
+  <constant type="string" name="SQL_FIELD_STRING" value="'sql_field_string'"/>
+  <constant type="string" name="SQL_COLUMN_BUFFERS" value="'sql_column_buffers'"/>
+  <constant type="string" name="SQL_ATTR_STR2WORDCOUNT" value="'sql_attr_str2wordcount'"/>
+  <constant type="string" name="SQL_ATTR_JSON" value="'sql_attr_json'"/>
+  <constant type="string" name="SQL_ATTR_STRING" value="'sql_attr_string'"/>
+  <constant type="string" name="SQL_ATTR_MULTI" value="'sql_attr_multi'"/>
+  <constant type="string" name="SQL_ATTR_FLOAT" value="'sql_attr_float'"/>
+  <constant type="string" name="SQL_ATTR_STR2ORDINAL" value="'sql_attr_str2ordinal'"/>
+  <constant type="string" name="SQL_ATTR_TIMESTAMP" value="'sql_attr_timestamp'"/>
+  <constant type="string" name="SQL_ATTR_BIGINT" value="'sql_attr_bigint'"/>
+  <constant type="string" name="SQL_ATTR_BOOL" value="'sql_attr_bool'"/>
+  <constant type="string" name="SQL_ATTR_UINT" value="'sql_attr_uint'"/>
+  <constant type="string" name="SQL_QUERY_KILLLIST" value="'sql_query_killlist'"/>
+  <constant type="string" name="SQL_RANGE_STEP" value="'sql_range_step'"/>
+  <constant type="string" name="SQL_QUERY_RANGE" value="'sql_query_range'"/>
+  <constant type="string" name="SQL_JOINED_FIELD" value="'sql_joined_field'"/>
+  <constant type="string" name="SQL_QUERY" value="'sql_query'"/>
+  <constant type="string" name="SQL_QUERY_PRE" value="'sql_query_pre'"/>
+  <constant type="string" name="ODBC_DSN" value="'odbc_dsn'"/>
+  <constant type="string" name="MYSQL_SSL_CERT" value="'mysql_ssl_cert'"/>
+  <constant type="string" name="MYSQL_SSL_KEY" value="'mysql_ssl_key'"/>
+  <constant type="string" name="MYSQL_SSL_CA" value="'mysql_ssl_ca'"/>
+  <constant type="string" name="MYSQL_CONNECT_FLAGS" value="'mysql_connect_flags'"/>
+  <constant type="string" name="ON_JSON_ATTR_ERROR" value="'on_json_attr_error'"/>
+  <constant type="string" name="JSON_AUTOCONV_KEYNAMES" value="'json_autoconv_keynames'"/>
+  <constant type="string" name="JSON_AUTOCONV_NUMBERS" value="'json_autoconv_numbers'"/>
+  <constant type="string" name="SQL_SOCK" value="'sql_sock'"/>
+  <constant type="string" name="SQL_DB" value="'sql_db'"/>
+  <constant type="string" name="SQL_PASS" value="'sql_pass'"/>
+  <constant type="string" name="SQL_USER" value="'sql_user'"/>
+  <constant type="string" name="SQL_PORT" value="'sql_port'"/>
+  <constant type="string" name="SQL_HOST" value="'sql_host'"/>
+  <constant type="string" name="TYPE" value="'type'"/>
+  <constant type="string" name="CSVPIPE_DELIMITER" value="'csvpipe_delimiter'"/>
+  <parent full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption">
+    <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  </parent>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

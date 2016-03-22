@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration" abstract="false" final="false" start="31" end="362">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator" file="Configuration.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/Configuration.php" size="9220" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="11fd3f678634a0705b12f79cd6b384d57ea22bec" relative="LTDBeget/sphinx/configurator/Configuration.php"/>
+  <docblock>
+    <description compact="Class Configuration"/>
+    <package value="LTDBeget\sphinx\configurator"/>
+  </docblock>
+  <method name="fromString" start="48" end="51" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$plainData"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\SyntaxErrorException" namespace="\LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="plainData" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="fromArray" start="67" end="70" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$plainData"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+    </docblock>
+    <parameter name="plainData" byreference="false" type="array"/>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <method name="fromJson" start="86" end="89" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$plainData"/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="plainData" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="99" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Configuration constructor."/>
+      <param type="object" variable="$version">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\informer\exceptions\DocumentationSourceException" namespace="\LTDBeget\sphinx\informer\exceptions" name="DocumentationSourceException"/>
+      </throws>
+      <throws type="object">
+        <type full="\Symfony\Component\Yaml\Exception\ParseException" namespace="\Symfony\Component\Yaml\Exception" name="ParseException"/>
+      </throws>
+    </docblock>
+    <parameter name="version" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+    </parameter>
+  </constructor>
+  <method name="__toString" start="108" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="toArray" start="126" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="toJson" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="getInformer" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getVersion" start="154" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addSource" start="169" end="175" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$inheritanceName">
+        <type full="LTDBeget\sphinx\configurator\string|null" namespace="LTDBeget\sphinx\configurator" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Source" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Source"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+    <parameter name="inheritanceName" byreference="false" type="{unknown}" default="" constant="NULL">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+  </method>
+  <method name="iterateSource" start="180" end="187" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\Source" namespace="LTDBeget\sphinx\configurator" name="Source"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="addIndex" start="199" end="205" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="object" variable="$inheritanceName">
+        <type full="LTDBeget\sphinx\configurator\string|null" namespace="LTDBeget\sphinx\configurator" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Index" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Index"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+    <parameter name="inheritanceName" byreference="false" type="{unknown}" default="" constant="NULL">
+      <type full="LTDBeget\sphinx\configurator\string" namespace="LTDBeget\sphinx\configurator" name="string"/>
+    </parameter>
+  </method>
+  <method name="iterateIndex" start="210" end="217" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\Index" namespace="LTDBeget\sphinx\configurator" name="Index"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isAllowedSection" start="224" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\bool" namespace="LTDBeget\sphinx\configurator" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+  </method>
+  <method name="getIndexer" start="232" end="239" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Indexer" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Indexer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getSearchd" start="244" end="251" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Searchd" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Searchd"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getCommon" start="257" end="269" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Common" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Common"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="isHasIndexer" start="274" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\bool" namespace="LTDBeget\sphinx\configurator" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isHasSearchd" start="282" end="285" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\bool" namespace="LTDBeget\sphinx\configurator" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="isHasCommon" start="290" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\bool" namespace="LTDBeget\sphinx\configurator" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="initIndexer" start="299" end="304" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="initSearchd" start="310" end="315" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="initCommon" start="321" end="326" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+    </docblock>
+  </method>
+  <member name="version" visibility="private" static="false" line="331">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\enums\eVersion" namespace="LTDBeget\sphinx\enums" name="eVersion"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="informer" visibility="private" static="false" line="336">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\informer\Informer" namespace="LTDBeget\sphinx\informer" name="Informer"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="sources" type="array" default="" visibility="private" static="false" line="341">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\Source" namespace="LTDBeget\sphinx\configurator" name="Source"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="indexes" type="array" default="" visibility="private" static="false" line="346">
+    <docblock>
+      <description/>
+      <var type="array" of="object">
+        <type full="LTDBeget\sphinx\configurator\Index" namespace="LTDBeget\sphinx\configurator" name="Index"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="indexer" visibility="private" static="false" line="351">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Indexer" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Indexer"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="searchd" visibility="private" static="false" line="356">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Searchd" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Searchd"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="common" visibility="private" static="false" line="361">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\sections\Common" namespace="LTDBeget\sphinx\configurator\configurationEntities\sections" name="Common"/>
+      </var>
+    </docblock>
+  </member>
+</class>

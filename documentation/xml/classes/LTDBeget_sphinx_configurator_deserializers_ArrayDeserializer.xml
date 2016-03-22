@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\configurator\deserializers\ArrayDeserializer" namespace="LTDBeget\sphinx\configurator\deserializers" name="ArrayDeserializer" abstract="false" final="true" start="22" end="225">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers" file="ArrayDeserializer.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/configurator/deserializers/ArrayDeserializer.php" size="7052" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="32340cea731ad6369c3c80587a6fd9f4d0d3a62b" relative="LTDBeget/sphinx/configurator/deserializers/ArrayDeserializer.php"/>
+  <docblock>
+    <description compact="Class ArrayDeserializer Serialize correct array to Configuration object"/>
+    <package value="LTDBeget\sphinx\configurator\deserializers"/>
+  </docblock>
+  <method name="deserialize" start="38" end="45" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Make Configuration object from array serialized content of sphinx configuration file"/>
+      <param type="array" variable="$arrayConfiguration"/>
+      <param type="object" variable="$objectConfiguration">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </param>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+    </docblock>
+    <parameter name="arrayConfiguration" byreference="false" type="array"/>
+    <parameter name="objectConfiguration" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="51" end="53" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </constructor>
+  <method name="deserializeInternal" start="65" end="78" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="deserializeSection" start="93" end="120" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="array" variable="$section_data"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </return>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\SectionException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="SectionException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\ConfigurationException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="ConfigurationException"/>
+      </throws>
+    </docblock>
+    <parameter name="section_data" byreference="false" type="array"/>
+  </method>
+  <method name="deserializeOptions" start="132" end="148" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="array" variable="$options"/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </param>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+    </parameter>
+  </method>
+  <method name="deserializeOption" start="161" end="174" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </param>
+      <param variable="$optionName"/>
+      <param variable="$optionValue"/>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+    </parameter>
+    <parameter name="optionName" byreference="false" type="{unknown}"/>
+    <parameter name="optionValue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOptionName" start="187" end="200" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+      </param>
+      <param type="string" variable="$name"/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+      </return>
+      <throws type="object">
+        <type full="\LogicException" namespace="" name="LogicException"/>
+      </throws>
+      <throws type="object">
+        <type full="\InvalidArgumentException" namespace="" name="InvalidArgumentException"/>
+      </throws>
+      <throws type="object">
+        <type full="\LTDBeget\sphinx\configurator\exceptions\DeserializeException" namespace="\LTDBeget\sphinx\configurator\exceptions" name="DeserializeException"/>
+      </throws>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\configurationEntities\base\Section" namespace="LTDBeget\sphinx\configurator\configurationEntities\base" name="Section"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\configurator\deserializers\string" namespace="LTDBeget\sphinx\configurator\deserializers" name="string"/>
+    </parameter>
+  </method>
+  <method name="getOptionNameClass" start="209" end="214" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$section">
+        <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="section" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\enums\eSection" namespace="LTDBeget\sphinx\enums" name="eSection"/>
+    </parameter>
+  </method>
+  <member name="arrayConfiguration" type="array" default="" visibility="private" static="false" line="219">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="objectConfiguration" visibility="private" static="false" line="224">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\sphinx\configurator\Configuration" namespace="LTDBeget\sphinx\configurator" name="Configuration"/>
+      </var>
+    </docblock>
+  </member>
+</class>

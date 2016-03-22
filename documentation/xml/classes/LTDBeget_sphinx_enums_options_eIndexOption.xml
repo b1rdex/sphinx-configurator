@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\enums\options\eIndexOption" namespace="LTDBeget\sphinx\enums\options" name="eIndexOption" abstract="false" final="true" start="87" end="160">
+  <file path="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options" file="eIndexOption.php" realpath="/home/damien/projects/sphinx-configurator/src/LTDBeget/sphinx/enums/options/eIndexOption.php" size="7182" time="2016-03-22T17:52:31+00:00" unixtime="1458669151" sha1="d77fd1fe927dd81b1e80c9f141b5102dd522a7d3" relative="LTDBeget/sphinx/enums/options/eIndexOption.php"/>
+  <docblock>
+    <description compact="Class eIndexOption"/>
+    <package value="LTDBeget\sphinx\informer\enums\options"/>
+    <method value="static eIndexOption GLOBAL_IDF()"/>
+    <method value="static eIndexOption STOPWORDS_UNSTEMMED()"/>
+    <method value="static eIndexOption REGEXP_FILTER()"/>
+    <method value="static eIndexOption INDEX_FIELD_LENGTHS()"/>
+    <method value="static eIndexOption BIGRAM_INDEX()"/>
+    <method value="static eIndexOption BIGRAM_FREQ_WORDS()"/>
+    <method value="static eIndexOption HA_STRATEGY()"/>
+    <method value="static eIndexOption RT_ATTR_JSON()"/>
+    <method value="static eIndexOption RT_ATTR_STRING()"/>
+    <method value="static eIndexOption RT_ATTR_TIMESTAMP()"/>
+    <method value="static eIndexOption RT_ATTR_MULTI_64()"/>
+    <method value="static eIndexOption RT_ATTR_MULTI()"/>
+    <method value="static eIndexOption RT_ATTR_FLOAT()"/>
+    <method value="static eIndexOption RT_ATTR_BIGINT()"/>
+    <method value="static eIndexOption RT_ATTR_UINT()"/>
+    <method value="static eIndexOption RT_FIELD()"/>
+    <method value="static eIndexOption RT_MEM_LIMIT()"/>
+    <method value="static eIndexOption BLEND_MODE()"/>
+    <method value="static eIndexOption BLEND_CHARS()"/>
+    <method value="static eIndexOption EXPAND_KEYWORDS()"/>
+    <method value="static eIndexOption HITLESS_WORDS()"/>
+    <method value="static eIndexOption STOPWORD_STEP()"/>
+    <method value="static eIndexOption OVERSHORT_STEP()"/>
+    <method value="static eIndexOption INDEX_EXACT_WORDS()"/>
+    <method value="static eIndexOption INPLACE_WRITE_FACTOR()"/>
+    <method value="static eIndexOption INPLACE_RELOC_FACTOR()"/>
+    <method value="static eIndexOption INPLACE_DOCINFO_GAP()"/>
+    <method value="static eIndexOption INPLACE_HIT_GAP()"/>
+    <method value="static eIndexOption INPLACE_ENABLE()"/>
+    <method value="static eIndexOption ONDISK_DICT()"/>
+    <method value="static eIndexOption PREOPEN()"/>
+    <method value="static eIndexOption AGENT_QUERY_TIMEOUT()"/>
+    <method value="static eIndexOption AGENT_CONNECT_TIMEOUT()"/>
+    <method value="static eIndexOption AGENT_BLACKHOLE()"/>
+    <method value="static eIndexOption AGENT_PERSISTENT()"/>
+    <method value="static eIndexOption AGENT()"/>
+    <method value="static eIndexOption LOCAL()"/>
+    <method value="static eIndexOption HTML_REMOVE_ELEMENTS()"/>
+    <method value="static eIndexOption HTML_INDEX_ATTRS()"/>
+    <method value="static eIndexOption HTML_STRIP()"/>
+    <method value="static eIndexOption PHRASE_BOUNDARY_STEP()"/>
+    <method value="static eIndexOption PHRASE_BOUNDARY()"/>
+    <method value="static eIndexOption NGRAM_CHARS()"/>
+    <method value="static eIndexOption NGRAM_LEN()"/>
+    <method value="static eIndexOption ENABLE_STAR()"/>
+    <method value="static eIndexOption INFIX_FIELDS()"/>
+    <method value="static eIndexOption PREFIX_FIELDS()"/>
+    <method value="static eIndexOption MAX_SUBSTRING_LEN()"/>
+    <method value="static eIndexOption MIN_INFIX_LEN()"/>
+    <method value="static eIndexOption MIN_PREFIX_LEN()"/>
+    <method value="static eIndexOption IGNORE_CHARS()"/>
+    <method value="static eIndexOption CHARSET_TABLE()"/>
+    <method value="static eIndexOption CHARSET_TYPE()"/>
+    <method value="static eIndexOption MIN_WORD_LEN()"/>
+    <method value="static eIndexOption EXCEPTIONS()"/>
+    <method value="static eIndexOption EMBEDDED_LIMIT()"/>
+    <method value="static eIndexOption WORDFORMS()"/>
+    <method value="static eIndexOption STOPWORDS()"/>
+    <method value="static eIndexOption MIN_STEMMING_LEN()"/>
+    <method value="static eIndexOption INDEX_ZONES()"/>
+    <method value="static eIndexOption INDEX_SP()"/>
+    <method value="static eIndexOption DICT()"/>
+    <method value="static eIndexOption MORPHOLOGY()"/>
+    <method value="static eIndexOption MLOCK()"/>
+    <method value="static eIndexOption DOCINFO()"/>
+    <method value="static eIndexOption PATH()"/>
+    <method value="static eIndexOption SOURCE()"/>
+    <method value="static eIndexOption TYPE()"/>
+    <method value="static eIndexOption RT_ATTR_BOOL()"/>
+    <method value="static eIndexOption ONDISK_ATTRS()"/>
+    <method value="static eIndexOption RLP_CONTEXT()"/>
+  </docblock>
+  <extends full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption"/>
+  <constant type="string" name="GLOBAL_IDF" value="'global_idf'"/>
+  <constant type="string" name="STOPWORDS_UNSTEMMED" value="'stopwords_unstemmed'"/>
+  <constant type="string" name="REGEXP_FILTER" value="'regexp_filter'"/>
+  <constant type="string" name="INDEX_FIELD_LENGTHS" value="'index_field_lengths'"/>
+  <constant type="string" name="BIGRAM_INDEX" value="'bigram_index'"/>
+  <constant type="string" name="BIGRAM_FREQ_WORDS" value="'bigram_freq_words'"/>
+  <constant type="string" name="HA_STRATEGY" value="'ha_strategy'"/>
+  <constant type="string" name="RT_ATTR_JSON" value="'rt_attr_json'"/>
+  <constant type="string" name="RT_ATTR_STRING" value="'rt_attr_string'"/>
+  <constant type="string" name="RT_ATTR_TIMESTAMP" value="'rt_attr_timestamp'"/>
+  <constant type="string" name="RT_ATTR_MULTI_64" value="'rt_attr_multi_64'"/>
+  <constant type="string" name="RT_ATTR_MULTI" value="'rt_attr_multi'"/>
+  <constant type="string" name="RT_ATTR_FLOAT" value="'rt_attr_float'"/>
+  <constant type="string" name="RT_ATTR_BIGINT" value="'rt_attr_bigint'"/>
+  <constant type="string" name="RT_ATTR_UINT" value="'rt_attr_uint'"/>
+  <constant type="string" name="RT_FIELD" value="'rt_field'"/>
+  <constant type="string" name="RT_MEM_LIMIT" value="'rt_mem_limit'"/>
+  <constant type="string" name="BLEND_MODE" value="'blend_mode'"/>
+  <constant type="string" name="BLEND_CHARS" value="'blend_chars'"/>
+  <constant type="string" name="EXPAND_KEYWORDS" value="'expand_keywords'"/>
+  <constant type="string" name="HITLESS_WORDS" value="'hitless_words'"/>
+  <constant type="string" name="STOPWORD_STEP" value="'stopword_step'"/>
+  <constant type="string" name="OVERSHORT_STEP" value="'overshort_step'"/>
+  <constant type="string" name="INDEX_EXACT_WORDS" value="'index_exact_words'"/>
+  <constant type="string" name="INPLACE_WRITE_FACTOR" value="'inplace_write_factor'"/>
+  <constant type="string" name="INPLACE_RELOC_FACTOR" value="'inplace_reloc_factor'"/>
+  <constant type="string" name="INPLACE_DOCINFO_GAP" value="'inplace_docinfo_gap'"/>
+  <constant type="string" name="INPLACE_HIT_GAP" value="'inplace_hit_gap'"/>
+  <constant type="string" name="INPLACE_ENABLE" value="'inplace_enable'"/>
+  <constant type="string" name="ONDISK_DICT" value="'ondisk_dict'"/>
+  <constant type="string" name="PREOPEN" value="'preopen'"/>
+  <constant type="string" name="AGENT_QUERY_TIMEOUT" value="'agent_query_timeout'"/>
+  <constant type="string" name="AGENT_CONNECT_TIMEOUT" value="'agent_connect_timeout'"/>
+  <constant type="string" name="AGENT_BLACKHOLE" value="'agent_blackhole'"/>
+  <constant type="string" name="AGENT_PERSISTENT" value="'agent_persistent'"/>
+  <constant type="string" name="AGENT" value="'agent'"/>
+  <constant type="string" name="LOCAL" value="'local'"/>
+  <constant type="string" name="HTML_REMOVE_ELEMENTS" value="'html_remove_elements'"/>
+  <constant type="string" name="HTML_INDEX_ATTRS" value="'html_index_attrs'"/>
+  <constant type="string" name="HTML_STRIP" value="'html_strip'"/>
+  <constant type="string" name="PHRASE_BOUNDARY_STEP" value="'phrase_boundary_step'"/>
+  <constant type="string" name="PHRASE_BOUNDARY" value="'phrase_boundary'"/>
+  <constant type="string" name="NGRAM_CHARS" value="'ngram_chars'"/>
+  <constant type="string" name="NGRAM_LEN" value="'ngram_len'"/>
+  <constant type="string" name="ENABLE_STAR" value="'enable_star'"/>
+  <constant type="string" name="INFIX_FIELDS" value="'infix_fields'"/>
+  <constant type="string" name="PREFIX_FIELDS" value="'prefix_fields'"/>
+  <constant type="string" name="MAX_SUBSTRING_LEN" value="'max_substring_len'"/>
+  <constant type="string" name="MIN_INFIX_LEN" value="'min_infix_len'"/>
+  <constant type="string" name="MIN_PREFIX_LEN" value="'min_prefix_len'"/>
+  <constant type="string" name="IGNORE_CHARS" value="'ignore_chars'"/>
+  <constant type="string" name="CHARSET_TABLE" value="'charset_table'"/>
+  <constant type="string" name="CHARSET_TYPE" value="'charset_type'"/>
+  <constant type="string" name="MIN_WORD_LEN" value="'min_word_len'"/>
+  <constant type="string" name="EXCEPTIONS" value="'exceptions'"/>
+  <constant type="string" name="EMBEDDED_LIMIT" value="'embedded_limit'"/>
+  <constant type="string" name="WORDFORMS" value="'wordforms'"/>
+  <constant type="string" name="STOPWORDS" value="'stopwords'"/>
+  <constant type="string" name="MIN_STEMMING_LEN" value="'min_stemming_len'"/>
+  <constant type="string" name="INDEX_ZONES" value="'index_zones'"/>
+  <constant type="string" name="INDEX_SP" value="'index_sp'"/>
+  <constant type="string" name="DICT" value="'dict'"/>
+  <constant type="string" name="MORPHOLOGY" value="'morphology'"/>
+  <constant type="string" name="MLOCK" value="'mlock'"/>
+  <constant type="string" name="DOCINFO" value="'docinfo'"/>
+  <constant type="string" name="PATH" value="'path'"/>
+  <constant type="string" name="SOURCE" value="'source'"/>
+  <constant type="string" name="TYPE" value="'type'"/>
+  <constant type="string" name="RT_ATTR_BOOL" value="'rt_attr_bool'"/>
+  <constant type="string" name="ONDISK_ATTRS" value="'ondisk_attrs'"/>
+  <constant type="string" name="RLP_CONTEXT" value="'rlp_context'"/>
+  <parent full="LTDBeget\sphinx\enums\base\eOption" namespace="LTDBeget\sphinx\enums\base" name="eOption">
+    <extends full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum"/>
+  </parent>
+  <parent full="LTDBeget\sphinx\enums\base\Enum" namespace="LTDBeget\sphinx\enums\base" name="Enum">
+    <extends full="MabeEnum\Enum" namespace="MabeEnum" name="Enum" unresolved="true"/>
+    <method name="__toString" start="20" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

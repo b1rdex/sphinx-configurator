@@ -127,5 +127,33 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         /** @noinspection SpellCheckingInspection */
         static::assertEquals('f26517544c25d8ef994622380a0afbe9', $hash);
     }
+    
+    public function testCheckGetInheritance()
+    {
+        $configuration = new Configuration(eVersion::V_2_2_10());
 
+        $parent_name = 'source1';
+        $child_name = 'source2';
+
+        $parent = $configuration->addSource($parent_name);
+        $child = $configuration->addSource($child_name, $parent_name);
+
+        static::assertSame($child->getInheritance(), $parent);
+    }
+
+
+    public function testOnRemoveParentRemoveChild()
+    {
+        $configuration = new Configuration(eVersion::V_2_2_10());
+
+        $parent_name = "source1";
+        $child_name = "source2";
+
+        $parent = $configuration->addSource($parent_name);
+        $child = $configuration->addSource($child_name, $parent_name);
+
+        $parent->delete();
+
+        static::assertTrue($child->isDeleted());
+    }
 }

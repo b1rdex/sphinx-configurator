@@ -73,9 +73,6 @@ class ArraySerializer
     private function serializeSource()
     {
         foreach ($this->objectConfiguration->iterateSource() as $source) {
-            if($source->isDeleted()) {
-                continue;
-            }
             $this->serializeDefinition($source);
         }
     }
@@ -89,9 +86,6 @@ class ArraySerializer
     private function serializeIndex()
     {
         foreach ($this->objectConfiguration->iterateIndex() as $index) {
-            if($index->isDeleted()) {
-                continue;
-            }
             $this->serializeDefinition($index);
         }
     }

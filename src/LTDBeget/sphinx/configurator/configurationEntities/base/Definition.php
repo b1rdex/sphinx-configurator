@@ -16,7 +16,6 @@ use LTDBeget\sphinx\enums\eSection;
 
 /**
  * Class Definition
- * TODO если удален родитель удалить наследника
  * TODO name validation
  * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
@@ -101,6 +100,22 @@ abstract class Definition extends Section
     public function getName() : string
     {
         return $this->name;
+    }
+
+    /**
+     * @throws LogicException
+     * @throws SectionException
+     * @throws InvalidArgumentException
+     */
+    public function delete()
+    {
+        foreach ($this->getSelfTypeIterator() as $definition) {
+            if($definition->isHasInheritance() && $definition->getInheritance() === $this) {
+                $definition->delete();
+            }
+        }
+
+        parent::delete();
     }
 
     /**

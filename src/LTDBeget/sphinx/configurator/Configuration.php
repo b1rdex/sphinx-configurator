@@ -87,6 +87,18 @@ class Configuration
     }
 
     /**
+     * Configuration constructor.
+     * @param eVersion $version
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     */
+    public function __construct(eVersion $version)
+    {
+        $this->version  = $version;
+        $this->informer = Informer::get($this->version);
+    }
+
+    /**
      * @return string
      */
     public function __toString() : string
@@ -163,7 +175,9 @@ class Configuration
     public function iterateSource()
     {
         foreach ($this->sources as $source) {
-            yield $source;
+            if (! $source->isDeleted()) {
+                yield $source;
+            }
         }
     }
 
@@ -190,7 +204,9 @@ class Configuration
     public function iterateIndex()
     {
         foreach ($this->indexes as $index) {
-            yield $index;
+            if (! $index->isDeleted()) {
+                yield $index;
+            }
         }
     }
 
@@ -267,18 +283,6 @@ class Configuration
     public function isHasCommon() : bool
     {
         return null !== $this->common;
-    }
-
-    /**
-     * Configuration constructor.
-     * @param eVersion $version
-     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
-     * @throws \Symfony\Component\Yaml\Exception\ParseException
-     */
-    protected function __construct(eVersion $version)
-    {
-        $this->version  = $version;
-        $this->informer = Informer::get($this->version);
     }
 
     /**

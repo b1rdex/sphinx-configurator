@@ -120,7 +120,7 @@ abstract class Section
     /**
      * mark section as deleted
      */
-    final public function delete()
+    public function delete()
     {
         $this->isDeleted = true;
     }

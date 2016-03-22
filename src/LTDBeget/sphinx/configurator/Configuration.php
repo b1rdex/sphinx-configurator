@@ -28,13 +28,13 @@ use LTDBeget\sphinx\informer\Informer;
  * Class Configuration
  * @package LTDBeget\sphinx\configurator
  */
-/** @noinspection SingletonFactoryPatternViolationInspection */
 class Configuration
 {
     /**
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
@@ -53,6 +53,7 @@ class Configuration
      * @param array $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -70,6 +71,7 @@ class Configuration
      * @param string $plainData
      * @param eVersion $version
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -81,6 +83,18 @@ class Configuration
     public static function fromJson(string $plainData, eVersion $version) : Configuration
     {
         return JsonDeserializer::deserialize($plainData, new self($version));
+    }
+
+    /**
+     * Configuration constructor.
+     * @param eVersion $version
+     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     */
+    public function __construct(eVersion $version)
+    {
+        $this->version  = $version;
+        $this->informer = Informer::get($this->version);
     }
 
     /**
@@ -141,6 +155,7 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Source
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -159,7 +174,9 @@ class Configuration
     public function iterateSource()
     {
         foreach ($this->sources as $source) {
-            yield $source;
+            if (! $source->isDeleted()) {
+                yield $source;
+            }
         }
     }
 
@@ -167,6 +184,7 @@ class Configuration
      * @param string $name
      * @param string|null $inheritanceName
      * @return Index
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -185,7 +203,9 @@ class Configuration
     public function iterateIndex()
     {
         foreach ($this->indexes as $index) {
-            yield $index;
+            if (! $index->isDeleted()) {
+                yield $index;
+            }
         }
     }
 
@@ -262,18 +282,6 @@ class Configuration
     public function isHasCommon() : bool
     {
         return null !== $this->common;
-    }
-
-    /**
-     * Configuration constructor.
-     * @param eVersion $version
-     * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
-     * @throws \Symfony\Component\Yaml\Exception\ParseException
-     */
-    protected function __construct(eVersion $version)
-    {
-        $this->version  = $version;
-        $this->informer = Informer::get($this->version);
     }
 
     /**

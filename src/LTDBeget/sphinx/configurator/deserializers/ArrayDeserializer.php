@@ -31,6 +31,7 @@ final class ArrayDeserializer
      * @param array $arrayConfiguration
      * @param Configuration $objectConfiguration
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \InvalidArgumentException
      * @throws \LogicException
      * @throws \BadMethodCallException
@@ -57,6 +58,7 @@ final class ArrayDeserializer
     /**
      * @internal
      * @return Configuration
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
@@ -82,6 +84,7 @@ final class ArrayDeserializer
      * @internal
      * @param array $section_data
      * @return Section
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      * @throws \InvalidArgumentException

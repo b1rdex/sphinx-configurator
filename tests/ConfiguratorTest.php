@@ -29,6 +29,74 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         
     }
 
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance with name SOmeDummyInheritance of section source doesn't exists in configuration
+     */
+    public function testNotFoundInheritanceSource()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_source.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance with name some_dummy_inheritance of section index doesn't exists in configuration
+     */
+    public function testNotFoundInheritanceIndex()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_index.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Duplicate name mainSource found in source section
+     */
+    public function testDuplicateNameSource()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_source_name.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Duplicate name user_index found in index section
+     */
+    public function testDuplicateNameIndex()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_index_name.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Name of definition must contains only A-Za-z and _ symbols
+     */
+    public function testWrongName()
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        (new Configuration(eVersion::V_2_2_10()))->addSource('SOME WRONG NAME');
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance of definition must contains only A-Za-z and _ symbols
+     */
+    public function testWrongInheritance()
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        (new Configuration(eVersion::V_2_2_10()))->addSource("valid_name", "S o m&^ e shit");
+    }
+
     public function testChainSerializeDeserialize()
     {
         $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
@@ -79,5 +147,33 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         /** @noinspection SpellCheckingInspection */
         static::assertEquals('f26517544c25d8ef994622380a0afbe9', $hash);
     }
+    
+    public function testCheckGetInheritance()
+    {
+        $configuration = new Configuration(eVersion::V_2_2_10());
 
+        $parent_name = 'source1';
+        $child_name = 'source2';
+
+        $parent = $configuration->addSource($parent_name);
+        $child = $configuration->addSource($child_name, $parent_name);
+
+        static::assertSame($child->getInheritance(), $parent);
+    }
+
+
+    public function testOnRemoveParentRemoveChild()
+    {
+        $configuration = new Configuration(eVersion::V_2_2_10());
+
+        $parent_name = "source1";
+        $child_name = "source2";
+
+        $parent = $configuration->addSource($parent_name);
+        $child = $configuration->addSource($child_name, $parent_name);
+
+        $parent->delete();
+
+        static::assertTrue($child->isDeleted());
+    }
 }

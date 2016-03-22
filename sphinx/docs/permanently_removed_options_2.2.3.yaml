@@ -1,0 +1,28 @@
+# automatically generated from sphinx documentation
+# version of documentation: 2.2.3
+
+source:
+    - mssql_unicode
+    - xmlpipe_attr_wordcount
+    - xmlpipe_attr_str2ordinal
+    - xmlpipe_field_wordcount
+    - sql_query_info
+    - sql_field_str2wordcount
+    - sql_attr_str2wordcount
+    - sql_attr_str2ordinal
+    - on_json_attr_error
+    - json_autoconv_keynames
+    - json_autoconv_numbers
+index:
+    - ondisk_dict
+    - enable_star
+    - charset_type
+indexer:
+    - lemmatizer_base
+searchd:
+    - compat_sphinxql_magics
+    - crash_log_path
+    - ondisk_dict_default
+    - max_matches
+    - port
+    - address

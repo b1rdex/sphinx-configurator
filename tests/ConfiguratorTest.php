@@ -94,7 +94,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
     public function testWrongInheritance()
     {
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
-        (new Configuration(eVersion::V_2_2_10()))->addSource("valid_name", "S o m&^ e shit");
+        (new Configuration(eVersion::V_2_2_10()))->addSource('valid_name', 'S o m&^ e shit');
     }
 
     public function testChainSerializeDeserialize()
@@ -166,8 +166,8 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
     {
         $configuration = new Configuration(eVersion::V_2_2_10());
 
-        $parent_name = "source1";
-        $child_name = "source2";
+        $parent_name = 'source1';
+        $child_name = 'source2';
 
         $parent = $configuration->addSource($parent_name);
         $child = $configuration->addSource($child_name, $parent_name);

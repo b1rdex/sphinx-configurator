@@ -28,7 +28,6 @@ use LTDBeget\sphinx\informer\Informer;
  * Class Configuration
  * @package LTDBeget\sphinx\configurator
  */
-/** @noinspection SingletonFactoryPatternViolationInspection */
 class Configuration
 {
     /**

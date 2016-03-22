@@ -77,6 +77,26 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         Configuration::fromString($plain_config, eVersion::V_2_1_8());
     }
 
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Name of definition must contains only A-Za-z and _ symbols
+     */
+    public function testWrongName()
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        (new Configuration(eVersion::V_2_2_10()))->addSource('SOME WRONG NAME');
+    }
+
+    /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @expectedExceptionMessage Inheritance of definition must contains only A-Za-z and _ symbols
+     */
+    public function testWrongInheritance()
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        (new Configuration(eVersion::V_2_2_10()))->addSource("valid_name", "S o m&^ e shit");
+    }
+
     public function testChainSerializeDeserialize()
     {
         $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';

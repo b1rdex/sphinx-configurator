@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 4:33 PM
+ * @date  : 3/2/16
+ * @time  : 4:33 PM
  */
 
 namespace LTDBeget\sphinx\configurator;
-
 
 use LTDBeget\sphinx\configurator\configurationEntities\sections\Common;
 use LTDBeget\sphinx\configurator\configurationEntities\sections\Index;
@@ -26,13 +25,15 @@ use LTDBeget\sphinx\informer\Informer;
 
 /**
  * Class Configuration
+ *
  * @package LTDBeget\sphinx\configurator
  */
 class Configuration
 {
     /**
-     * @param string $plainData
+     * @param string   $plainData
      * @param eVersion $version
+     *
      * @return Configuration
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
@@ -50,8 +51,9 @@ class Configuration
     }
 
     /**
-     * @param array $plainData
+     * @param array    $plainData
      * @param eVersion $version
+     *
      * @return Configuration
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
@@ -68,8 +70,9 @@ class Configuration
     }
 
     /**
-     * @param string $plainData
+     * @param string   $plainData
      * @param eVersion $version
+     *
      * @return Configuration
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
@@ -87,7 +90,9 @@ class Configuration
 
     /**
      * Configuration constructor.
+     *
      * @param eVersion $version
+     *
      * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
@@ -107,7 +112,7 @@ class Configuration
         } catch (\Exception $e) {
             $string = '';
         }
-        
+
         return $string;
     }
 
@@ -152,15 +157,16 @@ class Configuration
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param string|null $inheritanceName
+     *
      * @return Source
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
      */
-    public function addSource(string $name, string $inheritanceName = null) : Source
+    public function addSource(string $name, string $inheritanceName = NULL) : Source
     {
         $source          = new Source($this, $name, $inheritanceName);
         $this->sources[] = $source;
@@ -174,22 +180,23 @@ class Configuration
     public function iterateSource()
     {
         foreach ($this->sources as $source) {
-            if (! $source->isDeleted()) {
+            if (!$source->isDeleted()) {
                 yield $source;
             }
         }
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param string|null $inheritanceName
+     *
      * @return Index
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \BadMethodCallException
      */
-    public function addIndex(string $name, string $inheritanceName = null) : Index
+    public function addIndex(string $name, string $inheritanceName = NULL) : Index
     {
         $indexDefinition = new Index($this, $name, $inheritanceName);
         $this->indexes[] = $indexDefinition;
@@ -203,7 +210,7 @@ class Configuration
     public function iterateIndex()
     {
         foreach ($this->indexes as $index) {
-            if (! $index->isDeleted()) {
+            if (!$index->isDeleted()) {
                 yield $index;
             }
         }
@@ -211,6 +218,7 @@ class Configuration
 
     /**
      * @param eSection $section
+     *
      * @return bool
      */
     public function isAllowedSection(eSection $section) : bool
@@ -249,7 +257,7 @@ class Configuration
     public function getCommon() : Common
     {
         $section = eSection::COMMON();
-        if(! $this->isAllowedSection($section)) {
+        if (!$this->isAllowedSection($section)) {
             throw new ConfigurationException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
@@ -265,7 +273,7 @@ class Configuration
      */
     public function isHasIndexer() : bool
     {
-        return null !== $this->indexer;
+        return NULL !== $this->indexer;
     }
 
     /**
@@ -273,7 +281,7 @@ class Configuration
      */
     public function isHasSearchd() : bool
     {
-        return null !== $this->searchd;
+        return NULL !== $this->searchd;
     }
 
     /**
@@ -281,7 +289,7 @@ class Configuration
      */
     public function isHasCommon() : bool
     {
-        return null !== $this->common;
+        return NULL !== $this->common;
     }
 
     /**

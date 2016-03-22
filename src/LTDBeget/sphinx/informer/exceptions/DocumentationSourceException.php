@@ -7,7 +7,6 @@
 
 namespace LTDBeget\sphinx\informer\exceptions;
 
-
 /**
  * Class DocumentationSourceException
  *

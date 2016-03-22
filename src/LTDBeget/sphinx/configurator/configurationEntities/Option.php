@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/2/16
- * @time: 8:04 PM
+ * @date  : 3/2/16
+ * @time  : 8:04 PM
  */
 
 namespace LTDBeget\sphinx\configurator\configurationEntities;
-
 
 use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\enums\base\eOption;
@@ -14,16 +13,18 @@ use LTDBeget\sphinx\informer\OptionInfo;
 
 /**
  * Class Option
+ *
  * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
 class Option
 {
     /**
      * Option constructor.
+     *
      * @param Section $section
      * @param eOption $optionName
-     * @param string $value
-     * @param bool $multiValue
+     * @param string  $value
+     * @param bool    $multiValue
      */
     public function __construct(Section $section, eOption $optionName, string $value, bool $multiValue)
     {
@@ -59,6 +60,7 @@ class Option
 
     /**
      * @param string $value
+     *
      * @return Option
      */
     public function setValue(string $value) : Option
@@ -111,6 +113,7 @@ class Option
 
     /**
      * is option marked as deleted
+     *
      * @return bool
      */
     public function isDeleted()

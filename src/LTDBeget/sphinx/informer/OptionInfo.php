@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/17/16
- * @time: 2:32 PM
+ * @date  : 3/17/16
+ * @time  : 2:32 PM
  */
 
 namespace LTDBeget\sphinx\informer;
-
 
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
@@ -15,18 +14,20 @@ use LTDBeget\sphinx\enums\eVersion;
 /**
  * Class OptionInfo
  * structure class for storing option info
+ *
  * @package LTDBeget\sphinx\informer
  */
 final class OptionInfo
 {
     /**
      * OptionInfo constructor.
-     * @param eOption $name
+     *
+     * @param eOption  $name
      * @param eSection $section
      * @param eVersion $version
-     * @param string $description
-     * @param bool $isMultiValue
-     * @param string $docLink
+     * @param string   $description
+     * @param bool     $isMultiValue
+     * @param string   $docLink
      */
     public function __construct(
         eOption $name,
@@ -43,11 +44,11 @@ final class OptionInfo
         $this->description  = $description;
         $this->isMultiValue = $isMultiValue;
         $this->docLink      = $docLink;
-
     }
 
     /**
      * name of option
+     *
      * @return eOption
      */
     public function getName() : eOption
@@ -57,6 +58,7 @@ final class OptionInfo
 
     /**
      * in what section option store
+     *
      * @return eSection
      */
     public function getSection() : eSection
@@ -66,6 +68,7 @@ final class OptionInfo
 
     /**
      * Version of documentation info
+     *
      * @return eVersion
      */
     public function getVersion() : eVersion
@@ -75,6 +78,7 @@ final class OptionInfo
 
     /**
      * is Multi-value option (MVA)
+     *
      * @return boolean
      */
     public function isIsMultiValue() : bool
@@ -84,6 +88,7 @@ final class OptionInfo
 
     /**
      * Get description for option
+     *
      * @return string
      */
     public function getDescription() : string
@@ -93,6 +98,7 @@ final class OptionInfo
 
     /**
      * Get link on original documentation of option
+     *
      * @return string
      */
     public function getDocLink() : string

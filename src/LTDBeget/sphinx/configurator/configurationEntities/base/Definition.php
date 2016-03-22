@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 19.03.16
- * @time: 0:04
+ * @date  : 19.03.16
+ * @time  : 0:04
  */
 
 namespace LTDBeget\sphinx\configurator\configurationEntities\base;
-
 
 use InvalidArgumentException;
 use LogicException;
@@ -16,6 +15,7 @@ use LTDBeget\sphinx\enums\eSection;
 
 /**
  * Class Definition
+ *
  * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
 abstract class Definition extends Section
@@ -31,9 +31,11 @@ abstract class Definition extends Section
 
     /**
      * Source constructor.
+     *
      * @param Configuration $configuration
-     * @param string $name
-     * @param string|null $inheritance
+     * @param string        $name
+     * @param string|null   $inheritance
+     *
      * @throws InvalidArgumentException
      * @throws LogicException
      * @throws SectionException
@@ -41,14 +43,14 @@ abstract class Definition extends Section
     public function __construct(
         Configuration $configuration,
         string $name,
-        string $inheritance = null
+        string $inheritance = NULL
     )
     {
         parent::__construct($configuration);
 
         $this->defineName($name);
 
-        if (! empty($inheritance)) {
+        if (!empty($inheritance)) {
             $this->defineInheritance($inheritance);
         }
     }
@@ -66,7 +68,7 @@ abstract class Definition extends Section
         } catch (\Exception $e) {
             $string = '';
         }
-        
+
         return $string;
     }
 
@@ -75,7 +77,7 @@ abstract class Definition extends Section
      */
     public function isHasInheritance() : bool
     {
-        return null !== $this->inheritance;
+        return NULL !== $this->inheritance;
     }
 
     /**
@@ -109,7 +111,7 @@ abstract class Definition extends Section
     public function delete()
     {
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->isHasInheritance() && $definition->getInheritance() === $this) {
+            if ($definition->isHasInheritance() && $definition->getInheritance() === $this) {
                 $definition->delete();
             }
         }
@@ -119,6 +121,7 @@ abstract class Definition extends Section
 
     /**
      * @param string $name
+     *
      * @throws SectionException
      * @throws InvalidArgumentException
      * @throws LogicException
@@ -131,12 +134,12 @@ abstract class Definition extends Section
             throw new SectionException("Name of section {$this->getType()} can't be empty.");
         }
 
-        if(! $this->isValidName($name)) {
+        if (!$this->isValidName($name)) {
             throw new SectionException('Name of definition must contains only A-Za-z and _ symbols');
         }
 
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->getName() === $name) {
+            if ($definition->getName() === $name) {
                 throw new SectionException("Duplicate name {$name} found in {$this->getType()} section");
             }
         }
@@ -146,6 +149,7 @@ abstract class Definition extends Section
 
     /**
      * @param string $inheritance
+     *
      * @throws SectionException
      * @throws LogicException
      * @throws InvalidArgumentException
@@ -154,29 +158,29 @@ abstract class Definition extends Section
     {
         $inheritance = trim($inheritance);
 
-        if(! $this->isValidName($inheritance)) {
+        if (!$this->isValidName($inheritance)) {
             throw new SectionException('Inheritance of definition must contains only A-Za-z and _ symbols');
         }
 
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->getName() === $inheritance) {
+            if ($definition->getName() === $inheritance) {
                 $this->inheritance = $definition;
             }
         }
 
-        if (! $this->isHasInheritance()) {
+        if (!$this->isHasInheritance()) {
             throw new SectionException("Inheritance with name {$inheritance} of section {$this->getType()} doesn't exists in configuration");
         }
-
     }
 
     /**
      * @param $name
+     *
      * @return bool
      */
     private function isValidName($name) : bool
     {
-        return (bool) preg_match("/^[A-Za-z_\d]*$/", $name);
+        return (bool)preg_match("/^[A-Za-z_\d]*$/", $name);
     }
 
     /**
@@ -186,13 +190,13 @@ abstract class Definition extends Section
     private function getSelfTypeIterator()
     {
         switch ($this->getType()) {
-            case eSection::INDEX :
+            case eSection::INDEX:
                 $iterator = $this->getConfiguration()->iterateIndex();
                 break;
-            case eSection::SOURCE :
+            case eSection::SOURCE:
                 $iterator = $this->getConfiguration()->iterateSource();
                 break;
-            default;
+            default:
                 throw new LogicException("Unknown type {$this->getType()}");
         }
 

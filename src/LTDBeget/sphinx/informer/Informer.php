@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/17/16
- * @time: 1:22 PM
+ * @date  : 3/17/16
+ * @time  : 1:22 PM
  */
 
 namespace LTDBeget\sphinx\informer;
-
 
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
@@ -18,13 +17,16 @@ use Symfony\Component\Yaml\Parser;
 /**
  * Class Informer
  * Class for manipulating with options info
+ *
  * @package LTDBeget\sphinx\informer
  */
 final class Informer
 {
     /**
      * Get informer for concrete version, and init if did not init yet
+     *
      * @param eVersion $version
+     *
      * @return Informer
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
@@ -40,69 +42,79 @@ final class Informer
 
     /**
      * return option info for concrete option of concrete section
+     *
      * @param eSection $section
-     * @param eOption $optionName
+     * @param eOption  $optionName
+     *
      * @return OptionInfo
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     public function getOptionInfo(eSection $section, eOption $optionName) : OptionInfo
     {
-        if (! $this->isSectionExist($section)) {
+        if (!$this->isSectionExist($section)) {
             throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
-        if (! $this->isKnownOption($section, $optionName)) {
+        if (!$this->isKnownOption($section, $optionName)) {
             throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} isn't available");
         }
-        
+
         if ($this->isRemovedOption($section, $optionName)) {
             throw new InformerRuntimeException("For sphinx v. {$this->version} option {$optionName} in {$section} is permanently removed");
         }
-        
+
         if (!$this->isOptionInfoInit($section, $optionName)) {
             $this->makeOptionInfo($section, $optionName);
         }
 
-        return $this->optionsInfo[(string) $section][(string) $optionName];
+        return $this->optionsInfo[(string)$section][(string)$optionName];
     }
 
     /**
      * check is known option for yaml documentation for concrete version
+     *
      * @param eSection $section
-     * @param eOption $optionName
+     * @param eOption  $optionName
+     *
      * @return bool
      */
     public function isKnownOption(eSection $section, eOption $optionName)
     {
-        return array_key_exists((string) $section, $this->documentation) &&
-        array_key_exists((string) $optionName, $this->documentation[(string) $section]);
+        return array_key_exists((string)$section, $this->documentation) &&
+        array_key_exists((string)$optionName, $this->documentation[(string)$section]);
     }
 
     /**
      * checks is this option was permanently removed in newer sphinx version
+     *
      * @param eSection $section
-     * @param eOption $optionName
+     * @param eOption  $optionName
+     *
      * @return bool
      */
     public function isRemovedOption(eSection $section, eOption $optionName)
     {
-        return array_key_exists((string) $section, $this->removedOptions) && 
-            array_key_exists((string) $optionName, $this->removedOptions[(string) $section]);
+        return array_key_exists((string)$section, $this->removedOptions) &&
+        array_key_exists((string)$optionName, $this->removedOptions[(string)$section]);
     }
 
     /**
      * Is this section exists in current sphinx version
+     *
      * @param eSection $section
+     *
      * @return bool
      */
     public function isSectionExist(eSection $section) : bool
     {
-        return !$section->is(eSection::COMMON) || !version_compare((string) $this->version, eVersion::V_2_2_1, '<');
+        return !$section->is(eSection::COMMON) || !version_compare((string)$this->version, eVersion::V_2_2_1, '<');
     }
 
     /**
      * Iterate via all option in documentation via option section type
+     *
      * @param eSection $section
+     *
      * @return OptionInfo[]
      * @throws \LogicException
      * @throws \InvalidArgumentException
@@ -110,27 +122,31 @@ final class Informer
      */
     public function iterateOptionInfo(eSection $section)
     {
-        if (! $this->isSectionExist($section)) {
+        if (!$this->isSectionExist($section)) {
             throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
         }
 
-        foreach ($this->documentation[(string) $section] as $optionName => $optionData) {
+        foreach ($this->documentation[(string)$section] as $optionName => $optionData) {
             yield $this->getOptionInfo($section, $this->getOptionName($section, $optionName));
         }
     }
 
     /**
      * Get enum for given section and string name
+     *
      * @internal
+     *
      * @param eSection $section
-     * @param string $optionName
+     * @param string   $optionName
+     *
      * @return eOption
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
     private function getOptionName(eSection $section, string $optionName) : eOption
     {
-        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e".ucfirst( (string) $section). 'Option';
+        $enumClassName = "LTDBeget\\sphinx\\enums\\options\\e" . ucfirst((string)$section) . 'Option';
+
         /**
          * @var eOption $enumClassName
          */
@@ -140,7 +156,9 @@ final class Informer
     /**
      * Informer constructor.
      * Init informer for concrete sphinx version
+     *
      * @param eVersion $version
+     *
      * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
@@ -153,20 +171,24 @@ final class Informer
 
     /**
      * check is option info object already init
+     *
      * @param eSection $section
-     * @param eOption $optionName
+     * @param eOption  $optionName
+     *
      * @return bool
      */
     private function isOptionInfoInit(eSection $section, eOption $optionName) : bool
     {
-        return array_key_exists((string) $section, $this->optionsInfo) &&
-        array_key_exists((string) $optionName, $this->optionsInfo[(string) $section]);
+        return array_key_exists((string)$section, $this->optionsInfo) &&
+        array_key_exists((string)$optionName, $this->optionsInfo[(string)$section]);
     }
 
     /**
      * make option info object from plain data
+     *
      * @param eSection $section
-     * @param eOption $optionName
+     * @param eOption  $optionName
+     *
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
     private function makeOptionInfo(eSection $section, eOption $optionName)
@@ -174,7 +196,7 @@ final class Informer
         if (!$this->isKnownOption($section, $optionName)) {
             throw new InformerRuntimeException("For version {$this->version} {$optionName} is unknown option");
         }
-        $info_data = $this->documentation[(string) $section][(string) $optionName];
+        $info_data = $this->documentation[(string)$section][(string)$optionName];
 
         $optionInfo = new OptionInfo(
             $optionName,
@@ -185,11 +207,12 @@ final class Informer
             $info_data['link']
         );
 
-        $this->optionsInfo[(string) $section][(string) $optionName] = $optionInfo;
+        $this->optionsInfo[(string)$section][(string)$optionName] = $optionInfo;
     }
 
     /**
      * load to object info about permanently removed options
+     *
      * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
@@ -211,6 +234,7 @@ final class Informer
 
     /**
      * loads configuration from yaml files and save as array
+     *
      * @throws \LTDBeget\sphinx\informer\exceptions\DocumentationSourceException
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
@@ -234,6 +258,7 @@ final class Informer
 
     /**
      * check is documentation yaml file exists
+     *
      * @return bool
      */
     private function isDocumentationExists() : bool
@@ -243,6 +268,7 @@ final class Informer
 
     /**
      * path to yaml sphinx documentation
+     *
      * @return string
      */
     private function getDocumentationDirectoryPath() : string
@@ -252,6 +278,7 @@ final class Informer
 
     /**
      * path to yaml sphinx documentation file
+     *
      * @return string
      */
     private function getDocumentationFilePath() : string
@@ -261,6 +288,7 @@ final class Informer
 
     /**
      * Return path to file with removed options list
+     *
      * @return string
      */
     private function getRemovedListFilePath() : string
@@ -270,6 +298,7 @@ final class Informer
 
     /**
      * Is file with removed options list exists
+     *
      * @return bool
      */
     private function isRemovedListFileExists() : bool

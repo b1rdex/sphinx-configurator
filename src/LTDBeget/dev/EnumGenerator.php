@@ -1,18 +1,18 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 17.03.16
- * @time: 23:41
+ * @date  : 17.03.16
+ * @time  : 23:41
  */
 
 namespace LTDBeget\dev;
-
 
 use LTDBeget\sphinx\enums\eVersion;
 use Symfony\Component\Yaml\Parser;
 
 /**
  * Class EnumGenerator
+ *
  * @package LTDBeget\dev
  */
 final class EnumGenerator
@@ -21,6 +21,13 @@ final class EnumGenerator
     protected $fileContents  = [];
     protected $documentation = [];
 
+    /**
+     * EnumGenerator constructor.
+     *
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
+     * @throws \Symfony\Component\Yaml\Exception\ParseException
+     */
     public function __construct()
     {
         $this->prepareDocumentation();
@@ -30,6 +37,7 @@ final class EnumGenerator
 
     /**
      * parse and prepare info from docks
+     *
      * @throws \InvalidArgumentException
      * @throws \LogicException
      * @throws \Symfony\Component\Yaml\Exception\ParseException
@@ -43,7 +51,6 @@ final class EnumGenerator
         }
         $this->removeDuplicates();
     }
-
 
     private function writeFiles()
     {
@@ -84,11 +91,11 @@ final class EnumGenerator
 
             $this->fileContents[$class_name . '.php'] = $template;
         }
-
     }
 
     /**
      * save names from documentation to this documentation
+     *
      * @param array $documentation
      */
     private function processDocumentation(array $documentation)
@@ -114,11 +121,11 @@ final class EnumGenerator
             /** @noinspection AlterInForeachInspection */
             $this->documentation[$section] = array_values(array_unique($options));
         }
-
     }
 
     /**
      * @param eVersion $version
+     *
      * @return array
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      */
@@ -131,7 +138,9 @@ final class EnumGenerator
 
     /**
      * name of file for save parsed data
+     *
      * @param eVersion $version
+     *
      * @return string
      */
     private function getFileName(eVersion $version) : string
@@ -141,6 +150,7 @@ final class EnumGenerator
 
     /**
      * name of directory where needs to save parsed data
+     *
      * @return string
      */
     private function getPath() : string
@@ -150,6 +160,7 @@ final class EnumGenerator
 
     /**
      * get path to output dir
+     *
      * @return string
      */
     private function getOutputDir()

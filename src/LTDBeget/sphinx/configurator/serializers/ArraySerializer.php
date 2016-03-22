@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/14/16
- * @time: 12:54 PM
+ * @date  : 3/14/16
+ * @time  : 12:54 PM
  */
 
 namespace LTDBeget\sphinx\configurator\serializers;
-
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Definition;
@@ -16,13 +15,16 @@ use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 /**
  * Class ArraySerializer
  * serialize Configuration object to array
+ *
  * @package LTDBeget\sphinx\configurator\serializers
  */
 class ArraySerializer
 {
     /**
      * Make array represent of Configuration object
+     *
      * @param Configuration $configuration
+     *
      * @return array
      * @throws \LogicException
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
@@ -97,7 +99,7 @@ class ArraySerializer
      */
     private function serializeIndexer()
     {
-        if ($this->objectConfiguration->isHasIndexer() && ! $this->objectConfiguration->getIndexer()->isDeleted()) {
+        if ($this->objectConfiguration->isHasIndexer() && !$this->objectConfiguration->getIndexer()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getIndexer());
         }
     }
@@ -109,7 +111,7 @@ class ArraySerializer
      */
     private function serializeSearchhd()
     {
-        if ($this->objectConfiguration->isHasSearchd() && ! $this->objectConfiguration->getSearchd()->isDeleted()) {
+        if ($this->objectConfiguration->isHasSearchd() && !$this->objectConfiguration->getSearchd()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getSearchd());
         }
     }
@@ -122,14 +124,16 @@ class ArraySerializer
      */
     private function serializeCommon()
     {
-        if ($this->objectConfiguration->isHasCommon() && ! $this->objectConfiguration->getCommon()->isDeleted()) {
+        if ($this->objectConfiguration->isHasCommon() && !$this->objectConfiguration->getCommon()->isDeleted()) {
             $this->serializeSettings($this->objectConfiguration->getCommon());
         }
     }
 
     /**
      * @internal
+     *
      * @param Definition $definition
+     *
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \InvalidArgumentException
      * @throws \LogicException
@@ -137,30 +141,34 @@ class ArraySerializer
     private function serializeDefinition(Definition $definition)
     {
         $this->arrayConfiguration[] = [
-            'type'        => (string) $definition->getType(),
-            'name'        => (string) $definition->getName(),
-            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance()->getName() : null,
+            'type'        => (string)$definition->getType(),
+            'name'        => (string)$definition->getName(),
+            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance()->getName() : NULL,
             'options'     => $this->serializeOptions($definition)
         ];
     }
 
     /**
      * @internal
+     *
      * @param Settings $settings
+     *
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
     private function serializeSettings(Settings $settings)
     {
         $this->arrayConfiguration[] = [
-            'type'    => (string) $settings->getType(),
+            'type'    => (string)$settings->getType(),
             'options' => $this->serializeOptions($settings)
         ];
     }
 
     /**
      * @internal
+     *
      * @param Section $section
+     *
      * @return array
      */
     private function serializeOptions(Section $section) : array
@@ -169,7 +177,7 @@ class ArraySerializer
 
         foreach ($section->iterateOptions() as $option) {
             $options[] = [
-                'name'  => (string) $option->getName(),
+                'name'  => (string)$option->getName(),
                 'value' => $option->getValue()
             ];
         }

@@ -5,11 +5,11 @@
 
 namespace LTDBeget\sphinx\enums\options;
 
-
 use LTDBeget\sphinx\enums\base\eOption;
 
 /**
  * Class eSourceOption
+ *
  * @package LTDBeget\sphinx\informer\enums\options
  *
  * @method static eSourceOption UNPACK_MYSQLCOMPRESS_MAXSIZE()

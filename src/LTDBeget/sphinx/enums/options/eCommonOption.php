@@ -5,11 +5,11 @@
 
 namespace LTDBeget\sphinx\enums\options;
 
-
 use LTDBeget\sphinx\enums\base\eOption;
 
 /**
  * Class eCommonOption
+ *
  * @package LTDBeget\sphinx\informer\enums\options
  *
  * @method static eCommonOption RLP_MAX_BATCH_DOCS()

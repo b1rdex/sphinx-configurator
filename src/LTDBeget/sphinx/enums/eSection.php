@@ -1,17 +1,17 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/17/16
- * @time: 2:41 PM
+ * @date  : 3/17/16
+ * @time  : 2:41 PM
  */
 
 namespace LTDBeget\sphinx\enums;
-
 
 use LTDBeget\sphinx\enums\base\Enum;
 
 /**
  * Class eSection
+ *
  * @package LTDBeget\sphinx\informer\enums\blocks
  *
  * @method static eSection SOURCE()

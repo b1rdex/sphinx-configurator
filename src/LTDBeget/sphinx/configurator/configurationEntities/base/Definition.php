@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 19.03.16
- * @time: 0:04
+ * @date  : 19.03.16
+ * @time  : 0:04
  */
 
 namespace LTDBeget\sphinx\configurator\configurationEntities\base;
-
 
 use InvalidArgumentException;
 use LogicException;
@@ -16,24 +15,18 @@ use LTDBeget\sphinx\enums\eSection;
 
 /**
  * Class Definition
+ *
  * @package LTDBeget\sphinx\configurator\configurationEntities\base
  */
 abstract class Definition extends Section
 {
     /**
-     * @var string
-     */
-    private $name;
-    /**
-     * @var Definition
-     */
-    private $inheritance;
-
-    /**
      * Source constructor.
+     *
      * @param Configuration $configuration
-     * @param string $name
-     * @param string|null $inheritance
+     * @param string        $name
+     * @param string|null   $inheritance
+     *
      * @throws InvalidArgumentException
      * @throws LogicException
      * @throws SectionException
@@ -41,15 +34,15 @@ abstract class Definition extends Section
     public function __construct(
         Configuration $configuration,
         string $name,
-        string $inheritance = null
+        string $inheritance = NULL
     )
     {
         parent::__construct($configuration);
 
-        $this->defineName($name);
+        $this->defineName($this->sanitizeName($name));
 
-        if (! empty($inheritance)) {
-            $this->defineInheritance($inheritance);
+        if (!empty($inheritance)) {
+            $this->setParent($this->sanitizeName($inheritance));
         }
     }
 
@@ -66,7 +59,7 @@ abstract class Definition extends Section
         } catch (\Exception $e) {
             $string = '';
         }
-        
+
         return $string;
     }
 
@@ -75,14 +68,14 @@ abstract class Definition extends Section
      */
     public function isHasInheritance() : bool
     {
-        return null !== $this->inheritance;
+        return NULL !== $this->inheritance;
     }
 
     /**
      * @return Definition
      * @throws LogicException
      * @throws InvalidArgumentException
-     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws SectionException
      */
     public function getInheritance() : Definition
     {
@@ -102,6 +95,7 @@ abstract class Definition extends Section
     }
 
     /**
+     * Delete option and its child
      * @throws LogicException
      * @throws SectionException
      * @throws InvalidArgumentException
@@ -109,7 +103,7 @@ abstract class Definition extends Section
     public function delete()
     {
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->isHasInheritance() && $definition->getInheritance() === $this) {
+            if ($definition->isHasInheritance() && $definition->getInheritance() === $this) {
                 $definition->delete();
             }
         }
@@ -118,25 +112,18 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal 
+     * 
      * @param string $name
-     * @throws SectionException
-     * @throws InvalidArgumentException
+     *
      * @throws LogicException
+     * @throws SectionException
+     * @throws \InvalidArgumentException
      */
     private function defineName(string $name)
     {
-        $name = trim($name);
-
-        if (empty($name)) {
-            throw new SectionException("Name of section {$this->getType()} can't be empty.");
-        }
-
-        if(! $this->isValidName($name)) {
-            throw new SectionException('Name of definition must contains only A-Za-z and _ symbols');
-        }
-
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->getName() === $name) {
+            if ($definition->getName() === $name) {
                 throw new SectionException("Duplicate name {$name} found in {$this->getType()} section");
             }
         }
@@ -145,33 +132,57 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @param string $inheritance
+     *
      * @throws SectionException
      * @throws LogicException
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
-    private function defineInheritance(string $inheritance)
+    private function setParent(string $inheritance)
     {
-        $inheritance = trim($inheritance);
-
-        if(! $this->isValidName($inheritance)) {
-            throw new SectionException('Inheritance of definition must contains only A-Za-z and _ symbols');
-        }
-
         foreach ($this->getSelfTypeIterator() as $definition) {
-            if($definition->getName() === $inheritance) {
+            if ($definition->getName() === $inheritance) {
                 $this->inheritance = $definition;
             }
         }
 
-        if (! $this->isHasInheritance()) {
+        if (!$this->isHasInheritance()) {
             throw new SectionException("Inheritance with name {$inheritance} of section {$this->getType()} doesn't exists in configuration");
         }
-
     }
 
     /**
+     * @internal
+     * 
+     * @param string $name
+     *
+     * @return string
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws SectionException
+     */
+    private function sanitizeName(string $name) : string
+    {
+        $name = trim($name);
+
+        if (empty($name)) {
+            throw new SectionException("Name or inheritance of section {$this->getType()} can't be empty.");
+        }
+
+        if (!$this->isValidName($name)) {
+            throw new SectionException("Name or inheritance of section {$this->getType()} must contains only A-Za-z and _ symbols");
+        }
+
+        return $name;
+    }
+
+    /**
+     * @internal
+     * 
      * @param $name
+     *
      * @return bool
      */
     private function isValidName($name) : bool
@@ -180,22 +191,33 @@ abstract class Definition extends Section
     }
 
     /**
+     * @internal
+     * 
      * @return Definition[]
      * @throws LogicException
      */
     private function getSelfTypeIterator()
     {
         switch ($this->getType()) {
-            case eSection::INDEX :
+            case eSection::INDEX:
                 $iterator = $this->getConfiguration()->iterateIndex();
                 break;
-            case eSection::SOURCE :
+            case eSection::SOURCE:
                 $iterator = $this->getConfiguration()->iterateSource();
                 break;
-            default;
+            default:
                 throw new LogicException("Unknown type {$this->getType()}");
         }
 
         return $iterator;
     }
+
+    /**
+     * @var string
+     */
+    private $name;
+    /**
+     * @var Definition
+     */
+    private $inheritance;
 }

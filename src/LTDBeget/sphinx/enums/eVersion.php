@@ -1,18 +1,18 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/17/16
- * @time: 1:14 PM
+ * @date  : 3/17/16
+ * @time  : 1:14 PM
  */
 
 namespace LTDBeget\sphinx\enums;
-
 
 use LTDBeget\sphinx\enums\base\Enum;
 
 /**
  * Class eSphinxVersion
  * list of available sphinx version for library
+ *
  * @package LTDBeget\sphinx\informer\enums
  *
  * @method static eVersion V_2_1_1()

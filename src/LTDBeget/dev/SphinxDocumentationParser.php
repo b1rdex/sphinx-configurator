@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/16/16
- * @time: 3:13 PM
+ * @date  : 3/16/16
+ * @time  : 3:13 PM
  */
 
 namespace LTDBeget\dev;
-
 
 use DOMDocument;
 use DOMElement;
@@ -15,12 +14,14 @@ use Symfony\Component\Yaml\Dumper;
 /**
  * Functionality of class is parsing and dumping as yaml files sphinx documentation info on options
  * Class SphinxDocumentationParser
+ *
  * @package Dev
  */
 final class SphinxDocumentationParser
 {
     /**
      * Parse all sphinx configuration from self::$links
+     *
      * @throws \RuntimeException
      */
     public static function parseAll()
@@ -33,6 +34,7 @@ final class SphinxDocumentationParser
 
     /**
      * links via version on sphinx documentations
+     *
      * @var array
      */
     private static $links = [
@@ -50,9 +52,9 @@ final class SphinxDocumentationParser
         '2.1.6'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.6.html',
         '2.1.5'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.5.html',
         '2.1.4'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.4.html',
-        '2.1.3' => 'http://sphinxsearch.com/docs/archives/manual-2.1.3.html',
-        '2.1.2' => 'http://sphinxsearch.com/docs/archives/manual-2.1.2.html',
-        '2.1.1' => 'http://sphinxsearch.com/docs/archives/manual-2.1.1.html',
+        '2.1.3'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.3.html',
+        '2.1.2'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.2.html',
+        '2.1.1'  => 'http://sphinxsearch.com/docs/archives/manual-2.1.1.html',
     ];
 
     /**
@@ -74,6 +76,7 @@ final class SphinxDocumentationParser
 
     /**
      * SphinxDocumentationParser constructor.
+     *
      * @param string $link link on single page sphinx documentation
      * @param string $version
      */
@@ -106,6 +109,7 @@ final class SphinxDocumentationParser
 
     /**
      * name of file for save parsed data
+     *
      * @return string
      */
     private function getFileName() : string
@@ -115,6 +119,7 @@ final class SphinxDocumentationParser
 
     /**
      * name of directory where needs to save parsed data
+     *
      * @return string
      */
     private function getPath() : string
@@ -160,6 +165,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isSource(DOMElement $element) : bool
@@ -169,6 +175,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isIndex(DOMElement $element) : bool
@@ -178,6 +185,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isIndexer(DOMElement $element) : bool
@@ -187,6 +195,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isSearchd(DOMElement $element) : bool
@@ -196,6 +205,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isCommon(DOMElement $element) : bool
@@ -205,7 +215,9 @@ final class SphinxDocumentationParser
 
     /**
      * Parse source options
+     *
      * @param DOMElement $element
+     *
      * @return array
      * @throws \RuntimeException
      */
@@ -222,16 +234,16 @@ final class SphinxDocumentationParser
                 /** @noinspection SlowArrayOperationsInLoopInspection */
                 $source_array = array_merge($this->parseOptionNode($optionNode), $source_array);
             }
-
         }
 
         return $source_array;
     }
 
-
     /**
      * parse concrete option block
+     *
      * @param DOMElement $element
+     *
      * @return array
      * @throws \RuntimeException
      */
@@ -257,12 +269,13 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return array
      */
     private function getOptionNames(DOMElement $element) : array
     {
         $optionName = $element->textContent;
-        $optionName = htmlentities($optionName, null, 'utf-8');
+        $optionName = htmlentities($optionName, NULL, 'utf-8');
         $optionName = str_replace('&nbsp;', '', $optionName);
         $optionName = trim(preg_replace("/\d*\.\d*\.\d*\./", '', $optionName));
 
@@ -271,13 +284,15 @@ final class SphinxDocumentationParser
 
     /**
      * Get link on option in documentation
+     *
      * @param DOMElement $element
+     *
      * @return string
      * @throws \RuntimeException
      */
     private function getLinkTag(DOMElement $element) : string
     {
-        $link_tag = null;
+        $link_tag = NULL;
         foreach ($element->childNodes as $optionContent) {
             if (!($optionContent instanceof DOMElement)) {
                 continue;
@@ -291,9 +306,8 @@ final class SphinxDocumentationParser
                         ->firstChild
                         ->getAttribute('name');
             }
-
         }
-        if (null === $link_tag) {
+        if (NULL === $link_tag) {
             throw new \RuntimeException("Couldn't parse link anchor");
         }
 
@@ -302,7 +316,9 @@ final class SphinxDocumentationParser
 
     /**
      * Get full description of option
+     *
      * @param DOMElement $element
+     *
      * @return string
      */
     private function getDescription(DOMElement $element) : string
@@ -314,18 +330,21 @@ final class SphinxDocumentationParser
 
     /**
      * Check is option is multi value option
+     *
      * @param string $description
+     *
      * @return bool
      */
     private function isMultiValue(string $description) : bool
     {
-        $description  = strtolower($description);
-        
+        $description = strtolower($description);
+
         return false !== strpos($description, 'multi-value');
     }
 
     /**
      * remove title block from dom element
+     *
      * @param DOMElement $element
      */
     private function removeTitlePage(DOMElement $element)
@@ -339,7 +358,9 @@ final class SphinxDocumentationParser
 
     /**
      * Check is element is title in option block
+     *
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isTitlePage(DOMElement $element)
@@ -349,6 +370,7 @@ final class SphinxDocumentationParser
 
     /**
      * @param DOMElement $element
+     *
      * @return bool
      */
     private function isSect2Element(DOMElement $element) : bool

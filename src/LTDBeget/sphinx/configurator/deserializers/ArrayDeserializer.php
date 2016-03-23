@@ -1,35 +1,32 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 19.03.16
- * @time: 1:54
+ * @date  : 19.03.16
+ * @time  : 1:54
  */
 
 namespace LTDBeget\sphinx\configurator\deserializers;
-
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 use LTDBeget\sphinx\configurator\exceptions\DeserializeException;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
-use LTDBeget\sphinx\enums\options\eCommonOption;
-use LTDBeget\sphinx\enums\options\eIndexerOption;
-use LTDBeget\sphinx\enums\options\eIndexOption;
-use LTDBeget\sphinx\enums\options\eSearchdOption;
-use LTDBeget\sphinx\enums\options\eSourceOption;
 
 /**
  * Class ArrayDeserializer
  * Serialize correct array to Configuration object
+ *
  * @package LTDBeget\sphinx\configurator\deserializers
  */
 final class ArrayDeserializer
 {
     /**
      * Make Configuration object from array serialized content of sphinx configuration file
-     * @param array $arrayConfiguration
+     *
+     * @param array         $arrayConfiguration
      * @param Configuration $objectConfiguration
+     *
      * @return Configuration
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \InvalidArgumentException
@@ -82,7 +79,9 @@ final class ArrayDeserializer
 
     /**
      * @internal
+     *
      * @param array $section_data
+     *
      * @return Section
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
@@ -93,9 +92,9 @@ final class ArrayDeserializer
      */
     private function deserializeSection(array $section_data) : Section
     {
-        $type        = $section_data['type'] ?? null;
-        $name        = $section_data['name'] ?? null;
-        $inheritance = $section_data['inheritance'] ?? null;
+        $type        = $section_data['type'] ?? NULL;
+        $name        = $section_data['name'] ?? NULL;
+        $inheritance = $section_data['inheritance'] ?? NULL;
 
         switch ($type) {
             case eSection::INDEXER:
@@ -122,8 +121,10 @@ final class ArrayDeserializer
 
     /**
      * @internal
-     * @param array $options
+     *
+     * @param array   $options
      * @param Section $section
+     *
      * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
      * @throws \InvalidArgumentException
      * @throws \LogicException
@@ -147,9 +148,12 @@ final class ArrayDeserializer
     }
 
     /**
+     * @internal
+     * 
      * @param Section $section
-     * @param $optionName
-     * @param $optionValue
+     * @param         $optionName
+     * @param         $optionValue
+     *
      * @throws \InvalidArgumentException
      * @throws \LogicException
      * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
@@ -157,12 +161,12 @@ final class ArrayDeserializer
     private function deserializeOption(Section $section, $optionName, $optionValue)
     {
         $sectionType = $section->getType();
-        $informer = $section->getConfiguration()->getInformer();
-        $optionName = $this->getOptionName($section, $optionName);
+        $informer    = $section->getConfiguration()->getInformer();
+        $optionName  = $this->getOptionName($section, $optionName);
 
-        if($informer->isKnownOption($sectionType, $optionName)) {
+        if ($informer->isKnownOption($sectionType, $optionName)) {
             $section->addOption($optionName, $optionValue);
-        } elseif($informer->isRemovedOption($sectionType, $optionName)) {
+        } elseif ($informer->isRemovedOption($sectionType, $optionName)) {
             return;
         } else {
             throw new DeserializeException("Unknown option name {$optionName} in section {$section->getType()}");
@@ -171,8 +175,10 @@ final class ArrayDeserializer
 
     /**
      * @internal
+     *
      * @param Section $section
-     * @param string $name
+     * @param string  $name
+     *
      * @return eOption
      * @throws \LogicException
      * @throws \InvalidArgumentException
@@ -180,27 +186,31 @@ final class ArrayDeserializer
      */
     private function getOptionName(Section $section, string $name) : eOption
     {
-        switch ($section->getType()) {
-            case eSection::SOURCE:
-                $option = eSourceOption::get($name);
-                break;
-            case eSection::INDEX:
-                $option = eIndexOption::get($name);
-                break;
-            case eSection::INDEXER:
-                $option = eIndexerOption::get($name);
-                break;
-            case eSection::SEARCHD:
-                $option = eSearchdOption::get($name);
-                break;
-            case eSection::COMMON:
-                $option = eCommonOption::get($name);
-                break;
-            default:
-                throw new DeserializeException("Unknown section type {$section->getType()}");
+        try {
+            /**
+             * @var eOption $optionClass
+             */
+            $optionClass = $this->getOptionNameClass($section->getType());
+            $option      = $optionClass::get($name);
+        } catch (\InvalidArgumentException $e) {
+            throw new DeserializeException("Unknown section type {$section->getType()}");
         }
 
         return $option;
+    }
+
+    /**
+     * @internal
+     * 
+     * @param eSection $section
+     *
+     * @return string
+     */
+    private function getOptionNameClass(eSection $section) : string
+    {
+        $sectionName = ucfirst((string) $section);
+
+        return "LTDBeget\\sphinx\\enums\\options\\e{$sectionName}Option";
     }
 
     /**

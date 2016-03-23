@@ -1,12 +1,11 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 3/3/16
- * @time: 5:13 PM
+ * @date  : 3/3/16
+ * @time  : 5:13 PM
  */
 
 namespace LTDBeget\sphinx\configurator\serializers;
-
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
@@ -14,13 +13,16 @@ use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 /**
  * Class PlainSerializer
  * serialize Configuration object to string for file .conf
+ *
  * @package LTDBeget\sphinx\configurator\serializers
  */
 final class PlainSerializer
 {
     /**
      * Make plain content for sphinx configuration file from Configuration object
+     *
      * @param Configuration $configuration
+     *
      * @return string
      * @throws \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
      */
@@ -101,11 +103,12 @@ final class PlainSerializer
 
     /**
      * @internal
+     *
      * @param Section $section
      */
     private function serializeSection(Section $section)
     {
-        if($section->isDeleted()) {
+        if ($section->isDeleted()) {
             return;
         }
 

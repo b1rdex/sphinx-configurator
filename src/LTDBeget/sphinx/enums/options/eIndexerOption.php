@@ -5,11 +5,11 @@
 
 namespace LTDBeget\sphinx\enums\options;
 
-
 use LTDBeget\sphinx\enums\base\eOption;
 
 /**
  * Class eIndexerOption
+ *
  * @package LTDBeget\sphinx\informer\enums\options
  *
  * @method static eIndexerOption LEMMATIZER_CACHE()

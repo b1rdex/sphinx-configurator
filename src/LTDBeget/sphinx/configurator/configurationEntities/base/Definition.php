@@ -24,8 +24,8 @@ abstract class Definition extends Section
      * Source constructor.
      *
      * @param Configuration $configuration
-     * @param string        $name
-     * @param string|null   $inheritance
+     * @param string $name
+     * @param string|null $inheritance
      *
      * @throws InvalidArgumentException
      * @throws LogicException
@@ -112,8 +112,8 @@ abstract class Definition extends Section
     }
 
     /**
-     * @internal 
-     * 
+     * @internal
+     *
      * @param string $name
      *
      * @throws LogicException
@@ -133,7 +133,7 @@ abstract class Definition extends Section
 
     /**
      * @internal
-     * 
+     *
      * @param string $inheritance
      *
      * @throws SectionException
@@ -155,7 +155,7 @@ abstract class Definition extends Section
 
     /**
      * @internal
-     * 
+     *
      * @param string $name
      *
      * @return string
@@ -180,7 +180,7 @@ abstract class Definition extends Section
 
     /**
      * @internal
-     * 
+     *
      * @param $name
      *
      * @return bool
@@ -192,7 +192,7 @@ abstract class Definition extends Section
 
     /**
      * @internal
-     * 
+     *
      * @return Definition[]
      * @throws LogicException
      */

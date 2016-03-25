@@ -20,10 +20,11 @@ final class PlainDeserializer
     /**
      * Make Configuration object from plain content of sphinx configuration file
      *
-     * @param string        $stringConfiguration
+     * @param string $stringConfiguration
      * @param Configuration $objectConfiguration
      *
      * @return Configuration
+     * @throws \Hoa\Ustring\Exception
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException

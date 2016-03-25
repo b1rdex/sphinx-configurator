@@ -79,6 +79,18 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \LTDBeget\sphinx\configurator\exceptions\DeserializeException
+     * @expectedExceptionMessage Unknown option name group_id in section type source
+     */
+    public function testCommentHell()
+    {
+        $config_path = __DIR__ . '/../sphinx/conf/invalid/comments_hell.conf';
+        $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        Configuration::fromString($plain_config, eVersion::V_2_1_8());
+    }
+
+    /**
      * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @expectedExceptionMessage Name or inheritance of section source must contains only A-Za-z and _ symbols
      */
@@ -159,6 +171,19 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
         
         /** @noinspection SpellCheckingInspection */
         static::assertEquals('f26517544c25d8ef994622380a0afbe9', $hash);
+    }
+
+    public function testUnicode()
+    {
+        $config_path = __DIR__. '/../sphinx/conf/unicode.conf';
+        $plain_config = file_get_contents($config_path);
+
+        $config = Configuration::fromString($plain_config, eVersion::V_2_2_10());
+
+        $hash = md5((string) $config);
+
+        /** @noinspection SpellCheckingInspection */
+        static::assertEquals('2b841aab6bf02ea10f3fdec82eee0872', $hash);
     }
     
     public function testCheckGetInheritance()

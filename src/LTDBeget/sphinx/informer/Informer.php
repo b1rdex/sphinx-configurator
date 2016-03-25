@@ -44,7 +44,7 @@ final class Informer
      * return option info for concrete option of concrete section
      *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @return OptionInfo
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
@@ -62,7 +62,7 @@ final class Informer
      * check is known option for yaml documentation for concrete version
      *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @return bool
      */
@@ -76,7 +76,7 @@ final class Informer
      * checks is this option was permanently removed in newer sphinx version
      *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @return bool
      */
@@ -125,7 +125,7 @@ final class Informer
      * @internal
      *
      * @param eSection $section
-     * @param string   $optionName
+     * @param string $optionName
      *
      * @return eOption
      * @throws \LogicException
@@ -161,7 +161,7 @@ final class Informer
      * check is option info object already init
      *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @return bool
      */
@@ -175,7 +175,7 @@ final class Informer
      * make option info object from plain data
      *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
@@ -199,9 +199,9 @@ final class Informer
 
     /**
      * Check is option info available for this version
-     * 
+     *
      * @param eSection $section
-     * @param eOption  $optionName
+     * @param eOption $optionName
      *
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */

@@ -20,7 +20,7 @@ class Common extends Settings
 {
     /**
      * @param eCommonOption $name
-     * @param string        $value
+     * @param string $value
      *
      * @return Option
      * @throws \LogicException

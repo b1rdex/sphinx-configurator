@@ -31,10 +31,11 @@ use LTDBeget\sphinx\informer\Informer;
 class Configuration
 {
     /**
-     * @param string   $plainData
+     * @param string $plainData
      * @param eVersion $version
      *
      * @return Configuration
+     * @throws \Hoa\Ustring\Exception
      * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
      * @throws \LogicException
      * @throws \InvalidArgumentException
@@ -51,7 +52,7 @@ class Configuration
     }
 
     /**
-     * @param array    $plainData
+     * @param array $plainData
      * @param eVersion $version
      *
      * @return Configuration
@@ -70,7 +71,7 @@ class Configuration
     }
 
     /**
-     * @param string   $plainData
+     * @param string $plainData
      * @param eVersion $version
      *
      * @return Configuration
@@ -157,7 +158,7 @@ class Configuration
     }
 
     /**
-     * @param string      $name
+     * @param string $name
      * @param string|null $inheritanceName
      *
      * @return Source
@@ -187,7 +188,7 @@ class Configuration
     }
 
     /**
-     * @param string      $name
+     * @param string $name
      * @param string|null $inheritanceName
      *
      * @return Index

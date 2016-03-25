@@ -20,7 +20,7 @@ class Index extends Definition
 {
     /**
      * @param eIndexOption $name
-     * @param string       $value
+     * @param string $value
      *
      * @return Option
      * @throws \LogicException

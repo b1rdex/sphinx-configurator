@@ -119,7 +119,7 @@ abstract class Section
 
     /**
      * @param eOption $name
-     * @param string  $value
+     * @param string $value
      *
      * @return Option
      * @throws \LogicException
@@ -166,7 +166,7 @@ abstract class Section
      * @internal
      *
      * @param eOption $name
-     * @param string  $value
+     * @param string $value
      *
      * @return Option
      * @throws \LogicException

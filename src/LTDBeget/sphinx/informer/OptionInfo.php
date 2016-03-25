@@ -22,12 +22,12 @@ final class OptionInfo
     /**
      * OptionInfo constructor.
      *
-     * @param eOption  $name
+     * @param eOption $name
      * @param eSection $section
      * @param eVersion $version
-     * @param string   $description
-     * @param bool     $isMultiValue
-     * @param string   $docLink
+     * @param string $description
+     * @param bool $isMultiValue
+     * @param string $docLink
      */
     public function __construct(
         eOption $name,

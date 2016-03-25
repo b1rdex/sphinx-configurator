@@ -68,12 +68,27 @@ abstract class Section
     public function __toString() : string
     {
         try {
-            $string = (string) $this->getType();
+            $string = '';
+            $string .= $this->renderDefineBlock() . PHP_EOL;
+            $string .= $this->renderOptions();
         } catch (\Exception $e) {
             $string = '';
         }
 
         return $string;
+    }
+
+    /**
+     * @return array
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function toArray()
+    {
+        return [
+            'type'    => (string) $this->getType(),
+            'options' => $this->toArrayOptions()
+        ];
     }
 
     /**
@@ -119,7 +134,7 @@ abstract class Section
 
     /**
      * @param eOption $name
-     * @param string $value
+     * @param string  $value
      *
      * @return Option
      * @throws \LogicException
@@ -154,6 +169,48 @@ abstract class Section
     }
 
     /**
+     * @return string
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    protected function renderDefineBlock() : string
+    {
+        return (string) $this->getType();
+    }
+
+    /**
+     * @return string
+     */
+    protected function renderOptions() : string
+    {
+        $string = '';
+        $string .= '{' . PHP_EOL;
+        foreach ($this->iterateOptions() as $option) {
+            $string .= "\t{$option}" . PHP_EOL;
+        }
+        $string .= '}' . PHP_EOL . PHP_EOL;
+
+        return $string;
+    }
+
+    /**
+     * @return array
+     */
+    protected function toArrayOptions() : array
+    {
+        $options = [];
+
+        foreach ($this->iterateOptions() as $option) {
+            $options[] = [
+                'name'  => (string) $option->getName(),
+                'value' => $option->getValue()
+            ];
+        }
+
+        return $options;
+    }
+
+    /**
      * @internal
      * @return string
      */
@@ -166,7 +223,7 @@ abstract class Section
      * @internal
      *
      * @param eOption $name
-     * @param string $value
+     * @param string  $value
      *
      * @return Option
      * @throws \LogicException

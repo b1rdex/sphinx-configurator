@@ -31,7 +31,7 @@ use LTDBeget\sphinx\informer\Informer;
 class Configuration
 {
     /**
-     * @param string $plainData
+     * @param string   $plainData
      * @param eVersion $version
      *
      * @return Configuration
@@ -52,7 +52,7 @@ class Configuration
     }
 
     /**
-     * @param array $plainData
+     * @param array    $plainData
      * @param eVersion $version
      *
      * @return Configuration
@@ -71,7 +71,7 @@ class Configuration
     }
 
     /**
-     * @param string $plainData
+     * @param string   $plainData
      * @param eVersion $version
      *
      * @return Configuration
@@ -158,7 +158,7 @@ class Configuration
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param string|null $inheritanceName
      *
      * @return Source
@@ -188,7 +188,7 @@ class Configuration
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param string|null $inheritanceName
      *
      * @return Index
@@ -274,7 +274,7 @@ class Configuration
      */
     public function isHasIndexer() : bool
     {
-        return NULL !== $this->indexer;
+        return NULL !== $this->indexer && !$this->indexer->isDeleted();
     }
 
     /**
@@ -282,7 +282,7 @@ class Configuration
      */
     public function isHasSearchd() : bool
     {
-        return NULL !== $this->searchd;
+        return NULL !== $this->searchd && !$this->searchd->isDeleted();
     }
 
     /**
@@ -290,7 +290,7 @@ class Configuration
      */
     public function isHasCommon() : bool
     {
-        return NULL !== $this->common;
+        return NULL !== $this->common && !$this->common->isDeleted();
     }
 
     /**

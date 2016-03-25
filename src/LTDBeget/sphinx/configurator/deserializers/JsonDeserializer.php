@@ -20,7 +20,7 @@ final class JsonDeserializer
     /**
      * Make Configuration object from json encoded content of sphinx configuration file
      *
-     * @param string $jsonConfiguration
+     * @param string        $jsonConfiguration
      * @param Configuration $objectConfiguration
      *
      * @return Configuration

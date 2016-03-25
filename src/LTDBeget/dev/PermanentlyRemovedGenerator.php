@@ -42,7 +42,7 @@ class PermanentlyRemovedGenerator
 
     /**
      * @param eVersion $targetVersion
-     * @param array $versions
+     * @param array    $versions
      *
      * @throws \Symfony\Component\Yaml\Exception\ParseException
      * @throws \LogicException
@@ -75,7 +75,7 @@ class PermanentlyRemovedGenerator
     /**
      * @param eSection $section
      * @param eVersion $targetVersion
-     * @param array $versions
+     * @param array    $versions
      *
      * @return array
      * @throws \Symfony\Component\Yaml\Exception\ParseException
@@ -134,7 +134,7 @@ class PermanentlyRemovedGenerator
      * save result as yaml file
      *
      * @param eVersion $version
-     * @param array $options
+     * @param array    $options
      */
     private function dump(eVersion $version, array $options)
     {

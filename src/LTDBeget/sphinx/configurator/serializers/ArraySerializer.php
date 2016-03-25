@@ -8,9 +8,6 @@
 namespace LTDBeget\sphinx\configurator\serializers;
 
 use LTDBeget\sphinx\configurator\Configuration;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Definition;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
 
 /**
  * Class ArraySerializer
@@ -20,6 +17,23 @@ use LTDBeget\sphinx\configurator\configurationEntities\base\Settings;
  */
 class ArraySerializer
 {
+    /**
+     * @var array
+     */
+    private $arrayConfiguration = [];
+    /**
+     * @var Configuration
+     */
+    private $objectConfiguration;
+
+    /**
+     * @internal
+     * ArraySerializer constructor.
+     */
+    private function __construct()
+    {
+    }
+
     /**
      * Make array represent of Configuration object
      *
@@ -37,14 +51,6 @@ class ArraySerializer
         $serializer->objectConfiguration = $configuration;
 
         return $serializer->serializeInternal();
-    }
-
-    /**
-     * @internal
-     * ArraySerializer constructor.
-     */
-    private function __construct()
-    {
     }
 
     /**
@@ -75,7 +81,7 @@ class ArraySerializer
     private function serializeSource()
     {
         foreach ($this->objectConfiguration->iterateSource() as $source) {
-            $this->serializeDefinition($source);
+            $this->arrayConfiguration[] = $source->toArray();
         }
     }
 
@@ -88,7 +94,7 @@ class ArraySerializer
     private function serializeIndex()
     {
         foreach ($this->objectConfiguration->iterateIndex() as $index) {
-            $this->serializeDefinition($index);
+            $this->arrayConfiguration[] = $index->toArray();
         }
     }
 
@@ -99,8 +105,8 @@ class ArraySerializer
      */
     private function serializeIndexer()
     {
-        if ($this->objectConfiguration->isHasIndexer() && !$this->objectConfiguration->getIndexer()->isDeleted()) {
-            $this->serializeSettings($this->objectConfiguration->getIndexer());
+        if ($this->objectConfiguration->isHasIndexer()) {
+            $this->arrayConfiguration[] = $this->objectConfiguration->getIndexer()->toArray();
         }
     }
 
@@ -111,8 +117,8 @@ class ArraySerializer
      */
     private function serializeSearchhd()
     {
-        if ($this->objectConfiguration->isHasSearchd() && !$this->objectConfiguration->getSearchd()->isDeleted()) {
-            $this->serializeSettings($this->objectConfiguration->getSearchd());
+        if ($this->objectConfiguration->isHasSearchd()) {
+            $this->arrayConfiguration[] = $this->objectConfiguration->getSearchd()->toArray();
         }
     }
 
@@ -124,74 +130,8 @@ class ArraySerializer
      */
     private function serializeCommon()
     {
-        if ($this->objectConfiguration->isHasCommon() && !$this->objectConfiguration->getCommon()->isDeleted()) {
-            $this->serializeSettings($this->objectConfiguration->getCommon());
+        if ($this->objectConfiguration->isHasCommon()) {
+            $this->arrayConfiguration[] = $this->objectConfiguration->getCommon()->toArray();
         }
     }
-
-    /**
-     * @internal
-     *
-     * @param Definition $definition
-     *
-     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     */
-    private function serializeDefinition(Definition $definition)
-    {
-        $this->arrayConfiguration[] = [
-            'type'        => (string) $definition->getType(),
-            'name'        => (string) $definition->getName(),
-            'inheritance' => $definition->isHasInheritance() ? $definition->getInheritance()->getName() : NULL,
-            'options'     => $this->serializeOptions($definition)
-        ];
-    }
-
-    /**
-     * @internal
-     *
-     * @param Settings $settings
-     *
-     * @throws \InvalidArgumentException
-     * @throws \LogicException
-     */
-    private function serializeSettings(Settings $settings)
-    {
-        $this->arrayConfiguration[] = [
-            'type'    => (string) $settings->getType(),
-            'options' => $this->serializeOptions($settings)
-        ];
-    }
-
-    /**
-     * @internal
-     *
-     * @param Section $section
-     *
-     * @return array
-     */
-    private function serializeOptions(Section $section) : array
-    {
-        $options = [];
-
-        foreach ($section->iterateOptions() as $option) {
-            $options[] = [
-                'name'  => (string) $option->getName(),
-                'value' => $option->getValue()
-            ];
-        }
-
-        return $options;
-    }
-
-    /**
-     * @var array
-     */
-    private $arrayConfiguration = [];
-
-    /**
-     * @var Configuration
-     */
-    private $objectConfiguration;
 }

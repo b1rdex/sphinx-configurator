@@ -20,7 +20,7 @@ final class PlainDeserializer
     /**
      * Make Configuration object from plain content of sphinx configuration file
      *
-     * @param string $stringConfiguration
+     * @param string        $stringConfiguration
      * @param Configuration $objectConfiguration
      *
      * @return Configuration

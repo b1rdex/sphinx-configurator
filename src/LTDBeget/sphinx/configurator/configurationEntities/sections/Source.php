@@ -20,7 +20,7 @@ class Source extends Definition
 {
     /**
      * @param eSourceOption $name
-     * @param string $value
+     * @param string        $value
      *
      * @return Option
      * @throws \LogicException

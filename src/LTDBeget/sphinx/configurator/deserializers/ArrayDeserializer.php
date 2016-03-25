@@ -24,7 +24,7 @@ final class ArrayDeserializer
     /**
      * Make Configuration object from array serialized content of sphinx configuration file
      *
-     * @param array $arrayConfiguration
+     * @param array         $arrayConfiguration
      * @param Configuration $objectConfiguration
      *
      * @return Configuration
@@ -122,7 +122,7 @@ final class ArrayDeserializer
     /**
      * @internal
      *
-     * @param array $options
+     * @param array   $options
      * @param Section $section
      *
      * @throws \LTDBeget\sphinx\configurator\exceptions\DeserializeException
@@ -177,7 +177,7 @@ final class ArrayDeserializer
      * @internal
      *
      * @param Section $section
-     * @param string $name
+     * @param string  $name
      *
      * @return eOption
      * @throws \LogicException

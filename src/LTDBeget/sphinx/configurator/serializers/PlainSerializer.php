@@ -8,7 +8,6 @@
 namespace LTDBeget\sphinx\configurator\serializers;
 
 use LTDBeget\sphinx\configurator\Configuration;
-use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
 
 /**
  * Class PlainSerializer
@@ -18,6 +17,24 @@ use LTDBeget\sphinx\configurator\configurationEntities\base\Section;
  */
 final class PlainSerializer
 {
+    /**
+     * @var string
+     */
+    private $string = '';
+    
+    /**
+     * @var Configuration
+     */
+    private $object;
+
+    /**
+     * @internal
+     * ArrayDeserializer constructor.
+     */
+    private function __construct()
+    {
+    }
+
     /**
      * Make plain content for sphinx configuration file from Configuration object
      *
@@ -56,7 +73,7 @@ final class PlainSerializer
     private function serializeSources()
     {
         foreach ($this->object->iterateSource() as $source) {
-            $this->serializeSection($source);
+            $this->string .= (string) $source;
         }
     }
 
@@ -66,7 +83,7 @@ final class PlainSerializer
     private function serializeIndexes()
     {
         foreach ($this->object->iterateIndex() as $index) {
-            $this->serializeSection($index);
+            $this->string .= (string) $index;
         }
     }
 
@@ -76,7 +93,7 @@ final class PlainSerializer
     private function serializeIndexer()
     {
         if ($this->object->isHasIndexer()) {
-            $this->serializeSection($this->object->getIndexer());
+            $this->string .= (string) $this->object->getIndexer();
         }
     }
 
@@ -86,7 +103,7 @@ final class PlainSerializer
     private function serializeSearchd()
     {
         if ($this->object->isHasSearchd()) {
-            $this->serializeSection($this->object->getSearchd());
+            $this->string .= (string) $this->object->getSearchd();
         }
     }
 
@@ -97,44 +114,7 @@ final class PlainSerializer
     private function serializeCommon()
     {
         if ($this->object->isHasCommon()) {
-            $this->serializeSection($this->object->getCommon());
+            $this->string .= (string) $this->object->getCommon();
         }
     }
-
-    /**
-     * @internal
-     *
-     * @param Section $section
-     */
-    private function serializeSection(Section $section)
-    {
-        if ($section->isDeleted()) {
-            return;
-        }
-
-        $this->string .= "{$section}" . PHP_EOL;
-        $this->string .= '{' . PHP_EOL;
-        foreach ($section->iterateOptions() as $option) {
-            $this->string .= "\t{$option}" . PHP_EOL;
-        }
-        $this->string .= '}' . PHP_EOL . PHP_EOL;
-    }
-
-    /**
-     * @internal
-     * ArrayDeserializer constructor.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * @var string
-     */
-    private $string = '';
-
-    /**
-     * @var Configuration
-     */
-    private $object;
 }

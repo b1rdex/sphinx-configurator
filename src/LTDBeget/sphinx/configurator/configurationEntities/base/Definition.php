@@ -24,8 +24,8 @@ abstract class Definition extends Section
      * Source constructor.
      *
      * @param Configuration $configuration
-     * @param string $name
-     * @param string|null $inheritance
+     * @param string        $name
+     * @param string|null   $inheritance
      *
      * @throws InvalidArgumentException
      * @throws LogicException
@@ -47,17 +47,32 @@ abstract class Definition extends Section
     }
 
     /**
-     * @return string
+     * @return array
+     * @throws \LogicException
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \InvalidArgumentException
      */
-    public function __toString() : string
+    public function toArray()
     {
-        try {
-            $string = "{$this->getType()} {$this->getName()}";
-            if ($this->isHasInheritance()) {
-                $string .= " : {$this->getInheritance()->getName()}";
-            }
-        } catch (\Exception $e) {
-            $string = '';
+        return [
+            'type'        => (string) $this->getType(),
+            'name'        => (string) $this->getName(),
+            'inheritance' => $this->isHasInheritance() ? $this->getInheritance()->getName() : NULL,
+            'options'     => $this->toArrayOptions()
+        ];
+    }
+
+    /**
+     * @return string
+     * @throws \LTDBeget\sphinx\configurator\exceptions\SectionException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    protected function renderDefineBlock() : string
+    {
+        $string = "{$this->getType()} {$this->getName()}";
+        if ($this->isHasInheritance()) {
+            $string .= " : {$this->getInheritance()->getName()}";
         }
 
         return $string;
@@ -96,6 +111,7 @@ abstract class Definition extends Section
 
     /**
      * Delete option and its child
+     *
      * @throws LogicException
      * @throws SectionException
      * @throws InvalidArgumentException

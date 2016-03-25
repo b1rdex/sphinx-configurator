@@ -23,8 +23,8 @@ class Option
      *
      * @param Section $section
      * @param eOption $optionName
-     * @param string $value
-     * @param bool $multiValue
+     * @param string  $value
+     * @param bool    $multiValue
      */
     public function __construct(Section $section, eOption $optionName, string $value, bool $multiValue)
     {
@@ -97,6 +97,7 @@ class Option
 
     /**
      * is option multi value, see sphinx documentation
+     *
      * @return bool
      */
     public function isMultiValue() : bool

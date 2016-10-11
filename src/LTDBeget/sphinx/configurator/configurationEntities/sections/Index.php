@@ -31,4 +31,32 @@ class Index extends Definition
     {
         return $this->addOptionInternal($name, $value);
     }
+
+    /**
+     * @return Source
+     */
+    public function findSource() : Source
+    {
+        $source_name = NULL;
+        $index       = $this;
+
+        do {
+            foreach ($index->iterateOptions() as $option) {
+                if(eIndexOption::SOURCE()->is($option->getName()) ) {
+                    $source_name = $option->getValue();
+                }
+            }
+            if($index->isHasInheritance()) {
+                $index = $index->getInheritance();
+            }
+        } while($index->isHasInheritance());
+
+        foreach ($this->getConfiguration()->iterateSource() as $source) {
+            if($source->getName() === $source_name) {
+                return $source;
+            }
+        }
+
+        throw new \RuntimeException('Source for index does not found');
+    }
 }

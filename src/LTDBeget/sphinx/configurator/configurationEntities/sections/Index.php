@@ -34,6 +34,7 @@ class Index extends Definition
 
     /**
      * @return Source
+     * @throws \RuntimeException
      */
     public function findSource() : Source
     {
@@ -58,6 +59,28 @@ class Index extends Definition
         }
 
         throw new \RuntimeException('Source for index does not found');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasSource() : bool
+    {
+        $isHasSource = false;
+        $index       = $this;
+
+        do {
+            foreach ($index->iterateOptions() as $option) {
+                if (eIndexOption::SOURCE()->is($option->getName())) {
+                    $isHasSource = true;
+                }
+            }
+            if ($index->isHasInheritance()) {
+                $index = $index->getInheritance();
+            }
+        } while ($index->isHasInheritance());
+
+        return $isHasSource;
     }
 
     /**

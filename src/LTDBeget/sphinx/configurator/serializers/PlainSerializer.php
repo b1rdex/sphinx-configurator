@@ -59,11 +59,12 @@ final class PlainSerializer
      */
     public function serializeInternal() : string
     {
+        $this->serializeCommon();
+        $this->serializeSearchd();
+        $this->serializeIndexer();
+
         $this->serializeSources();
         $this->serializeIndexes();
-        $this->serializeIndexer();
-        $this->serializeSearchd();
-        $this->serializeCommon();
 
         return $this->string;
     }

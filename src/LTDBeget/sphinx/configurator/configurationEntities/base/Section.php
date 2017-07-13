@@ -9,6 +9,11 @@ namespace LTDBeget\sphinx\configurator\configurationEntities\base;
 
 use LTDBeget\sphinx\configurator\Configuration;
 use LTDBeget\sphinx\configurator\configurationEntities\Option;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Common;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Index;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Indexer;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Searchd;
+use LTDBeget\sphinx\configurator\configurationEntities\sections\Source;
 use LTDBeget\sphinx\enums\base\eOption;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\informer\Informer;
@@ -245,7 +250,32 @@ abstract class Section
      */
     private function initType()
     {
-        $this->type = eSection::get(strtolower($this->shortClassName()));
+        switch (true) {
+            case ($this instanceof Index):
+                $type = 'index';
+                break;
+
+            case ($this instanceof Source):
+                $type = 'source';
+                break;
+
+            case ($this instanceof Searchd):
+                $type = 'searchd';
+                break;
+
+            case ($this instanceof Common):
+                $type = 'common';
+                break;
+
+            case ($this instanceof Indexer):
+                $type = 'indexer';
+                break;
+
+            default:
+                $type = strtolower($this->shortClassName());
+        }
+
+        $this->type = eSection::get($type);
     }
 
     /**

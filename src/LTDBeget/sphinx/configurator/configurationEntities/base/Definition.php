@@ -203,7 +203,7 @@ abstract class Definition extends Section
      */
     private function isValidName($name): bool
     {
-        return (bool)preg_match("/^[A-Za-z_\d]*\-$/", $name);
+        return (bool)preg_match("/^[A-Za-z_\d\-]*$/", $name);
     }
 
     /**

@@ -38,7 +38,7 @@ class InformerTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
-     * @expectedExceptionMessage Sphinx of version 2.1.9 does't have section common
+     * @expectedExceptionMessage Sphinx v.2.1.9 does't have section `common`
      */
     public function testUnknownSection()
     {

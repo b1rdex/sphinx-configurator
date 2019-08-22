@@ -41,5 +41,8 @@
       "type": "vcs",
       "url": "https://github.com/b1rdex/stringstream"
     }
-  ]
+  ],
+  "conflict": {
+    "phpunit/php-timer": ">=2"
+  }
 }

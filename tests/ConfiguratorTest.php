@@ -1,8 +1,8 @@
 <?php
 /**
  * @author: Viskov Sergey
- * @date: 20.03.16
- * @time: 5:58
+ * @date  : 20.03.16
+ * @time  : 5:58
  */
 
 use LTDBeget\sphinx\configurator\Configuration;
@@ -23,7 +23,7 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckConfigValidInNewerVersionAndInvalidInPrevious()
     {
-        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
+        $config_path = __DIR__ . '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
@@ -113,19 +113,19 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
-     * @expectedExceptionMessage For sphinx v. 2.2.10 option charset_type in index isn't available
+     * @expectedExceptionMessage Sphinx v.2.2.10 option charset_type in `index` isn't available
      */
     public function testAddPermanentlyRemovedOption()
     {
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $index = ConfigurationHelper::createIndex(new Configuration(eVersion::V_2_2_10()), 'valid_name');
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
-        $index->addOption(eIndexOption::CHARSET_TYPE(), "utf-8");
+        $index->addOption(eIndexOption::CHARSET_TYPE(), 'utf-8');
     }
 
     public function testChainSerializeDeserialize()
     {
-        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
+        $config_path = __DIR__ . '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
 
         $config = ConfigurationFactory::fromString($plain_config, eVersion::V_2_2_10());
@@ -143,48 +143,47 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     public function testDelete()
     {
-        $config_path = __DIR__. '/../sphinx/conf/valid.example.conf';
+        $config_path = __DIR__ . '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
 
         $config = ConfigurationFactory::fromString($plain_config, eVersion::V_2_2_10());
-        foreach($config->iterateIndexes() as $section) {
+        foreach ($config->iterateIndexes() as $section) {
             $section->delete();
         }
-        foreach($config->iterateSources() as $section) {
+        foreach ($config->iterateSources() as $section) {
             $section->delete();
         }
 
-        if($config->hasIndexer()) {
+        if ($config->hasIndexer()) {
             ConfigurationHelper::getOrCreateIndexer($config)->delete();
         }
 
-        if($config->hasSearchd()) {
+        if ($config->hasSearchd()) {
             ConfigurationHelper::getOrCreateSearchd($config)->delete();
         }
 
-        if($config->hasCommon()) {
-            foreach(ConfigurationHelper::getOrCreateCommon($config)->iterateOptions() as $option) {
+        if ($config->hasCommon()) {
+            foreach (ConfigurationHelper::getOrCreateCommon($config)->iterateOptions() as $option) {
                 $option->delete();
             }
         }
 
-        $hash = md5((new ConfigurationSerializer($config))->toString());
-
-        /** @noinspection SpellCheckingInspection */
-        static::assertEquals('f26517544c25d8ef994622380a0afbe9', $hash);
+        $serializedConfig = (new ConfigurationSerializer($config))->toString();
+        static::assertEquals('common{}', preg_replace("/[\r\n]/", '', $serializedConfig));
     }
 
     public function testUnicode()
     {
-        $config_path = __DIR__. '/../sphinx/conf/unicode.conf';
+        $config_path = __DIR__ . '/../sphinx/conf/unicode.conf';
         $plain_config = file_get_contents($config_path);
 
         $config = ConfigurationFactory::fromString($plain_config, eVersion::V_2_2_10());
 
-        $hash = md5((new ConfigurationSerializer($config))->toString());
-
-        /** @noinspection SpellCheckingInspection */
-        static::assertEquals('2b841aab6bf02ea10f3fdec82eee0872', $hash);
+        $serializedConfig = (new ConfigurationSerializer($config))->toString();
+        static::assertSame(
+            preg_replace("/[\r\n]/", '', $plain_config),
+            preg_replace("/[\r\n]/", '', $serializedConfig)
+        );
     }
 
     public function testCheckGetInheritance()

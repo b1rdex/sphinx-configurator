@@ -35,6 +35,9 @@ final class PlainDeserializer
      */
     public static function deserialize(string $stringConfiguration, Configuration $objectConfiguration) : Configuration
     {
+        // normalize line-endings
+        $stringConfiguration = preg_replace('~\R~u', "\n", $stringConfiguration);
+
         return ArrayDeserializer::deserialize(Tokenizer::tokenize($stringConfiguration), $objectConfiguration);
     }
 }

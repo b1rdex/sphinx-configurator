@@ -1,0 +1,47 @@
+# сделано руками из копирования 2.2.10
+# https://sphinxsearch.com/docs/sphinx3.html#changes-since-2.x
+
+source:
+    mssql_unicode: true
+    xmlpipe_attr_wordcount: true
+    xmlpipe_attr_str2ordinal: true
+    xmlpipe_field_wordcount: true
+    sql_query_info: true
+    sql_field_str2wordcount: true
+    sql_attr_str2wordcount: true
+    sql_attr_str2ordinal: true
+    on_json_attr_error: true
+    json_autoconv_keynames: true
+    json_autoconv_numbers: true
+    sql_joined_field: true
+index:
+    ondisk_dict: true
+    enable_star: true
+    charset_type: true
+    dict: true
+    docinfo: true
+    infix_fields: true
+    prefix_fields: true
+    hit_format: true
+    hitless_words: true
+    inplace_write_factor: true
+    inplace_reloc_factor: true
+    inplace_docinfo_gap: true
+    inplace_hit_gap: true
+    inplace_enable: true
+    max_substring_len: true
+    phrase_boundary_step: true
+indexer:
+    lemmatizer_base: true
+searchd:
+    compat_sphinxql_magics: true
+    plugin_dir: true
+    crash_log_path: true
+    ondisk_dict_default: true
+    max_matches: true
+    port: true
+    address: true
+    attr_flush_period: true
+    mva_updates_pool: true
+    subtree_hits_cache: true
+    subtree_docs_cache: true

@@ -11,18 +11,18 @@ use LTDBeget\sphinx\configurator\ConfigurationHelper;
 use LTDBeget\sphinx\configurator\ConfigurationSerializer;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eIndexOption;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ConfiguratorTest
  */
-class ConfiguratorTest extends PHPUnit_Framework_TestCase
+class ConfiguratorTest extends TestCase
 {
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\ConfigurationException
-     * @expectedExceptionMessage Sphinx of version 2.1.8 does't have section common
-     */
     public function testCheckConfigValidInNewerVersionAndInvalidInPrevious()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\ConfigurationException::class);
+        $this->expectExceptionMessage('Sphinx of version 2.1.8 does\'t have section common');
+
         $config_path = __DIR__ . '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
@@ -30,93 +30,85 @@ class ConfiguratorTest extends PHPUnit_Framework_TestCase
 
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Inheritance with name SOmeDummyInheritance of section source doesn't exists in configuration
-     */
     public function testNotFoundInheritanceSource()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Inheritance with name SOmeDummyInheritance of section source doesn\'t exists in configuration');
+
         $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_source.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Inheritance with name some_dummy_inheritance of section index doesn't exists in configuration
-     */
     public function testNotFoundInheritanceIndex()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Inheritance with name some_dummy_inheritance of section index doesn\'t exists in configuration');
+
         $config_path = __DIR__ . '/../sphinx/conf/invalid/inheritance_index.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Duplicate name mainSource found in source section
-     */
     public function testDuplicateNameSource()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Duplicate name mainSource found in source section');
+
         $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_source_name.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Duplicate name user_index found in index section
-     */
     public function testDuplicateNameIndex()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Duplicate name user_index found in index section');
+
         $config_path = __DIR__ . '/../sphinx/conf/invalid/duplicate_index_name.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\DeserializeException
-     * @expectedExceptionMessage Unknown option name group_id in section type source
-     */
     public function testCommentHell()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\DeserializeException::class);
+        $this->expectExceptionMessage('Unknown option name group_id in section type source');
+
         $config_path = __DIR__ . '/../sphinx/conf/invalid/comments_hell.conf';
         $plain_config = file_get_contents($config_path);
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationFactory::fromString($plain_config, eVersion::V_2_1_8());
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Name or inheritance of section source must contains only A-Za-z and _ symbols
-     */
     public function testWrongName()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Name or inheritance of section source must contains only A-Za-z and _ symbols');
+
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationHelper::createSource(new Configuration(eVersion::V_2_2_10()), 'SOME WRONG NAME');
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\configurator\exceptions\SectionException
-     * @expectedExceptionMessage Name or inheritance of section source must contains only A-Za-z and _ symbols
-     */
     public function testWrongInheritance()
     {
+        $this->expectException(\LTDBeget\sphinx\configurator\exceptions\SectionException::class);
+        $this->expectExceptionMessage('Name or inheritance of section source must contains only A-Za-z and _ symbols');
+
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         ConfigurationHelper::createSource(new Configuration(eVersion::V_2_2_10()), 'valid_name',
             'S o m&^ e shit');
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
-     * @expectedExceptionMessage Sphinx v.2.2.10 option charset_type in `index` isn't available
-     */
     public function testAddPermanentlyRemovedOption()
     {
+        $this->expectException(\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException::class);
+        $this->expectExceptionMessage('Sphinx v.2.2.10 option charset_type in `index` isn\'t available');
+
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $index = ConfigurationHelper::createIndex(new Configuration(eVersion::V_2_2_10()), 'valid_name');
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */

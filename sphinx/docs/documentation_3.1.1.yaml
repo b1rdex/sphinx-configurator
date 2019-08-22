@@ -423,9 +423,9 @@ index:
         multi_value: false
         description: "Index type.\nKnown values are 'plain', 'distributed', 'rt' and 'template'.\nOptional, default is 'plain' (plain local index).\n\nSphinx supports several different types of indexes.\nVersions 0.9.x supported two index types: plain local indexes\nthat are stored and processed on the local machine; and distributed indexes,\nthat involve not only local searching but querying remote searchd\ninstances over the network as well (see Section\_5.8, “Distributed searching”).\nVersion 1.10-beta also adds support\nfor so-called real-time indexes (or RT indexes for short) that\nare also stored and processed locally, but additionally allow\nfor on-the-fly updates of the full-text index (see Chapter\_4, Real-time indexes).\nNote that attributes can be updated on-the-fly using\neither plain local indexes or RT ones.\nIn 2.2.1-beta template indexes was introduced. They are actually a\npseudo-indexes because they do not store any data. That means they do not create\nany files on your hard drive. But you can use them for keywords and snippets\ngeneration, which may be useful in some cases.\n\nIndex type setting lets you choose the needed type.\nBy default, plain local index type will be assumed.\nExample:\ntype = distributed"
     kbatch:
-        link: 'https://sphinxsearch.com/docs/sphinx3.html#using-k-batches'
+        link: https://sphinxsearch.com/docs/sphinx3.html#using-k-batches
         multi_value: false
-        description: ""
+        description: K-batches (“kill batches”) let you bulk delete older versions of the documents (rows) when bulk loading new data into Sphinx, for example, adding a new delta index on top of an older main archive index.
 indexer:
     lemmatizer_cache:
         link: 'http://sphinxsearch.com/docs/current.html#conf-lemmatizer-cache'

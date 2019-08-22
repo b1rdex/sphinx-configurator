@@ -3,14 +3,16 @@
 declare(strict_types=1);
 
 use LTDBeget\sphinx\configurator\Configuration;
+use LTDBeget\sphinx\configurator\ConfigurationSerializer;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\enums\options\eIndexerOption;
 use LTDBeget\sphinx\enums\options\eIndexOption;
 use LTDBeget\sphinx\enums\options\eSearchdOption;
 use LTDBeget\sphinx\enums\options\eSourceOption;
+use PHPUnit\Framework\TestCase;
 
-class CompositionTest extends PHPUnit_Framework_TestCase
+class CompositionTest extends TestCase
 {
     /**
      * @test
@@ -25,6 +27,8 @@ class CompositionTest extends PHPUnit_Framework_TestCase
         $sut->setIndexer(new Indexer($sut));
         $sut->addSource(new Source($sut));
         $sut->addIndex(new Index($sut));
+
+        static::assertNotEmpty((new ConfigurationSerializer($sut))->toString());
     }
 }
 

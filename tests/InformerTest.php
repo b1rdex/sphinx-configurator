@@ -6,13 +6,14 @@ use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
 use LTDBeget\sphinx\informer\Informer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author: Viskov Sergey
  * @date: 20.03.16
  * @time: 16:01
  */
-class InformerTest extends PHPUnit_Framework_TestCase
+class InformerTest extends TestCase
 {
     public function testAllOptionInfo()
     {
@@ -23,12 +24,11 @@ class InformerTest extends PHPUnit_Framework_TestCase
                 $section = eSection::get($section);
                 if($informer->isSectionExist($section)) {
                     foreach($informer->iterateOptionInfo($section) as $optionInfo) {
-                        $optionInfo->getSection();
-                        $optionInfo->getName();
-                        $optionInfo->getDescription();
-                        $optionInfo->getDocLink();
-                        $optionInfo->getVersion();
-                        $optionInfo->isIsMultiValue();
+                        static::assertNotEmpty($optionInfo->getSection());
+                        static::assertNotEmpty($optionInfo->getName());
+                        static::assertNotEmpty($optionInfo->getDescription(), var_export($optionInfo, true));
+                        static::assertNotEmpty($optionInfo->getDocLink());
+                        static::assertNotEmpty($optionInfo->getVersion());
                     }
                 }
 
@@ -36,12 +36,11 @@ class InformerTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @expectedException \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
-     * @expectedExceptionMessage Sphinx v.2.1.9 does't have section `common`
-     */
     public function testUnknownSection()
     {
+        $this->expectException(\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException::class);
+        $this->expectExceptionMessage('Sphinx v.2.1.9 does\'t have section `common`');
+
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer = Informer::get(eVersion::V_2_1_9());
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
@@ -55,30 +54,30 @@ class InformerTest extends PHPUnit_Framework_TestCase
         $config = ConfigurationFactory::fromString($plain_config, eVersion::V_2_2_10());
         foreach($config->iterateIndexes() as $section) {
             foreach($section->iterateOptions() as $option) {
-                $option->getInfo();
+                static::assertNotEmpty($option->getInfo());
             }
         }
         foreach($config->iterateSources() as $section) {
             foreach($section->iterateOptions() as $option) {
-                $option->getInfo();
+                static::assertNotEmpty($option->getInfo());
             }
         }
 
         if($config->hasIndexer()) {
             foreach(ConfigurationHelper::getOrCreateIndexer($config)->iterateOptions() as $option) {
-                $option->getInfo();
+                static::assertNotEmpty($option->getInfo());
             }
         }
 
         if($config->hasSearchd()) {
             foreach(ConfigurationHelper::getOrCreateSearchd($config)->iterateOptions() as $option) {
-                $option->getInfo();
+                static::assertNotEmpty($option->getInfo());
             }
         }
 
         if($config->hasCommon()) {
             foreach(ConfigurationHelper::getOrCreateCommon($config)->iterateOptions() as $option) {
-                $option->getInfo();
+                static::assertNotEmpty($option->getInfo());
             }
         }
     }

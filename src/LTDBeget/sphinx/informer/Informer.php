@@ -95,7 +95,10 @@ final class Informer
      */
     public function isSectionExist(eSection $section) : bool
     {
-        return !$section->is(eSection::COMMON) || !version_compare((string) $this->version, eVersion::V_2_2_1, '<');
+        // AFAIK first version of Manticore is based on ≈2.2, so common section is already there
+        return strpos((string)$this->version, 'manticore') === 0
+            || !$section->is(eSection::COMMON)
+            || !version_compare((string) $this->version, eVersion::V_2_2_1, '<');
     }
 
     /**
@@ -111,7 +114,7 @@ final class Informer
     public function iterateOptionInfo(eSection $section)
     {
         if (!$this->isSectionExist($section)) {
-            throw new InformerRuntimeException("Sphinx of version {$this->version} does't have section {$section}");
+            throw new InformerRuntimeException("Sphinx of version {$this->version} doesn't have section {$section}");
         }
 
         foreach ($this->documentation[(string) $section] as $optionName => $optionData) {
@@ -208,7 +211,7 @@ final class Informer
     private function checkOptionInfoAvailability(eSection $section, eOption $optionName)
     {
         if (!$this->isSectionExist($section)) {
-            throw new InformerRuntimeException("Sphinx v.{$this->version} does't have section `{$section}`");
+            throw new InformerRuntimeException("Sphinx v.{$this->version} doesn't have section `{$section}`");
         }
 
         if (!$this->isKnownOption($section, $optionName)) {

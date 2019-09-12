@@ -21,7 +21,7 @@ class ConfiguratorTest extends TestCase
     public function testCheckConfigValidInNewerVersionAndInvalidInPrevious()
     {
         $this->expectException(\LTDBeget\sphinx\configurator\exceptions\ConfigurationException::class);
-        $this->expectExceptionMessage('Sphinx of version 2.1.8 does\'t have section common');
+        $this->expectExceptionMessage('Sphinx of version 2.1.8 doesn\'t have section common');
 
         $config_path = __DIR__ . '/../sphinx/conf/valid.example.conf';
         $plain_config = file_get_contents($config_path);

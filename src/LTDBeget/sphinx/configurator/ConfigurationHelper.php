@@ -94,7 +94,7 @@ class ConfigurationHelper
         $section = eSection::COMMON();
         if (!$configuration->isAllowedSection($section)) {
             $version = $configuration->getVersion();
-            throw new ConfigurationException("Sphinx of version {$version} does't have section {$section}");
+            throw new ConfigurationException("Sphinx of version {$version} doesn't have section {$section}");
         }
 
         if (!$configuration->hasCommon()) {

@@ -41,7 +41,7 @@ class InformerTest extends TestCase
     public function testUnknownSection()
     {
         $this->expectException(\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException::class);
-        $this->expectExceptionMessage('Sphinx v.2.1.9 does\'t have section `common`');
+        $this->expectExceptionMessage('Sphinx v.2.1.9 doesn\'t have section `common`');
 
         $informer = Informer::get(eVersion::V_2_1_9());
         $informer->getOptionInfo(eSection::COMMON(), eCommonOption::JSON_AUTOCONV_KEYNAMES());
@@ -52,7 +52,9 @@ class InformerTest extends TestCase
         $informer = Informer::get(eVersion::V_MANTICORE_3_1_2());
         try {
             $informer->getOptionInfo(eSection::INDEX(), eIndexOption::KILLLIST_TARGET());
+            $informer->getOptionInfo(eSection::COMMON(), eCommonOption::LEMMATIZER_BASE());
         } catch (InformerRuntimeException $e) {
+            throw $e;
             static::fail('Manticore does have such option!');
         }
 

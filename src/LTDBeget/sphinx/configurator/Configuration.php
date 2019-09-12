@@ -167,7 +167,7 @@ class Configuration
         $section = eSection::COMMON();
         if (!$this->isAllowedSection($section)) {
             $version = $this->getVersion();
-            throw new ConfigurationException("Sphinx of version {$version} does't have section {$section}");
+            throw new ConfigurationException("Sphinx of version {$version} doesn't have section {$section}");
         }
 
         // todo: clone?

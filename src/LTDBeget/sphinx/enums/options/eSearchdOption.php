@@ -69,6 +69,7 @@ use LTDBeget\sphinx\enums\base\eOption;
  * @method static eSearchdOption AGENT_RETRY_COUNT()
  * @method static eSearchdOption AGENT_QUERY_TIMEOUT()
  * @method static eSearchdOption AGENT_CONNECT_TIMEOUT()
+ * @method static eSearchdOption DATA_DIR()
  */
 final class eSearchdOption extends eOption
 {
@@ -129,4 +130,5 @@ final class eSearchdOption extends eOption
     const AGENT_RETRY_COUNT            = 'agent_retry_count';
     const AGENT_QUERY_TIMEOUT          = 'agent_query_timeout';
     const AGENT_CONNECT_TIMEOUT        = 'agent_connect_timeout';
+    const DATA_DIR                     = 'data_dir';
 }

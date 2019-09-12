@@ -5,6 +5,8 @@ use LTDBeget\sphinx\configurator\ConfigurationHelper;
 use LTDBeget\sphinx\enums\eSection;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eCommonOption;
+use LTDBeget\sphinx\enums\options\eIndexOption;
+use LTDBeget\sphinx\informer\exceptions\InformerRuntimeException;
 use LTDBeget\sphinx\informer\Informer;
 use PHPUnit\Framework\TestCase;
 
@@ -41,10 +43,22 @@ class InformerTest extends TestCase
         $this->expectException(\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException::class);
         $this->expectExceptionMessage('Sphinx v.2.1.9 does\'t have section `common`');
 
-        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer = Informer::get(eVersion::V_2_1_9());
-        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $informer->getOptionInfo(eSection::COMMON(), eCommonOption::JSON_AUTOCONV_KEYNAMES());
+    }
+
+    public function testManticore()
+    {
+        $informer = Informer::get(eVersion::V_MANTICORE_3_1_2());
+        try {
+            $informer->getOptionInfo(eSection::INDEX(), eIndexOption::KILLLIST_TARGET());
+        } catch (InformerRuntimeException $e) {
+            static::fail('Manticore does have such option!');
+        }
+
+        $this->expectException(\LTDBeget\sphinx\informer\exceptions\InformerRuntimeException::class);
+        $this->expectExceptionMessage('Sphinx v.manticore_3.1.2 option kbatch in `index` isn\'t available');
+        $informer->getOptionInfo(eSection::INDEX(), eIndexOption::KBATCH());
     }
 
     public function testGetInfoFromConfiguration()

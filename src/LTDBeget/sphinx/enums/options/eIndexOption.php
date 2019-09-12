@@ -83,7 +83,8 @@ use LTDBeget\sphinx\enums\base\eOption;
  * @method static eIndexOption RT_ATTR_BOOL()
  * @method static eIndexOption ONDISK_ATTRS()
  * @method static eIndexOption RLP_CONTEXT()
- * @method static self KBATCH()
+ * @method static eIndexOption KBATCH()
+ * @method static eIndexOption KILLLIST_TARGET()
  */
 final class eIndexOption extends eOption
 {
@@ -159,4 +160,5 @@ final class eIndexOption extends eOption
     const ONDISK_ATTRS          = 'ondisk_attrs';
     const RLP_CONTEXT           = 'rlp_context';
     const KBATCH                = 'kbatch';
+    const KILLLIST_TARGET       = 'killlist_target';
 }

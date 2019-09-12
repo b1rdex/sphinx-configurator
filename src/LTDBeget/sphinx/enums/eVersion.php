@@ -32,7 +32,8 @@ use LTDBeget\sphinx\enums\base\Enum;
  * @method static eVersion V_2_2_6()
  * @method static eVersion V_2_2_8()
  * @method static eVersion V_2_2_10()
- * @method static self V_3_1_1()
+ * @method static eVersion V_3_1_1()
+ * @method static eVersion V_MANTICORE_3_1_2()
  */
 final class eVersion extends Enum
 {
@@ -54,4 +55,5 @@ final class eVersion extends Enum
     const V_2_2_8  = '2.2.8';
     const V_2_2_10 = '2.2.10';
     const V_3_1_1 = '3.1.1';
+    const V_MANTICORE_3_1_2 = 'manticore_3.1.2';
 }

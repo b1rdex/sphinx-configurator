@@ -11,6 +11,7 @@ use LTDBeget\sphinx\configurator\ConfigurationHelper;
 use LTDBeget\sphinx\configurator\ConfigurationSerializer;
 use LTDBeget\sphinx\enums\eVersion;
 use LTDBeget\sphinx\enums\options\eIndexOption;
+use LTDBeget\sphinx\enums\options\eSearchdOption;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -205,5 +206,14 @@ class ConfiguratorTest extends TestCase
         $parent->delete();
 
         static::assertTrue($child->isDeleted());
+    }
+
+    public function testQueryCache(): void
+    {
+        $config = new Configuration(eVersion::V_MANTICORE_3_1_2());
+        ConfigurationHelper::getOrCreateSearchd($config)->addOption(eSearchdOption::QCACHE_THRESH_MSEC(), '222');
+
+        $toString = (new ConfigurationSerializer($config))->toString();
+        static::assertStringContainsString('qcache_thresh_msec = 222', $toString);
     }
 }

@@ -70,6 +70,9 @@ use LTDBeget\sphinx\enums\base\eOption;
  * @method static eSearchdOption AGENT_QUERY_TIMEOUT()
  * @method static eSearchdOption AGENT_CONNECT_TIMEOUT()
  * @method static eSearchdOption DATA_DIR()
+ * @method static eSearchdOption QCACHE_MAX_BYTES()
+ * @method static eSearchdOption QCACHE_THRESH_MSEC()
+ * @method static eSearchdOption QCACHE_TTL_SEC()
  */
 final class eSearchdOption extends eOption
 {
@@ -131,4 +134,7 @@ final class eSearchdOption extends eOption
     const AGENT_QUERY_TIMEOUT          = 'agent_query_timeout';
     const AGENT_CONNECT_TIMEOUT        = 'agent_connect_timeout';
     const DATA_DIR                     = 'data_dir';
+    const QCACHE_MAX_BYTES             = 'qcache_max_bytes';
+    const QCACHE_THRESH_MSEC           = 'qcache_thresh_msec';
+    const QCACHE_TTL_SEC               = 'qcache_ttl_sec';
 }

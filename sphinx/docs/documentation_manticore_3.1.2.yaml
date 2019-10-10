@@ -648,6 +648,18 @@ searchd:
         link: https://docs.manticoresearch.com/latest/html/conf_options_reference/searchd_program_configuration_options.html#data-dir
         multi_value: false
         description: For now - just path to the dir for replication internal files, optional
+    qcache_max_bytes:
+        link: https://docs.manticoresearch.com/latest/html/conf_options_reference/searchd_program_configuration_options.html#qcache-max-bytes
+        multi_value: false
+        description: 'Configures query cache'
+    qcache_thresh_msec:
+        link: https://docs.manticoresearch.com/latest/html/conf_options_reference/searchd_program_configuration_options.html#qcache-thresh-msec
+        multi_value: false
+        description: 'Configures query cache'
+    qcache_ttl_sec:
+        link: https://docs.manticoresearch.com/latest/html/conf_options_reference/searchd_program_configuration_options.html#qcache-ttl-sec
+        multi_value: false
+        description: 'Configures query cache'
 common:
     plugin_dir:
         link: 'http://sphinxsearch.com/docs/current.html#conf-plugin-dir'

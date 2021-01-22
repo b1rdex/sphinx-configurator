@@ -235,7 +235,7 @@ abstract class Section
      * @throws \InvalidArgumentException
      * @throws \LTDBeget\sphinx\informer\exceptions\InformerRuntimeException
      */
-    final private function createOption(eOption $name, string $value)
+    private function createOption(eOption $name, string $value)
     {
         $informer     = $this->getInformer();
         $isMultiValue = $informer->getOptionInfo($this->getType(), $name)->isIsMultiValue();

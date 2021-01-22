@@ -12,8 +12,8 @@
     }
   ],
   "require": {
-    "php": "^7.2|^7.3",
-    "symfony/yaml": "^3.0|^4.0",
+    "php": ">=7.2",
+    "symfony/yaml": ">=3.0",
     "marc-mabe/php-enum": "^3.0|^4.0",
     "ltd-beget/sphinx-configuration-tokenizer": "~1.0.3",
     "ltd-beget/ascii-table" : "^1.0"
